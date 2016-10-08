@@ -1,0 +1,5 @@
+c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.agent\bin\Debug\com.infosupport.afstuderen.opleidingsplan.agent.dll
+c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.agent\bin\Debug\com.infosupport.afstuderen.opleidingsplan.agent.pdb
+c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.agent\obj\Debug\com.infosupport.afstuderen.opleidingsplan.agent.csprojResolveAssemblyReference.cache
+c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.agent\obj\Debug\com.infosupport.afstuderen.opleidingsplan.agent.dll
+c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.agent\obj\Debug\com.infosupport.afstuderen.opleidingsplan.agent.pdb

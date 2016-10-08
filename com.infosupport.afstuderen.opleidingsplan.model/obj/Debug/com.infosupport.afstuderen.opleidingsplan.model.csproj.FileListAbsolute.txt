@@ -1,0 +1,4 @@
+c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.model\bin\Debug\com.infosupport.afstuderen.opleidingsplan.model.dll
+c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.model\bin\Debug\com.infosupport.afstuderen.opleidingsplan.model.pdb
+c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.model\obj\Debug\com.infosupport.afstuderen.opleidingsplan.model.dll
+c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.model\obj\Debug\com.infosupport.afstuderen.opleidingsplan.model.pdb
