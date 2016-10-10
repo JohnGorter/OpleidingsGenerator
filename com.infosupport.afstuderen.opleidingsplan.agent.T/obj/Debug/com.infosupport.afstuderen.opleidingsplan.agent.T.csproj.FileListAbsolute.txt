@@ -1,9 +1,0 @@
-c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.agent.T\bin\Debug\com.infosupport.afstuderen.opleidingsplan.agent.T.dll
-c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.agent.T\bin\Debug\com.infosupport.afstuderen.opleidingsplan.agent.T.pdb
-c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.agent.T\bin\Debug\com.infosupport.afstuderen.opleidingsplan.agent.dll
-c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.agent.T\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.agent.T\bin\Debug\com.infosupport.afstuderen.opleidingsplan.agent.pdb
-c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.agent.T\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
-c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.agent.T\obj\Debug\com.infosupport.afstuderen.opleidingsplan.agent.T.csprojResolveAssemblyReference.cache
-c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.agent.T\obj\Debug\com.infosupport.afstuderen.opleidingsplan.agent.T.dll
-c:\users\pim\documents\visual studio 2015\Projects\OpleidingsPlanGenerator\com.infosupport.afstuderen.opleidingsplan.agent.T\obj\Debug\com.infosupport.afstuderen.opleidingsplan.agent.T.pdb
