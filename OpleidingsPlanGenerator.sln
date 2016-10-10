@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.infosupport.afstuderen.opleidingsplan.API", "com.infosupport.afstuderen.opleidingsplan.API\com.infosupport.afstuderen.opleidingsplan.API.csproj", "{B84F85DC-D8A2-419A-AF14-D02E31351953}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.infosupport.afstuderen.opleidingsplan.API.Tests", "com.infosupport.afstuderen.opleidingsplan.API.Tests\com.infosupport.afstuderen.opleidingsplan.API.Tests.csproj", "{C8EBC2E9-3788-47D6-BE8D-5FA86090FEEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.infosupport.afstuderen.opleidingsplan.agent", "com.infosupport.afstuderen.opleidingsplan.agent\com.infosupport.afstuderen.opleidingsplan.agent.csproj", "{5713F827-4539-4AC4-BF4D-82606CF97E5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.infosupport.afstuderen.opleidingsplan.agent.T", "com.infosupport.afstuderen.opleidingsplan.agent.T\com.infosupport.afstuderen.opleidingsplan.agent.T.csproj", "{2804EDC3-F51A-4D99-806C-D4231DCA8C3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.infosupport.afstuderen.opleidingsplan.model", "com.infosupport.afstuderen.opleidingsplan.model\com.infosupport.afstuderen.opleidingsplan.model.csproj", "{0669767E-7628-4BDD-9A44-2590CB1DF4E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B84F85DC-D8A2-419A-AF14-D02E31351953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B84F85DC-D8A2-419A-AF14-D02E31351953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B84F85DC-D8A2-419A-AF14-D02E31351953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B84F85DC-D8A2-419A-AF14-D02E31351953}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8EBC2E9-3788-47D6-BE8D-5FA86090FEEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8EBC2E9-3788-47D6-BE8D-5FA86090FEEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8EBC2E9-3788-47D6-BE8D-5FA86090FEEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8EBC2E9-3788-47D6-BE8D-5FA86090FEEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5713F827-4539-4AC4-BF4D-82606CF97E5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5713F827-4539-4AC4-BF4D-82606CF97E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5713F827-4539-4AC4-BF4D-82606CF97E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5713F827-4539-4AC4-BF4D-82606CF97E5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2804EDC3-F51A-4D99-806C-D4231DCA8C3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2804EDC3-F51A-4D99-806C-D4231DCA8C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2804EDC3-F51A-4D99-806C-D4231DCA8C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2804EDC3-F51A-4D99-806C-D4231DCA8C3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0669767E-7628-4BDD-9A44-2590CB1DF4E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0669767E-7628-4BDD-9A44-2590CB1DF4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0669767E-7628-4BDD-9A44-2590CB1DF4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0669767E-7628-4BDD-9A44-2590CB1DF4E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
