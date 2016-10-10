@@ -60,6 +60,7 @@
   <ItemGroup>
     <Content Include="course.xml" />
     <Content Include="courselist.xml" />
+    <Content Include="svcutil.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
