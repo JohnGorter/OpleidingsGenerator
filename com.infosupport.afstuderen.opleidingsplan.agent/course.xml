@@ -1,0 +1,104 @@
+﻿<Course xmlns="http://schemas.datacontract.org/2004/07/InfoSupport.Trainingen" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <Code>ADCSB</Code>
+  <Name>Advanced C#</Name>
+  <SupplierCode i:nil="true"/>
+  <SupplierName>Info Support</SupplierName>
+  <Active>true</Active>
+  <CourseId>490</CourseId>
+  <CourseImplementations>
+    <CourseImplementation>
+      <Days>
+        <DateTime>2016-10-24T00:00:00</DateTime>
+        <DateTime>2016-10-25T00:00:00</DateTime>
+      </Days>
+      <Id>24465</Id>
+      <Language>Nl</Language>
+      <Location>Veenendaal</Location>
+    </CourseImplementation>
+    <CourseImplementation>
+      <Days>
+        <DateTime>2016-11-17T00:00:00</DateTime>
+        <DateTime>2016-11-18T00:00:00</DateTime>
+      </Days>
+      <Id>24466</Id>
+      <Language>Nl</Language>
+      <Location>Mechelen</Location>
+    </CourseImplementation>
+    <CourseImplementation>
+      <Days>
+        <DateTime>2016-11-28T00:00:00</DateTime>
+        <DateTime>2016-11-29T00:00:00</DateTime>
+      </Days>
+      <Id>24467</Id>
+      <Language>Nl</Language>
+      <Location>Veenendaal</Location>
+    </CourseImplementation>
+    <CourseImplementation>
+      <Days>
+        <DateTime>2017-01-16T00:00:00</DateTime>
+        <DateTime>2017-01-17T00:00:00</DateTime>
+      </Days>
+      <Id>25152</Id>
+      <Language>Nl</Language>
+      <Location>Utrecht</Location>
+    </CourseImplementation>
+    <CourseImplementation>
+      <Days>
+        <DateTime>2017-01-30T00:00:00</DateTime>
+        <DateTime>2017-01-31T00:00:00</DateTime>
+      </Days>
+      <Id>25153</Id>
+      <Language>Nl</Language>
+      <Location>Mechelen</Location>
+    </CourseImplementation>
+    <CourseImplementation>
+      <Days>
+        <DateTime>2017-02-27T00:00:00</DateTime>
+        <DateTime>2017-02-28T00:00:00</DateTime>
+      </Days>
+      <Id>25154</Id>
+      <Language>Nl</Language>
+      <Location>Veenendaal</Location>
+    </CourseImplementation>
+  </CourseImplementations>
+  <DateCreated>2011-01-01T00:00:00</DateCreated>
+  <Description>
+    U leert de nieuwe taalfeatures van C# 3.0, C# 4.0 en C# 5.0 kennen. U verdiept zich in LINQ (to objects). U leert werken met lambda expressies, extension methods en comprehension syntax en neemt een kijkje onder de motorkap. Verder leert u over interoperability met COM-interop, gebruikmakend van de dynamic language runtime. Tot slot wordt er gekeken naar de nieuwe asynchrone taalfeatures van C# 5.0.&#xD;
+  </Description>
+  <Duration>2 dagen</Duration>
+  <FollowUpCourses i:nil="true"/>
+  <Material>Info Support materiaal</Material>
+  <PrerequisiteCourses>
+    <CourseSummary>
+      <Code>CNETIN</Code>
+      <Name>Programming with C#</Name>
+      <SupplierCode i:nil="true"/>
+      <SupplierName>Info Support</SupplierName>
+    </CourseSummary>
+    <CourseSummary>
+      <Code>NETFOUNB</Code>
+      <Name>.NET Framework Foundation</Name>
+      <SupplierCode>2956/2957</SupplierCode>
+      <SupplierName>Info Support</SupplierName>
+    </CourseSummary>
+  </PrerequisiteCourses>
+  <Prerequisites>Basiskennis van C# 2.0, including inheritance, operators, delegates, arrays, generics.</Prerequisites>
+  <Price>1050</Price>
+  <RelatedCourses i:nil="true"/>
+  <ShortDescription>C# voor gevorderden</ShortDescription>
+  <Status>Regulier</Status>
+  <Subjects>
+    Partial methods&#xD;
+    Initializers&#xD;
+    Anonymous classes&#xD;
+    Extension methods&#xD;
+    Lambda expressions&#xD;
+    LINQ expressions  (LINQ to Objects)&#xD;
+    Dynamic typing&#xD;
+    Optional and named parameters&#xD;
+    Interop features&#xD;
+    C# 5 Async&#xD;
+    &#xD;
+  </Subjects>
+  <Type i:nil="true"/>
+</Course>
