@@ -1,0 +1,51 @@
+<html>
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="training-list">
+    <template>
+
+        <iron-ajax auto url="http://localhost:5123/api/course" handle-as="json" last-response="{{response}}" debounce-duration="300"></iron-ajax>
+
+        <iron-icon icon="mail"></iron-icon>
+        <!--
+        <iron-list items="[[response]]" as="item">
+            <template>
+      <div>
+        Name: [[item.Name]]
+      </div>
+    </template>
+        </iron-list>-->
+
+        <iron-selector attr-for-selected="name" selected="non-existing" fallback-selection="default">
+            <div name="foo">Foo</div>
+            <div name="bar">Bar</div>
+            <div name="default">Default</div>
+        </iron-selector>
+
+        <iron-selector selected="0">
+            <template is="dom-repeat" items="{{response}}">
+                <div>[[item.Name]] - [[item.Code]]</div>
+            </template>
+        </iron-selector>
+
+
+        <style>
+.iron-selected {
+      background: #eee;
+    }
+        </style>
+
+    </template>
+    <script>
+            Polymer({
+                is: "training-list",
+            });
+        </script>
+</dom-module>
+
+
+</html>
