@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Courses>
+  <EducationPlan Name="NET_Developer">
+    <Course id="WINDEV">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="NETFOUNB">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="ADCSB">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="JSDEVLANG">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="HTMLCSSADV">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="HTMLCSSCOR">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="MVC">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="SCRUMES">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="ENEST">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="ENDEVN">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="SECDEV">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="XSD">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="ALMUVS">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="MS20461">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="MS20464">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="OOUML">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="WCFDEV">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="CONDEVES">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="DDAS">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="ANGULARJS">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="POSHDSC">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="WFDEV">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="XSLT">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="MS20488">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="MS20489">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="DPAT">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="QLIMM">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="UTVS">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="FITSEL">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="INBI">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="MS20532">
+      <Priority>4</Priority>
+    </Course>
+  </EducationPlan>
+
+  <EducationPlan Name="Developer_Mobile">
+    <Course id="CNETIN">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="NETFOUNB">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="ADCSB">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="JAVANC">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="JAVA7UP">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="JSDEVLANG">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="HTMLCSSCOR">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="HTMLCSSADV">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="SCRUMES">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="ENEST">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="ENDEVN">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="SECDEV">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="XSD">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="ALMUVS">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="OOUML">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="SLPHONE">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="ENMETROCS">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="XAMFUN">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="CONDEVES">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="ANGULARJS">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="XAMADV">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="XAMCAL">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="GIT">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="DEVIOS">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="DPAT">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="XSLT">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="ANDROIDDEV">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="UTVS">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="INBI">
+      <Priority>4</Priority>
+    </Course>
+   <Course id="FITSEL">
+      <Priority>4</Priority>
+    </Course>
+  </EducationPlan>
+
+  <EducationPlan Name="JAVA_Developer">
+    <Course id="JAVA7UP">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="J2SA">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="JavaWeb">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="JSDEVLANG">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="HTMLCSSCOR">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="HTMLCSSADV">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="JAVAWS">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="JPA">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="JEE7ADV">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="SPRINGADV">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="MS20464">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="SCRUMES">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="ENEST">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="GIT">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="ENDEVJ">
+      <Priority>1</Priority>
+    </Course>
+    <Course id="SECDEV">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="OOUML">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="JAVA8">
+      <Priority>2</Priority>
+    </Course>
+    <Course id="CONDEVES">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="UNIXDEV">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="ANGULARJS">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="DPAT">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="FITSEL">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="INBI">
+      <Priority>4</Priority>
+    </Course>
+    <Course id="XSD">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="XSLT">
+      <Priority>3</Priority>
+    </Course>
+    <Course id="WINDEV">
+      <Priority>4</Priority>
+    </Course>
+  </EducationPlan>
+</Courses>

@@ -1,4 +1,4 @@
 ﻿svcutil ^
  /dconly ^
- /out:"$(ProjectDir)GeneratedTypes.cs" ^
  "$(ProjectDir)\courseList.xsd"
+ /out:"$(ProjectDir)GeneratedTypes.cs" ^
