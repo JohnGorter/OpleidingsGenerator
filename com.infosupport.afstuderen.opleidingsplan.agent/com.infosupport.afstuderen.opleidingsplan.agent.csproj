@@ -46,6 +46,10 @@
       <DependentUpon>course.xsd</DependentUpon>
     </Compile>
     <Compile Include="Coursesummarycollection.cs" />
+    <Compile Include="EducationPlan.cs">
+      <DependentUpon>EducationPlan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EducationPlanAgent.cs" />
     <Compile Include="GeneratedTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -56,10 +60,14 @@
     <None Include="courselist.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="EducationPlan.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="course.xml" />
     <Content Include="courselist.xml" />
+    <Content Include="EducationPlan.xml" />
     <Content Include="svcutil.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
