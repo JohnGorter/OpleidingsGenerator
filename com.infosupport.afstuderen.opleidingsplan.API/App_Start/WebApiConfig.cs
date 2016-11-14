@@ -20,6 +20,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
         }
     }
 }

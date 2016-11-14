@@ -42,25 +42,39 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgentCourse.cs" />
-    <Compile Include="course.cs">
-      <DependentUpon>course.xsd</DependentUpon>
+    <Compile Include="Course.cs" />
+    <Compile Include="coursexsd.cs">
+      <DependentUpon>coursexsd.xsd</DependentUpon>
     </Compile>
     <Compile Include="Coursesummarycollection.cs" />
+    <Compile Include="EducationPlan.cs">
+      <DependentUpon>EducationPlan.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GeneratedTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="course.xsd">
+    <None Include="coursexsd.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="courselist.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EducationPlan.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="course.xml" />
     <Content Include="courselist.xml" />
+    <Content Include="EducationPlan.xml" />
     <Content Include="svcutil.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.model\com.infosupport.afstuderen.opleidingsplan.model.csproj">
+      <Project>{0669767e-7628-4bdd-9a44-2590cb1df4e6}</Project>
+      <Name>com.infosupport.afstuderen.opleidingsplan.model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

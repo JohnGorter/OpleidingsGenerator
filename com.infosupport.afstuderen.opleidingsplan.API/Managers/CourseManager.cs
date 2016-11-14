@@ -19,5 +19,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
         {
             return _agentCourse.FindAllCourses();
         }
+
+        public Course FindCourse(string courseCode)
+        {
+            return _agentCourse.FindCourse(courseCode);
+        }
     }
 }

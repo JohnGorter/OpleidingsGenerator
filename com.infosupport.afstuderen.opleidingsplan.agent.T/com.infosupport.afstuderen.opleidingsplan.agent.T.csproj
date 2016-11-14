@@ -58,6 +58,10 @@
       <Project>{5713f827-4539-4ac4-bf4d-82606cf97e5a}</Project>
       <Name>com.infosupport.afstuderen.opleidingsplan.agent</Name>
     </ProjectReference>
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.model\com.infosupport.afstuderen.opleidingsplan.model.csproj">
+      <Project>{0669767e-7628-4bdd-9a44-2590cb1df4e6}</Project>
+      <Name>com.infosupport.afstuderen.opleidingsplan.model</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="courselist.xml" />

@@ -1,5 +1,5 @@
 ﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/InfoSupport.Trainingen" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="Course">
+  <xs:element name="CourseXSD">
     <xs:complexType>
       <xs:sequence>
         <xs:element type="xs:string" name="Code"/>

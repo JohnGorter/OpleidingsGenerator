@@ -1,4 +1,5 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.api.Managers;
+﻿using AutoMapper;
+using com.infosupport.afstuderen.opleidingsplan.api.Managers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,9 +26,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Controllers
         }
 
         // GET: api/Training/5
-        public string Get(int id)
+        public model.Course Get(string id)
         {
-            return "value";
+            var course = _courseManager.FindCourse(id);
+            return Mapper.Map<model.Course>(course);
         }
 
         // POST: api/Training
