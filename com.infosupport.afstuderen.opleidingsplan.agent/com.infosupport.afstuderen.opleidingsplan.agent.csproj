@@ -50,6 +50,7 @@
     <Compile Include="EducationPlan.cs">
       <DependentUpon>EducationPlan.xsd</DependentUpon>
     </Compile>
+    <Compile Include="EducationPlanAgent.cs" />
     <Compile Include="GeneratedTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
