@@ -1,0 +1,2529 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CourseSummaryCollection xmlns="http://schemas.datacontract.org/2004/07/InfoSupport.Trainingen" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <CourseSummary>
+    <Code>2NETARCH</Code>
+    <Name>.NET for Architects and Project Managers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ADCSB</Code>
+    <Name>Advanced C#</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ADMTFS</Code>
+    <Name>Administering Team Foundation Server</Name>
+    <SupplierCode>TFS2015</SupplierCode>
+    <SupplierName>Accentient</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ADONETB</Code>
+    <Name>ADO.NET Data Access Development with .NET</Name>
+    <SupplierCode>10265</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ADVB</Code>
+    <Name>Advanced Visual Basic .NET Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ADVCPP</Code>
+    <Name>C++ Advanced</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ADVLIN</Code>
+    <Name>Advanced Linux Administration</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>QA</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ADVUT</Code>
+    <Name>Advanced Unit Testing with .NET</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>AGRE</Code>
+    <Name>Agile Requirements</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ALMUVS</Code>
+    <Name>Application Lifecycle Management Using Visual Studio</Name>
+    <SupplierCode>ALM2015</SupplierCode>
+    <SupplierName>Accentient</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ANDROIDDEV</Code>
+    <Name>Android Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ANGULAR2</Code>
+    <Name>Building Professional Single Page Applications with Angular 2</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ANGULARJS</Code>
+    <Name>Building Professional Single Page Applications with AngularJS</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>APRP</Code>
+    <Name>Agile-Project Refreshment-Pitstop</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>APSU</Code>
+    <Name>Agile-Project Start-up</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ARCHSCVMM</Code>
+    <Name>Architecting Microsoft Server Virtualization Solutions with Hyper-V Technology and System Center Virtual Machine Manager</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ARCHWON</Code>
+    <Name>Enterprise Architectuurmodellering</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ASPMVC</Code>
+    <Name>Developing Web Applications with ASP.NET MVC</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ASSESSMENT</Code>
+    <Name>ASSESSMENT</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ATDD</Code>
+    <Name>Driving Development by Example</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>AZUREARCH</Code>
+    <Name>Windows Azure for Architects</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>AZUREDS</Code>
+    <Name>Microsoft Azure Data Solutions</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>AZUREML</Code>
+    <Name>Microsoft Azure Machine Learning</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>BALD</Code>
+    <Name>Bedrijfsarchitectuur voor IT-Professionals</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Novius</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>BCREL</Code>
+    <Name>Relational Databases and SQL</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>BDF</Code>
+    <Name>Big Data Foundation</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>IMF</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>BIARCH</Code>
+    <Name>Microsoft Business Intelligence Platform for Architects and Project Managers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>BIZ6DEV</Code>
+    <Name>Developing Business Process and Integration Solutions using BizTalk Server</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>BIZMAN6</Code>
+    <Name>Deploying and Managing Business Process and Integration Solutions using Microsoft BizTalk Server</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>BLCHNT</Code>
+    <Name>Introductie in de BlockChain technologie</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>BLCNETIN</Code>
+    <Name>Programming with C# (Blended Learning)</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>BLJAVANC</Code>
+    <Name>Java Programming (Blended Learning)</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>BLNETFOUNB</Code>
+    <Name>.NET Framework Foundation (Blended Learning)</Name>
+    <SupplierCode>2956/2957</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>BPMN20</Code>
+    <Name>Bedrijfsproces Modelleren met BPMN 2.0</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CASASP</Code>
+    <Name>.NET Development Case with Focus on Web Applications</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CASEJB</Code>
+    <Name>Enterprise Java Bean Development Case</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CASFUN</Code>
+    <Name>Cassandra Fundamentals</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CASJSP</Code>
+    <Name>Java Server Pages and Servlet Development Case</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CASMM</Code>
+    <Name>Database Design and Development Case</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CASSP</Code>
+    <Name>.NET Development Case utilizing Microsoft OfficeSharePoint Server</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CBIP</Code>
+    <Name>Certified Business Intelligence Professional (CBIP) Crash Course</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>IMF</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CCISO</Code>
+    <Name>Certified Chief Information Security Officer</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>IMF</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CDPRAC</Code>
+    <Name>Continuous Delivery Practices</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CDSP</Code>
+    <Name>Certified Data Science Professional</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>IMF</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CERAT</Code>
+    <Name>Certified Agile Tester (CAT)</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CISSP</Code>
+    <Name>CISSP Preparation Course</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Security Academy</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CJAVA</Code>
+    <Name>Java Developer Case</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CLOUD</Code>
+    <Name>Hybrid Cloud - Combining Private and Public Cloud</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CMTMES</Code>
+    <Name>Configuring, Managing and Troubleshooting Microsoft Exchange Server 2010</Name>
+    <SupplierCode>10135</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CNET</Code>
+    <Name>C# for C++ or Java Programmers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CNETIN</Code>
+    <Name>Programming with C#</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CNETPROG</Code>
+    <Name>Programming in C#</Name>
+    <SupplierCode>20483</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CODCRA</Code>
+    <Name>Coding like a Craftsman</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CODEDUI</Code>
+    <Name>User Interface Testing met CodedUI</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CONDASH</Code>
+    <Name>Continuous Dashboarding</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CONDEVES</Code>
+    <Name>Continuous Delivery Essentials</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CONMONUFE</Code>
+    <Name>Continuous Monitoring and User Feedback</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CONVERUI</Code>
+    <Name>Workshop Converstational UI</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CP27001</Code>
+    <Name>Certified Practitioner of ISO27001:2013</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Security Academy</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CPP</Code>
+    <Name>C++ Programmeren</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CRM2011</Code>
+    <Name>Dynamics CRM 2011 Technische Workshop</Name>
+    <SupplierCode>80295</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CRM2011APP</Code>
+    <Name>Microsoft CRM 2011 Applicaties</Name>
+    <SupplierCode>80290 t/m 80293</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CRM2011FT</Code>
+    <Name>CRM 2011 Fast Track</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CRM4APPL</Code>
+    <Name>Microsoft CRM 4.0 Next Applications</Name>
+    <SupplierCode>8913</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CRM4CONF</Code>
+    <Name>Customization and Configuration in Microsoft CRM 4.0</Name>
+    <SupplierCode>8912</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CRM4EXT</Code>
+    <Name>Extending Microsoft Dynamics CRM 4.0</Name>
+    <SupplierCode>8969</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CRM4INST</Code>
+    <Name>Installation and Deployment in Microsoft Dynamics 4.0</Name>
+    <SupplierCode>8911</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CRMAPP</Code>
+    <Name>What's New in Microsoft CRM 2016</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CRMDEV</Code>
+    <Name>Upgrade your Customization and Development Skills to Microsoft CRM 2016</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CS40</Code>
+    <Name>C# 4.0 New Features and Parallel Programming in .NET 4.0</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CS40UP</Code>
+    <Name>Upgrading your Language and Framework Skills from .NET 3.5 to .NET 4</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CSIG</Code>
+    <Name>Capturing Specifications in Gherkin</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>TechTalk</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CSXAML</Code>
+    <Name>C# / XAML Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>CYBSEC</Code>
+    <Name>Cyber Security Fundamentals</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>IMF</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>DATAVIZ</Code>
+    <Name>Effective Data Visualization</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>DDAS</Code>
+    <Name>Developing Data Access Solutions with Microsoft Visual Studio</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>DEVADF</Code>
+    <Name>Developing Applications using Oracle ADF 11g</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Amis</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>DEVIOS</Code>
+    <Name>Developing Applications for iPhone Operating System</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>DEVPBI</Code>
+    <Name>Developing Power BI</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>DEVWA</Code>
+    <Name>Ontwikkelen van webapplicaties met jQuery en HTML5</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>DEVWF</Code>
+    <Name>Development Workflow</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>DMDW</Code>
+    <Name>Data Modeling Data Warehouse</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>DMDWH</Code>
+    <Name>Dimensional Modeling</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>DOCKADMIN</Code>
+    <Name>Docker voor beheerders</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>DOCKDEV</Code>
+    <Name>Docker voor Ontwikkelaars</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>DPAT</Code>
+    <Name>Design Patterns for C++, C#, VB.NET and Java Developers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>EF6UP</Code>
+    <Name>Upgrading your Entity Framework Skills from version 4 to 6</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>EHF</Code>
+    <Name>Ethical Hacking Foundation</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Security Academy</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>EHP</Code>
+    <Name>Ethical Hacking Practitioner</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Security Academy</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>EJB3.1</Code>
+    <Name>Writing EJB 3 Applications</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Trivera</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>EJB3IWAS</Code>
+    <Name>Developing EJB 3 Applications for IBM WebSphere</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>EJB3OWAS</Code>
+    <Name>Developing EJB 3 Applications for Oracle WebLogic Application Server</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ENARCH</Code>
+    <Name>Endeavour Architecture</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ENBI</Code>
+    <Name>Business Intelligence Professional Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ENDEVJ</Code>
+    <Name>Continuous Integration with Java</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ENDEVN</Code>
+    <Name>Endeavour .NET Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ENEST</Code>
+    <Name>Endeavour Essentials</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ENPM</Code>
+    <Name>Endeavour Project Management</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ENPOSM</Code>
+    <Name>Endeavour voor Product Owners en Scrum Masters</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ENTARCHI</Code>
+    <Name>Enterprise Architect</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>EPP</Code>
+    <Name>Encryptie &amp; PKI Practitioner</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Security Academy</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ESSLIN</Code>
+    <Name>Unix &amp; Linux Fundamentals</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>QA</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>EVOARCH</Code>
+    <Name>Evolving Architecture</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>EX13UP</Code>
+    <Name>Upgrading Skills to Exchange 2013</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>MVP Press</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>EXEST</Code>
+    <Name>Expert Estimation</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>EXPEST</Code>
+    <Name>Estimate your Project Budget</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>FITSEL</Code>
+    <Name>FitNesse &amp; Selenium</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>FPA</Code>
+    <Name>Functie Punt Analyse Training</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Partner</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>FPAEX</Code>
+    <Name>Certified Function Point Analyst Examentraining</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>GIT</Code>
+    <Name>Git for Developers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>HOCS</Code>
+    <Name>C# Hands-on</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>HOJA</Code>
+    <Name>Hands-on Java</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>HOSQL</Code>
+    <Name>SQL Hands-on</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>HOVB</Code>
+    <Name>Hands-on Visual Basic.NET</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>HTML5CSS3</Code>
+    <Name>HTML5 en CSS3</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>HTMLCSSADV</Code>
+    <Name>Advanced HTML and CSS</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>HTMLCSSCOR</Code>
+    <Name>Core HTML en CSS</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IAM</Code>
+    <Name>Identity Management and Access Control</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>IMF</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ICESA</Code>
+    <Name>BCS Intermediate Certificaat in Enterprise en Solution Architectuur</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Avancier</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IDV</Code>
+    <Name>Data Vault Modeling</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IJCBD</Code>
+    <Name>Component Based Development with UML</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Ivar Jacobson</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IJEUP</Code>
+    <Name>Introduction to the Essentials</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Ivar Jacobson</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IJMISD</Code>
+    <Name>Managing Iterative Software Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Ivar Jacobson</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IJPOS</Code>
+    <Name>Principles of Software Architecture</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Ivar Jacobson</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IJUC20</Code>
+    <Name>Use Case 2.0</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Ivar Jacobson</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IJUDT</Code>
+    <Name>Use-Case Driven Testing</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Ivar Jacobson</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IJUML</Code>
+    <Name>Getting Started with the Essential UML using Enterprise Architect</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Ivar Jacobson</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IMUAG</Code>
+    <Name>Implementing Forefront Unified Access Gateway 2010</Name>
+    <SupplierCode>50402</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>INANDROID</Code>
+    <Name>Introduction to Android Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>INARCHWON</Code>
+    <Name>Introductie Werken onder Architectuur voor Woningcorporaties</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>INBI</Code>
+    <Name>Introduction to Business Intelligence</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>INIOSDEV</Code>
+    <Name>Introduction to Developing Applications for iOS</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>INOO</Code>
+    <Name>Introduction to Object Orientation and Component Based Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>INWPDEV</Code>
+    <Name>Introduction to Windows Phone Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IONIC2</Code>
+    <Name>Develop Hybrid Mobile  Applications Using IONIC2</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IOSSWIFT</Code>
+    <Name>Developing Applications for IPhone with Swift</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Treeloop</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IPV6</Code>
+    <Name>Internet Protocol version 6 (IPv6)</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IREB</Code>
+    <Name>IREB Certified Professional for Requirements Engineering</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>IREBADV</Code>
+    <Name>IREB Advanced Level Elicitation and Consolidation</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ISE</Code>
+    <Name>Information Security Essentials</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Security Academy</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ISF</Code>
+    <Name>Information Security Foundation</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Security Academy</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ISTQBATA</Code>
+    <Name>ISTQB Advanced Test Analyst</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ISTQBATM</Code>
+    <Name>ISTQB Advanced Test Manager</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ISTQBATP</Code>
+    <Name>ISTQB Expert Level Improving the Testing Process (Module Assessing Test Processes)</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ISTQBATTA</Code>
+    <Name>ISTQB Advanced Technical Test Analyst</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ISTQBFA</Code>
+    <Name>ISTQB Full Advanced</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ISTQBFE</Code>
+    <Name>ISTQB Foundation extension Agile Tester</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ISTQBFOUN</Code>
+    <Name>ISTQB Foundation</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ITIL017</Code>
+    <Name>ITIL Foundation</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>IT Education</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ITSECFOUN</Code>
+    <Name>IT-Security Foundation</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Security Academy</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ITSECPRAC</Code>
+    <Name>IT-Security Practitioner</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Security Academy</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>J2SA</Code>
+    <Name>Pragmatic Java Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Trivera</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JAHIBER</Code>
+    <Name>Using Hibernate and JPA</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Trivera</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JASPRING</Code>
+    <Name>Enterprise Web Applications Using the Spring Framework and JPA</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JASWI</Code>
+    <Name>Writing User Interfaces using Swing/JFC</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Trivera</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JAVA7UP</Code>
+    <Name>Java 7 Upgrade</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JAVA8</Code>
+    <Name>New Features in Java 8</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JAVAEE6</Code>
+    <Name>FastTrack Java Enterprise Edition 6 (EJB, JSF, JPA)</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JAVAEE7</Code>
+    <Name>Java Enterprise Edition 7</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JAVANC</Code>
+    <Name>Java Programming</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JAVARCH</Code>
+    <Name>Java for Architects and Project Managers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JAVAREST</Code>
+    <Name>Developing RESTful Web Services with Java</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JAVAWEB</Code>
+    <Name>Java Web Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JAVAWS</Code>
+    <Name>Java Web Services Workshop</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Trivera</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JAVAXML</Code>
+    <Name>XML for Java Programmers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Trivera</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JEE7ADV</Code>
+    <Name>JAVAEE7 with JPA Integration</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JMTR</Code>
+    <Name>JMeter</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Smaragd IT</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JMTRADV</Code>
+    <Name>JMeter Advanced</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Smaragd IT</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JMTRBASIC</Code>
+    <Name>JMeter Basic</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Smaragd IT</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JPA</Code>
+    <Name>Java Persistence API</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JPAOR</Code>
+    <Name>Oracle database with JPA for Java developers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JSDEV</Code>
+    <Name>JavaScript Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JSDEV1516</Code>
+    <Name>EECMAScript 2015 and 2016 ES6 - ES7, what is new in the next version of JavaScript</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>JSDEVJQ</Code>
+    <Name>JQuery Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>KNOCKOUT</Code>
+    <Name>KnockOut.js Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MANSWDEB</Code>
+    <Name>Managing Software Debt</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MBIML</Code>
+    <Name>Mastering BIML for Data Warehousing</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MCTSADC</Code>
+    <Name>MCTS: Windows Server 2008 Active Directory, Configuring</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MCTSAIC</Code>
+    <Name>MCTS: Windows Server 2008 Applications Infrastructure, Configuring</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MCTSNIC</Code>
+    <Name>MCTS: Windows Server 2008 Network Infrastructure, Configuring</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MLEARN</Code>
+    <Name>Essentials of Machine Learning</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MMWAS</Code>
+    <Name>Managing and Maintaining Weblogic Application Server 12c</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Amis</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MOBSEC</Code>
+    <Name>Mobile Security</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Security Academy</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MODAX</Code>
+    <Name>Mastering and Optimizing DAX</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10174</Code>
+    <Name>Configuring and Managing Microsoft SharePoint 2010</Name>
+    <SupplierCode>10174</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10175</Code>
+    <Name>Microsoft SharePoint 2010 Application Development</Name>
+    <SupplierCode>10175</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10215</Code>
+    <Name>Implementing and Managing Microsoft Server Virtualization</Name>
+    <SupplierCode>10215</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10231</Code>
+    <Name>Designing and Deploying Microsoft SharePoint 2010</Name>
+    <SupplierCode>10231</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10232</Code>
+    <Name>Designing and Developing Microsoft SharePoint Server 2010 Applications</Name>
+    <SupplierCode>10232</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10233</Code>
+    <Name>Designing and Deploying Messaging Solutions with Microsoft Exchange Server 2010</Name>
+    <SupplierCode>10233</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10267</Code>
+    <Name>Developing Web Applications with ASP.NET Web Forms</Name>
+    <SupplierCode>10267</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10324</Code>
+    <Name>Implementing and Managing Microsoft Desktop Virtualization</Name>
+    <SupplierCode>10324</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10554</Code>
+    <Name>Developing Rich Internet Applications Using Microsoft Silverlight 4</Name>
+    <SupplierCode>10554</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10748</Code>
+    <Name>Deploying System Center 2012 Configuration Manager</Name>
+    <SupplierCode>10748</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10750</Code>
+    <Name>Monitoring and Operating a Private Cloud with System Center 2012</Name>
+    <SupplierCode>10750</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10751</Code>
+    <Name>Configuring and Deploying a Private Cloud with System Center 2012</Name>
+    <SupplierCode>10751</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10961</Code>
+    <Name>Automating Administration with Windows PowerShell</Name>
+    <SupplierCode>10961</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10964</Code>
+    <Name>Cloud &amp; Datacenter Monitoring with System Center Operations Manager</Name>
+    <SupplierCode>10964</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10972</Code>
+    <Name>Administering the Web Server (IIS) Role of Windows Server</Name>
+    <SupplierCode>10972</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10975</Code>
+    <Name>Introduction to Programming</Name>
+    <SupplierCode>10975</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10977</Code>
+    <Name>Upgrading Your SQL Server Skills to Microsoft SQL Server 2014</Name>
+    <SupplierCode>10977</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10977DBA</Code>
+    <Name>Upgrading Your SQL Server DBA Skills to Microsoft SQL Server 2014</Name>
+    <SupplierCode>10977</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10985</Code>
+    <Name>Introduction to SQL Databases</Name>
+    <SupplierCode>10985</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10986</Code>
+    <Name>Updating Your Skills to SQL Server 2016</Name>
+    <SupplierCode>10986</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10987</Code>
+    <Name>Performance Tuning and Optimizing SQL Databases</Name>
+    <SupplierCode>10987</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10988</Code>
+    <Name>Managing SQL Business Intelligence Operations</Name>
+    <SupplierCode>10988</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10989</Code>
+    <Name>Analyzing Data with PowerBI</Name>
+    <SupplierCode>10989</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS10990</Code>
+    <Name>Analyzing Data with SQL Server Reporting Services</Name>
+    <SupplierCode>10990</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20246</Code>
+    <Name>Monitoring and Operating a Private Cloud</Name>
+    <SupplierCode>20246</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20247</Code>
+    <Name>Configuring and Deploying a Private Cloud</Name>
+    <SupplierCode>20247</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20331</Code>
+    <Name>Core Solutions of Microsoft SharePoint Server 2013</Name>
+    <SupplierCode>20331</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20332</Code>
+    <Name>Advanced Solutions of Microsoft SharePoint Server 2013</Name>
+    <SupplierCode>20332</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20339-1</Code>
+    <Name>Planning and Administering SharePoint 2016</Name>
+    <SupplierCode>20339-1</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20339-2</Code>
+    <Name>Advanced Technologies of SharePoint 2016</Name>
+    <SupplierCode>20339-2</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20341</Code>
+    <Name>Core Solutions of Microsoft Exchange Server 2013</Name>
+    <SupplierCode>20341</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20342</Code>
+    <Name>Advanced Solutions of Microsoft Exchange Server 2013</Name>
+    <SupplierCode>20342</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20345-1</Code>
+    <Name>Administering Microsoft Exchange Server 2016</Name>
+    <SupplierCode>20345-1</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20345-2</Code>
+    <Name>Designing and Deploying Microsoft Exchange Server 2016</Name>
+    <SupplierCode>20345-2</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20346</Code>
+    <Name>Managing Office 365 Identities and Services</Name>
+    <SupplierCode>20346</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20347</Code>
+    <Name>Enabling and Managing Office 365</Name>
+    <SupplierCode>20347</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20389</Code>
+    <Name>Planning for and Managing Devices in the Enterprise: Enterprise Mobility Suite (EMS) and On-Premises Tools</Name>
+    <SupplierCode>20389</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20409</Code>
+    <Name>Server Virtualization with Windows Server Hyper-V and System Center</Name>
+    <SupplierCode>20409</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20410</Code>
+    <Name>Installing and Configuring Windows Server 2012</Name>
+    <SupplierCode>20410</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20411</Code>
+    <Name>Administering Windows Server 2012</Name>
+    <SupplierCode>20411</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20412</Code>
+    <Name>Configuring Advanced Windows Server 2012 Services</Name>
+    <SupplierCode>20412</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20413</Code>
+    <Name>Designing and Implementing an Advanced Server Infrastructure</Name>
+    <SupplierCode>20413</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20414</Code>
+    <Name>Implementing an Advanced Server Infrastructure</Name>
+    <SupplierCode>20414</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20417</Code>
+    <Name>Upgrading Your Skills to MCSA Windows Server 2012</Name>
+    <SupplierCode>20417</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20461</Code>
+    <Name>Querying Microsoft SQL Server 2014</Name>
+    <SupplierCode>20461</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20461AD</Code>
+    <Name>Advanced Querying Microsoft SQL Server 2014</Name>
+    <SupplierCode>20461</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20461CO</Code>
+    <Name>Core Querying Microsoft SQL Server 2014</Name>
+    <SupplierCode>20461</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20462</Code>
+    <Name>Maintaining a Microsoft SQL Server 2014 Database</Name>
+    <SupplierCode>20462</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20463</Code>
+    <Name>Implementing a Data Warehouse with Microsoft SQL Server 2014</Name>
+    <SupplierCode>20463</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20463DM</Code>
+    <Name>Implementing Microsoft SQL Server Data Quality Services and Master Data Services</Name>
+    <SupplierCode>20463</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20463IS</Code>
+    <Name>Implementing Microsoft SQL Server Integration Services Solutions</Name>
+    <SupplierCode>20463</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20464</Code>
+    <Name>Developing a Microsoft SQL Server 2014 Database</Name>
+    <SupplierCode>20464</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20465</Code>
+    <Name>Designing a Data Solution with Microsoft SQL Server</Name>
+    <SupplierCode>20465</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20466</Code>
+    <Name>Implementing Data Models and Reports with Microsoft SQL Server 2014</Name>
+    <SupplierCode>20466</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20466AS</Code>
+    <Name>Implementing Data Models with Microsoft SQL Server 2014 Analysis Services</Name>
+    <SupplierCode>20466</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20466RS</Code>
+    <Name>Implementing  Reports with Microsoft SQL Server 2014 Reporting Services</Name>
+    <SupplierCode>20466</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20467</Code>
+    <Name>Designing Self-Service Business Intelligence and Big Data Solutions</Name>
+    <SupplierCode>20467</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20467G</Code>
+    <Name>Designing and Implementing Big Data Solutions</Name>
+    <SupplierCode>20467</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20467S</Code>
+    <Name>Designing and Implementing Self-Service Business Intelligence Solutions</Name>
+    <SupplierCode>20467</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20488</Code>
+    <Name>Developing Microsoft SharePoint Server 2013 Core Solutions</Name>
+    <SupplierCode>20488</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20489</Code>
+    <Name>Developing SharePoint Server 2013 Advanced Solutions</Name>
+    <SupplierCode>20489</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20532</Code>
+    <Name>Developing Microsoft Azure Solutions</Name>
+    <SupplierCode>20532</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20533</Code>
+    <Name>Implementing Microsoft Azure Infrastructure Solutions</Name>
+    <SupplierCode>20533</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20687</Code>
+    <Name>Configuring Windows 8</Name>
+    <SupplierCode>20687</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20688</Code>
+    <Name>Managing and Maintaining Windows 8</Name>
+    <SupplierCode>20688</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20696</Code>
+    <Name>Administering System Center Configuration Manager and Intune</Name>
+    <SupplierCode>20696</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS206971</Code>
+    <Name>Installing and Configuring Windows 10</Name>
+    <SupplierCode>20697-1</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS206972</Code>
+    <Name>Deploying and Managing Windows 10 Using Enterprise Services</Name>
+    <SupplierCode>20697-2</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20740</Code>
+    <Name>Installation, Storage, and Compute with Windows Server 2016</Name>
+    <SupplierCode>20740</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20741</Code>
+    <Name>Networking with Windows Server 2016</Name>
+    <SupplierCode>20741</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20742</Code>
+    <Name>Identity with Windows Server 2016</Name>
+    <SupplierCode>20742</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20743</Code>
+    <Name>Upgrading Your Skills to MCSA: Windows Server 2016</Name>
+    <SupplierCode>20743</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20761</Code>
+    <Name>Querying Data with Transact-SQL</Name>
+    <SupplierCode>20761</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20761AD</Code>
+    <Name>Advanced Querying Data with Transact-SQL</Name>
+    <SupplierCode>20761AD</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20761T</Code>
+    <Name>Querying Microsoft SQL Server 2016</Name>
+    <SupplierCode>20761T</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20762</Code>
+    <Name>Developing SQL Databases</Name>
+    <SupplierCode>20762</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20762E</Code>
+    <Name>Essentials of Developing SQL Databases</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20764</Code>
+    <Name>Administering a SQL Database Infrastructure</Name>
+    <SupplierCode>20764</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20765</Code>
+    <Name>Provisioning SQL Databases</Name>
+    <SupplierCode>20765</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20767</Code>
+    <Name>Implementing a SQL Data Warehouse</Name>
+    <SupplierCode>20767</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20767DM</Code>
+    <Name>Implementing Microsoft SQL Server 2016 Data Quality Services and Master Data Services</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20767IS</Code>
+    <Name>Implementing Microsoft SQL Server 2016 Integration Services Solutions</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20768</Code>
+    <Name>Developing SQL Data Models</Name>
+    <SupplierCode>20768</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS20768T</Code>
+    <Name>Implementing SQL Data Models and Reports</Name>
+    <SupplierCode>20768T</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS2956</Code>
+    <Name>Core Foundations of Microsoft .NET Development</Name>
+    <SupplierCode>2956</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS2957</Code>
+    <Name>Advanced Foundations of Microsoft .NET Development</Name>
+    <SupplierCode>2957</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS40027</Code>
+    <Name>What's New for Developers in SharePoint 2013</Name>
+    <SupplierCode>40027</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS40028</Code>
+    <Name>What's New for IT Professionals in SharePoint 2013</Name>
+    <SupplierCode>40028</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS40074</Code>
+    <Name>Microsoft SQL Server 2014 for Oracle DBA's</Name>
+    <SupplierCode>40074</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS50352</Code>
+    <Name>SharePoint 2010 Overview for End Users</Name>
+    <SupplierCode>50352</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS50354</Code>
+    <Name>SharePoint 2010 SharePoint Designer</Name>
+    <SupplierCode>50354</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS50382</Code>
+    <Name>Implementing Forefront Identity Manager 2010</Name>
+    <SupplierCode>50382</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS50507</Code>
+    <Name>Designing and Automating Workflows with Opalis Integration Server</Name>
+    <SupplierCode>50507</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS50578</Code>
+    <Name>Microsoft MDX SQL 2005 through SQL 2012</Name>
+    <SupplierCode>50578</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS5494</Code>
+    <Name>Technical Deep Dive: Set up, Manage and Maintain a Virtual Environment using Microsoft Windows Server with Hyper-V and SCVMM 2008</Name>
+    <SupplierCode>5494</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS55004</Code>
+    <Name>Installing and Configuring System Center 2012 Operations Manager</Name>
+    <SupplierCode>55004</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS55014</Code>
+    <Name>Upgrading Your Development Skills to SharePoint 2013</Name>
+    <SupplierCode>55014</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS55035</Code>
+    <Name>Microsoft SharePoint Server 2013 for the Site Owner and Power User</Name>
+    <SupplierCode>55035</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS55066</Code>
+    <Name>PowerShell for SharePoint Administrators</Name>
+    <SupplierCode>55066</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS55069</Code>
+    <Name>PowerShell for SQL Server Administrators</Name>
+    <SupplierCode>55069</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS55081</Code>
+    <Name>Basic SharePoint Server 2013 Branding</Name>
+    <SupplierCode>55081</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS55144</Code>
+    <Name>SQL Server Performance Tuning and Optimization</Name>
+    <SupplierCode>55144</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS6292</Code>
+    <Name>Installing and Configuring Windows 7 Client</Name>
+    <SupplierCode>6292</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS6294</Code>
+    <Name>Planning and Managing Windows 7 Desktop Deployments and Environments</Name>
+    <SupplierCode>6294</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS6331</Code>
+    <Name>Deploying and Managing Microsoft System Center Virtual Machine Manager</Name>
+    <SupplierCode>6331</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS6422</Code>
+    <Name>Implementing and Managing Windows Server 2008 Hyper-V</Name>
+    <SupplierCode>6422</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS6423</Code>
+    <Name>Implementing and Managing Windows Server 2008 Clustering</Name>
+    <SupplierCode>6423</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS6433</Code>
+    <Name>Planning and Implementing Windows Server 2008 Servers</Name>
+    <SupplierCode>6433</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS6435</Code>
+    <Name>Designing a Windows Server 2008 Network Infrastructure</Name>
+    <SupplierCode>6435</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS6437</Code>
+    <Name>Designing a Windows Server 2008 Applications Platform Infrastructure</Name>
+    <SupplierCode>6437</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS6451</Code>
+    <Name>Planning, Deploying and Managing Microsoft Systems Center Configuration Manager 2007 R2</Name>
+    <SupplierCode>6451</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS7197</Code>
+    <Name>Managing Enterprise Desktops using the Microsoft Desktop Optimization Pack</Name>
+    <SupplierCode>7197</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS80294</Code>
+    <Name>Microsoft Dynamics CRM 2011 Customization en configuratie</Name>
+    <SupplierCode>80294</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MS80296</Code>
+    <Name>Microsoft Dynamics CRM 2011 Installation en Deployment</Name>
+    <SupplierCode>80296</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MSDMIP</Code>
+    <Name>Microsoft Data Mining in Practice</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MSHTMLCSS</Code>
+    <Name>Programming in HTML5 with JavaScript and CSS3</Name>
+    <SupplierCode>20480</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MSW32</Code>
+    <Name>Win32-programmeren voor developers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>MVC</Code>
+    <Name>Developing ASP.NET MVC 5 Web Applications</Name>
+    <SupplierCode>20486</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>NETADMIN</Code>
+    <Name>Deploying Microsoft .NET Applications for System Engineers</Name>
+    <SupplierCode>2362</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>NETFOUNB</Code>
+    <Name>.NET Framework Foundation</Name>
+    <SupplierCode>2956/2957</SupplierCode>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>NODEJS</Code>
+    <Name>Node.js</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>NSXJ</Code>
+    <Name>Normalized Systems voor Java-developers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>OOUML</Code>
+    <Name>Object Oriented Analysis &amp; Design using UML</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Trivera</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>OPLC</Code>
+    <Name>Open Leercentrum</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>OPLDEV</Code>
+    <Name>Open Leercentrum Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>OPLINF</Code>
+    <Name>Open Leercentrum Infrastructuur</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>OPM7AD</Code>
+    <Name>System Center Operations Manager 2007 Advanced Topics</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>OPM7FU</Code>
+    <Name>Managing System Center Operations Manager 2007</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ORADBA</Code>
+    <Name>Oracle Database Administration</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ORADEV</Code>
+    <Name>Oracle Database Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ORARCH</Code>
+    <Name>Oracle Fusion Architecture</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ORATUN</Code>
+    <Name>Oracle SQL Statement Tuning</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ORFMO</Code>
+    <Name>Oracle Fusion Middleware Overzichtsworkshop</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>OROSB</Code>
+    <Name>Oracle OSB</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>ORSOA</Code>
+    <Name>Service Oriented Architecture with Oracle SOA Suite 11g</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Amis</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>OVBIGD</Code>
+    <Name>Overview Big Data and NoSQL Databases</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>P2FOU</Code>
+    <Name>PRINCE2 Foundation Training &amp; Exam</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>IT Education</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>P2PRA</Code>
+    <Name>PRINCE2 Practitioner Training &amp; Exam</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>IT Education</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>PBIEX</Code>
+    <Name>Power BI Workshop</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>POLDEVAP</Code>
+    <Name>Develop Applications Using the Polymer Framework</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>POSHDSC</Code>
+    <Name>Windows Powershell Desired State Configuration</Name>
+    <SupplierCode>10961</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>PQPROG</Code>
+    <Name>Power Query Programming</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>PROGFOU</Code>
+    <Name>Programming Foundations</Name>
+    <SupplierCode>QAPROGFOU</SupplierCode>
+    <SupplierName>QA</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>PROVIS</Code>
+    <Name>Provisioning</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>PRS13PDM</Code>
+    <Name>Planning, Deploying and Managing Microsoft Project Server 2013</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>MVP Press</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>PTSQL</Code>
+    <Name>Performance Tuning Microsoft SQL Server</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>QLAZPI</Code>
+    <Name>Cloud-Based Integration Using Azure App Service</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>QuickLearn</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>QLBIZADMDD</Code>
+    <Name>BizTalk Server 2013 Administrator Deep Dive</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>QuickLearn</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>QLBIZAI</Code>
+    <Name>BizTalk 2013 Administrator Immersion</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>QuickLearn</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>QLBIZDD</Code>
+    <Name>BizTalk 2013 Developer Deep Dive</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>QuickLearn</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>QLESB</Code>
+    <Name>BizTalk Expert Series: ESB</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>QuickLearn</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>QLIMM</Code>
+    <Name>BizTalk 2013 Developer Immersion</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>QuickLearn</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>REACTJS</Code>
+    <Name>Develop Applications Using the ReactJS Framework</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>REACTNA</Code>
+    <Name>Develop Native Mobile Applications Using ReactNative</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>REPROJS</Code>
+    <Name>Reactive Programming in JavaScript</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>REVIN</Code>
+    <Name>Review &amp; Inspecties</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>RIAARCH</Code>
+    <Name>Rich Internet Applications for Architects and Project Managers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>RPROG</Code>
+    <Name>The Essentials of Programming in R</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Assensia</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>RUPOV</Code>
+    <Name>Overview of the Rational Unified Process</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>QA</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAP001A</Code>
+    <Name>SAP Basic Navigation (ECC 6.0) for End Users</Name>
+    <SupplierCode>SAP001A</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAP001B</Code>
+    <Name>SAP Advanced Navigation (ECC 6.0) for End Users</Name>
+    <SupplierCode>SAP001B</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAP001C</Code>
+    <Name>SAP Basic Reporting</Name>
+    <SupplierCode>SAP001C</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAP001D</Code>
+    <Name>SAP Advanced Reporting (Quickviewer/Queries)</Name>
+    <SupplierCode>SAP001D</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAP001E</Code>
+    <Name>SAP Excel Tables &amp; Pivots</Name>
+    <SupplierCode>SAP001E</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAP002K</Code>
+    <Name>SAP ERP Generic Demystification Course</Name>
+    <SupplierCode>SAP002K</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAP003K</Code>
+    <Name>SAP SD for End Users</Name>
+    <SupplierCode>SAP003K</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAP004K</Code>
+    <Name>SAP MM Purchasing for End Users</Name>
+    <SupplierCode>SAP004K</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAP005K</Code>
+    <Name>SAP PM for End Users</Name>
+    <SupplierCode>SAP005K</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAP006K</Code>
+    <Name>SAP FICO for End Users</Name>
+    <SupplierCode>SAP006K</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAP007K</Code>
+    <Name>SAP PP for End Users</Name>
+    <SupplierCode>SAP007K</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAPBI1</Code>
+    <Name>SAP NetWeaver BW 7.x - BEx Analyzer Web</Name>
+    <SupplierCode>SAPBI1</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAPBI2</Code>
+    <Name>SAP NetWeaver BW 7.x - BEx Analyzer Excel</Name>
+    <SupplierCode>SAPBI2</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAPBI3</Code>
+    <Name>SAP NetWeaver BW 7.x - BEx Web vs BEx Excel</Name>
+    <SupplierCode>SAPBI3</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAPBI4</Code>
+    <Name>SAP BusinessObjects Analysis - Edition OLAP</Name>
+    <SupplierCode>SAPBI4</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAPBI5</Code>
+    <Name>SAP BusinessObjects Analysis - Edition Microsoft Office</Name>
+    <SupplierCode>SAPBI5</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SAPBI6</Code>
+    <Name>SAP BusinessObjects OLAP vs Office</Name>
+    <SupplierCode>SAPBI6</SupplierCode>
+    <SupplierName>Global Services</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SCALADEV</Code>
+    <Name>Functioneel Programmeren in Scala</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SCO</Code>
+    <Name>Microsoft System Center Orchestrator 2012 for Runbook Authors</Name>
+    <SupplierCode>55023</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SCRUMES</Code>
+    <Name>Scrum Essentials</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SCRUMPO</Code>
+    <Name>Workshop -  Scrum Product Owner</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SCRUMPS</Code>
+    <Name>Workshop -  Scrum Planning and Sprinting for Team Members</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SCRUMRE</Code>
+    <Name>Workshop -  Improving Scrum Retrospectives</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SCSM</Code>
+    <Name>Using Microsoft System Center Service Manager 2012</Name>
+    <SupplierCode>55022</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SCVMM</Code>
+    <Name>Managing and Configuring System Center Virtual Machine Manager 2012</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SECDEV</Code>
+    <Name>Secure Programming Foundation</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Security Academy</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SGRID</Code>
+    <Name>Microsoft SoftGrid Application Virtualization</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SHAREND</Code>
+    <Name>SharePoint voor Eindgebruikers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SL5UP</Code>
+    <Name>Upgrading your skills from Silverlight 4 to Silverlight 5</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SLLOB</Code>
+    <Name>Developing Line of Business Applications with Silverlight</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SLPHONE</Code>
+    <Name>Silverlight for Windows Phone Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SLPRISM</Code>
+    <Name>Building Enterprise Silverlight Applications with PRISM</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SMADM</Code>
+    <Name>Installing en Administering  System Center 2012 Service Manager</Name>
+    <SupplierCode>55009</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SPECFLOW</Code>
+    <Name>Developing with SpecFlow</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>TechTalk</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SPRINGADV</Code>
+    <Name>Spring with JPA integration</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SQLIMO</Code>
+    <Name>Implementing High Performance In-Memory OLTP</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>SSARCH</Code>
+    <Name>Using Sparx Systems Enterprise Architect</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>TCMVS</Code>
+    <Name>Test Case Management Using Visual Studio</Name>
+    <SupplierCode>TCM2015</SupplierCode>
+    <SupplierName>Accentient</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>TESTAUTO</Code>
+    <Name>Test Automation</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>TESTWORK</Code>
+    <Name>Testtechnieken Workshop</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>TMAPTE</Code>
+    <Name>TMap Next Test Engineer</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>TMAPTM</Code>
+    <Name>TMap Next Test Manager</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>TOGAF</Code>
+    <Name>TOGAF 9.1 Certified Training</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>EA Principals</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>TPI</Code>
+    <Name>Test Process Improvement (TPI Next)</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>TSDEV</Code>
+    <Name>TypeScript Development</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>UMLEND</Code>
+    <Name>UML for Participating End Users</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>UMLOV</Code>
+    <Name>Overview of the Unified Modeling Language</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>UNIXDEV</Code>
+    <Name>Unix voor Developers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>QA</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>USECASES</Code>
+    <Name>Use Cases: a Disciplined Approach</Name>
+    <SupplierCode>RM101</SupplierCode>
+    <SupplierName>Scott Ambler</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>UTJAVA</Code>
+    <Name>Unit Testing in Java</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>UTVS</Code>
+    <Name>Unit Testing in Visual Studio</Name>
+    <SupplierCode>UTVS2013</SupplierCode>
+    <SupplierName>Accentient</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>VBCS</Code>
+    <Name>VB.NET to C#</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>VBNETB</Code>
+    <Name>Programming VB.NET</Name>
+    <SupplierCode>10550</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>VDDLAT</Code>
+    <Name>Value-Driven Delivery for Lean Agile Teams</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>VERA</Code>
+    <Name>Introductie Volkshuisvesting Enterprise Referentie Architectuur (VERA)</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>VSTS2010</Code>
+    <Name>Introduction Visual Studio Team System 2010 and Product Overview</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>WCFDEV</Code>
+    <Name>Developing using Windows Communication Foundation (WCF)</Name>
+    <SupplierCode>10263</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>WDAX</Code>
+    <Name>Power Pivot Workshop</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>WEBPACK</Code>
+    <Name>Webpack</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>WEBSCALE</Code>
+    <Name>WebScale Architecture</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>WFDEV</Code>
+    <Name>Developing with Windows Workflow Foundation (WF)</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Pluralsight</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>WICKET</Code>
+    <Name>Building Enterprise Web applications using Apache Wicket</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>WIN8SNEAK</Code>
+    <Name>Windows 8 Sneak Preview</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>WINDEV</Code>
+    <Name>Windows Infrastructure for Developers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>WIX</Code>
+    <Name>Windows Installer XML (WiX)</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>WOCOPAKIMP</Code>
+    <Name>Succesvol regisseren van pakketimplementatie door woningcorporaties</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>WOCOPAKSEL</Code>
+    <Name>Succesvol uitvoeren van pakketselectie door woningcorporaties</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>WPFDEV</Code>
+    <Name>Developing with Windows Presentation Foundation (WPF)</Name>
+    <SupplierCode>10262</SupplierCode>
+    <SupplierName>Microsoft</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>WSARCH</Code>
+    <Name>Windows Server System for Architects and Project Managers</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>WUST</Code>
+    <Name>Workshop User Story Testing</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Improve</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>XAMADV</Code>
+    <Name>Xamarin Advanced</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>XAMCAL</Code>
+    <Name>Automated Mobile Tests with Xamarin Test Cloud and the Calabash Framework</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>XAMFUN</Code>
+    <Name>Xamarin Fundamentals</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>XMLAD</Code>
+    <Name>XML, XSD Schemas and XSLT</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Trivera</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>XMLIN</Code>
+    <Name>Introduction to XML</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Trivera</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>XQUERY</Code>
+    <Name>XQuery</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Info Support</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>XSD</Code>
+    <Name>Defining a Document Grammar using XML Schemas</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Trivera</SupplierName>
+  </CourseSummary>
+  <CourseSummary>
+    <Code>XSLT</Code>
+    <Name>Transforming XML using XSLT Stylesheets</Name>
+    <SupplierCode i:nil="true"/>
+    <SupplierName>Trivera</SupplierName>
+  </CourseSummary>
+</CourseSummaryCollection>

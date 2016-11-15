@@ -66,17 +66,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.agent\com.infosupport.afstuderen.opleidingsplan.integration.csproj">
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.agent\IntegrationService.csproj">
       <Project>{5713f827-4539-4ac4-bf4d-82606cf97e5a}</Project>
-      <Name>com.infosupport.afstuderen.opleidingsplan.integration</Name>
+      <Name>IntegrationService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.API\com.infosupport.afstuderen.opleidingsplan.API.csproj">
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.API\API.csproj">
       <Project>{B84F85DC-D8A2-419A-AF14-D02E31351953}</Project>
-      <Name>com.infosupport.afstuderen.opleidingsplan.API</Name>
+      <Name>API</Name>
     </ProjectReference>
-    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.model\com.infosupport.afstuderen.opleidingsplan.model.csproj">
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.model\Models.csproj">
       <Project>{0669767e-7628-4bdd-9a44-2590cb1df4e6}</Project>
-      <Name>com.infosupport.afstuderen.opleidingsplan.model</Name>
+      <Name>Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0669767E-7628-4BDD-9A44-2590CB1DF4E6}</ProjectGuid>
+    <ProjectGuid>{4B514F3A-C4FE-4726-851E-59464AF56F15}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.model</RootNamespace>
-    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.model</AssemblyName>
+    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.generator</RootNamespace>
+    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.generator</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,10 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Course.cs" />
-    <Compile Include="EducationPlan.cs" />
-    <Compile Include="EducationPlanCourse.cs" />
+    <Compile Include="EducationplanCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.model\Models.csproj">
+      <Project>{0669767E-7628-4BDD-9A44-2590CB1DF4E6}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
