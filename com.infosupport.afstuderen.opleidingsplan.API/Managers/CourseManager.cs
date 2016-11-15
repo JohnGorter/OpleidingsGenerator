@@ -1,4 +1,4 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.agent;
+﻿using com.infosupport.afstuderen.opleidingsplan.integration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,23 +6,28 @@ using System.Web;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
 {
-    public class CourseManager
+    public class CourseManager : ICourseManager
     {
-        private AgentCourse _agentCourse;
+        private ICourseService _courseService;
 
         public CourseManager()
         {
-            _agentCourse = new AgentCourse();
+            _courseService = new CourseService();
+        }
+
+        public CourseManager(ICourseService courseManager)
+        {
+            _courseService = courseManager;
         }
 
         public Coursesummarycollection FindCourses()
         {
-            return _agentCourse.FindAllCourses();
+            return _courseService.FindAllCourses();
         }
 
         public Course FindCourse(string courseCode)
         {
-            return _agentCourse.FindCourse(courseCode);
+            return _courseService.FindCourse(courseCode);
         }
     }
 }

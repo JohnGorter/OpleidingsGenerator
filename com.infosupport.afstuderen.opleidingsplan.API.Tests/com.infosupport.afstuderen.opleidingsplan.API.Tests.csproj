@@ -32,8 +32,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Moq, Version=4.5.28.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.5.28\lib\net45\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -43,19 +53,34 @@
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Controllers\CourseControllerTest.cs" />
+    <Compile Include="Controllers\EducationPlanControllerTest.cs" />
+    <Compile Include="DummyData.cs" />
+    <Compile Include="Managers\CourseManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.agent\com.infosupport.afstuderen.opleidingsplan.integration.csproj">
+      <Project>{5713f827-4539-4ac4-bf4d-82606cf97e5a}</Project>
+      <Name>com.infosupport.afstuderen.opleidingsplan.integration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.API\com.infosupport.afstuderen.opleidingsplan.API.csproj">
       <Project>{B84F85DC-D8A2-419A-AF14-D02E31351953}</Project>
       <Name>com.infosupport.afstuderen.opleidingsplan.API</Name>
     </ProjectReference>
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.model\com.infosupport.afstuderen.opleidingsplan.model.csproj">
+      <Project>{0669767e-7628-4bdd-9a44-2590cb1df4e6}</Project>
+      <Name>com.infosupport.afstuderen.opleidingsplan.model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

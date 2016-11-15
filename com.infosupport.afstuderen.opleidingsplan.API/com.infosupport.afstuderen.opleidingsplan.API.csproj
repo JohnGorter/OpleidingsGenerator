@@ -105,10 +105,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Managers\CourseManager.cs" />
+    <Compile Include="Managers\ICourseManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="educationPlan.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -121,9 +123,9 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.agent\com.infosupport.afstuderen.opleidingsplan.agent.csproj">
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.agent\com.infosupport.afstuderen.opleidingsplan.integration.csproj">
       <Project>{5713f827-4539-4ac4-bf4d-82606cf97e5a}</Project>
-      <Name>com.infosupport.afstuderen.opleidingsplan.agent</Name>
+      <Name>com.infosupport.afstuderen.opleidingsplan.integration</Name>
     </ProjectReference>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.model\com.infosupport.afstuderen.opleidingsplan.model.csproj">
       <Project>{0669767e-7628-4bdd-9a44-2590cb1df4e6}</Project>
