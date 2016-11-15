@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace com.infosupport.afstuderen.opleidingsplan.agent
+namespace com.infosupport.afstuderen.opleidingsplan.integration
 {
     public class EducationPlanAgent
     {

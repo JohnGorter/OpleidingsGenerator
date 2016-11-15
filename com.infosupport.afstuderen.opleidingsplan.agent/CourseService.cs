@@ -8,19 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace com.infosupport.afstuderen.opleidingsplan.agent
+namespace com.infosupport.afstuderen.opleidingsplan.integration
 {
-    public class AgentCourse
+    public class CourseService : ICourseService
     {
 
         private Uri baseUrl = new Uri("http://services.infosupport.com/ISTraining.External/v2/nl/");
 
-        public AgentCourse(Stream stream)
+        public CourseService(Stream stream)
         {
 
         }
 
-        public AgentCourse()
+        public CourseService()
         {
         }
 
