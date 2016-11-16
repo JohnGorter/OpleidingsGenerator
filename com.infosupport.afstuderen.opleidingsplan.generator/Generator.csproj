@@ -40,7 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoursePlanning.cs" />
+    <Compile Include="CoursePlanningCollection.cs" />
+    <Compile Include="CoursePriority.cs" />
     <Compile Include="EducationplanCreator.cs" />
+    <Compile Include="Planner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
