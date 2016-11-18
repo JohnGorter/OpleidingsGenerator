@@ -1,31 +1,33 @@
 ﻿using com.infosupport.afstuderen.opleidingsplan.model;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator
 {
     public class CoursePlanning
     {
-        public string CourseId { get; set; }
-        public int Priority { get; set; }
-        public model.CourseImplementation CourseImplementation { get; set; }
-        public List<string> CourseIdsOverlap { get; set; }
+        private List<Course> _coursesPlanned = new List<Course>();
+        private List<Course> _coursesNotPlanned = new List<Course>();
 
-        public CoursePlanning(string courseId, model.CourseImplementation courseImplementation, int priority)
+        public void AddToPlanned(Course course)
         {
-            CourseId = courseId;
-            CourseImplementation = courseImplementation;
-            Priority = priority;
+            _coursesPlanned.Add(course);
         }
 
-        public bool Overlap(IEnumerable<CourseImplementation> courseImplementations)
+        public void AddToNotPlanned(Course course)
         {
-            return courseImplementations.Any(implementation => implementation.Days.Any(day => CourseImplementation.Days.Contains(day)));
+            _coursesNotPlanned.Add(course);
         }
-        //public bool Overlap(CourseImplementation courseImplementation)
-        //{
-        //    return courseImplementation.Days.Any(day => CourseImplementation.Days.Contains(day));
-        //}
 
+        public IEnumerable<Course> GetPlannedCourses()
+        {
+            return _coursesPlanned;
+        }
+
+        public IEnumerable<Course> GetNotPlannedCourses()
+        {
+            return _coursesNotPlanned;
+        }
     }
 }

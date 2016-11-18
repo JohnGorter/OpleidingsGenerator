@@ -17,6 +17,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.model
         public string Prerequisites { get; set; }
         public IEnumerable<CourseImplementation> CourseImplementations { get; set; }
         public decimal Price { get; set; }
+        public int Priority { get; set; }
     }
 
     public class CourseImplementation
@@ -24,5 +25,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.model
         public string Location { get; set; }
         public DateTime StartDay { get { return Days.FirstOrDefault(); } set { } }
         public IEnumerable<DateTime> Days { get; set; }
+
+        public bool Intersects (IEnumerable<CourseImplementation> courseImplementations)
+        {
+            return courseImplementations.Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day)));
+        }
     }
 }

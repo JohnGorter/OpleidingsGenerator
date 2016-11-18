@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="CoursePlanning.cs" />
     <Compile Include="CoursePlanningCollection.cs" />
-    <Compile Include="CoursePriority.cs" />
+    <Compile Include="Course.cs" />
     <Compile Include="EducationplanCreator.cs" />
     <Compile Include="Planner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
