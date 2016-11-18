@@ -10,7 +10,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
     public class PlannerWithOneCourseImplementationTests
     {
         [TestMethod]
-        public void PlanThreeCourses_NoOverlap_CourseWithOneCourseImplementation()
+        public void PlanThreeCourses_NoOverlap()
         {
             Planner planner = new Planner();
 
@@ -31,7 +31,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
         }
 
         [TestMethod]
-        public void PlanThreeCourses_OneWithFullOverlap_TwoCoursesPlanned__CourseWithOneCourseImplementation()
+        public void PlanThreeCourses_OneWithFullOverlap_TwoCoursesPlanned()
         {
             Planner planner = new Planner();
 
@@ -53,7 +53,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
         }
 
         [TestMethod]
-        public void PlanThreeCourses_OneWithOverlapOneDay_TwoCoursesPlanned_CourseWithOneCourseImplementation()
+        public void PlanThreeCourses_OneWithOverlapOneDay_TwoCoursesPlanned()
         {
             Planner planner = new Planner();
 
@@ -74,7 +74,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
         }
 
         [TestMethod]
-        public void PlanThreeCourses_OneWithOverlapOneDayAndPriority_TwoCoursesPlanned_CourseWithOneCourseImplementation()
+        public void PlanThreeCourses_OneWithOverlapOneDayAndPriority_TwoCoursesPlanned()
         {
             Planner planner = new Planner();
 
@@ -96,7 +96,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
         }
 
         [TestMethod]
-        public void PlanThreeCourses_TwoWithOverlapOneDayAndTwoPriority_OneCoursePlanned_CourseWithOneCourseImplementation()
+        public void PlanThreeCourses_TwoWithOverlapOneDayAndTwoPriority_OneCoursePlanned()
         {
             Planner planner = new Planner();
 
@@ -117,7 +117,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
         }
 
         [TestMethod]
-        public void PlanThreeCourses_TwoWithOverlapOneDayAndThreePriorities_TwoCoursesPlanned_CourseWithOneCourseImplementation()
+        public void PlanThreeCourses_TwoWithOverlapOneDayAndThreePriorities_TwoCoursesPlanned()
         {
             Planner planner = new Planner();
 
@@ -139,7 +139,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
 
 
         [TestMethod]
-        public void PlanTwoCourses_WithOverlapOneDay_OneCoursesPlanned_CourseWithOneCourseImplementation_TestOverlapCourses()
+        public void PlanTwoCourses_WithOverlapOneDay_OneCoursesPlanned_TestOverlapCourses()
         {
             Planner planner = new Planner();
 
@@ -161,7 +161,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
         }
 
         [TestMethod]
-        public void PlanSixCourses_FourWithOverlap_FourCoursesPlanned_CourseWithOneCourseImplementation_TestOverlapCourses()
+        public void PlanSixCourses_FourWithOverlap_FourCoursesPlanned_TestOverlapCourses()
         {
             Planner planner = new Planner();
 

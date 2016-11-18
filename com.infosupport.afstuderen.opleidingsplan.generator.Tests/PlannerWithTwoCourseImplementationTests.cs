@@ -9,7 +9,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
     public class PlannerWithTwoCourseImplementationTests
     {
         [TestMethod]
-        public void PlanThreeCourses_NoOverlap_CourseWithTwoCourseImplementations()
+        public void PlanThreeCourses_NoOverlap()
         {
             Planner planner = new Planner();
 
@@ -40,7 +40,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
         }
 
         [TestMethod]
-        public void PlanThreeCourses_OverlapOneImplementation_CourseWithTwoCourseImplementations()
+        public void PlanThreeCourses_OverlapOneImplementation()
         {
             Planner planner = new Planner();
 
@@ -70,7 +70,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
         }
 
         [TestMethod]
-        public void PlanThreeCourses_OverlapTwoImplementation_CourseWithTwoCourseImplementations()
+        public void PlanThreeCourses_OverlapTwoImplementation()
         {
             Planner planner = new Planner();
 
@@ -101,7 +101,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
         }
 
         [TestMethod]
-        public void PlanThreeCourses_OverlapTwoImplementation_TwoCoursesPlanned_CourseWithTwoCourseImplementations()
+        public void PlanThreeCourses_OverlapTwoImplementation_TwoCoursesPlanned()
         {
             Planner planner = new Planner();
 
@@ -132,7 +132,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
         }
 
         [TestMethod]
-        public void PlanThreeCourses_OverlapTwoImplementation_MoveSecondCourseImplementation_ThreeCoursesPlanned_CourseWithTwoCourseImplementations()
+        public void PlanThreeCourses_OverlapTwoImplementation_MoveSecondCourseImplementation_ThreeCoursesPlanned()
         {
             Planner planner = new Planner();
 
