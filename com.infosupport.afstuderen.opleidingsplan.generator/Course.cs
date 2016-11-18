@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using com.infosupport.afstuderen.opleidingsplan.model;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator
 {
@@ -27,16 +28,27 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return courses.Any(course => course.Intersects(this));
         }
 
+        public CourseImplementation GetFirstAvailableCourseImplementation(IEnumerable<generator.Course> courses)
+        {
+            var plannedCourses = courses.Select(course => course.PlannedCourseImplementation);
+            return this.CourseImplementations.FirstOrDefault(courseImplementation => !courseImplementation.Intersects(plannedCourses));
+        }
+        public void AddIntersectedCourses(IEnumerable<generator.Course> plannedCourses)
+        {
+            this.IntersectedCourseIds = GetIntersectedCourses(plannedCourses).Select(course => course.Code).ToList();
+        }
+
+        public IEnumerable<generator.Course> GetIntersectedCourses(IEnumerable<Course> plannedCourses)
+        {
+            return plannedCourses.Where(course => course.Intersects(this)).ToList();
+        }
 
         private bool Intersects(generator.Course course)
         {
             return course.CourseImplementations.Any(courseImplementation => courseImplementation.Intersects(this.CourseImplementations));
         }
 
-        public void AddIntersectedCourses(IEnumerable<generator.Course> plannedCourses)
-        {
-            this.IntersectedCourseIds = plannedCourses.Where(course => course.Intersects(this)).Select(course => course.Code).ToList();
-        }
+
     }
 
 }

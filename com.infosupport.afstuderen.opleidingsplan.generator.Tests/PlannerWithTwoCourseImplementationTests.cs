@@ -9,7 +9,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
     public class PlannerWithTwoCourseImplementationTests
     {
         [TestMethod]
-        public void PlanThreeCourses_NoOverlap_CreateNewCourseWithTwoCourseImplementations()
+        public void PlanThreeCourses_NoOverlap_CourseWithTwoCourseImplementations()
         {
             Planner planner = new Planner();
 
@@ -30,39 +30,137 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
 
             Assert.AreEqual(3, planner.GetPlannedCourses().Count());
             Assert.AreEqual(new DateTime(2017, 1, 2), planner.GetPlannedCourses().ElementAt(0).PlannedCourseImplementation.StartDay);
+            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().ElementAt(0).Code);
             Assert.AreEqual(new DateTime(2017, 1, 9), planner.GetPlannedCourses().ElementAt(1).PlannedCourseImplementation.StartDay);
+            Assert.AreEqual("ENEST", planner.GetPlannedCourses().ElementAt(1).Code);
             Assert.AreEqual(new DateTime(2017, 1, 16), planner.GetPlannedCourses().ElementAt(2).PlannedCourseImplementation.StartDay);
+            Assert.AreEqual("ENDEVN", planner.GetPlannedCourses().ElementAt(2).Code);
 
             Assert.AreEqual(0, planner.GetNotPlannedCourses().Count());
         }
 
-        //[TestMethod]
-        //public void PlanThreeCourses_NoOverlap_CreateNewCourseWithTwoCourseImplementations11()
-        //{
-        //    Planner planner = new Planner();
+        [TestMethod]
+        public void PlanThreeCourses_OverlapOneImplementation_CourseWithTwoCourseImplementations()
+        {
+            Planner planner = new Planner();
 
-        //    IEnumerable<CoursePriority> coursesToPlan = new List<CoursePriority>()
-        //    {
-        //        CreateNewCourseWithTwoCourseImplementations("SCRUMES", 1,
-        //        new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
-        //        new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }),
-        //        CreateNewCourseWithTwoCourseImplementations("ENEST", 1,
-        //        new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10)},
-        //        new DateTime[] { new DateTime(2017, 4, 10), new DateTime(2017, 4, 11)}),
-        //        CreateNewCourseWithTwoCourseImplementations("ENDEVN", 1,
-        //        new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
-        //        new DateTime[] { new DateTime(2017, 3, 13), new DateTime(2017, 3, 14), new DateTime(2017, 3, 15) }),
-        //    };
+            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            {
+                CreateNewCourseWithTwoCourseImplementations("SCRUMES", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
+                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }),
+                CreateNewCourseWithTwoCourseImplementations("ENEST", 1,
+                new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10)},
+                new DateTime[] { new DateTime(2017, 4, 10), new DateTime(2017, 4, 11)}),
+                CreateNewCourseWithTwoCourseImplementations("ENDEVN", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
+                new DateTime[] { new DateTime(2017, 3, 13), new DateTime(2017, 3, 14), new DateTime(2017, 3, 15) }),
+            };
 
-        //    planner.PlanCourses(coursesToPlan);
+            planner.PlanCourses(coursesToPlan);
+            Assert.AreEqual(3, planner.GetPlannedCourses().Count());
+            Assert.AreEqual(new DateTime(2017, 1, 2), planner.GetPlannedCourses().ElementAt(0).PlannedCourseImplementation.StartDay);
+            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().ElementAt(0).Code);
+            Assert.AreEqual(new DateTime(2017, 1, 9), planner.GetPlannedCourses().ElementAt(1).PlannedCourseImplementation.StartDay);
+            Assert.AreEqual("ENEST", planner.GetPlannedCourses().ElementAt(1).Code);
+            Assert.AreEqual(new DateTime(2017, 3, 13), planner.GetPlannedCourses().ElementAt(2).PlannedCourseImplementation.StartDay);
+            Assert.AreEqual("ENDEVN", planner.GetPlannedCourses().ElementAt(2).Code);
 
-        //    Assert.AreEqual(3, planner.CoursesToFollow.Count);
-        //    Assert.AreEqual(new DateTime(2017, 1, 2), planner.CoursesToFollow[0].CourseImplementation.StartDay);
-        //    Assert.AreEqual(new DateTime(2017, 1, 9), planner.CoursesToFollow[1].CourseImplementation.StartDay);
-        //    Assert.AreEqual(new DateTime(2017, 3, 13), planner.CoursesToFollow[2].CourseImplementation.StartDay);
+            Assert.AreEqual(0, planner.GetNotPlannedCourses().Count());
+        }
 
-        //    Assert.AreEqual(0, planner.CoursesNotPlanned.Count);
-        //}
+        [TestMethod]
+        public void PlanThreeCourses_OverlapTwoImplementation_CourseWithTwoCourseImplementations()
+        {
+            Planner planner = new Planner();
+
+            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            {
+                CreateNewCourseWithTwoCourseImplementations("SCRUMES", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
+                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }),
+                CreateNewCourseWithTwoCourseImplementations("ENEST", 1,
+                new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5)},
+                new DateTime[] { new DateTime(2017, 4, 10), new DateTime(2017, 4, 11)}),
+                CreateNewCourseWithTwoCourseImplementations("ENDEVN", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
+                new DateTime[] { new DateTime(2017, 3, 13), new DateTime(2017, 3, 14), new DateTime(2017, 3, 15) }),
+            };
+
+            planner.PlanCourses(coursesToPlan);
+
+            Assert.AreEqual(3, planner.GetPlannedCourses().Count());
+            Assert.AreEqual(new DateTime(2017, 1, 2), planner.GetPlannedCourses().ElementAt(0).PlannedCourseImplementation.StartDay);
+            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().ElementAt(0).Code);
+            Assert.AreEqual(new DateTime(2017, 4, 10), planner.GetPlannedCourses().ElementAt(1).PlannedCourseImplementation.StartDay);
+            Assert.AreEqual("ENEST", planner.GetPlannedCourses().ElementAt(1).Code);
+            Assert.AreEqual(new DateTime(2017, 3, 13), planner.GetPlannedCourses().ElementAt(2).PlannedCourseImplementation.StartDay);
+            Assert.AreEqual("ENDEVN", planner.GetPlannedCourses().ElementAt(2).Code);
+
+            Assert.AreEqual(0, planner.GetNotPlannedCourses().Count());
+        }
+
+        [TestMethod]
+        public void PlanThreeCourses_OverlapTwoImplementation_TwoCoursesPlanned_CourseWithTwoCourseImplementations()
+        {
+            Planner planner = new Planner();
+
+            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            {
+                CreateNewCourseWithTwoCourseImplementations("SCRUMES", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
+                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }),
+                CreateNewCourseWithTwoCourseImplementations("ENEST", 1,
+                new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5)},
+                new DateTime[] { new DateTime(2017, 3, 7), new DateTime(2017, 3, 8)}),
+                CreateNewCourseWithTwoCourseImplementations("ENDEVN", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
+                new DateTime[] { new DateTime(2017, 3, 8), new DateTime(2017, 3, 9), new DateTime(2017, 3, 10) }),
+            };
+
+            planner.PlanCourses(coursesToPlan);
+
+            Assert.AreEqual(2, planner.GetPlannedCourses().Count());
+            Assert.AreEqual(new DateTime(2017, 1, 2), planner.GetPlannedCourses().ElementAt(0).PlannedCourseImplementation.StartDay);
+            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().ElementAt(0).Code);
+            Assert.AreEqual(new DateTime(2017, 3, 7), planner.GetPlannedCourses().ElementAt(1).PlannedCourseImplementation.StartDay);
+            Assert.AreEqual("ENEST", planner.GetPlannedCourses().ElementAt(1).Code);
+
+            Assert.AreEqual(1, planner.GetNotPlannedCourses().Count());
+            Assert.IsNull(planner.GetNotPlannedCourses().ElementAt(0).PlannedCourseImplementation);
+            Assert.AreEqual("ENDEVN", planner.GetNotPlannedCourses().ElementAt(0).Code);
+        }
+
+        [TestMethod]
+        public void PlanThreeCourses_OverlapTwoImplementation_MoveSecondCourseImplementation_ThreeCoursesPlanned_CourseWithTwoCourseImplementations()
+        {
+            Planner planner = new Planner();
+
+            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            {
+                CreateNewCourseWithTwoCourseImplementations("SCRUMES", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
+                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }),
+                CreateNewCourseWithTwoCourseImplementations("ENEST", 1,
+                new DateTime[] { new DateTime(2017, 2, 13), new DateTime(2017, 2, 14)},
+                new DateTime[] { new DateTime(2017, 4, 10), new DateTime(2017, 4, 11)}),
+                CreateNewCourseWithTwoCourseImplementations("ENDEVN", 1,
+                new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) },
+                new DateTime[] { new DateTime(2017, 2, 14), new DateTime(2017, 2, 15) }),
+            };
+
+            planner.PlanCourses(coursesToPlan);
+
+            Assert.AreEqual(3, planner.GetPlannedCourses().Count());
+            Assert.AreEqual(new DateTime(2017, 3, 6), planner.GetPlannedCourses().ElementAt(0).PlannedCourseImplementation.StartDay);
+            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().ElementAt(0).Code);
+            Assert.AreEqual(new DateTime(2017, 2, 13), planner.GetPlannedCourses().ElementAt(1).PlannedCourseImplementation.StartDay);
+            Assert.AreEqual("ENEST", planner.GetPlannedCourses().ElementAt(1).Code);
+            Assert.AreEqual(new DateTime(2017, 1, 4), planner.GetPlannedCourses().ElementAt(2).PlannedCourseImplementation.StartDay);
+            Assert.AreEqual("ENDEVN", planner.GetPlannedCourses().ElementAt(2).Code);
+
+            Assert.AreEqual(0, planner.GetNotPlannedCourses().Count());
+        }
 
         private static model.Course CreateNewCourseWithTwoCourseImplementations(string courseId, int priority, DateTime[] days1, DateTime[] days2)
         {

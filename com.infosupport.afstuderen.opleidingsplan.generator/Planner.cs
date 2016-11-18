@@ -27,22 +27,45 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public void PlanCourses(IEnumerable<model.Course> coursesToPlan)
         {
-
             coursesToPlan = coursesToPlan.OrderBy(course => course.Priority);
 
             foreach (var courseToPlan in coursesToPlan)
             {
-                var course = (generator.Course) courseToPlan;
+                var course = (generator.Course)courseToPlan;
+                var plannedCoursesTillNow = _coursePlanning.GetPlannedCourses();
 
-                if(course.Intersects(_coursePlanning.GetPlannedCourses()))
+                CourseImplementation firstAvailableImplementation = course.GetFirstAvailableCourseImplementation(plannedCoursesTillNow);
+
+                if (firstAvailableImplementation != null)
                 {
-                    _coursePlanning.AddToNotPlanned(course);
+                    course.PlannedCourseImplementation = firstAvailableImplementation; 
+                    _coursePlanning.AddToPlanned(course);
                 }
                 else
                 {
-                    course.PlannedCourseImplementation = course.CourseImplementations.First();
-                    _coursePlanning.AddToPlanned(course);
+                    var intersectedCourses = course.GetIntersectedCourses(plannedCoursesTillNow);
+
+                    bool addToPlanned = false;
+                    foreach (var intersectedCourse in intersectedCourses)
+                    {
+                        CourseImplementation firstAvailableImplementation1 = intersectedCourse.GetFirstAvailableCourseImplementation(plannedCoursesTillNow);
+                        if (firstAvailableImplementation1 != null)
+                        {
+                            intersectedCourse.PlannedCourseImplementation = firstAvailableImplementation1;
+                            firstAvailableImplementation = course.GetFirstAvailableCourseImplementation(plannedCoursesTillNow);
+                            course.PlannedCourseImplementation = firstAvailableImplementation;              
+                            _coursePlanning.AddToPlanned(course);
+                            addToPlanned = true;
+                            break;
+                        }
+                    }
+
+                    if(!addToPlanned)
+                    {
+                        _coursePlanning.AddToNotPlanned(course);
+                    }
                 }
+
             }
 
             var plannedCourses = _coursePlanning.GetPlannedCourses();
