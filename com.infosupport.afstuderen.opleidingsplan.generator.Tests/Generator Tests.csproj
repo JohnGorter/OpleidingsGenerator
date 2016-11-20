@@ -57,6 +57,9 @@
     <Compile Include="EducationPlanTest.cs" />
     <Compile Include="PlannerWithOneCourseImplementationTests.cs" />
     <Compile Include="PlannerWithTwoCourseImplementationTests.cs" />
+    <Compile Include="PlannerWithMixCourseImplementationTests.cs" />
+    <Compile Include="CourseTest.cs" />
+    <Compile Include="CourseTestHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.generator\Generator.csproj">
