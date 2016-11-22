@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
 {
-    public class CourseTestHelper
+    public abstract class CourseTestHelper
     {
 
         protected model.Course CreateNewModelCourseWithOneCourseImplementation(string Code, int priority, DateTime[] days)
@@ -109,6 +109,28 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
                     {
                         Days = days.ToList(),
                         StartDay =  days.First(),
+                    },
+                },
+            };
+        }
+
+        protected generator.Course CreateNewGeneratorCourseWithTwoCourseImplementations(string courseId, int priority, DateTime[] days1, DateTime[] days2)
+        {
+            return new generator.Course
+            {
+                Code = courseId,
+                Priority = priority,
+                CourseImplementations = new List<model.CourseImplementation>()
+                {
+                    new model.CourseImplementation
+                    {
+                        Days = days1.ToList(),
+                        StartDay =  days1.First(),
+                    },
+                    new model.CourseImplementation
+                    {
+                        Days = days2.ToList(),
+                        StartDay =  days2.First(),
                     },
                 },
             };

@@ -11,7 +11,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public int Priority { get; set; }
         public model.CourseImplementation PlannedCourseImplementation { get; set; }
         public IEnumerable<model.CourseImplementation> CourseImplementations { get; set; }
-        public IEnumerable<string> IntersectedCourseIds { get; set; }
+        public IEnumerable<string> IntersectedCourseIds { get; private set; }
 
         public static explicit operator Course(model.Course course)
         {
@@ -23,21 +23,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             };
         }
 
-        public bool Intersects(IEnumerable<generator.Course> courses)
-        {
-            return courses.Any(course => course.Intersects(this));
-        }
-
         public CourseImplementation GetFirstAvailableCourseImplementation(IEnumerable<generator.Course> courses)
         {
             var plannedCourses = courses.Select(course => course.PlannedCourseImplementation);
-            return this.CourseImplementations.FirstOrDefault(courseImplementation => !courseImplementation.Intersects(plannedCourses));
-        }
-
-        private bool HasAvailableCourseImplementation(IEnumerable<generator.Course> courses)
-        {
-            var plannedCourses = courses.Select(course => course.PlannedCourseImplementation);
-            return this.CourseImplementations.Any(courseImplementation => !courseImplementation.Intersects(plannedCourses));
+            return this.CourseImplementations
+                .OrderBy(course => course.StartDay)
+                .FirstOrDefault(courseImplementation => !courseImplementation.Intersects(plannedCourses));
         }
 
         public void AddIntersectedCourses(IEnumerable<generator.Course> plannedCourses)
@@ -48,6 +39,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public IEnumerable<generator.Course> GetIntersectedCoursesWithEqualOrLowerPriority(IEnumerable<Course> plannedCourses)
         {
             return plannedCourses.Where(course => course.Intersects(this) && course.Priority >= this.Priority && course.Code != this.Code).ToList();
+        }
+        public bool IsPlannable(IEnumerable<Course> plannedCourses)
+        {
+            List<string> scannedCourses = new List<string>();
+            return IsPlannable(plannedCourses, scannedCourses);
         }
 
         //public void GetFreeCourse(IEnumerable<Course> plannedCourses)
@@ -74,18 +70,15 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         //}
 
-
-
-
         private bool Intersects(generator.Course course)
         {
             return course.CourseImplementations.Any(courseImplementation => courseImplementation.Intersects(this.CourseImplementations));
         }
 
-        public bool IsPlannable(IEnumerable<Course> plannedCourses)
+        private bool HasAvailableCourseImplementation(IEnumerable<generator.Course> courses)
         {
-            List<string> scannedCourses = new List<string>();
-            return IsPlannable(plannedCourses, scannedCourses);
+            var plannedCourses = courses.Select(course => course.PlannedCourseImplementation);
+            return this.CourseImplementations.Any(courseImplementation => !courseImplementation.Intersects(plannedCourses));
         }
 
         private bool IsPlannable(IEnumerable<Course> plannedCourses, List<string> scannedCourses)

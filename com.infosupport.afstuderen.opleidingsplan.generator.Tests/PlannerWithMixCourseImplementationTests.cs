@@ -12,6 +12,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
         [TestMethod]
         public void PlanThreeCourses_OverlapTwoImplementation_MoveSecondCourseImplementation_ThreeCoursesPlanned1()
         {
+            //Arrange
             Planner planner = new Planner();
 
             IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
@@ -27,8 +28,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
                
             };
 
+            //Act
             planner.PlanCourses(coursesToPlan);
 
+            // Assert
             Assert.AreEqual(3, planner.GetPlannedCourses().Count());
             Assert.AreEqual(new DateTime(2017, 3, 6), planner.GetPlannedCourses().ElementAt(0).PlannedCourseImplementation.StartDay);
             Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().ElementAt(0).Code);
