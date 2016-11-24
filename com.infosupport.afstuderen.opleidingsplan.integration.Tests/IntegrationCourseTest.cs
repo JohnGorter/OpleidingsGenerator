@@ -36,6 +36,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration.test
             Assert.AreEqual(422, result.Coursesummary.Count);
         }
 
+        [Ignore]
         [TestMethod]
         public void FindCourseADCSBTest()
         {

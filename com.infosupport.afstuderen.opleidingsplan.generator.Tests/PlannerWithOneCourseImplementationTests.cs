@@ -10,56 +10,71 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
     public class PlannerWithOneCourseImplementationTests : CourseTestHelper
     {
         [TestMethod]
-        public void PlanThreeCourses_NoOverlap()
+        public void PlanThreeCourses_NoOverlap_ThreeCoursesConstant()
         {
             // Arrange
             Planner planner = new Planner();
 
             IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
             {
-                CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1, new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
-                CreateNewModelCourseWithOneCourseImplementation("ENEST", 1, new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }),
-                CreateNewModelCourseWithOneCourseImplementation("ENDEVN", 1, new DateTime[] { new DateTime(2017, 1, 16), new DateTime(2017, 1, 17), new DateTime(2017, 1, 18) }),
+                CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1, 
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
+                CreateNewModelCourseWithOneCourseImplementation("ENEST", 1, 
+                new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }),
+                CreateNewModelCourseWithOneCourseImplementation("ENDEVN", 1, 
+                new DateTime[] { new DateTime(2017, 1, 16), new DateTime(2017, 1, 17), new DateTime(2017, 1, 18) }),
             };
 
             // Act
             planner.PlanCourses(coursesToPlan);
 
             // Assert
+            Assert.AreEqual(3, planner.GetAllCourses().Count());
+            Assert.AreEqual(Status.PLANNED, planner.GetAllCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("SCRUMES", planner.GetAllCourses().ElementAt(0).Code);
+            Assert.AreEqual(Status.PLANNED, planner.GetAllCourses().ElementAt(1).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENEST", planner.GetAllCourses().ElementAt(1).Code);
+            Assert.AreEqual(Status.PLANNED, planner.GetAllCourses().ElementAt(2).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENDEVN", planner.GetAllCourses().ElementAt(2).Code);
+
             Assert.AreEqual(3, planner.GetPlannedCourses().Count());
-            Assert.AreEqual(new DateTime(2017, 1, 2), planner.GetPlannedCourses().ElementAt(0).PlannedCourseImplementation.StartDay);
-            Assert.AreEqual(new DateTime(2017, 1, 9), planner.GetPlannedCourses().ElementAt(1).PlannedCourseImplementation.StartDay);
-            Assert.AreEqual(new DateTime(2017, 1, 16), planner.GetPlannedCourses().ElementAt(2).PlannedCourseImplementation.StartDay);
             Assert.AreEqual(0, planner.GetNotPlannedCourses().Count());
         }
 
         [TestMethod]
-        public void PlanThreeCourses_OneWithFullOverlap_TwoCoursesPlanned()
+        public void PlanThreeCourses_OneWithFullOverlap_TwoCoursesConstant()
         {
             // Arrange
             Planner planner = new Planner();
 
             IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
             {
-                CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1, new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
-                CreateNewModelCourseWithOneCourseImplementation("ENEST", 1, new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }),
-                CreateNewModelCourseWithOneCourseImplementation("ENDEVN", 1, new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }),
+                CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1, 
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
+                CreateNewModelCourseWithOneCourseImplementation("ENEST", 1, 
+                new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }),
+                CreateNewModelCourseWithOneCourseImplementation("ENDEVN", 1, 
+                new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }),
             };
 
             // Act
             planner.PlanCourses(coursesToPlan);
 
             // Assert
+            Assert.AreEqual(3, planner.GetAllCourses().Count());
+            Assert.AreEqual(Status.PLANNED, planner.GetAllCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("SCRUMES", planner.GetAllCourses().ElementAt(0).Code);
+            Assert.AreEqual(Status.PLANNED, planner.GetAllCourses().ElementAt(1).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENEST", planner.GetAllCourses().ElementAt(1).Code);
+            Assert.AreEqual(Status.NOTPLANNED, planner.GetAllCourses().ElementAt(2).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENDEVN", planner.GetAllCourses().ElementAt(2).Code);
+
             Assert.AreEqual(2, planner.GetPlannedCourses().Count());
-            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().First().Code);
-            Assert.AreEqual("ENEST", planner.GetPlannedCourses().Last().Code);
             Assert.AreEqual(1, planner.GetNotPlannedCourses().Count());
-            Assert.AreEqual("ENDEVN", planner.GetNotPlannedCourses().First().Code);
-            Assert.IsNull(planner.GetNotPlannedCourses().First().PlannedCourseImplementation);
         }
 
         [TestMethod]
-        public void PlanThreeCourses_OneWithOverlapOneDay_TwoCoursesPlanned()
+        public void PlanThreeCourses_OneWithOverlapOneDay_TwoCoursesConstant()
         {
             // Arrange
             Planner planner = new Planner();
@@ -75,15 +90,20 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
             planner.PlanCourses(coursesToPlan);
 
             // Assert
+            Assert.AreEqual(3, planner.GetAllCourses().Count());
+            Assert.AreEqual(Status.PLANNED, planner.GetAllCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("SCRUMES", planner.GetAllCourses().ElementAt(0).Code);
+            Assert.AreEqual(Status.NOTPLANNED, planner.GetAllCourses().ElementAt(1).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENEST", planner.GetAllCourses().ElementAt(1).Code);
+            Assert.AreEqual(Status.PLANNED, planner.GetAllCourses().ElementAt(2).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENDEVN", planner.GetAllCourses().ElementAt(2).Code);
+
             Assert.AreEqual(2, planner.GetPlannedCourses().Count());
-            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().First().Code);
-            Assert.AreEqual("ENDEVN", planner.GetPlannedCourses().Last().Code);
             Assert.AreEqual(1, planner.GetNotPlannedCourses().Count());
-            Assert.AreEqual("ENEST", planner.GetNotPlannedCourses().First().Code);
         }
 
         [TestMethod]
-        public void PlanThreeCourses_OneWithOverlapOneDayAndPriority_TwoCoursesPlanned()
+        public void PlanThreeCourses_OneWithOverlapOneDayAndPriority_TwoCoursesConstant()
         {
             // Arrange
             Planner planner = new Planner();
@@ -99,16 +119,20 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
             planner.PlanCourses(coursesToPlan);
 
             // Assert
-            Assert.AreEqual(2, planner.GetPlannedCourses().Count());
-            Assert.AreEqual("ENEST", planner.GetPlannedCourses().First().Code);
-            Assert.AreEqual("ENDEVN", planner.GetPlannedCourses().Last().Code);
+            Assert.AreEqual(3, planner.GetAllCourses().Count());
+            Assert.AreEqual(Status.PLANNED, planner.GetAllCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENEST", planner.GetAllCourses().ElementAt(0).Code);
+            Assert.AreEqual(Status.PLANNED, planner.GetAllCourses().ElementAt(1).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENDEVN", planner.GetAllCourses().ElementAt(1).Code);
+            Assert.AreEqual(Status.NOTPLANNED, planner.GetAllCourses().ElementAt(2).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("SCRUMES", planner.GetAllCourses().ElementAt(2).Code);
 
+            Assert.AreEqual(2, planner.GetPlannedCourses().Count());
             Assert.AreEqual(1, planner.GetNotPlannedCourses().Count());
-            Assert.AreEqual("SCRUMES", planner.GetNotPlannedCourses().First().Code);
         }
 
         [TestMethod]
-        public void PlanThreeCourses_TwoWithOverlapOneDayAndTwoPriority_OneCoursePlanned()
+        public void PlanThreeCourses_TwoWithOverlapOneDayAndTwoPriority_OneCourseConstant()
         {
             // Arrange
             Planner planner = new Planner();
@@ -124,15 +148,20 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
             planner.PlanCourses(coursesToPlan);
 
             // Assert
+            Assert.AreEqual(3, planner.GetAllCourses().Count());
+            Assert.AreEqual(Status.PLANNED, planner.GetAllCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENEST", planner.GetAllCourses().ElementAt(0).Code);
+            Assert.AreEqual(Status.NOTPLANNED, planner.GetAllCourses().ElementAt(1).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENDEVN", planner.GetAllCourses().ElementAt(1).Code);
+            Assert.AreEqual(Status.NOTPLANNED, planner.GetAllCourses().ElementAt(2).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("SCRUMES", planner.GetAllCourses().ElementAt(2).Code);
+
             Assert.AreEqual(1, planner.GetPlannedCourses().Count());
-            Assert.AreEqual("ENEST", planner.GetPlannedCourses().First().Code);
             Assert.AreEqual(2, planner.GetNotPlannedCourses().Count());
-            Assert.AreEqual("ENDEVN", planner.GetNotPlannedCourses().First().Code);
-            Assert.AreEqual("SCRUMES", planner.GetNotPlannedCourses().Last().Code);
         }
 
         [TestMethod]
-        public void PlanThreeCourses_TwoWithOverlapOneDayAndThreePriorities_TwoCoursesPlanned()
+        public void PlanThreeCourses_TwoWithOverlapOneDayAndThreePriorities_TwoCoursesConstant()
         {
             // Arrange
             Planner planner = new Planner();
@@ -148,24 +177,30 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
             planner.PlanCourses(coursesToPlan);
 
             // Assert
+            Assert.AreEqual(3, planner.GetAllCourses().Count());
+            Assert.AreEqual(Status.PLANNED, planner.GetAllCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENDEVN", planner.GetAllCourses().ElementAt(0).Code);
+            Assert.AreEqual(Status.NOTPLANNED, planner.GetAllCourses().ElementAt(1).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENEST", planner.GetAllCourses().ElementAt(1).Code);
+            Assert.AreEqual(Status.PLANNED, planner.GetAllCourses().ElementAt(2).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("SCRUMES", planner.GetAllCourses().ElementAt(2).Code);
+
             Assert.AreEqual(2, planner.GetPlannedCourses().Count());
-            Assert.AreEqual("ENDEVN", planner.GetPlannedCourses().First().Code);
-            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().Last().Code);
             Assert.AreEqual(1, planner.GetNotPlannedCourses().Count());
-            Assert.AreEqual("ENEST", planner.GetNotPlannedCourses().First().Code);
         }
 
-
         [TestMethod]
-        public void PlanTwoCourses_WithOverlapOneDay_OneCoursesPlanned_TestOverlapCourses()
+        public void PlanTwoCourses_WithOverlapOneDay_OneCourseConstant_TestOverlapCourse()
         {
             // Arrange
             Planner planner = new Planner();
 
             IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
             {
-                CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1, new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
-                CreateNewModelCourseWithOneCourseImplementation("ENEST", 1, new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5), new DateTime(2017, 1, 6) }),
+                CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1, 
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
+                CreateNewModelCourseWithOneCourseImplementation("ENEST", 1, 
+                new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5), new DateTime(2017, 1, 6) }),
             };
 
             // Act
@@ -173,12 +208,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
 
             // Assert
             Assert.AreEqual(1, planner.GetPlannedCourses().Count());
-            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().First().Code);
             Assert.AreEqual(1, planner.GetNotPlannedCourses().Count());
-            Assert.AreEqual("ENEST", planner.GetNotPlannedCourses().First().Code);
+            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().ElementAt(0).Code);
+            Assert.AreEqual("ENEST", planner.GetNotPlannedCourses().ElementAt(0).Code);
 
-            Assert.AreEqual(1, planner.GetNotPlannedCourses().First().IntersectedCourseIds.Count());
-            Assert.AreEqual("SCRUMES", planner.GetNotPlannedCourses().First().IntersectedCourseIds.First());
+            Assert.AreEqual(1, planner.GetNotPlannedCourses().ElementAt(0).IntersectedCourseIds.Count());
+            Assert.AreEqual("SCRUMES", planner.GetNotPlannedCourses().ElementAt(0).IntersectedCourseIds.ElementAt(0));
         }
 
         [TestMethod]
@@ -202,20 +237,20 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
 
             // Assert
             Assert.AreEqual(4, planner.GetPlannedCourses().Count());
-            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().First().Code);
+            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().ElementAt(0).Code);
             Assert.AreEqual("ENDEVN", planner.GetPlannedCourses().ElementAt(1).Code);
             Assert.AreEqual("SECDEV", planner.GetPlannedCourses().ElementAt(2).Code);
             Assert.AreEqual("XSD", planner.GetPlannedCourses().ElementAt(3).Code);
             Assert.AreEqual(2, planner.GetNotPlannedCourses().Count());
-            Assert.AreEqual("ENEST", planner.GetNotPlannedCourses().First().Code);
-            Assert.AreEqual("MVC", planner.GetNotPlannedCourses().Last().Code);
+            Assert.AreEqual("ENEST", planner.GetNotPlannedCourses().ElementAt(0).Code);
+            Assert.AreEqual("MVC", planner.GetNotPlannedCourses().ElementAt(1).Code);
 
-            Assert.AreEqual(2, planner.GetNotPlannedCourses().First().IntersectedCourseIds.Count());
-            Assert.AreEqual("SCRUMES", planner.GetNotPlannedCourses().First().IntersectedCourseIds.First());
-            Assert.AreEqual("ENDEVN", planner.GetNotPlannedCourses().First().IntersectedCourseIds.Last());
-            Assert.AreEqual(2, planner.GetNotPlannedCourses().Last().IntersectedCourseIds.Count());
-            Assert.AreEqual("SECDEV", planner.GetNotPlannedCourses().Last().IntersectedCourseIds.First());
-            Assert.AreEqual("XSD", planner.GetNotPlannedCourses().Last().IntersectedCourseIds.Last());
+            Assert.AreEqual(2, planner.GetNotPlannedCourses().ElementAt(0).IntersectedCourseIds.Count());
+            Assert.AreEqual("SCRUMES", planner.GetNotPlannedCourses().ElementAt(0).IntersectedCourseIds.ElementAt(0));
+            Assert.AreEqual("ENDEVN", planner.GetNotPlannedCourses().ElementAt(0).IntersectedCourseIds.ElementAt(1));
+            Assert.AreEqual(2, planner.GetNotPlannedCourses().ElementAt(1).IntersectedCourseIds.Count());
+            Assert.AreEqual("SECDEV", planner.GetNotPlannedCourses().ElementAt(1).IntersectedCourseIds.ElementAt(0));
+            Assert.AreEqual("XSD", planner.GetNotPlannedCourses().ElementAt(1).IntersectedCourseIds.ElementAt(1));
         }
     }
 }

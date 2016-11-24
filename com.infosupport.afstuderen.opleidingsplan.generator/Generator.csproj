@@ -40,11 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmountImplementationException.cs" />
+    <Compile Include="CourseImplementation.cs" />
     <Compile Include="CoursePlanning.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="EducationplanCreator.cs" />
+    <Compile Include="Extentions.cs" />
     <Compile Include="Planner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Status.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.model\Models.csproj">

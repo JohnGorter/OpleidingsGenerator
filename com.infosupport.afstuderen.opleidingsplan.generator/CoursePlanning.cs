@@ -7,27 +7,37 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 {
     public class CoursePlanning
     {
-        private List<Course> _coursesPlanned = new List<Course>();
-        private List<Course> _coursesNotPlanned = new List<Course>();
+        private List<Course> _courses = new List<Course>();
 
-        public void AddToPlanned(Course course)
+        public void AddCourse(Course course)
         {
-            _coursesPlanned.Add(course);
+            _courses.Add(course);
         }
 
-        public void AddToNotPlanned(Course course)
+        public IEnumerable<Course> GetCourses()
         {
-            _coursesNotPlanned.Add(course);
+            return _courses;
         }
 
         public IEnumerable<Course> GetPlannedCourses()
         {
-            return _coursesPlanned;
+            return _courses
+                .Where(course => course.CourseImplementations
+                .Any(courseImplementation => courseImplementation.Status == Status.PLANNED));
         }
 
         public IEnumerable<Course> GetNotPlannedCourses()
         {
-            return _coursesNotPlanned;
+            return _courses
+                .Where(course => course.CourseImplementations
+                .None(courseImplementation => courseImplementation.Status == Status.PLANNED));
+        }
+
+        public IEnumerable<Course> GetAvailableCourses()
+        {
+            return _courses
+                .Where(course => course.CourseImplementations
+                .Any(courseImplementation => courseImplementation.Status == Status.AVAILABLE));
         }
     }
 }

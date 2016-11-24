@@ -19,10 +19,19 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         {
             return _coursePlanning.GetPlannedCourses();
         }
-
         public IEnumerable<Course> GetNotPlannedCourses()
         {
             return _coursePlanning.GetNotPlannedCourses();
+        }
+
+        //public IEnumerable<Course> GetNotPlannedCourses()
+        //{
+        //    return _coursePlanning.GetNotPlannedCourses();
+        //}
+
+        public IEnumerable<Course> GetAllCourses()
+        {
+            return _coursePlanning.GetCourses();
         }
 
         public void PlanCourses(IEnumerable<model.Course> coursesToPlan)
@@ -32,103 +41,88 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             foreach (var courseToPlan in coursesToPlan)
             {
                 var course = (generator.Course)courseToPlan;
-                var plannedCoursesTillNow = _coursePlanning.GetPlannedCourses();
+                var knownCourses = _coursePlanning.GetCourses();
 
-                CourseImplementation firstAvailableImplementation = course.GetFirstAvailableCourseImplementation(plannedCoursesTillNow);
+                MutateCourseImplementations(course, knownCourses);
+                _coursePlanning.AddCourse(course);
+            }
 
-                if (firstAvailableImplementation != null)
-                {
-                    course.PlannedCourseImplementation = firstAvailableImplementation; 
-                    _coursePlanning.AddToPlanned(course);
-                }
-                else
-                 {
-                    test(course, plannedCoursesTillNow);
-                    //var intersectedCourses = course.GetIntersectedCoursesWithEqualOrLowerPriority(plannedCoursesTillNow);
-
-                    //bool addToPlanned = false;
-                    //foreach (var intersectedCourse in intersectedCourses)
-                    //{
-                    //    CourseImplementation firstAvailableImplementation1 = intersectedCourse.GetFirstAvailableCourseImplementation(plannedCoursesTillNow);
-                    //    if (firstAvailableImplementation1 != null)
-                    //    {
-                    //        intersectedCourse.PlannedCourseImplementation = firstAvailableImplementation1;
-                    //        firstAvailableImplementation = course.GetFirstAvailableCourseImplementation(plannedCoursesTillNow);
-                    //        course.PlannedCourseImplementation = firstAvailableImplementation;              
-                    //        _coursePlanning.AddToPlanned(course);
-                    //        addToPlanned = true;
-                    //        break;
-                    //    }
-                    //}
-
-                    //if(!addToPlanned)
-                    //{
-                    //    _coursePlanning.AddToNotPlanned(course);
-                    //}
-                }
-
+            var availableCourses = _coursePlanning.GetAvailableCourses();
+            if (availableCourses.Any())
+            {
+                MutateCourseImplementations();
             }
 
             var plannedCourses = _coursePlanning.GetPlannedCourses();
-
-            foreach (var notPlannedCourse in _coursePlanning.GetNotPlannedCourses())
+            var notPlannedCourses = _coursePlanning.GetNotPlannedCourses();
+            foreach (var notPlannedCourse in notPlannedCourses)
             {
                 notPlannedCourse.AddIntersectedCourses(plannedCourses);
             }
         }
 
-        private List<string> _scannedCoursesIds = new List<string>();
-        //private List<Course> _oldPlannedCourses = new List<Course>();
-        //Parameter plannedCourseTill Now kan wel en uit de planningCourse halen
-        private void test(Course course, IEnumerable<Course> plannedCoursesTillNow)
+
+        private void MutateCourseImplementations(generator.Course course, IEnumerable<generator.Course> knownCourses)
         {
-            var intersectedCourses = course.GetIntersectedCoursesWithEqualOrLowerPriority(plannedCoursesTillNow);
-            var intersectedCoursesWithoutScanned = intersectedCourses.Where(intersectedCourse => !_scannedCoursesIds.Contains(intersectedCourse.Code)).ToList();
-
-            bool addToPlanned = false;
-
-            foreach (var intersectedCourse in intersectedCoursesWithoutScanned)
+            if (course.HasMultipleAvailableImplementations(knownCourses))
             {
-                CourseImplementation firstAvailableImplementationIntersectedCourse = intersectedCourse.GetFirstAvailableCourseImplementation(plannedCoursesTillNow);
+                course.MarkAllImplementations(Status.AVAILABLE);
+            }
+            else if (course.HasOneAvailableImplementation(knownCourses))
+            {
+                course.MarkAllImplementations(Status.NOTUSED);
+                course.MarkOnlyAvailableImplementationPlanned(knownCourses);
+            }
+            else
+            {
+                course.MarkAllImplementations(Status.NOTPLANNED);
+            }
+        }
 
-                if (firstAvailableImplementationIntersectedCourse != null)
+
+        private void MutateCourseImplementations()
+        {
+            var availableCourses = _coursePlanning.GetAvailableCourses();
+            var plannedCourses = _coursePlanning.GetCourses();
+
+
+            while (availableCourses.Any())
+            {
+                var course = availableCourses.First();
+
+                if(course.HasAvailableImplementations(plannedCourses))
                 {
-                    intersectedCourse.PlannedCourseImplementation = firstAvailableImplementationIntersectedCourse;
-                    CourseImplementation firstAvailableImplementation = course.GetFirstAvailableCourseImplementation(plannedCoursesTillNow);
-                    course.PlannedCourseImplementation = firstAvailableImplementation;
-                    _coursePlanning.AddToPlanned(course);
-                    addToPlanned = true;
-                    break;
+                    course.MarkAllImplementations(Status.NOTUSED);
+                    course.MarkFirstAvailableImplementationPlanned(plannedCourses);
+                    MarkOnlyAvailablePlanned(course, plannedCourses);
                 }
                 else
                 {
-                    _scannedCoursesIds.Add(intersectedCourse.Code);
+                    course.MarkAllImplementations(Status.NOTPLANNED);
                 }
             }
 
-            //bool t = course.IsPlannable(plannedCoursesTillNow);
-            //KLOPT NIET
-            //wordt altijd aan niet geplanned toegevoegd. Er moet eerst door de intersectedcourses gelooped worden en dan kijken.
-            //if (!addToPlanned)
-            //{
-            //    _coursePlanning.AddToNotPlanned(course);
-            //}
-            //else
-            //{
-            //    foreach (var intersectedCourse in intersectedCourses)
-            //    {
-            //        test(intersectedCourse, plannedCoursesTillNow);
-            //    }
-            //}
+        }
 
-            if (!addToPlanned)
+        private void MarkOnlyAvailablePlanned(generator.Course course, IEnumerable<generator.Course> knownCourses)
+        {
+            IEnumerable<Course> intersectedCourses = course.GetAvailableIntersectedCoursesWithPlannedImplementation(knownCourses);
+
+            foreach (var intersectedCourse in intersectedCourses)
             {
-                _coursePlanning.AddToNotPlanned(course);
-                foreach (var intersectedCourse in intersectedCourses)
+                if (intersectedCourse.HasAvailableImplementations(knownCourses))
                 {
-                   // test(intersectedCourse, plannedCoursesTillNow);
+                    intersectedCourse.MarkAllImplementations(Status.NOTUSED);
+                    intersectedCourse.MarkFirstAvailableImplementationPlanned(knownCourses);
+                    MarkOnlyAvailablePlanned(intersectedCourse, knownCourses);
+                }
+                else
+                {
+                    intersectedCourse.MarkAllImplementations(Status.NOTPLANNED);
                 }
             }
+
+
         }
     }
 }
