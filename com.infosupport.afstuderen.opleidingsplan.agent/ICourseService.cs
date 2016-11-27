@@ -10,5 +10,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration
     {
         Coursesummarycollection FindAllCourses();
         Course FindCourse(string courseCode);
+        IEnumerable<Course> FindCourses(string[] courseCodes);
     }
 }

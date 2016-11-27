@@ -16,9 +16,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public static explicit operator Course(model.Course course)
         {
             List<generator.CourseImplementation> courseImplementations = new List<CourseImplementation>();
-            foreach (var implementations in course.CourseImplementations)
+
+            if (course.CourseImplementations != null)
             {
-                courseImplementations.Add((generator.CourseImplementation)implementations);
+                foreach (var implementations in course.CourseImplementations)
+                {
+                    courseImplementations.Add((generator.CourseImplementation)implementations);
+                }
             }
 
             return new Course
@@ -117,7 +121,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         }
 
         
-
         public IEnumerable<generator.Course> GetIntersectedCoursesWithEqualOrLowerPriority(IEnumerable<Course> plannedCourses)
         {
             return plannedCourses.Where(course => course.Intersects(this) && course.Priority >= this.Priority && course.Code != this.Code).ToList();

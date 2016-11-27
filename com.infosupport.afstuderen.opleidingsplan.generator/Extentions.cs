@@ -17,5 +17,18 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         {
             return !source.Any(predicate);
         }
+
+        public static int ToInt(this string duration)
+        {
+            string number = duration.Split(' ').First();
+            int output;
+
+            if(int.TryParse(number, out output))
+            {
+                return output;
+            }
+
+            return 0;
+        }
     }
 }

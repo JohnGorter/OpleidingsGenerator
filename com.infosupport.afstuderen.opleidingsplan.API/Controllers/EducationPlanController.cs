@@ -14,6 +14,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Controllers
     [EnableCors("*", "*", "*")]
     public class EducationPlanController : ApiController
     {
+        private IEducationPlanManager _educationPlanManager;
+
+        public EducationPlanController()
+        {
+            _educationPlanManager = new EducationPlanManager();
+        }
+
         // GET: api/EducationPlan
         public IEnumerable<string> Get()
         {
@@ -51,8 +58,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Controllers
         }
 
         // POST: api/EducationPlan
-        public void Post([FromBody]string value)
+        public EducationPlan Post(string[] courses)
         {
+            if (courses == null) courses = new string[0];
+
+            var educationPlan = _educationPlanManager.GenerateEducationPlan(courses);
+            return educationPlan;
         }
 
         // PUT: api/EducationPlan/5

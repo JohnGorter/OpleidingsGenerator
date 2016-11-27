@@ -15,7 +15,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api
                 mapper.CreateMap<integration.Course, model.Course>();
                 mapper.CreateMap<integration.Coursesummary, model.CourseSummary>();
                 mapper.CreateMap<integration.CourseImplementation, model.CourseImplementation>();
-
+  
+                
                 //ONLY FOR DEMO
                 mapper.CreateMap<integration.Course, model.EducationPlanCourse>()
                     .ForMember(dest => dest.Date, opt => opt.MapFrom(src => RandomDay()))

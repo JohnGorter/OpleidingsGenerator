@@ -56,5 +56,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration
             }
         }
 
+        public IEnumerable<integration.Course> FindCourses(string[] courseCodes)
+        {
+            List<integration.Course> courses = new List<integration.Course>();
+
+            foreach (var courseCode in courseCodes)
+            {
+                courses.Add(FindCourse(courseCode));
+            }
+
+            return courses;
+        }
+
     }
 }

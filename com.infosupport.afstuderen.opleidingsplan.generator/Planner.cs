@@ -24,11 +24,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return _coursePlanning.GetNotPlannedCourses();
         }
 
-        //public IEnumerable<Course> GetNotPlannedCourses()
-        //{
-        //    return _coursePlanning.GetNotPlannedCourses();
-        //}
-
         public IEnumerable<Course> GetAllCourses()
         {
             return _coursePlanning.GetCourses();
@@ -82,7 +77,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void MutateCourseImplementations()
         {
-            var availableCourses = _coursePlanning.GetAvailableCourses();
+            var availableCourses = _coursePlanning.GetAvailableCourses(); //TODO: First courses with one available implementation
             var plannedCourses = _coursePlanning.GetCourses();
 
 

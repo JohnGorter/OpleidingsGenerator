@@ -42,6 +42,28 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
         }
 
         [TestMethod]
+        public void PlanOneCourse_NoImplementations_NoPlannedCourses()
+        {
+            // Arrange
+            Planner planner = new Planner();
+
+            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            {
+                new model.Course
+                {
+                    Code = "SCRUMES"
+                }
+            };
+
+            // Act
+            planner.PlanCourses(coursesToPlan);
+
+            // Assert
+            Assert.AreEqual(0, planner.GetPlannedCourses().Count());
+            Assert.AreEqual(1, planner.GetNotPlannedCourses().Count());
+        }
+
+        [TestMethod]
         public void PlanThreeCourses_OneWithFullOverlap_TwoCoursesConstant()
         {
             // Arrange
