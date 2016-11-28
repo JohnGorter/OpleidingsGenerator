@@ -9,6 +9,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
     {
         public string Code { get; set; }
         public int Priority { get; set; }
+        public int? Duration { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
         public generator.CourseImplementation PlannedCourseImplementation { get; set; }
         public IEnumerable<generator.CourseImplementation> CourseImplementations { get; set; }
         public IEnumerable<string> IntersectedCourseIds { get; private set; }
@@ -30,6 +33,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 Code = course.Code,
                 CourseImplementations = courseImplementations,
                 Priority = course.Priority,
+                Duration = course.Duration?.ToInt(),
+                Name = course.Name,
+                Price = course.Price,           
             };
         }
 
@@ -107,11 +113,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public CourseImplementation GetPlannedImplementation()
         {
             CourseImplementation plannedCourseImplementation = this.CourseImplementations.FirstOrDefault(course => course.Status == Status.PLANNED);
-            if (plannedCourseImplementation == null)
-            {
-                throw new AmountImplementationException("There is no planned implementation.");
-            }
-
             return plannedCourseImplementation;
         }
 

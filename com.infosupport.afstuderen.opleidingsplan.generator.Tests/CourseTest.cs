@@ -520,7 +520,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AmountImplementationException))]
         public void GetPlannedImplementation_NoPlannedImplementation_ExceptionThrowed()
         {
             // Arrange
@@ -531,7 +530,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
             // Act
             var result = course.GetPlannedImplementation();
 
-            // Assert throw AmountImplementationException
+            // Assert 
+            Assert.IsNull(result);
         }
 
         [TestMethod]

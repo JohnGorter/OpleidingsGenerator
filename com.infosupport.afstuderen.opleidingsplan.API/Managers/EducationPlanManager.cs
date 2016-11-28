@@ -40,53 +40,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
 
             planner.PlanCourses(coursesToPlan);
 
-            return CreateEducationPlan(planner, coursesToPlan);
+            EducationPlanOutputter outputter = new EducationPlanOutputter(planner);
+            return outputter.GenerateEducationPlan();
         }
 
 
-        private EducationPlan CreateEducationPlan(Planner planner, List<model.Course> coursesToPlan)
-        {
-            List<EducationPlanCourse> educationPlannedCourses = GetEducationPlanCourses(planner, planner.GetPlannedCourses().ToList(), coursesToPlan);
-            List<EducationPlanCourse> educationNotPlannedCourses = GetEducationPlanCourses(planner, planner.GetNotPlannedCourses().ToList(), coursesToPlan);
 
-            return new EducationPlan
-            {
-                Created = DateTime.Now,
-                PlannedCourses = educationPlannedCourses,
-                NotPlannedCourses = educationNotPlannedCourses,
-            };
-        }
-
-        private List<EducationPlanCourse> GetEducationPlanCourses(Planner planner, List<generator.Course> coursesFromPlanner, List<model.Course> coursesDetails)
-        {
-            List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
-
-            foreach (var course in coursesFromPlanner)
-            {
-                var matchedCourse = coursesDetails.First(c => c.Code == course.Code);
-
-                DateTime? startDay = null;
-
-                try
-                {
-                    startDay = course.GetPlannedImplementation().StartDay;
-                }
-                catch(AmountImplementationException)
-                {
-                }
-    
-
-                educationPlanCourses.Add(new EducationPlanCourse
-                {
-                    Code = course.Code,
-                    Date = startDay,
-                    Days = matchedCourse.Duration.ToInt(),
-                    Name = matchedCourse.Name,
-                    Price = matchedCourse.Price,
-                });
-            }
-
-            return educationPlanCourses;
-        }
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="CoursePlanning.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="EducationplanCreator.cs" />
+    <Compile Include="EducationPlanOutputter.cs" />
     <Compile Include="Extentions.cs" />
     <Compile Include="Planner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

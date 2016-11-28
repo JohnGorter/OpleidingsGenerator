@@ -15,14 +15,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
             {
                 Code = Code,
                 Priority = priority,
+                Duration = days.Count() + " dagen",
                 CourseImplementations = new List<model.CourseImplementation>()
+                {
+                    new model.CourseImplementation
                     {
-                        new model.CourseImplementation
-                        {
-                            Days = days.ToList(),
-                            StartDay =  days.First(),
-                        }
+                        Days = days.ToList(),
+                        StartDay =  days.First(),
                     }
+                }
+
             };
         }
 
@@ -32,19 +34,20 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
             {
                 Code = courseId,
                 Priority = priority,
+                Duration = days1.Count() + " dagen",
                 CourseImplementations = new List<model.CourseImplementation>()
+                {
+                    new model.CourseImplementation
                     {
-                        new model.CourseImplementation
-                        {
-                            Days = days1.ToList(),
-                            StartDay =  days1.First(),
-                        },
-                        new model.CourseImplementation
-                        {
-                            Days = days2.ToList(),
-                            StartDay =  days2.First(),
-                        }
+                        Days = days1.ToList(),
+                        StartDay =  days1.First(),
+                    },
+                    new model.CourseImplementation
+                    {
+                        Days = days2.ToList(),
+                        StartDay =  days2.First(),
                     }
+                }
             };
         }
 
