@@ -44,7 +44,6 @@
     <Compile Include="CourseSummary.cs" />
     <Compile Include="EducationPlan.cs" />
     <Compile Include="EducationPlanCourse.cs" />
-    <Compile Include="EducationPlanData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

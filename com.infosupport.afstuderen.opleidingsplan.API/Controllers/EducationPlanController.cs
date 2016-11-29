@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using com.infosupport.afstuderen.opleidingsplan.api.Managers;
+using com.infosupport.afstuderen.opleidingsplan.api.Models;
 using com.infosupport.afstuderen.opleidingsplan.model;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Controllers
             _educationPlanManager = new EducationPlanManager();
         }
 
+        public EducationPlanController(IEducationPlanManager educationPlanManager)
+        {
+            _educationPlanManager = educationPlanManager;
+        }
+
         // GET: api/EducationPlan
         public IEnumerable<string> Get()
         {
@@ -28,7 +34,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Controllers
         }
 
         // GET: api/EducationPlan/5
-        public EducationPlan Get(int id)
+        public EducationPlan Get(RestEducationPlan educationPlan)
         {
             return new EducationPlan
             {
@@ -56,14 +62,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Controllers
                 }
             };
         }
+        
 
         // POST: api/EducationPlan
-        public EducationPlan Post(string[] courses)
+        public EducationPlan Post(RestEducationPlan educationPlan)
         {
-            if (courses == null) courses = new string[0];
-
-            var educationPlan = _educationPlanManager.GenerateEducationPlan(courses);
-            return educationPlan;
+            return _educationPlanManager.GenerateEducationPlan(educationPlan);
         }
 
         // PUT: api/EducationPlan/5

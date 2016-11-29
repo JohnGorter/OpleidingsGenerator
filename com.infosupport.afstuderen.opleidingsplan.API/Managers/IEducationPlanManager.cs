@@ -1,4 +1,5 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.model;
+﻿using com.infosupport.afstuderen.opleidingsplan.api.Models;
+using com.infosupport.afstuderen.opleidingsplan.model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
 {
     public interface IEducationPlanManager
     {
-        EducationPlan GenerateEducationPlan(string[] courses);
+        EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan);
     }
 }

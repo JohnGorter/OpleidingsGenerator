@@ -28,9 +28,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
             planner.PlanCourses(coursesToPlan);
 
             EducationPlanOutputter outputter = new EducationPlanOutputter(planner);
+            EducationPlanData data = GetDummyEducationPlanData();
 
             // Act
-            var result = outputter.GenerateEducationPlan();
+            var result = outputter.GenerateEducationPlan(data);
 
             // Assert
             Assert.AreEqual(4, result.PlannedCourses.Count);
@@ -48,6 +49,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
             Assert.AreEqual(2, result.NotPlannedCourses.ElementAt(1).IntersectedCourses.Count());
             Assert.AreEqual("SECDEV", result.NotPlannedCourses.ElementAt(1).IntersectedCourses.ElementAt(0).Code);
             Assert.AreEqual("XSD", result.NotPlannedCourses.ElementAt(1).IntersectedCourses.ElementAt(1).Code);
+
+            Assert.AreEqual(new DateTime(2016, 11, 29), result.Created);
+            Assert.AreEqual(new DateTime(2016, 12, 5), result.InPaymentFrom);
+            Assert.AreEqual(new DateTime(2017, 2, 6), result.EmployableFrom);
+            Assert.AreEqual("NET_Developer", result.Profile);
+            Assert.AreEqual("Pim Verheij", result.NameEmployee);
+            Assert.AreEqual("Felix Sedney", result.NameTeacher);
+            Assert.AreEqual("MVC, DPAT, OOUML, SCRUMES", result.KnowledgeOf);
         }
     }
 }

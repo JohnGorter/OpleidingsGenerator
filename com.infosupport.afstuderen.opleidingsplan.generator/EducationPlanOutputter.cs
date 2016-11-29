@@ -17,16 +17,22 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             _planner = planner;
         }
 
-        public EducationPlan GenerateEducationPlan()
+        public EducationPlan GenerateEducationPlan(EducationPlanData educationPlanData)
         {
             List<EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(_planner.GetPlannedCourses().ToList());
             List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.GetNotPlannedCourses().ToList(), educationPlannedCourses);
 
             return new EducationPlan
             {
-                Created = DateTime.Now,
+                Created = educationPlanData.Created,
                 PlannedCourses = educationPlannedCourses,
                 NotPlannedCourses = educationNotPlannedCourses,
+                InPaymentFrom = educationPlanData.InPaymentFrom,
+                EmployableFrom = educationPlanData.EmployableFrom,
+                Profile = educationPlanData.Profile,
+                NameEmployee = educationPlanData.NameEmployee,
+                NameTeacher = educationPlanData.NameTeacher,
+                KnowledgeOf = educationPlanData.KnowledgeOf,
             };
         }
 

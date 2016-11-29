@@ -62,6 +62,7 @@
     <Compile Include="Controllers\CourseControllerTest.cs" />
     <Compile Include="Controllers\EducationPlanControllerTest.cs" />
     <Compile Include="DummyData.cs" />
+    <Compile Include="EducationPlanTestHelper.cs" />
     <Compile Include="Managers\CourseManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,6 +74,10 @@
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.API\API.csproj">
       <Project>{B84F85DC-D8A2-419A-AF14-D02E31351953}</Project>
       <Name>API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.generator\Generator.csproj">
+      <Project>{4B514F3A-C4FE-4726-851E-59464AF56F15}</Project>
+      <Name>Generator</Name>
     </ProjectReference>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.model\Models.csproj">
       <Project>{0669767e-7628-4bdd-9a44-2590cb1df4e6}</Project>

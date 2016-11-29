@@ -89,15 +89,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return this.CourseImplementations.Where(courseImplementation => !courseImplementation.IntersectsWithStatus(courses, Status.PLANNED));
         }
 
-
-        public generator.CourseImplementation GetFirstAvailableCourseImplementation(IEnumerable<generator.Course> courses)
-        {
-            var plannedCourses = courses.Select(course => course.PlannedCourseImplementation);
-            return this.CourseImplementations
-                .OrderBy(course => course.StartDay)
-                .FirstOrDefault(courseImplementation => !courseImplementation.Intersects(plannedCourses));
-        }
-
         public IEnumerable<Course> GetAvailableIntersectedCoursesWithPlannedImplementation(IEnumerable<Course> courses)
         {
             return courses
@@ -121,50 +112,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             this.IntersectedCourseIds = plannedCourses.Where(course => course.Intersects(this)).Select(course => course.Code).ToList();
         }
 
-        
-        public IEnumerable<generator.Course> GetIntersectedCoursesWithEqualOrLowerPriority(IEnumerable<Course> plannedCourses)
-        {
-            return plannedCourses.Where(course => course.Intersects(this) && course.Priority >= this.Priority && course.Code != this.Code).ToList();
-        }
-        public bool IsPlannable(IEnumerable<Course> plannedCourses)
-        {
-            List<string> scannedCourses = new List<string>();
-            return IsPlannable(plannedCourses, scannedCourses);
-        }
-
         public bool Intersects(generator.Course course)
         {
             return course.CourseImplementations.Any(courseImplementation => courseImplementation.Intersects(this.CourseImplementations));
-        }
-
-        private bool HasAvailableCourseImplementation(IEnumerable<generator.Course> courses)
-        {
-            var plannedCourses = courses.Select(course => course.PlannedCourseImplementation);
-            return this.CourseImplementations.Any(courseImplementation => !courseImplementation.Intersects(plannedCourses));
-        }
-
-        private bool IsPlannable(IEnumerable<Course> plannedCourses, List<string> scannedCourses)
-        {
-            bool plannable = false;
-
-            if (this.HasAvailableCourseImplementation(plannedCourses))
-            {
-                plannable = true;
-            }
-
-            var intersectedCourses = this.GetIntersectedCoursesWithEqualOrLowerPriority(plannedCourses);
-            var intersectedCoursesWithoutScanned = intersectedCourses.Where(intersectedCourse => !scannedCourses.Contains(intersectedCourse.Code)).ToList();
-
-            foreach (var intersectedCourse in intersectedCoursesWithoutScanned)
-            {
-                scannedCourses.Add(intersectedCourse.Code);
-                if (!plannable)
-                {
-                    plannable = intersectedCourse.IsPlannable(plannedCourses, scannedCourses);
-                }
-            }
-
-            return plannable;
         }
     }
 

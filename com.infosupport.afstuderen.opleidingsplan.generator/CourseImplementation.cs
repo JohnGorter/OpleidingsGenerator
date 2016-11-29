@@ -33,16 +33,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return courseImplementations.Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day) && courseImplementation.Status == Status.AVAILABLE));
         }
 
-        internal bool IntersectsWithStatus(IEnumerable<Course> courses, Status status)
+        public bool IntersectsWithStatus(IEnumerable<Course> courses, Status status)
         {
             return courses
                 .SelectMany(course => course.CourseImplementations)
                 .Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day) && courseImplementation.Status == status));
         }
-
-        //internal IEnumerable<Course> GetIntersectedAvailableCourses(IEnumerable<Course> courses)
-        //{
-        //    return courses.Where(course => course.Intersects(courses));
-        //}
     }
 }

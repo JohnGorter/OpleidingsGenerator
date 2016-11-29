@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace com.infosupport.afstuderen.opleidingsplan.model
+namespace com.infosupport.afstuderen.opleidingsplan.api.Models
 {
-    public class EducationPlanData
+    public class RestEducationPlan
     {
-        public DateTime Created { get; set; }
+        public string[] Courses { get; set; }
         public DateTime InPaymentFrom { get; set; }
         public DateTime EmployableFrom { get; set; }
         public string NameEmployee { get; set; }

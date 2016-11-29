@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using com.infosupport.afstuderen.opleidingsplan.api.Models;
 using com.infosupport.afstuderen.opleidingsplan.generator;
 using com.infosupport.afstuderen.opleidingsplan.integration;
 using com.infosupport.afstuderen.opleidingsplan.model;
@@ -31,17 +32,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
             return coursesToPlan;
         }
 
-        public EducationPlan GenerateEducationPlan(string[] courseCodes)
+        public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan)
         {
             Planner planner = new Planner();
 
-            IEnumerable<integration.Course> courses = _courseService.FindCourses(courseCodes);
+            IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlan.Courses);
             List<model.Course> coursesToPlan = ConvertCourses(courses);
 
             planner.PlanCourses(coursesToPlan);
 
             EducationPlanOutputter outputter = new EducationPlanOutputter(planner);
-            return outputter.GenerateEducationPlan();
+            return outputter.GenerateEducationPlan(Mapper.Map<EducationPlanData>(educationPlan));
         }
 
 
