@@ -52,6 +52,10 @@
     <Compile Include="Status.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.agent\IntegrationService.csproj">
+      <Project>{5713F827-4539-4AC4-BF4D-82606CF97E5A}</Project>
+      <Name>IntegrationService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.model\Models.csproj">
       <Project>{0669767E-7628-4BDD-9A44-2590CB1DF4E6}</Project>
       <Name>Models</Name>
