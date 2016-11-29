@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator
 {
-    public class EducationPlanOutputter
+    public class EducationPlanOutputter : IEducationPlanOutputter
     {
-        private Planner _planner;
+        private IPlanner _planner;
 
-        public EducationPlanOutputter(Planner planner)
+        public EducationPlanOutputter(IPlanner planner)
         {
             _planner = planner;
         }

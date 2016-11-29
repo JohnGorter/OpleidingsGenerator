@@ -64,6 +64,7 @@
     <Compile Include="DummyData.cs" />
     <Compile Include="EducationPlanTestHelper.cs" />
     <Compile Include="Managers\CourseManagerTest.cs" />
+    <Compile Include="Managers\EducationPlanManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

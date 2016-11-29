@@ -58,17 +58,24 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.Tests
             };
         }
 
-        protected EducationPlanCourse CreateNotPlannedEducationPlanCourse(string code, DateTime? date, string name, int days, string commentary, decimal price, List<EducationPlanCourse> intersectedCourses)
+        protected integration.Course CreateNewIntegrationCourseWithTwoCourseImplementations(string courseId, int priority, DateTime[] days1, DateTime[] days2)
         {
-            return new EducationPlanCourse
+            return new integration.Course
             {
-                Code = code,
-                Date = date,
-                Name = name,
-                Days = days,
-                Commentary = commentary,
-                Price = price,
-                IntersectedCourses = intersectedCourses,
+                Code = courseId,
+                CourseImplementations = new integration.CourseImplementation[]
+                {
+                    new integration.CourseImplementation
+                    {
+                        Days = days1,
+                        Location = "Veenendaal"
+                    },
+                    new integration.CourseImplementation
+                    {
+                        Days = days2,
+                        Location = "Veenendaal",
+                    },
+                },
             };
         }
     }

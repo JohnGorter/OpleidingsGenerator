@@ -36,31 +36,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Controllers
         // GET: api/EducationPlan/5
         public EducationPlan Get(RestEducationPlan educationPlan)
         {
-            return new EducationPlan
-            {
-                Created = DateTime.Now,
-                InPaymentFrom = DateTime.Now.AddDays(5),
-                EmployableFrom = DateTime.Now.AddDays(90),
-                KnowledgeOf = "MVC, DPAT, OOUML, SCRUMES",
-                NameEmployee = "Pim Verheij",
-                NameTeacher = "Felix Sedney",
-                Profile = "NET_Developer",
-                PlannedCourses = new List<EducationPlanCourse>()
-                {
-                    Mapper.Map<EducationPlanCourse>(new CourseManager().FindCourse("2NETARCH")),
-                    Mapper.Map<EducationPlanCourse>(new CourseManager().FindCourse("ADCSB")),
-                    Mapper.Map<EducationPlanCourse>(new CourseManager().FindCourse("CNET")),
-                    Mapper.Map<EducationPlanCourse>(new CourseManager().FindCourse("HOCS")),
-                    Mapper.Map<EducationPlanCourse>(new CourseManager().FindCourse("BLCNETIN")),
-                    Mapper.Map<EducationPlanCourse>(new CourseManager().FindCourse("GIT")),
-                },
-                NotPlannedCourses = new List<EducationPlanCourse>()
-                {
-                    Mapper.Map<EducationPlanCourse>(new CourseManager().FindCourse("WPFDEV")),
-                    Mapper.Map<EducationPlanCourse>(new CourseManager().FindCourse("WIN8SNEAK")),
-                    Mapper.Map<EducationPlanCourse>(new CourseManager().FindCourse("BLNETFOUNB")),
-                }
-            };
+            throw new NotImplementedException();
         }
         
 

@@ -23,12 +23,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.model
     public class CourseImplementation
     {
         public string Location { get; set; }
-        public DateTime StartDay { get { return Days.FirstOrDefault(); } set { } }
+        public DateTime StartDay { get { return Days.OrderBy(day => day).FirstOrDefault(); } set { } }
         public IEnumerable<DateTime> Days { get; set; }
-
-        public bool Intersects (IEnumerable<CourseImplementation> courseImplementations)
-        {
-            return courseImplementations.Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day)));
-        }
     }
 }

@@ -13,10 +13,21 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
     public class EducationPlanManager : IEducationPlanManager
     {
         private ICourseService _courseService;
+        private IPlanner _planner;
+        private IEducationPlanOutputter _educationPlanOutputter;
 
         public EducationPlanManager()
         {
             _courseService = new CourseService();
+            _planner = new Planner();
+            _educationPlanOutputter = new EducationPlanOutputter(_planner);
+        }
+
+        public EducationPlanManager(ICourseService courseService, IPlanner planner, IEducationPlanOutputter educationPlanOutputter)
+        {
+            _courseService = courseService;
+            _planner = planner;
+            _educationPlanOutputter = educationPlanOutputter;
         }
 
         private List<model.Course> ConvertCourses(IEnumerable<integration.Course> courses)
@@ -34,15 +45,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
 
         public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan)
         {
-            Planner planner = new Planner();
-
             IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlan.Courses);
             List<model.Course> coursesToPlan = ConvertCourses(courses);
 
-            planner.PlanCourses(coursesToPlan);
+            _planner.PlanCourses(coursesToPlan);
 
-            EducationPlanOutputter outputter = new EducationPlanOutputter(planner);
-            return outputter.GenerateEducationPlan(Mapper.Map<EducationPlanData>(educationPlan));
+            return _educationPlanOutputter.GenerateEducationPlan(Mapper.Map<EducationPlanData>(educationPlan));
         }
 
 

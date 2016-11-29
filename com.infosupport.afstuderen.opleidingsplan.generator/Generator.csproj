@@ -48,6 +48,8 @@
     <Compile Include="EducationPlanData.cs" />
     <Compile Include="EducationPlanOutputter.cs" />
     <Compile Include="Extentions.cs" />
+    <Compile Include="IEducationPlanOutputter.cs" />
+    <Compile Include="IPlanner.cs" />
     <Compile Include="Planner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Status.cs" />

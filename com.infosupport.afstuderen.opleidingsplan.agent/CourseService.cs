@@ -15,15 +15,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration
 
         private Uri baseUrl = new Uri("http://services.infosupport.com/ISTraining.External/v2/nl/");
 
-        public CourseService(Stream stream)
-        {
-
-        }
-
-        public CourseService()
-        {
-        }
-
         public Coursesummarycollection FindAllCourses()
         {
             Uri uri = new Uri(baseUrl, "courses");

@@ -9,21 +9,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration.test
     {
         [Ignore]
         [TestMethod]
-        public void FindAllCoursesWithFileStreamTest()
-        {
-            // Arrange
-            FileStream stream = new FileStream(@"..\..\courselist.xml", FileMode.Open);
-            CourseService agent = new CourseService(stream);
-
-            // Act
-            var result = agent.FindAllCourses();
-
-            // Assert
-            Assert.AreEqual(422, result.Coursesummary.Count);
-        }
-
-        [Ignore]
-        [TestMethod]
         public void FindAllCoursesCallRealServiceTest()
         {
             // Arrange
@@ -66,8 +51,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration.test
                     var course = agent.FindCourse(item.Code);
                 }
             }
-
-            
 
             // Assert
         }

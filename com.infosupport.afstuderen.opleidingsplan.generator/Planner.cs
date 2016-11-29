@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator
 {
-    public class Planner
+    public class Planner : IPlanner
     {
         private CoursePlanning _coursePlanning = new CoursePlanning();
 
