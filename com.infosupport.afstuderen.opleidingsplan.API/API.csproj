@@ -60,6 +60,10 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
@@ -119,9 +123,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -140,6 +141,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Data\Profiles.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -157,7 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="AutoMapperConfiguration.cs" />
-    <Compile Include="Controllers\AdministrationController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\EducationPlanController.cs" />
     <Compile Include="Global.asax.cs">
@@ -169,15 +171,12 @@
     <Compile Include="Managers\IAdministrationManager.cs" />
     <Compile Include="Managers\ICourseManager.cs" />
     <Compile Include="Managers\IEducationPlanManager.cs" />
-    <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\RestEducationPlan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="educationPlan.json" />
-    <Content Include="Administration\profiles.json" />
-    <Content Include="Administration\training_profiles.json" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -194,13 +193,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Administration\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.agent\IntegrationService.csproj">
       <Project>{5713f827-4539-4ac4-bf4d-82606cf97e5a}</Project>
       <Name>IntegrationService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.DAL\DAL.csproj">
+      <Project>{8e448124-e651-4a3d-a9ba-c0ada3023afd}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.generator\Generator.csproj">
       <Project>{4B514F3A-C4FE-4726-851E-59464AF56F15}</Project>

@@ -44,6 +44,10 @@
       <HintPath>..\packages\Moq.4.5.28\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -62,11 +66,12 @@
     <Compile Include="Helpers\AdministrationTestHelper.cs" />
     <Compile Include="Controllers\CourseControllerTest.cs" />
     <Compile Include="Controllers\EducationPlanControllerTest.cs" />
-    <Compile Include="Controllers\AdministrationControllerTest.cs" />
+    <Compile Include="Controllers\ProfileControllerTest.cs" />
     <Compile Include="Helpers\CourseTestHelper.cs" />
     <Compile Include="Helpers\EducationPlanTestHelper.cs" />
     <Compile Include="Managers\CourseManagerTest.cs" />
     <Compile Include="Managers\EducationPlanManagerTest.cs" />
+    <Compile Include="Managers\AdministrationManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +82,10 @@
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.API\API.csproj">
       <Project>{B84F85DC-D8A2-419A-AF14-D02E31351953}</Project>
       <Name>API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.DAL\DAL.csproj">
+      <Project>{8e448124-e651-4a3d-a9ba-c0ada3023afd}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.generator\Generator.csproj">
       <Project>{4B514F3A-C4FE-4726-851E-59464AF56F15}</Project>
@@ -89,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Helpers\Profiles.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

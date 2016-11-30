@@ -1,5 +1,4 @@
-{
-    "profiles": [
+﻿[
         {
             "name": "NET_Developer",
             "courses": [
@@ -368,4 +367,3 @@
             ]
         }
     ]
-}

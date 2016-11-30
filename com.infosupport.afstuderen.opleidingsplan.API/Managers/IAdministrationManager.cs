@@ -1,4 +1,6 @@
-﻿using System;
+﻿using com.infosupport.afstuderen.opleidingsplan.api.Models;
+using com.infosupport.afstuderen.opleidingsplan.model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
 {
     public interface IAdministrationManager
     {
-        string[] FindProfiles();
+        IEnumerable<Profile> FindProfiles();
+        Profile FindProfile(string profileName);
     }
 }
