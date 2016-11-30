@@ -6,14 +6,15 @@ using com.infosupport.afstuderen.opleidingsplan.integration;
 using Moq;
 using com.infosupport.afstuderen.opleidingsplan.api.Managers;
 using System.Linq;
+using com.infosupport.afstuderen.opleidingsplan.API.tests.helpers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.API.Tests.Managers
+namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
 {
     /// <summary>
     /// Summary description for CourseManagerTest
     /// </summary>
     [TestClass]
-    public class CourseManagerTest
+    public class CourseManagerTest : CourseTestHelper
     {
 
 
@@ -22,7 +23,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.Tests.Managers
         {
             // Arrange
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
-            courseServiceMock.Setup(service => service.FindCourse("POLDEVEL")).Returns(DummyData.GetIntegrationCourse());
+            courseServiceMock.Setup(service => service.FindCourse("POLDEVEL")).Returns(GetDummyDataIntegrationCourse());
 
             CourseManager manager = new CourseManager(courseServiceMock.Object);
 
@@ -31,7 +32,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.Tests.Managers
 
             // Assert
             courseServiceMock.Verify(service => service.FindCourse("POLDEVEL"));
-            TestCourseWithDummyData(DummyData.GetIntegrationCourse(), result);
+            TestCourseWithDummyData(GetDummyDataIntegrationCourse(), result);
         }
 
         [TestMethod]
@@ -39,7 +40,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.Tests.Managers
         {
             // Arrange
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
-            courseServiceMock.Setup(service => service.FindAllCourses()).Returns(DummyData.GetIntegrationCourses());
+            courseServiceMock.Setup(service => service.FindAllCourses()).Returns(GetDummyDataIntegrationCourses());
 
             CourseManager manager = new CourseManager(courseServiceMock.Object);
 
@@ -48,7 +49,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.Tests.Managers
 
             // Assert
             courseServiceMock.Verify(service => service.FindAllCourses());
-            TestCoursesWithDummyData(DummyData.GetIntegrationCourses(), result.Coursesummary);
+            TestCoursesWithDummyData(GetDummyDataIntegrationCourses(), result.Coursesummary);
         }
 
         private void TestCoursesWithDummyData(Coursesummarycollection expected, IEnumerable<Coursesummary> actual)

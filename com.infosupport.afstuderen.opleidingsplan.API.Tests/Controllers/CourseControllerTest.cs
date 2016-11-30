@@ -8,11 +8,12 @@ using com.infosupport.afstuderen.opleidingsplan.api;
 using com.infosupport.afstuderen.opleidingsplan.integration;
 using com.infosupport.afstuderen.opleidingsplan.model;
 using System.Collections.Generic;
+using com.infosupport.afstuderen.opleidingsplan.API.tests.helpers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.API.Tests.Controllers
+namespace com.infosupport.afstuderen.opleidingsplan.API.tests.controllers
 {
     [TestClass]
-    public class CourseControllerTest
+    public class CourseControllerTest : CourseTestHelper
     {
         [ClassInitialize]
         public static void InitializeClass(TestContext testContext)
@@ -25,7 +26,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.Tests.Controllers
         {
             // Arrange
             var courseManagerMock = new Mock<ICourseManager>(MockBehavior.Strict);
-            courseManagerMock.Setup(manager => manager.FindCourse("POLDEVEL")).Returns(DummyData.GetIntegrationCourse());
+            courseManagerMock.Setup(manager => manager.FindCourse("POLDEVEL")).Returns(GetDummyDataIntegrationCourse());
 
             CourseController controller = new CourseController(courseManagerMock.Object);
 
@@ -34,7 +35,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.Tests.Controllers
 
             // Assert
             courseManagerMock.Verify(manager => manager.FindCourse("POLDEVEL"));
-            TestCourseWithDummyData(DummyData.GetIntegrationCourse(), result);
+            TestCourseWithDummyData(GetDummyDataIntegrationCourse(), result);
         }
 
 
@@ -43,7 +44,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.Tests.Controllers
         {
             // Arrange
             var courseManagerMock = new Mock<ICourseManager>(MockBehavior.Strict);
-            courseManagerMock.Setup(manager => manager.FindCourses()).Returns(DummyData.GetIntegrationCourses());
+            courseManagerMock.Setup(manager => manager.FindCourses()).Returns(GetDummyDataIntegrationCourses());
 
             CourseController controller = new CourseController(courseManagerMock.Object);
 
@@ -52,7 +53,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.Tests.Controllers
 
             // Assert
             courseManagerMock.Verify(manager => manager.FindCourses());
-            TestCoursesWithDummyData(DummyData.GetIntegrationCourses(), result);
+            TestCoursesWithDummyData(GetDummyDataIntegrationCourses(), result);
         }
 
         private void TestCoursesWithDummyData(Coursesummarycollection expected, IEnumerable<CourseSummary> actual)

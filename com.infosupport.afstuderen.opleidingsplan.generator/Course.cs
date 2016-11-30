@@ -12,7 +12,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public int? Duration { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public generator.CourseImplementation PlannedCourseImplementation { get; set; }
         public IEnumerable<generator.CourseImplementation> CourseImplementations { get; set; }
         public IEnumerable<string> IntersectedCourseIds { get; private set; }
 

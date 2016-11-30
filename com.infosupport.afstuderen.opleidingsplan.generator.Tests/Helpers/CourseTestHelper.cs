@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
+namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
 {
     public abstract class CourseTestHelper
     {
@@ -89,28 +89,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
                         StartDay =  days.First(),
                         Status = status,
                     },
-                },
-            };
-        }
-
-        protected generator.Course CreateNewGeneratorCourseWithOneCourseImplementationAndPlanned(string courseId, int priority, DateTime[] days, DateTime[] planned)
-        {
-            return new generator.Course
-            {
-                Code = courseId,
-                Priority = priority,
-                CourseImplementations = new List<generator.CourseImplementation>()
-                {
-                    new generator.CourseImplementation
-                    {
-                        Days = days.ToList(),
-                        StartDay =  days.First(),
-                    },
-                },
-                PlannedCourseImplementation = new generator.CourseImplementation
-                {
-                    Days = planned.ToList(),
-                    StartDay = planned.First(),
                 },
             };
         }

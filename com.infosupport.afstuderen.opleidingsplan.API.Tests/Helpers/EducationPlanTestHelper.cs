@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.API.Tests
+namespace com.infosupport.afstuderen.opleidingsplan.API.tests.helpers
 {
     public abstract class EducationPlanTestHelper
     {

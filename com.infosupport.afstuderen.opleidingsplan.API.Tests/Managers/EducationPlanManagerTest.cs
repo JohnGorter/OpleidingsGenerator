@@ -7,8 +7,9 @@ using Moq;
 using com.infosupport.afstuderen.opleidingsplan.api.Models;
 using System.Collections.Generic;
 using com.infosupport.afstuderen.opleidingsplan.generator;
+using com.infosupport.afstuderen.opleidingsplan.API.tests.helpers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.API.Tests.Managers
+namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
 {
     [TestClass]
     public class EducationPlanManagerTest : EducationPlanTestHelper

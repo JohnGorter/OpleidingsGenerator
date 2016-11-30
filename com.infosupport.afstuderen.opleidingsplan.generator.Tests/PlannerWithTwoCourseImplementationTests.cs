@@ -2,8 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
+using com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
+namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
 {
     [TestClass]
     public class PlannerWithTwoCourseImplementationTests : CourseTestHelper

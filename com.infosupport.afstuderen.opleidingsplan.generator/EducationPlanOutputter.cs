@@ -19,8 +19,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public EducationPlan GenerateEducationPlan(EducationPlanData educationPlanData)
         {
-            List<EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(_planner.GetPlannedCourses().ToList());
-            List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.GetNotPlannedCourses().ToList(), educationPlannedCourses);
+            List<EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(_planner.GetPlannedCourses().ToList()).OrderBy(course => course.Date).ToList();
+            List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.GetNotPlannedCourses().ToList(), educationPlannedCourses).OrderBy(course => course.Date).ToList();
 
             return new EducationPlan
             {

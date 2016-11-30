@@ -6,8 +6,8 @@
     <ProjectGuid>{83FD393F-7B10-41C0-B400-6698647B1EB6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.generator.Tests</RootNamespace>
-    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.generator.Tests</AssemblyName>
+    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.generator.tests</RootNamespace>
+    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.generator.tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -58,7 +58,7 @@
     <Compile Include="PlannerWithOneCourseImplementationTests.cs" />
     <Compile Include="PlannerWithTwoCourseImplementationTests.cs" />
     <Compile Include="PlannerWithMixCourseImplementationTests.cs" />
-    <Compile Include="CourseTestHelper.cs" />
+    <Compile Include="Helpers\CourseTestHelper.cs" />
     <Compile Include="CourseTest.cs" />
     <Compile Include="EducationPlanOutputterTest.cs" />
   </ItemGroup>

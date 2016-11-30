@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.API.Tests
+namespace com.infosupport.afstuderen.opleidingsplan.API.tests.helpers
 {
-    public static class DummyData
+    public class CourseTestHelper
     {
-
-        internal static integration.Course GetIntegrationCourse()
+        internal static integration.Course GetDummyDataIntegrationCourse()
         {
             return new integration.Course
             {
@@ -17,13 +13,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.Tests
                 Name = "Developing Polymer Elements",
                 Description = "HTML5 is aan het ontwikkelen. Een standaard set aan technieken en technologieen maken web componenten mogelijk, echter is het schrijven ervan nog behoorlijk wat werk. Polymer abstraheert dit werk en voegt functionaliteit toe zoals data-binding in een kleine intuitieve bibliotheek. In deze training leert u het maken van componenten die in combinatie gebruikt kunnen worden voor het bouwen van progressieve web applicaties.",
                 Duration = "3 Dagen",
-                CourseImplementations = GetIntegrationCourseImplementations(),
+                CourseImplementations = GetDummyDataIntegrationCourseImplementations(),
                 Price = 1725.00M,
                 SupplierName = "Info Support",
             };
         }
 
-        internal static model.Course GetModelCourse()
+        internal static model.Course GetDummyDataModelCourse()
         {
             return new model.Course
             {
@@ -31,13 +27,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.Tests
                 Name = "Developing Polymer Elements",
                 Description = "HTML5 is aan het ontwikkelen. Een standaard set aan technieken en technologieen maken web componenten mogelijk, echter is het schrijven ervan nog behoorlijk wat werk. Polymer abstraheert dit werk en voegt functionaliteit toe zoals data-binding in een kleine intuitieve bibliotheek. In deze training leert u het maken van componenten die in combinatie gebruikt kunnen worden voor het bouwen van progressieve web applicaties.",
                 Duration = "3 Dagen",
-                CourseImplementations = GetModelCourseImplementations(),
+                CourseImplementations = GetDummyDataModelCourseImplementations(),
                 Price = 1725.00M,
                 SupplierName = "Info Support",
             };
         }
 
-        internal static integration.Coursesummarycollection GetIntegrationCourses()
+        internal static integration.Coursesummarycollection GetDummyDataIntegrationCourses()
         {
             return new integration.Coursesummarycollection
             {
@@ -65,7 +61,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.Tests
             };
         }
 
-        private static integration.CourseImplementation[] GetIntegrationCourseImplementations()
+        private static integration.CourseImplementation[] GetDummyDataIntegrationCourseImplementations()
         {
             return new integration.CourseImplementation[]
             {
@@ -93,7 +89,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.Tests
             };
         }
 
-        private static IEnumerable<model.CourseImplementation> GetModelCourseImplementations()
+        private static IEnumerable<model.CourseImplementation> GetDummyDataModelCourseImplementations()
         {
             return new List<model.CourseImplementation>()
             {

@@ -5,8 +5,9 @@ using com.infosupport.afstuderen.opleidingsplan.api.Controllers;
 using com.infosupport.afstuderen.opleidingsplan.api.Managers;
 using Moq;
 using com.infosupport.afstuderen.opleidingsplan.api.Models;
+using com.infosupport.afstuderen.opleidingsplan.API.tests.helpers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.API.Tests.Controllers
+namespace com.infosupport.afstuderen.opleidingsplan.API.tests.controllers
 {
     [TestClass]
     public class EducationPlanControllerTest : EducationPlanTestHelper

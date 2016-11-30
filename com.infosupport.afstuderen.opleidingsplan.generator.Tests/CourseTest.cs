@@ -2,8 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using System.Collections.Generic;
+using com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
+namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
 {
     [TestClass]
     public class CourseTest : CourseTestHelper
@@ -530,18 +531,15 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
         public void AddIntersectedCourses_AddTwoIntersectedCourses()
         {
             // Arrange
-            generator.Course course = CreateNewGeneratorCourseWithOneCourseImplementationAndPlanned("ENDEVN", 1,
-                new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) },
-                new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) });
+            generator.Course course = CreateNewGeneratorCourseWithOneCourseImplementationAndStatus("ENDEVN", 1,
+                new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }, Status.PLANNED);
 
             IEnumerable<generator.Course> intersectedCourses = new List<generator.Course>()
             {
-                CreateNewGeneratorCourseWithOneCourseImplementationAndPlanned("SCRUMES", 1,
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
-                CreateNewGeneratorCourseWithOneCourseImplementationAndPlanned("ENEST", 1,
-                new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) },
-                new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }),
+                CreateNewGeneratorCourseWithOneCourseImplementationAndStatus("SCRUMES", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }, Status.PLANNED),
+                CreateNewGeneratorCourseWithOneCourseImplementationAndStatus("ENEST", 1,
+                new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }, Status.PLANNED),
             };
 
             // Act
