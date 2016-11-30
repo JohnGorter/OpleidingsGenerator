@@ -1,5 +1,6 @@
 ﻿using com.infosupport.afstuderen.opleidingsplan.api.Managers;
 using com.infosupport.afstuderen.opleidingsplan.api.Models;
+using com.infosupport.afstuderen.opleidingsplan.DAL;
 using com.infosupport.afstuderen.opleidingsplan.model;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Controllers
 
         public ProfileController()
         {
-            string pathToProfiles = HttpContext.Current.Server.MapPath("~/App_Data/Profiles.json");
+            string profilepath = DAL.Configuration.GetConfiguration().ProfilePath;
+            string pathToProfiles = HttpContext.Current.Server.MapPath(profilepath);
+
             _administrationManager = new AdministrationManager(pathToProfiles);
         }
 

@@ -9,12 +9,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.DAL.tests
     [TestClass]
     public class ProfileDataMapperTest
     {
+        private string _profilePath;
+        public ProfileDataMapperTest()
+        {
+            _profilePath = Configuration.GetConfiguration().ProfilePath;
+        }
 
         [TestMethod]
         public void FindAll()
         {
             // Arrange
-            IDataMapper<Profile> dataMapper = new ProfileDataMapper("../../Data/Profiles.json");
+            IDataMapper<Profile> dataMapper = new ProfileDataMapper(_profilePath);
 
             // Act
             var result = dataMapper.FindAll();
@@ -27,7 +32,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.DAL.tests
         public void Find()
         {
             // Arrange
-            IDataMapper<Profile> dataMapper = new ProfileDataMapper("../../Data/Profiles.json");
+            IDataMapper<Profile> dataMapper = new ProfileDataMapper(_profilePath);
 
             // Act
             var result = dataMapper.Find(profile => profile.Name == "NET_Developer").First();
