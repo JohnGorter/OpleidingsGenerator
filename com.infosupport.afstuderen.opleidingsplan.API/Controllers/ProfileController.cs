@@ -8,9 +8,11 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class ProfileController : ApiController
     {
         private IAdministrationManager _administrationManager;
