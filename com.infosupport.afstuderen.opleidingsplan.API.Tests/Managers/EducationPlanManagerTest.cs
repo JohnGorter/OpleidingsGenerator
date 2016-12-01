@@ -10,6 +10,7 @@ using com.infosupport.afstuderen.opleidingsplan.generator;
 using com.infosupport.afstuderen.opleidingsplan.API.tests.helpers;
 using com.infosupport.afstuderen.opleidingsplan.DAL.mapper;
 using com.infosupport.afstuderen.opleidingsplan.model;
+using System.Linq;
 
 namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
 {
@@ -44,7 +45,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
             });
 
             var profileDataMapperMock = new Mock<IDataMapper<Profile>>(MockBehavior.Strict);
-            profileDataMapperMock.Setup(dataMapper => dataMapper.Find(It.IsAny<Func<Profile, bool>>())).Returns(GetDummyDataProfiles());
+            profileDataMapperMock.Setup(dataMapper => dataMapper.FindById(1)).Returns(GetDummyDataProfiles().First());
 
             EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object);
             RestEducationPlan educationPlan = GetDummyRestEducationPlan(courses);
@@ -57,7 +58,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
             educationPlanOutputterMock.Verify(outputter => outputter.GenerateEducationPlan(It.IsAny<EducationPlanData>()));
             plannerMock.Verify(outputter => outputter.PlanCourses(It.IsAny<IEnumerable<model.Course>>()));
             courseServiceMock.Verify(outputter => outputter.FindCourses(courses));
-            profileDataMapperMock.Verify(dataMapper => dataMapper.Find(It.IsAny<Func<Profile, bool>>()));
+            profileDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
         }
 
     }

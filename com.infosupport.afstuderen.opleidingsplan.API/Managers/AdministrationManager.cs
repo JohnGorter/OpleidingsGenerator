@@ -14,7 +14,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
 
         public AdministrationManager(string pathToProfiles)
         {
-            _profileDataMapper = new ProfileDataMapper(pathToProfiles);
+            _profileDataMapper = new ProfileJSONDataMapper(pathToProfiles);
         }
 
         public AdministrationManager(IDataMapper<Profile> profileDataMapper)
@@ -25,6 +25,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
         public Profile FindProfile(string profileName)
         {
             return _profileDataMapper.Find(profile => profile.Name == profileName).First();
+        }
+
+        public Profile FindProfileById(int id)
+        {
+            return _profileDataMapper.FindById(id);
         }
 
         public IEnumerable<Profile> FindProfiles()

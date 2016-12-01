@@ -13,6 +13,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Models
         public string NameEmployee { get; set; }
         public string NameTeacher { get; set; }
         public string KnowledgeOf { get; set; }
-        public string Profile { get; set; }
+        public int ProfileId { get; set; }
     }
 }

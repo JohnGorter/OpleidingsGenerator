@@ -5,6 +5,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.DAL.mapper
 {
     public interface IDataMapper<T>
     {
+        T FindById(long id);
         void Insert(T data);
         IEnumerable<T> FindAll();
         IEnumerable<T> Find(Func<T, bool> predicate);

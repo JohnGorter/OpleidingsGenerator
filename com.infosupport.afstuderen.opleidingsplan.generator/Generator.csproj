@@ -51,6 +51,8 @@
     <Compile Include="IEducationPlanOutputter.cs" />
     <Compile Include="IPlanner.cs" />
     <Compile Include="Planner.cs" />
+    <Compile Include="PlannerParts\IPlannerPart.cs" />
+    <Compile Include="PlannerParts\OderByPlanner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Status.cs" />
   </ItemGroup>

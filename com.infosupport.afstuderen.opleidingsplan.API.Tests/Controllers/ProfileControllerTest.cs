@@ -37,16 +37,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.controllers
         {
             // Arrange
             var administrationManagerMock = new Mock<IAdministrationManager>(MockBehavior.Strict);
-            administrationManagerMock.Setup(manager => manager.FindProfile("NET_Developer")).Returns(GetDummyDataProfiles().First());
+            administrationManagerMock.Setup(manager => manager.FindProfileById(1)).Returns(GetDummyDataProfiles().First());
 
             ProfileController controller = new ProfileController(administrationManagerMock.Object);
 
             // Act
-            var result = controller.Get("NET_Developer");
+            var result = controller.Get(1);
 
             // Assert
-            administrationManagerMock.Verify(manager => manager.FindProfile("NET_Developer"));
+            administrationManagerMock.Verify(manager => manager.FindProfileById(1));
             Assert.AreEqual(31, result.Courses.Count());
+            Assert.AreEqual("NET_Developer", result.Name);
         }
     }
 }

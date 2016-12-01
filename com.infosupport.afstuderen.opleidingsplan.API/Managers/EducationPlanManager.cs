@@ -23,7 +23,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
             _courseService = new CourseService();
             _planner = new Planner();
             _educationPlanOutputter = new EducationPlanOutputter(_planner);
-            _profileDataMapper = new ProfileDataMapper(profilePath);
+            _profileDataMapper = new ProfileJSONDataMapper(profilePath);
         }
 
         public EducationPlanManager(ICourseService courseService, IPlanner planner, IEducationPlanOutputter educationPlanOutputter, IDataMapper<model.Profile> profileDataMapper)
@@ -56,7 +56,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
         public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan)
         {
 
-            model.Profile profile = _profileDataMapper.Find(dataMapper => dataMapper.Name == educationPlan.Profile).First();
+            model.Profile profile = _profileDataMapper.FindById(educationPlan.ProfileId);
 
             IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlan.Courses);
             List<model.Course> coursesToPlan = ConvertCourses(courses, profile);

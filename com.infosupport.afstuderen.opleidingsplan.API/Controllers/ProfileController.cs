@@ -38,9 +38,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Controllers
         }
 
         // GET: api/Administration/5
-        public Profile Get(string profileName)
+        public Profile Get(int id)
         {
-            return _administrationManager.FindProfile(profileName);
+            return _administrationManager.FindProfileById(id);
         }
 
         // POST: api/Administration

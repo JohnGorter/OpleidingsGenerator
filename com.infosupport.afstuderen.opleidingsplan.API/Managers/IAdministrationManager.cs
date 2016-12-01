@@ -12,5 +12,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
     {
         IEnumerable<Profile> FindProfiles();
         Profile FindProfile(string profileName);
+        Profile FindProfileById(int id);
     }
 }

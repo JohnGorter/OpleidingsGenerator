@@ -16,7 +16,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.helpers
             {
                 InPaymentFrom = new DateTime(2016, 12, 5),
                 EmployableFrom = new DateTime(2017, 2, 6),
-                Profile = "NET_Developer",
+                ProfileId = 1,
                 NameEmployee = "Pim Verheij",
                 NameTeacher = "Felix Sedney",
                 KnowledgeOf = "MVC, DPAT, OOUML, SCRUMES",

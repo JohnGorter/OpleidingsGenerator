@@ -8,8 +8,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.model
 {
     public class Profile
     {
+        public int Id { get; set; }
         public string Name { get; set; }
-        public List<CoursePriority> Courses { get; set; }
+        public List<CoursePriority> Courses { get; set; } = new List<CoursePriority>();
     }
     public class CoursePriority
     {
