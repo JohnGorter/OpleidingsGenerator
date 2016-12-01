@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -19,7 +20,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Controllers
 
         public EducationPlanController()
         {
-            _educationPlanManager = new EducationPlanManager();
+            string profilepath = DAL.Configuration.GetConfiguration().ProfilePath;
+            string pathToProfiles = HttpContext.Current.Server.MapPath(profilepath);
+
+            _educationPlanManager = new EducationPlanManager(pathToProfiles);
         }
 
         public EducationPlanController(IEducationPlanManager educationPlanManager)

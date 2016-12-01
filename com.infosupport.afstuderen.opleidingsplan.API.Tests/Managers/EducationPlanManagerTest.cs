@@ -8,6 +8,8 @@ using com.infosupport.afstuderen.opleidingsplan.api.Models;
 using System.Collections.Generic;
 using com.infosupport.afstuderen.opleidingsplan.generator;
 using com.infosupport.afstuderen.opleidingsplan.API.tests.helpers;
+using com.infosupport.afstuderen.opleidingsplan.DAL.mapper;
+using com.infosupport.afstuderen.opleidingsplan.model;
 
 namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
 {
@@ -22,7 +24,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
 
 
         [TestMethod]
-        public void GenerateEducationPlan_Planner_Outputter_Service_Called()
+        public void GenerateEducationPlan_Planner_Outputter_Service_DAL_Called()
         {
             // Arrange
             string[] courses = new string[] { "2NETARCH", "ADCSB" };
@@ -41,7 +43,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
                     new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) })
             });
 
-            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object);
+            var profileDataMapperMock = new Mock<IDataMapper<Profile>>(MockBehavior.Strict);
+            profileDataMapperMock.Setup(dataMapper => dataMapper.Find(It.IsAny<Func<Profile, bool>>())).Returns(GetDummyDataProfiles());
+
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object);
             RestEducationPlan educationPlan = GetDummyRestEducationPlan(courses);
 
 
@@ -52,6 +57,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
             educationPlanOutputterMock.Verify(outputter => outputter.GenerateEducationPlan(It.IsAny<EducationPlanData>()));
             plannerMock.Verify(outputter => outputter.PlanCourses(It.IsAny<IEnumerable<model.Course>>()));
             courseServiceMock.Verify(outputter => outputter.FindCourses(courses));
+            profileDataMapperMock.Verify(dataMapper => dataMapper.Find(It.IsAny<Func<Profile, bool>>()));
         }
 
     }

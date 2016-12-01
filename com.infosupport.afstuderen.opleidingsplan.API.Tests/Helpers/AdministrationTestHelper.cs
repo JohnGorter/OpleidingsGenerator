@@ -9,7 +9,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.helpers
 {
     public class AdministrationTestHelper
     {
-        internal List<Profile> GetDummyDataProfiles()
+        protected List<Profile> GetDummyDataProfiles()
         {
             var profiles = JsonConvert.DeserializeObject<List<Profile>>(File.ReadAllText("../../Helpers/Profiles.json"));
             return profiles;

@@ -14,6 +14,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.model
     public class CoursePriority
     {
         public string Code { get; set; }
-        public string Priority { get; set; }
+        public int Priority { get; set; }
     }
 }
