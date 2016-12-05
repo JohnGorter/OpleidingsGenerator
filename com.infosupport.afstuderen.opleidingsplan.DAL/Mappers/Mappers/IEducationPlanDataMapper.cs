@@ -11,6 +11,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.DAL.Mappers.Mappers
         void Insert(EducationPlan educationPlan);
         void Update(EducationPlan educationPlan);
         EducationPlan FindById(long id);
-        IEnumerable<EducationPlan> FindAllUpdated();
+        IEnumerable<EducationPlanCompare> FindAllUpdated();
     }
 }

@@ -79,9 +79,24 @@ namespace com.infosupport.afstuderen.opleidingsplan.DAL.Mappers
             WriteEducationPlansToFile(educationPlans);
         }
 
-        public IEnumerable<EducationPlan> FindAllUpdated()
+        public IEnumerable<EducationPlanCompare> FindAllUpdated()
         {
-            throw new NotImplementedException();
+            List<EducationPlanCompare> educationPlansCompareList = new List<EducationPlanCompare>();
+            var educationPlans = GetAllEducationPlans();
+
+            foreach (var file in Directory.GetFiles(_updatedDirPath))
+            {
+                string educationPlanJSON = File.ReadAllText(file);
+                var oldEducationPlan = JsonConvert.DeserializeObject<EducationPlan>(educationPlanJSON);
+                var newEducationPlan = educationPlans.FirstOrDefault(ep => ep.Id == oldEducationPlan.Id);
+                educationPlansCompareList.Add(new EducationPlanCompare
+                {
+                    EducationPlanNew = newEducationPlan,
+                    EducationPlanOld = oldEducationPlan,
+                });
+            }
+
+            return educationPlansCompareList;
         }
 
         private void SaveNewUpdatedEducationPlan(EducationPlan educationPlan)
