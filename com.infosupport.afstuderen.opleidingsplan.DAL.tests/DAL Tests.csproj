@@ -46,13 +46,17 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Helpers\EducationPlanDataMapperTestHelper.cs" />
     <Compile Include="ProfileJSONDataMapperTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EducationPlanJSONDataMapperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.DAL\DAL.csproj">
@@ -70,6 +74,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <Content Include="Data\ProfilesOriginal.json" />
+    <None Include="Data\EducationPlansOriginal.json" />
+    <None Include="Data\EducationPlans.json" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

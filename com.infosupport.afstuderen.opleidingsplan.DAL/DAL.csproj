@@ -46,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
+    <Compile Include="Mappers\EducationPlanJSONDataMapper.cs" />
     <Compile Include="Mappers\IDataMapper.cs" />
+    <Compile Include="Mappers\Mappers\IEducationPlanDataMapper.cs" />
     <Compile Include="Mappers\ProfileJSONDataMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

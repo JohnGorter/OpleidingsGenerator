@@ -30,5 +30,23 @@ namespace com.infosupport.afstuderen.opleidingsplan.DAL
                 return this["profile-path"] as string;
             }
         }
+
+        [ConfigurationProperty("educationplan-path", IsRequired = false)]
+        public string EducationPlanPath
+        {
+            get
+            {
+                return this["educationplan-path"] as string;
+            }
+        }
+
+        [ConfigurationProperty("educationplan-updated-path", IsRequired = false)]
+        public string EducationPlanUpdatedPath
+        {
+            get
+            {
+                return this["educationplan-updated-path"] as string;
+            }
+        }
     }
 }

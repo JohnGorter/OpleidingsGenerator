@@ -8,7 +8,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.model
 {
     public class EducationPlan
     {
-        public long ID { get; set; }
+        public int Id { get; set; }
         public DateTime Created { get; set; }
         public DateTime InPaymentFrom { get; set; }
         public DateTime EmployableFrom { get; set; }
