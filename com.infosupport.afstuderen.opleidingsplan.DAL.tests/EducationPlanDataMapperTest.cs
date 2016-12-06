@@ -9,12 +9,12 @@ using System.Linq;
 namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
 {
     [TestClass]
-    public class EducationPlanJSONDataMapperTest : EducationPlanDataMapperTestHelper
+    public class EducationPlanDataMapperTest : EducationPlanDataMapperTestHelper
     {
         private string _educationPlanPath;
         private string _updatedDirPath;
 
-        public EducationPlanJSONDataMapperTest()
+        public EducationPlanDataMapperTest()
         {
             _educationPlanPath = DALConfiguration.GetConfiguration().EducationPlanPath;
             _updatedDirPath = DALConfiguration.GetConfiguration().EducationPlanUpdatedPath;

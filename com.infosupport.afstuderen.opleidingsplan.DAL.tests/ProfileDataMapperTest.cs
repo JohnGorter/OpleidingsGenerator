@@ -8,10 +8,10 @@ using System.IO;
 namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
 {
     [TestClass]
-    public class ProfileJSONDataMapperTest
+    public class ProfileDataMapperTest
     {
         private string _profilePath;
-        public ProfileJSONDataMapperTest()
+        public ProfileDataMapperTest()
         {
             _profilePath = DALConfiguration.GetConfiguration().ProfilePath;
         }
