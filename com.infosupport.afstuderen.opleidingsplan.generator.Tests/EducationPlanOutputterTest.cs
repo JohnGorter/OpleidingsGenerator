@@ -35,7 +35,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             var result = outputter.GenerateEducationPlan(data);
 
             // Assert
-            Assert.AreEqual(4, result.PlannedCourses.Count);
+            Assert.AreEqual(4, result.PlannedCourses.Count());
             Assert.AreEqual("SCRUMES", result.PlannedCourses.ElementAt(0).Code);
             Assert.AreEqual("ENDEVN", result.PlannedCourses.ElementAt(1).Code);
             Assert.AreEqual("SECDEV", result.PlannedCourses.ElementAt(2).Code);

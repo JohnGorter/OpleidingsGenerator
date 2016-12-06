@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
+using System.Linq;
 
 namespace com.infosupport.afstuderen.opleidingsplan.integration.tests
 {
@@ -18,7 +19,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration.tests
             var result = agent.FindAllCourses();
 
             // Assert
-            Assert.AreEqual(422, result.Coursesummary.Count);
+            Assert.AreEqual(422, result.Coursesummary.Count());
         }
 
         [Ignore]

@@ -58,11 +58,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
 
         private void TestCoursesWithDummyData(Coursesummarycollection expected, IEnumerable<CourseSummary> actual)
         {
-            for (int i = 0; i < expected.Coursesummary.Count; i++)
+            for (int i = 0; i < expected.Coursesummary.Count(); i++)
             {
-                Assert.AreEqual(expected.Coursesummary[i].Code, actual.ToArray()[i].Code);
-                Assert.AreEqual(expected.Coursesummary[i].Name, actual.ToArray()[i].Name);
-                Assert.AreEqual(expected.Coursesummary[i].Suppliername, actual.ToArray()[i].Suppliername);
+                Assert.AreEqual(expected.Coursesummary.ElementAt(i).Code, actual.ToArray()[i].Code);
+                Assert.AreEqual(expected.Coursesummary.ElementAt(i).Name, actual.ToArray()[i].Name);
+                Assert.AreEqual(expected.Coursesummary.ElementAt(i).Suppliername, actual.ToArray()[i].Suppliername);
             }
         }
 

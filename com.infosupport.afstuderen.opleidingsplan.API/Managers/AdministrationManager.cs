@@ -14,7 +14,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 
         public AdministrationManager(string pathToProfiles)
         {
-            _profileDataMapper = new ProfileJSONDataMapper(pathToProfiles);
+            _profileDataMapper = new ProfileJsonDataMapper(pathToProfiles);
         }
 
         public AdministrationManager(IDataMapper<CourseProfile> profileDataMapper)

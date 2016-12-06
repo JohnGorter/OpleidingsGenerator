@@ -15,7 +15,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.models
         public int Days { get; set; }
         public string Commentary { get; set; }
         public decimal Price { get; set; }
-        public List<EducationPlanCourse> IntersectedCourses { get; set; }
+        public IEnumerable<EducationPlanCourse> IntersectedCourses { get; set; }
 
         public int Week
         {

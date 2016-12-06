@@ -38,7 +38,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Find_OneEducationPlanFound()
         {
             // Arrange
-            IEducationPlanDataMapper dataMapper = new EducationPlanJSONDataMapper(_educationPlanPath, _updatedDirPath);
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
 
             // Act
             var result = dataMapper.Find(educationPlan => educationPlan.NameEmployee == "Alex Verbeek");
@@ -51,7 +51,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Find_NoPlanFound()
         {
             // Arrange
-            IEducationPlanDataMapper dataMapper = new EducationPlanJSONDataMapper(_educationPlanPath, _updatedDirPath);
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
 
             // Act
             var result = dataMapper.Find(educationPlan => educationPlan.NameEmployee == "Bram Aarts");
@@ -64,7 +64,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Insert_EducationPlanInserted()
         {
             // Arrange
-            IEducationPlanDataMapper dataMapper = new EducationPlanJSONDataMapper(_educationPlanPath, _updatedDirPath);
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
             EducationPlan educationPlan = GetDummyEducationPlan();
 
             // Act
@@ -80,7 +80,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Delete_EducationPlanDeleted()
         {
             // Arrange
-            IEducationPlanDataMapper dataMapper = new EducationPlanJSONDataMapper(_educationPlanPath, _updatedDirPath);
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
             EducationPlan educationPlan = new EducationPlan
             {
                 Id = 1,
@@ -99,7 +99,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Delete_WithNotExistingEducationPlan_ExceptionThrowed()
         {
             // Arrange
-            IEducationPlanDataMapper dataMapper = new EducationPlanJSONDataMapper(_educationPlanPath, _updatedDirPath);
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
             EducationPlan educationPlan = new EducationPlan
             {
                 Id = 100,
@@ -115,7 +115,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Update_EducationPlanUpdated()
         {
             // Arrange
-            IEducationPlanDataMapper dataMapper = new EducationPlanJSONDataMapper(_educationPlanPath, _updatedDirPath);
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
             EducationPlan educationPlan = GetDummyEducationPlan();
             educationPlan.Id = 1;
 
@@ -136,7 +136,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Update_WithNotExistingEducationPlan_ExceptionThrowed()
         {
             // Arrange
-            IEducationPlanDataMapper dataMapper = new EducationPlanJSONDataMapper(_educationPlanPath, _updatedDirPath);
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
             EducationPlan educationPlan = GetDummyEducationPlan();
             educationPlan.Id = 100;
 
@@ -150,7 +150,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Update_CheckNewUpdateFileWithOldData()
         {
             // Arrange
-            IEducationPlanDataMapper dataMapper = new EducationPlanJSONDataMapper(_educationPlanPath, _updatedDirPath);
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
             EducationPlan educationPlan = GetDummyEducationPlan();
             educationPlan.Id = 1;
 
@@ -167,7 +167,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Update_CheckNewUpdatedDirIsCreated()
         {
             // Arrange
-            IEducationPlanDataMapper dataMapper = new EducationPlanJSONDataMapper(_educationPlanPath, _updatedDirPath);
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
             EducationPlan educationPlan = GetDummyEducationPlan();
             educationPlan.Id = 1;
             if (Directory.Exists(_updatedDirPath))
@@ -185,7 +185,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void FindById_EducationPlanFound()
         {
             // Arrange
-            IEducationPlanDataMapper dataMapper = new EducationPlanJSONDataMapper(_educationPlanPath, _updatedDirPath);
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
 
             // Act
             var result = dataMapper.FindById(1);
@@ -199,7 +199,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void FindByIdWitNotExistingId_ExceptionThrowed()
         {
             // Arrange
-            IEducationPlanDataMapper dataMapper = new EducationPlanJSONDataMapper(_educationPlanPath, _updatedDirPath);
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
 
             // Act
             var result = dataMapper.FindById(100);

@@ -10,7 +10,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<CoursePriority> Courses { get; set; } = new List<CoursePriority>();
+        public IEnumerable<CoursePriority> Courses { get; set; } = new List<CoursePriority>();
     }
     public class CoursePriority
     {

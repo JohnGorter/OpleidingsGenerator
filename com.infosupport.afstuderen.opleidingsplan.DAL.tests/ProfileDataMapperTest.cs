@@ -27,7 +27,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void FindAll_ThreeProfilesFound()
         {
             // Arrange
-            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            IDataMapper<CourseProfile> dataMapper = new ProfileJsonDataMapper(_profilePath);
 
             // Act
             var result = dataMapper.FindAll();
@@ -40,7 +40,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Find_ProfileFound()
         {
             // Arrange
-            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            IDataMapper<CourseProfile> dataMapper = new ProfileJsonDataMapper(_profilePath);
 
             // Act
             var result = dataMapper.Find(profile => profile.Name == "NET_Developer").First();
@@ -53,7 +53,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void FindById_ProfileFound()
         {
             // Arrange
-            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            IDataMapper<CourseProfile> dataMapper = new ProfileJsonDataMapper(_profilePath);
 
             // Act
             var result = dataMapper.FindById(1);
@@ -68,7 +68,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void FindById_WitNotExistingId_ExceptionThrowed()
         {
             // Arrange
-            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            IDataMapper<CourseProfile> dataMapper = new ProfileJsonDataMapper(_profilePath);
 
             // Act
             var result = dataMapper.FindById(100);
@@ -80,7 +80,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Insert_NewProfileAdded()
         {
             // Arrange
-            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            IDataMapper<CourseProfile> dataMapper = new ProfileJsonDataMapper(_profilePath);
             CourseProfile profile = new CourseProfile
             {
                 Name = "FrondEnd_Developer"
@@ -93,13 +93,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
             var result = dataMapper.FindAll();
             Assert.AreEqual(4, result.Count());
             Assert.AreEqual("NET_Developer", result.ElementAt(0).Name);
-            Assert.AreEqual(31, result.ElementAt(0).Courses.Count);
+            Assert.AreEqual(31, result.ElementAt(0).Courses.Count());
             Assert.AreEqual("Developer_Mobile", result.ElementAt(1).Name);
-            Assert.AreEqual(30, result.ElementAt(1).Courses.Count);
+            Assert.AreEqual(30, result.ElementAt(1).Courses.Count());
             Assert.AreEqual("JAVA_Developer", result.ElementAt(2).Name);
-            Assert.AreEqual(27, result.ElementAt(2).Courses.Count);
+            Assert.AreEqual(27, result.ElementAt(2).Courses.Count());
             Assert.AreEqual("FrondEnd_Developer", result.ElementAt(3).Name);
-            Assert.AreEqual(0, result.ElementAt(3).Courses.Count);
+            Assert.AreEqual(0, result.ElementAt(3).Courses.Count());
             Assert.AreEqual(4, result.ElementAt(3).Id);
         }
 
@@ -108,7 +108,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Insert_ExistingProfile_ExceptionThrowed()
         {
             // Arrange
-            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            IDataMapper<CourseProfile> dataMapper = new ProfileJsonDataMapper(_profilePath);
             CourseProfile profile = new CourseProfile
             {
                 Name = "NET_Developer"
@@ -124,7 +124,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Update_ProfileUpdated()
         {
             // Arrange
-            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            IDataMapper<CourseProfile> dataMapper = new ProfileJsonDataMapper(_profilePath);
             CourseProfile profile = new CourseProfile
             {
                 Id = 1,
@@ -138,11 +138,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
             var result = dataMapper.FindAll();
             Assert.AreEqual(3, result.Count());
             Assert.AreEqual("DOT_NET_Developer", result.ElementAt(0).Name);
-            Assert.AreEqual(31, result.ElementAt(0).Courses.Count);
+            Assert.AreEqual(31, result.ElementAt(0).Courses.Count());
             Assert.AreEqual("Developer_Mobile", result.ElementAt(1).Name);
-            Assert.AreEqual(30, result.ElementAt(1).Courses.Count);
+            Assert.AreEqual(30, result.ElementAt(1).Courses.Count());
             Assert.AreEqual("JAVA_Developer", result.ElementAt(2).Name);
-            Assert.AreEqual(27, result.ElementAt(2).Courses.Count);
+            Assert.AreEqual(27, result.ElementAt(2).Courses.Count());
         }
 
         [TestMethod]
@@ -150,7 +150,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Update_WithNotExistingProfile_ExceptionThrowed()
         {
             // Arrange
-            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            IDataMapper<CourseProfile> dataMapper = new ProfileJsonDataMapper(_profilePath);
             CourseProfile profile = new CourseProfile
             {
                 Id = 100,
@@ -168,7 +168,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Delete_ProfileDeleted()
         {
             // Arrange
-            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            IDataMapper<CourseProfile> dataMapper = new ProfileJsonDataMapper(_profilePath);
             CourseProfile profile = new CourseProfile
             {
                 Id = 1,
@@ -182,9 +182,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
             var result = dataMapper.FindAll();
             Assert.AreEqual(2, result.Count());
             Assert.AreEqual("Developer_Mobile", result.ElementAt(0).Name);
-            Assert.AreEqual(30, result.ElementAt(0).Courses.Count);
+            Assert.AreEqual(30, result.ElementAt(0).Courses.Count());
             Assert.AreEqual("JAVA_Developer", result.ElementAt(1).Name);
-            Assert.AreEqual(27, result.ElementAt(1).Courses.Count);
+            Assert.AreEqual(27, result.ElementAt(1).Courses.Count());
         }
 
         [TestMethod]
@@ -192,7 +192,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Delete_WithNotExistingProfile_ExceptionThrowed()
         {
             // Arrange
-            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            IDataMapper<CourseProfile> dataMapper = new ProfileJsonDataMapper(_profilePath);
             CourseProfile profile = new CourseProfile
             {
                 Id = 100,

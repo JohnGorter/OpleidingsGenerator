@@ -17,8 +17,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.models
         public string KnowledgeOf { get; set; }
         public string Profile { get; set; }
 
-        public List<EducationPlanCourse> PlannedCourses { get; set; }
-        public List<EducationPlanCourse> NotPlannedCourses { get; set; }
+        public IEnumerable<EducationPlanCourse> PlannedCourses { get; set; }
+        public IEnumerable<EducationPlanCourse> NotPlannedCourses { get; set; }
         public decimal PlannedCoursesTotalPrice
         {
             get

@@ -23,7 +23,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             _courseService = new CourseService();
             _planner = new Planner();
             _educationPlanOutputter = new EducationPlanOutputter(_planner);
-            _profileDataMapper = new ProfileJSONDataMapper(profilePath);
+            _profileDataMapper = new ProfileJsonDataMapper(profilePath);
         }
 
         public EducationPlanManager(ICourseService courseService, IPlanner planner, IEducationPlanOutputter educationPlanOutputter, IDataMapper<opleidingsplan.models.CourseProfile> profileDataMapper)

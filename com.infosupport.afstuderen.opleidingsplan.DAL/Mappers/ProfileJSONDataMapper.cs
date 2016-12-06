@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,12 @@ using System.Threading.Tasks;
 
 namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 {
-    public class ProfileJSONDataMapper : IDataMapper<CourseProfile>
+    public class ProfileJsonDataMapper : IDataMapper<CourseProfile>
     {
         private string _path;
+        private readonly CultureInfo _culture = new CultureInfo("nl-NL");
 
-        public ProfileJSONDataMapper(string path)
+        public ProfileJsonDataMapper(string path)
         {
             _path = path;
         }
@@ -23,7 +25,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
             if(foundProfile == null)
             {
-                throw new ArgumentException(string.Format("No profile found with id {0}", id));
+                throw new ArgumentException(string.Format(_culture, "No profile found with id {0}", id));
             }
 
             return foundProfile;
@@ -36,7 +38,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
             if (profileToDelete == null)
             {
-                throw new ArgumentException(string.Format("No profile found with id {0}", data.Id));
+                throw new ArgumentException(string.Format(_culture, "No profile found with id {0}", data.Id));
             }
 
             profiles.Remove(profileToDelete);
@@ -61,7 +63,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
             if (profiles.Any(p => p.Name == data.Name))
             {
-                throw new ArgumentException(string.Format("Profile with the name {0} already exists", data.Name));
+                throw new ArgumentException(string.Format(_culture, "Profile with the name {0} already exists", data.Name));
             }
 
             profiles.Add(data);
@@ -75,7 +77,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
             if(profileToUpdate == null)
             {
-                throw new ArgumentException(string.Format("No profile found with id {0}", data.Id));
+                throw new ArgumentException(string.Format(_culture, "No profile found with id {0}", data.Id));
             }
 
             data.Courses = profileToUpdate.Courses;
