@@ -13,10 +13,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 {
     public class EducationPlanManager : IEducationPlanManager
     {
-        private ICourseService _courseService;
-        private IPlanner _planner;
-        private IEducationPlanOutputter _educationPlanOutputter;
-        private IDataMapper<opleidingsplan.models.Profile> _profileDataMapper;
+        private readonly ICourseService _courseService;
+        private readonly IPlanner _planner;
+        private readonly IEducationPlanOutputter _educationPlanOutputter;
+        private readonly IDataMapper<opleidingsplan.models.CourseProfile> _profileDataMapper;
 
         public EducationPlanManager(string profilePath)
         {
@@ -26,7 +26,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             _profileDataMapper = new ProfileJSONDataMapper(profilePath);
         }
 
-        public EducationPlanManager(ICourseService courseService, IPlanner planner, IEducationPlanOutputter educationPlanOutputter, IDataMapper<opleidingsplan.models.Profile> profileDataMapper)
+        public EducationPlanManager(ICourseService courseService, IPlanner planner, IEducationPlanOutputter educationPlanOutputter, IDataMapper<opleidingsplan.models.CourseProfile> profileDataMapper)
         {
             _courseService = courseService;
             _planner = planner;
@@ -34,7 +34,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             _profileDataMapper = profileDataMapper;
         }
 
-        private List<opleidingsplan.models.Course> ConvertCourses(IEnumerable<integration.Course> courses, opleidingsplan.models.Profile profile)
+        private List<opleidingsplan.models.Course> ConvertCourses(IEnumerable<integration.Course> courses, opleidingsplan.models.CourseProfile profile)
         {
             List<opleidingsplan.models.Course> coursesToPlan = new List<opleidingsplan.models.Course>();
 
@@ -56,7 +56,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
         public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan)
         {
 
-            opleidingsplan.models.Profile profile = _profileDataMapper.FindById(educationPlan.ProfileId);
+            opleidingsplan.models.CourseProfile profile = _profileDataMapper.FindById(educationPlan.ProfileId);
 
             IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlan.Courses);
             List<opleidingsplan.models.Course> coursesToPlan = ConvertCourses(courses, profile);

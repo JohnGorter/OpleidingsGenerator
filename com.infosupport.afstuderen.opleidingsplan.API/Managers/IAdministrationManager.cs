@@ -10,8 +10,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 {
     public interface IAdministrationManager
     {
-        IEnumerable<Profile> FindProfiles();
-        Profile FindProfile(string profileName);
-        Profile FindProfileById(int id);
+        IEnumerable<CourseProfile> FindProfiles();
+        CourseProfile FindProfile(string profileName);
+        CourseProfile FindProfileById(int id);
     }
 }

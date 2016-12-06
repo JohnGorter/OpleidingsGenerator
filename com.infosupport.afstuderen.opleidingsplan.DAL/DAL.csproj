@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration.cs" />
+    <Compile Include="DALConfiguration.cs" />
     <Compile Include="Mappers\EducationPlanJSONDataMapper.cs" />
     <Compile Include="Mappers\IDataMapper.cs" />
     <Compile Include="Mappers\IEducationPlanDataMapper.cs" />

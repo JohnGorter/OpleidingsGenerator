@@ -16,8 +16,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
 
         public EducationPlanJSONDataMapperTest()
         {
-            _educationPlanPath = Configuration.GetConfiguration().EducationPlanPath;
-            _updatedDirPath = Configuration.GetConfiguration().EducationPlanUpdatedPath;
+            _educationPlanPath = DALConfiguration.GetConfiguration().EducationPlanPath;
+            _updatedDirPath = DALConfiguration.GetConfiguration().EducationPlanUpdatedPath;
         }
 
         [TestInitialize]

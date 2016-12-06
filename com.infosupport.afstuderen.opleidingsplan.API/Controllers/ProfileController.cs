@@ -14,11 +14,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
     [EnableCors("*", "*", "*")]
     public class ProfileController : ApiController
     {
-        private IAdministrationManager _administrationManager;
+        private readonly IAdministrationManager _administrationManager;
 
         public ProfileController()
         {
-            string profilepath = dal.Configuration.GetConfiguration().ProfilePath;
+            string profilepath = dal.DALConfiguration.GetConfiguration().ProfilePath;
             string pathToProfiles = HttpContext.Current.Server.MapPath(profilepath);
 
             _administrationManager = new AdministrationManager(pathToProfiles);
@@ -30,13 +30,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         }
 
         // GET: api/Administration
-        public IEnumerable<Profile> Get()
+        public IEnumerable<CourseProfile> Get()
         {
             return _administrationManager.FindProfiles();
         }
 
         // GET: api/Administration/5
-        public Profile Get(int id)
+        public CourseProfile Get(int id)
         {
             return _administrationManager.FindProfileById(id);
         }
@@ -44,16 +44,19 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         // POST: api/Administration
         public void Post([FromBody]string value)
         {
+            throw new NotSupportedException();
         }
 
         // PUT: api/Administration/5
         public void Put(int id, [FromBody]string value)
         {
+            throw new NotSupportedException();
         }
 
         // DELETE: api/Administration/5
         public void Delete(int id)
         {
+            throw new NotSupportedException();
         }
     }
 }

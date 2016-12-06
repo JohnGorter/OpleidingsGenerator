@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 {
-    public class ProfileJSONDataMapper : IDataMapper<Profile>
+    public class ProfileJSONDataMapper : IDataMapper<CourseProfile>
     {
         private string _path;
 
@@ -17,9 +17,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
         {
             _path = path;
         }
-        public Profile FindById(long id)
+        public CourseProfile FindById(long id)
         {
-            Profile foundProfile = GetAllProfiles().FirstOrDefault(profile => profile.Id == id);
+            CourseProfile foundProfile = GetAllProfiles().FirstOrDefault(profile => profile.Id == id);
 
             if(foundProfile == null)
             {
@@ -29,14 +29,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
             return foundProfile;
         }
 
-        public void Delete(Profile profile)
+        public void Delete(CourseProfile data)
         {
             var profiles = GetAllProfiles();
-            Profile profileToDelete = profiles.FirstOrDefault(p => p.Id == profile.Id);
+            CourseProfile profileToDelete = profiles.FirstOrDefault(p => p.Id == data.Id);
 
             if (profileToDelete == null)
             {
-                throw new ArgumentException(string.Format("No profile found with id {0}", profile.Id));
+                throw new ArgumentException(string.Format("No profile found with id {0}", data.Id));
             }
 
             profiles.Remove(profileToDelete);
@@ -44,64 +44,64 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
             WriteAllProfilesToFile(profiles);
         }
 
-        public IEnumerable<Profile> Find(Func<Profile, bool> predicate)
+        public IEnumerable<CourseProfile> Find(Func<CourseProfile, bool> predicate)
         {
             return GetAllProfiles().Where(predicate);
         }
 
-        public IEnumerable<Profile> FindAll()
+        public IEnumerable<CourseProfile> FindAll()
         {
             return GetAllProfiles();
         }
 
-        public void Insert(Profile profile)
+        public void Insert(CourseProfile data)
         {
             var profiles = GetAllProfiles();
-            profile.Id = GenerateId(profiles);
+            data.Id = GenerateId(profiles);
 
-            if (profiles.Any(p => p.Name == profile.Name))
+            if (profiles.Any(p => p.Name == data.Name))
             {
-                throw new ArgumentException(string.Format("Profile with the name {0} already exists", profile.Name));
+                throw new ArgumentException(string.Format("Profile with the name {0} already exists", data.Name));
             }
 
-            profiles.Add(profile);
+            profiles.Add(data);
             WriteAllProfilesToFile(profiles);
         }
 
-        public void Update(Profile profile)
+        public void Update(CourseProfile data)
         {
             var profiles = GetAllProfiles();
-            Profile profileToUpdate = profiles.FirstOrDefault(p => p.Id == profile.Id);
+            CourseProfile profileToUpdate = profiles.FirstOrDefault(p => p.Id == data.Id);
 
             if(profileToUpdate == null)
             {
-                throw new ArgumentException(string.Format("No profile found with id {0}", profile.Id));
+                throw new ArgumentException(string.Format("No profile found with id {0}", data.Id));
             }
 
-            profile.Courses = profileToUpdate.Courses;
+            data.Courses = profileToUpdate.Courses;
 
             int index = profiles.IndexOf(profileToUpdate);
-            profiles[index] = profile;
+            profiles[index] = data;
 
             WriteAllProfilesToFile(profiles);
         }
 
-        private int GenerateId(List<Profile> allProfiles)
+        private int GenerateId(List<CourseProfile> allProfiles)
         {
             int newId = allProfiles.Max(profile => profile.Id) + 1;
             return newId;
         }
 
-        private void WriteAllProfilesToFile(List<Profile> profiles)
+        private void WriteAllProfilesToFile(List<CourseProfile> profiles)
         {
             var convertedJson = JsonConvert.SerializeObject(profiles, Formatting.Indented);
             File.WriteAllText(_path, convertedJson);
         }
 
-        private List<Profile> GetAllProfiles()
+        private List<CourseProfile> GetAllProfiles()
         {
             string profiles = File.ReadAllText(_path);
-            return JsonConvert.DeserializeObject<List<Profile>>(profiles);
+            return JsonConvert.DeserializeObject<List<CourseProfile>>(profiles);
         }
     }
 }

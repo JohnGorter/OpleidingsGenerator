@@ -16,11 +16,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
     [EnableCors("*", "*", "*")]
     public class EducationPlanController : ApiController
     {
-        private IEducationPlanManager _educationPlanManager;
+        private readonly IEducationPlanManager _educationPlanManager;
 
         public EducationPlanController()
         {
-            string profilepath = dal.Configuration.GetConfiguration().ProfilePath;
+            string profilepath = dal.DALConfiguration.GetConfiguration().ProfilePath;
             string pathToProfiles = HttpContext.Current.Server.MapPath(profilepath);
 
             _educationPlanManager = new EducationPlanManager(pathToProfiles);
@@ -34,13 +34,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         // GET: api/EducationPlan
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            throw new NotSupportedException();
         }
 
         // GET: api/EducationPlan/5
         public EducationPlan Get(RestEducationPlan educationPlan)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
         
 
@@ -53,11 +53,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         // PUT: api/EducationPlan/5
         public void Put(int id, [FromBody]string value)
         {
+            throw new NotSupportedException();
         }
 
         // DELETE: api/EducationPlan/5
         public void Delete(int id)
         {
+            throw new NotSupportedException();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         private string _profilePath;
         public ProfileJSONDataMapperTest()
         {
-            _profilePath = Configuration.GetConfiguration().ProfilePath;
+            _profilePath = DALConfiguration.GetConfiguration().ProfilePath;
         }
 
         [TestInitialize]
@@ -27,7 +27,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void FindAll_ThreeProfilesFound()
         {
             // Arrange
-            IDataMapper<Profile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
 
             // Act
             var result = dataMapper.FindAll();
@@ -40,7 +40,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Find_ProfileFound()
         {
             // Arrange
-            IDataMapper<Profile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
 
             // Act
             var result = dataMapper.Find(profile => profile.Name == "NET_Developer").First();
@@ -53,7 +53,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void FindById_ProfileFound()
         {
             // Arrange
-            IDataMapper<Profile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
 
             // Act
             var result = dataMapper.FindById(1);
@@ -68,7 +68,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void FindById_WitNotExistingId_ExceptionThrowed()
         {
             // Arrange
-            IDataMapper<Profile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
 
             // Act
             var result = dataMapper.FindById(100);
@@ -80,8 +80,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Insert_NewProfileAdded()
         {
             // Arrange
-            IDataMapper<Profile> dataMapper = new ProfileJSONDataMapper(_profilePath);
-            Profile profile = new Profile
+            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            CourseProfile profile = new CourseProfile
             {
                 Name = "FrondEnd_Developer"
             };
@@ -108,8 +108,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Insert_ExistingProfile_ExceptionThrowed()
         {
             // Arrange
-            IDataMapper<Profile> dataMapper = new ProfileJSONDataMapper(_profilePath);
-            Profile profile = new Profile
+            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            CourseProfile profile = new CourseProfile
             {
                 Name = "NET_Developer"
             };
@@ -124,8 +124,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Update_ProfileUpdated()
         {
             // Arrange
-            IDataMapper<Profile> dataMapper = new ProfileJSONDataMapper(_profilePath);
-            Profile profile = new Profile
+            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            CourseProfile profile = new CourseProfile
             {
                 Id = 1,
                 Name = "DOT_NET_Developer"
@@ -150,8 +150,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Update_WithNotExistingProfile_ExceptionThrowed()
         {
             // Arrange
-            IDataMapper<Profile> dataMapper = new ProfileJSONDataMapper(_profilePath);
-            Profile profile = new Profile
+            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            CourseProfile profile = new CourseProfile
             {
                 Id = 100,
                 Name = "DOT_NET_Developer"
@@ -168,8 +168,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Delete_ProfileDeleted()
         {
             // Arrange
-            IDataMapper<Profile> dataMapper = new ProfileJSONDataMapper(_profilePath);
-            Profile profile = new Profile
+            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            CourseProfile profile = new CourseProfile
             {
                 Id = 1,
                 Name = "NET_Developer"
@@ -192,8 +192,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Delete_WithNotExistingProfile_ExceptionThrowed()
         {
             // Arrange
-            IDataMapper<Profile> dataMapper = new ProfileJSONDataMapper(_profilePath);
-            Profile profile = new Profile
+            IDataMapper<CourseProfile> dataMapper = new ProfileJSONDataMapper(_profilePath);
+            CourseProfile profile = new CourseProfile
             {
                 Id = 100,
                 Name = "NET_Developer"

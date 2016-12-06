@@ -13,7 +13,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
     [EnableCors("*","*","*")]
     public class CourseController : ApiController
     {
-        private ICourseManager _courseManager;
+        private readonly ICourseManager _courseManager;
 
         public CourseController()
         {

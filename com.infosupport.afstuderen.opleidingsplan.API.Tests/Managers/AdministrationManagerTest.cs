@@ -16,7 +16,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         public void FindProfilesTest()
         {
             // Arrange
-            var profileDataMapperMock = new Mock<IDataMapper<Profile>>(MockBehavior.Strict);
+            var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
             profileDataMapperMock.Setup(dataMapper => dataMapper.FindAll()).Returns(GetDummyDataProfiles());
 
             AdministrationManager manager = new AdministrationManager(profileDataMapperMock.Object);
@@ -33,8 +33,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         public void FindProfile_NET_Developer_31_CoursesTest()
         {
             // Arrange
-            var profileDataMapperMock = new Mock<IDataMapper<Profile>>(MockBehavior.Strict);
-            profileDataMapperMock.Setup(dataMapper => dataMapper.Find(It.IsAny<Func<Profile, bool>>())).Returns(GetDummyDataProfiles());
+            var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
+            profileDataMapperMock.Setup(dataMapper => dataMapper.Find(It.IsAny<Func<CourseProfile, bool>>())).Returns(GetDummyDataProfiles());
 
             AdministrationManager manager = new AdministrationManager(profileDataMapperMock.Object);
 
@@ -42,7 +42,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             var result = manager.FindProfile("NET_Developer");
 
             // Assert
-            profileDataMapperMock.Verify(dataMapper => dataMapper.Find(It.IsAny<Func<Profile, bool>>()));
+            profileDataMapperMock.Verify(dataMapper => dataMapper.Find(It.IsAny<Func<CourseProfile, bool>>()));
             Assert.AreEqual(31, result.Courses.Count());
         }
 
@@ -50,7 +50,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         public void FindProfileById1_NET_Developer_31_CoursesTest()
         {
             // Arrange
-            var profileDataMapperMock = new Mock<IDataMapper<Profile>>(MockBehavior.Strict);
+            var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
             profileDataMapperMock.Setup(dataMapper => dataMapper.FindById(1)).Returns(GetDummyDataProfiles().First());
 
             AdministrationManager manager = new AdministrationManager(profileDataMapperMock.Object);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace com.infosupport.afstuderen.opleidingsplan.models
 {
-    public class Profile
+    public class CourseProfile
     {
         public int Id { get; set; }
         public string Name { get; set; }

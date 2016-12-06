@@ -8,7 +8,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 {
     public class CourseManager : ICourseManager
     {
-        private ICourseService _courseService;
+        private readonly ICourseService _courseService;
 
         public CourseManager()
         {

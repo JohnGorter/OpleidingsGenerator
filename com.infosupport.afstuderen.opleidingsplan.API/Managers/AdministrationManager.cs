@@ -10,29 +10,29 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 {
     public class AdministrationManager : IAdministrationManager
     {
-        private IDataMapper<Profile> _profileDataMapper;
+        private readonly IDataMapper<CourseProfile> _profileDataMapper;
 
         public AdministrationManager(string pathToProfiles)
         {
             _profileDataMapper = new ProfileJSONDataMapper(pathToProfiles);
         }
 
-        public AdministrationManager(IDataMapper<Profile> profileDataMapper)
+        public AdministrationManager(IDataMapper<CourseProfile> profileDataMapper)
         {
             _profileDataMapper = profileDataMapper;
         }
 
-        public Profile FindProfile(string profileName)
+        public CourseProfile FindProfile(string profileName)
         {
             return _profileDataMapper.Find(profile => profile.Name == profileName).First();
         }
 
-        public Profile FindProfileById(int id)
+        public CourseProfile FindProfileById(int id)
         {
             return _profileDataMapper.FindById(id);
         }
 
-        public IEnumerable<Profile> FindProfiles()
+        public IEnumerable<CourseProfile> FindProfiles()
         {
             return _profileDataMapper.FindAll();
         }
