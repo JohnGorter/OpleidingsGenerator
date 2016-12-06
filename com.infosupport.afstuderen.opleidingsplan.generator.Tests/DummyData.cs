@@ -1,11 +1,11 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.model;
+﻿using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
+namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
 {
     internal static class DummyData
     {

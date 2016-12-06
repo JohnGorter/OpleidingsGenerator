@@ -5,6 +5,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api
 {
     public class FilterConfig
     {
+        private FilterConfig() {}
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());

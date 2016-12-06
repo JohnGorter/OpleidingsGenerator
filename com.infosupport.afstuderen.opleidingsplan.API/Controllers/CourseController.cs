@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using com.infosupport.afstuderen.opleidingsplan.api.Managers;
+using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +8,12 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.Controllers
+namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
 {
     [EnableCors("*","*","*")]
     public class CourseController : ApiController
     {
-        private ICourseManager _courseManager;
+        private readonly ICourseManager _courseManager;
 
         public CourseController()
         {
@@ -26,17 +26,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.Controllers
         }
 
         // GET: api/Training
-        public IEnumerable<model.CourseSummary> Get()
+        public IEnumerable<opleidingsplan.models.CourseSummary> Get()
         {
             var courses = _courseManager.FindCourses().Coursesummary;
-            return Mapper.Map<IEnumerable<model.CourseSummary>>(courses);
+            return Mapper.Map<IEnumerable<opleidingsplan.models.CourseSummary>>(courses);
         }
 
         // GET: api/Training/5
-        public model.Course Get(string id)
+        public opleidingsplan.models.Course Get(string id)
         {
             var course = _courseManager.FindCourse(id);
-            return Mapper.Map<model.Course>(course);
+            return Mapper.Map<opleidingsplan.models.Course>(course);
         }
     }
 }

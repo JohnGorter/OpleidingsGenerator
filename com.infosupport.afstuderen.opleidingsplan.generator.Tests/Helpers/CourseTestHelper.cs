@@ -9,16 +9,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
     public abstract class CourseTestHelper
     {
 
-        protected model.Course CreateNewModelCourseWithOneCourseImplementation(string Code, int priority, DateTime[] days)
+        protected models.Course CreateNewModelCourseWithOneCourseImplementation(string Code, int priority, DateTime[] days)
         {
-            return new model.Course
+            return new models.Course
             {
                 Code = Code,
                 Priority = priority,
                 Duration = days.Count() + " dagen",
-                CourseImplementations = new List<model.CourseImplementation>()
+                CourseImplementations = new List<models.CourseImplementation>()
                 {
-                    new model.CourseImplementation
+                    new models.CourseImplementation
                     {
                         Days = days.ToList(),
                         StartDay =  days.First(),
@@ -28,21 +28,21 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
             };
         }
 
-        protected model.Course CreateNewModelCourseWithTwoCourseImplementations(string courseId, int priority, DateTime[] days1, DateTime[] days2)
+        protected models.Course CreateNewModelCourseWithTwoCourseImplementations(string courseId, int priority, DateTime[] days1, DateTime[] days2)
         {
-            return new model.Course
+            return new models.Course
             {
                 Code = courseId,
                 Priority = priority,
                 Duration = days1.Count() + " dagen",
-                CourseImplementations = new List<model.CourseImplementation>()
+                CourseImplementations = new List<models.CourseImplementation>()
                 {
-                    new model.CourseImplementation
+                    new models.CourseImplementation
                     {
                         Days = days1.ToList(),
                         StartDay =  days1.First(),
                     },
-                    new model.CourseImplementation
+                    new models.CourseImplementation
                     {
                         Days = days2.ToList(),
                         StartDay =  days2.First(),

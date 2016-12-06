@@ -1,16 +1,16 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using com.infosupport.afstuderen.opleidingsplan.api.Controllers;
+using com.infosupport.afstuderen.opleidingsplan.api.controllers;
 using Moq;
-using com.infosupport.afstuderen.opleidingsplan.api.Managers;
+using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using System.Linq;
 using com.infosupport.afstuderen.opleidingsplan.api;
 using com.infosupport.afstuderen.opleidingsplan.integration;
-using com.infosupport.afstuderen.opleidingsplan.model;
+using com.infosupport.afstuderen.opleidingsplan.models;
 using System.Collections.Generic;
-using com.infosupport.afstuderen.opleidingsplan.API.tests.helpers;
+using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.API.tests.controllers
+namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
 {
     [TestClass]
     public class CourseControllerTest : CourseTestHelper
@@ -58,15 +58,15 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.controllers
 
         private void TestCoursesWithDummyData(Coursesummarycollection expected, IEnumerable<CourseSummary> actual)
         {
-            for (int i = 0; i < expected.Coursesummary.Count; i++)
+            for (int i = 0; i < expected.Coursesummary.Count(); i++)
             {
-                Assert.AreEqual(expected.Coursesummary[i].Code, actual.ToArray()[i].Code);
-                Assert.AreEqual(expected.Coursesummary[i].Name, actual.ToArray()[i].Name);
-                Assert.AreEqual(expected.Coursesummary[i].Suppliername, actual.ToArray()[i].Suppliername);
+                Assert.AreEqual(expected.Coursesummary.ElementAt(i).Code, actual.ToArray()[i].Code);
+                Assert.AreEqual(expected.Coursesummary.ElementAt(i).Name, actual.ToArray()[i].Name);
+                Assert.AreEqual(expected.Coursesummary.ElementAt(i).Suppliername, actual.ToArray()[i].Suppliername);
             }
         }
 
-        private void TestCourseWithDummyData(integration.Course expected, model.Course actual)
+        private void TestCourseWithDummyData(integration.Course expected, opleidingsplan.models.Course actual)
         {
             Assert.AreEqual(expected.Code, actual.Code);
             Assert.AreEqual(expected.Name, actual.Name);

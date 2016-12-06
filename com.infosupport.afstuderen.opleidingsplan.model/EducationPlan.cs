@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.model
+namespace com.infosupport.afstuderen.opleidingsplan.models
 {
     public class EducationPlan
     {
@@ -17,8 +17,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.model
         public string KnowledgeOf { get; set; }
         public string Profile { get; set; }
 
-        public List<EducationPlanCourse> PlannedCourses { get; set; }
-        public List<EducationPlanCourse> NotPlannedCourses { get; set; }
+        public IEnumerable<EducationPlanCourse> PlannedCourses { get; set; }
+        public IEnumerable<EducationPlanCourse> NotPlannedCourses { get; set; }
         public decimal PlannedCoursesTotalPrice
         {
             get

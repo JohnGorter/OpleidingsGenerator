@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace com.infosupport.afstuderen.opleidingsplan.API.tests.helpers
+namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
 {
     public class CourseTestHelper
     {
@@ -19,9 +19,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.helpers
             };
         }
 
-        internal static model.Course GetDummyDataModelCourse()
+        internal static opleidingsplan.models.Course GetDummyDataModelCourse()
         {
-            return new model.Course
+            return new opleidingsplan.models.Course
             {
                 Code = "POLDEVEL",
                 Name = "Developing Polymer Elements",
@@ -89,11 +89,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.helpers
             };
         }
 
-        private static IEnumerable<model.CourseImplementation> GetDummyDataModelCourseImplementations()
+        private static IEnumerable<opleidingsplan.models.CourseImplementation> GetDummyDataModelCourseImplementations()
         {
-            return new List<model.CourseImplementation>()
+            return new List<opleidingsplan.models.CourseImplementation>()
             {
-                new model.CourseImplementation
+                new opleidingsplan.models.CourseImplementation
                 {
                     StartDay = new DateTime(2017, 16, 1),
                     Days = new List<DateTime>()
@@ -104,7 +104,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.helpers
                     },
                     Location = "Veenendaal",
                 },
-                new model.CourseImplementation
+                new opleidingsplan.models.CourseImplementation
                 {
                     StartDay = new DateTime(2017, 3, 4),
                     Days = new List<DateTime>()

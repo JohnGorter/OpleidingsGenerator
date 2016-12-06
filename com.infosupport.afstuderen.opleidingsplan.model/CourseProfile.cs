@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.model
+namespace com.infosupport.afstuderen.opleidingsplan.models
 {
-    public class Profile
+    public class CourseProfile
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<CoursePriority> Courses { get; set; } = new List<CoursePriority>();
+        public IEnumerable<CoursePriority> Courses { get; set; } = new List<CoursePriority>();
     }
     public class CoursePriority
     {

@@ -1,4 +1,4 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.model;
+﻿using com.infosupport.afstuderen.opleidingsplan.models;
 using System.Collections.Generic;
 using System.Linq;
 using System;

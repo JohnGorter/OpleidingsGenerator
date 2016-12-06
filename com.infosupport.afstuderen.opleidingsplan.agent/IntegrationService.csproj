@@ -43,15 +43,10 @@
   <ItemGroup>
     <Compile Include="CourseService.cs" />
     <Compile Include="Course.cs" />
-    <Compile Include="coursexsd.cs">
-      <DependentUpon>coursexsd.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Coursesummarycollection.cs" />
     <Compile Include="EducationPlan.cs">
       <DependentUpon>EducationPlan.xsd</DependentUpon>
     </Compile>
-    <Compile Include="EducationPlanAgent.cs" />
-    <Compile Include="GeneratedTypes.cs" />
     <Compile Include="ICourseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

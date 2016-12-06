@@ -6,8 +6,8 @@
     <ProjectGuid>{F8A30160-3948-40B4-9951-845BA9EDF1EE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.DAL.tests</RootNamespace>
-    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.DAL.tests</AssemblyName>
+    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.dal.tests</RootNamespace>
+    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.dal.tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -54,19 +54,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Helpers\EducationPlanDataMapperTestHelper.cs" />
-    <Compile Include="ProfileJSONDataMapperTest.cs" />
+    <Compile Include="ProfileDataMapperTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EducationPlanJSONDataMapperTest.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.DAL\DAL.csproj">
-      <Project>{8E448124-E651-4A3D-A9BA-C0ADA3023AFD}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.model\Models.csproj">
-      <Project>{0669767E-7628-4BDD-9A44-2590CB1DF4E6}</Project>
-      <Name>Models</Name>
-    </ProjectReference>
+    <Compile Include="EducationPlanDataMapperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Profiles.json" />
@@ -76,6 +66,16 @@
     <Content Include="Data\ProfilesOriginal.json" />
     <None Include="Data\EducationPlansOriginal.json" />
     <None Include="Data\EducationPlans.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.DAL\DAL.csproj">
+      <Project>{8e448124-e651-4a3d-a9ba-c0ada3023afd}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.model\Models.csproj">
+      <Project>{0669767e-7628-4bdd-9a44-2590cb1df4e6}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

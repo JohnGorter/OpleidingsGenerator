@@ -5,21 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.DAL
+namespace com.infosupport.afstuderen.opleidingsplan.dal
 {
-    public class Configuration : ConfigurationSection
+    public class DALConfiguration : ConfigurationSection
     {
-        public static Configuration GetConfiguration()
+        public static DALConfiguration GetConfiguration()
         {
-            Configuration configuration =
+            DALConfiguration configuration =
                 ConfigurationManager
                 .GetSection("profileJsonConnection")
-                as Configuration;
+                as DALConfiguration;
 
             if (configuration != null)
                 return configuration;
 
-            return new Configuration();
+            return new DALConfiguration();
         }
 
         [ConfigurationProperty("profile-path", IsRequired = false)]

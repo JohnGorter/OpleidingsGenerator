@@ -1,11 +1,11 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.model;
+﻿using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.DAL.tests.Helpers
+namespace com.infosupport.afstuderen.opleidingsplan.dal.tests.helpers
 {
     public abstract class EducationPlanDataMapperTestHelper
     {

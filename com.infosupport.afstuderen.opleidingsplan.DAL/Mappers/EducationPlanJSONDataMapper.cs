@@ -1,20 +1,21 @@
 ﻿using System;
-using com.infosupport.afstuderen.opleidingsplan.DAL.mapper;
-using com.infosupport.afstuderen.opleidingsplan.model;
+using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using com.infosupport.afstuderen.opleidingsplan.models;
 using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
-using com.infosupport.afstuderen.opleidingsplan.DAL.Mappers.Mappers;
+using System.Globalization;
 
-namespace com.infosupport.afstuderen.opleidingsplan.DAL.Mappers
+namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 {
-    public class EducationPlanJSONDataMapper : IEducationPlanDataMapper
+    public class EducationPlanJsonDataMapper : IEducationPlanDataMapper
     {
         private string _path;
         private string _updatedDirPath;
+        private readonly CultureInfo _culture = new CultureInfo("nl-NL");
 
-        public EducationPlanJSONDataMapper(string path, string updatedDirPath)
+        public EducationPlanJsonDataMapper(string path, string updatedDirPath)
         {
             _path = path;
             _updatedDirPath = updatedDirPath;
@@ -27,7 +28,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.DAL.Mappers
 
             if (educationPlanToDelete == null)
             {
-                throw new ArgumentException(string.Format("No education plan found with id {0}", educationPlan.Id));
+                throw new ArgumentException(string.Format(_culture, "No education plan found with id {0}", educationPlan.Id));
             }
 
             educationPlans.Remove(educationPlanToDelete);
@@ -47,7 +48,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.DAL.Mappers
 
             if (educationPlan == null)
             {
-                throw new ArgumentException(string.Format("No education plan found with id {0}", id));
+                throw new ArgumentException(string.Format(_culture, "No education plan found with id {0}", id));
             }
 
             return educationPlan;
@@ -69,7 +70,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.DAL.Mappers
 
             if (educationPlanToUpdate == null)
             {
-                throw new ArgumentException(string.Format("No education plan found with id {0}", educationPlan.Id));
+                throw new ArgumentException(string.Format(_culture, "No education plan found with id {0}", educationPlan.Id));
             }
 
             int index = educationPlans.IndexOf(educationPlanToUpdate);
@@ -107,7 +108,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.DAL.Mappers
             }
 
             var convertedJson = JsonConvert.SerializeObject(educationPlan, Formatting.Indented);
-            File.WriteAllText(Path.Combine(_updatedDirPath, educationPlan.Id.ToString() + ".json"), convertedJson);
+            File.WriteAllText(Path.Combine(_updatedDirPath, educationPlan.Id + ".json"), convertedJson);
         }
 
         private void WriteEducationPlansToFile(List<EducationPlan> educationPlan)

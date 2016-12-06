@@ -1,18 +1,18 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using com.infosupport.afstuderen.opleidingsplan.api;
-using com.infosupport.afstuderen.opleidingsplan.api.Managers;
+using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using com.infosupport.afstuderen.opleidingsplan.integration;
 using Moq;
-using com.infosupport.afstuderen.opleidingsplan.api.Models;
+using com.infosupport.afstuderen.opleidingsplan.api.models;
 using System.Collections.Generic;
 using com.infosupport.afstuderen.opleidingsplan.generator;
-using com.infosupport.afstuderen.opleidingsplan.API.tests.helpers;
-using com.infosupport.afstuderen.opleidingsplan.DAL.mapper;
-using com.infosupport.afstuderen.opleidingsplan.model;
+using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
+using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using com.infosupport.afstuderen.opleidingsplan.models;
 using System.Linq;
 
-namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
+namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
 {
     [TestClass]
     public class EducationPlanManagerTest : EducationPlanTestHelper
@@ -34,7 +34,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
             educationPlanOutputterMock.Setup(planner => planner.GenerateEducationPlan(It.IsAny<EducationPlanData>())).Returns(GetDummyEducationPlan());
 
             var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
-            plannerMock.Setup(planner => planner.PlanCourses(It.IsAny<IEnumerable<model.Course>>()));
+            plannerMock.Setup(planner => planner.PlanCourses(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
 
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
             courseServiceMock.Setup(service => service.FindCourses(courses)).Returns(
@@ -44,7 +44,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
                     new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) })
             });
 
-            var profileDataMapperMock = new Mock<IDataMapper<Profile>>(MockBehavior.Strict);
+            var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
             profileDataMapperMock.Setup(dataMapper => dataMapper.FindById(1)).Returns(GetDummyDataProfiles().First());
 
             EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object);
@@ -56,7 +56,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
 
             // Assert
             educationPlanOutputterMock.Verify(outputter => outputter.GenerateEducationPlan(It.IsAny<EducationPlanData>()));
-            plannerMock.Verify(outputter => outputter.PlanCourses(It.IsAny<IEnumerable<model.Course>>()));
+            plannerMock.Verify(outputter => outputter.PlanCourses(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
             courseServiceMock.Verify(outputter => outputter.FindCourses(courses));
             profileDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
         }

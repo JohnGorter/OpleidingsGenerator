@@ -6,8 +6,8 @@
     <ProjectGuid>{C8EBC2E9-3788-47D6-BE8D-5FA86090FEEF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.API.tests</RootNamespace>
-    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.API.tests</AssemblyName>
+    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.api.tests</RootNamespace>
+    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.api.tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

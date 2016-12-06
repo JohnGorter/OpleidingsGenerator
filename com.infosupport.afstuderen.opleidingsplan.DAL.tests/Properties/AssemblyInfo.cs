@@ -1,15 +1,18 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+
+[assembly: CLSCompliant(true)]
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("com.infosupport.afstuderen.opleidingsplan.DAL.tests")]
+[assembly: AssemblyTitle("com.infosupport.afstuderen.opleidingsplan.dal.tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("com.infosupport.afstuderen.opleidingsplan.DAL.tests")]
+[assembly: AssemblyProduct("com.infosupport.afstuderen.opleidingsplan.dal.tests")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

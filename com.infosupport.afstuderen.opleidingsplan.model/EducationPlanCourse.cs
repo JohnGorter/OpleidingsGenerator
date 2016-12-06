@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.model
+namespace com.infosupport.afstuderen.opleidingsplan.models
 {
     public class EducationPlanCourse
     {
@@ -15,7 +15,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.model
         public int Days { get; set; }
         public string Commentary { get; set; }
         public decimal Price { get; set; }
-        public List<EducationPlanCourse> IntersectedCourses { get; set; }
+        public IEnumerable<EducationPlanCourse> IntersectedCourses { get; set; }
 
         public int Week
         {

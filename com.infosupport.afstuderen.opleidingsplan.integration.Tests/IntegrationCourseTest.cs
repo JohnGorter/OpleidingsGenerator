@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
+using System.Linq;
 
-namespace com.infosupport.afstuderen.opleidingsplan.integration.test
+namespace com.infosupport.afstuderen.opleidingsplan.integration.tests
 {
     [TestClass]
     public class IntegrationCourseTest
@@ -18,7 +19,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration.test
             var result = agent.FindAllCourses();
 
             // Assert
-            Assert.AreEqual(422, result.Coursesummary.Count);
+            Assert.AreEqual(422, result.Coursesummary.Count());
         }
 
         [Ignore]

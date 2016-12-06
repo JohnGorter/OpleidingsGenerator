@@ -7,8 +7,8 @@
     <ProjectGuid>{0669767E-7628-4BDD-9A44-2590CB1DF4E6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.model</RootNamespace>
-    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.model</AssemblyName>
+    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.models</RootNamespace>
+    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.models</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,7 +45,7 @@
     <Compile Include="EducationPlan.cs" />
     <Compile Include="EducationPlanCompare.cs" />
     <Compile Include="EducationPlanCourse.cs" />
-    <Compile Include="Profile.cs" />
+    <Compile Include="CourseProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

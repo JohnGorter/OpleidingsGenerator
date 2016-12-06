@@ -9,6 +9,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api
 {
     public class RouteConfig
     {
+        private RouteConfig(){}
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");

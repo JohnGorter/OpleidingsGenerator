@@ -16,7 +16,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             //Arrange
             Planner planner = new Planner();
 
-            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
                 CreateNewModelCourseWithTwoCourseImplementations("SCRUMES", 1,
                 new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
