@@ -1,12 +1,12 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using com.infosupport.afstuderen.opleidingsplan.api.Managers;
 using Moq;
-using com.infosupport.afstuderen.opleidingsplan.api.Controllers;
 using System.Linq;
-using com.infosupport.afstuderen.opleidingsplan.API.tests.helpers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using com.infosupport.afstuderen.opleidingsplan.api.managers;
+using com.infosupport.afstuderen.opleidingsplan.api.controllers;
+using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.API.tests.controllers
+namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
 {
     [TestClass]
     public class ProfileControllerTest : AdministrationTestHelper

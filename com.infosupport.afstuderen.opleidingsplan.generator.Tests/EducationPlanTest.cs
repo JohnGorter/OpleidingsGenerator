@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using com.infosupport.afstuderen.opleidingsplan.model;
+using com.infosupport.afstuderen.opleidingsplan.models;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator.Tests
+namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
 {
     [TestClass]
     public class EducationPlanTest

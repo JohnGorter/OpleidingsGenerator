@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
+namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 {
     public class CourseManager : ICourseManager
     {

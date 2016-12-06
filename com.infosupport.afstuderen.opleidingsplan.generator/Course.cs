@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using com.infosupport.afstuderen.opleidingsplan.model;
+using com.infosupport.afstuderen.opleidingsplan.models;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator
 {
@@ -15,7 +15,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public IEnumerable<generator.CourseImplementation> CourseImplementations { get; set; }
         public IEnumerable<string> IntersectedCourseIds { get; private set; }
 
-        public static explicit operator Course(model.Course course)
+        public static explicit operator Course(models.Course course)
         {
             List<generator.CourseImplementation> courseImplementations = new List<CourseImplementation>();
 

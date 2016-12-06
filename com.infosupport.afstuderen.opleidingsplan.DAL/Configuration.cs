@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.DAL
+namespace com.infosupport.afstuderen.opleidingsplan.dal
 {
     public class Configuration : ConfigurationSection
     {

@@ -1,15 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using com.infosupport.afstuderen.opleidingsplan.DAL.Mappers;
-using com.infosupport.afstuderen.opleidingsplan.DAL.mapper;
-using com.infosupport.afstuderen.opleidingsplan.model;
-using com.infosupport.afstuderen.opleidingsplan.DAL.tests.Helpers;
+using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using com.infosupport.afstuderen.opleidingsplan.models;
+using com.infosupport.afstuderen.opleidingsplan.dal.tests.helpers;
 using System.IO;
 using System.Linq;
-using com.infosupport.afstuderen.opleidingsplan.DAL.Mappers.Mappers;
-using System.Collections.Generic;
 
-namespace com.infosupport.afstuderen.opleidingsplan.DAL.tests
+namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
 {
     [TestClass]
     public class EducationPlanJSONDataMapperTest : EducationPlanDataMapperTestHelper

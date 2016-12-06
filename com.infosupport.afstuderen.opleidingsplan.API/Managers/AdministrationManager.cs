@@ -1,12 +1,12 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.api.Models;
-using com.infosupport.afstuderen.opleidingsplan.DAL.mapper;
-using com.infosupport.afstuderen.opleidingsplan.model;
+﻿using com.infosupport.afstuderen.opleidingsplan.api.models;
+using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
+namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 {
     public class AdministrationManager : IAdministrationManager
     {

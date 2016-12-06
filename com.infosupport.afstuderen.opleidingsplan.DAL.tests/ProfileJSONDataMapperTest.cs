@@ -1,11 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using com.infosupport.afstuderen.opleidingsplan.DAL.mapper;
-using com.infosupport.afstuderen.opleidingsplan.model;
+using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using com.infosupport.afstuderen.opleidingsplan.models;
 using System.Linq;
 using System.IO;
 
-namespace com.infosupport.afstuderen.opleidingsplan.DAL.tests
+namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
 {
     [TestClass]
     public class ProfileJSONDataMapperTest

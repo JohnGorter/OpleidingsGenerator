@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
-using com.infosupport.afstuderen.opleidingsplan.model;
+using com.infosupport.afstuderen.opleidingsplan.models;
 using com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
@@ -16,7 +16,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             // Arrange
             Planner planner = new Planner();
 
-            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
                 CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1, 
                 new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
@@ -48,9 +48,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             // Arrange
             Planner planner = new Planner();
 
-            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
-                new model.Course
+                new models.Course
                 {
                     Code = "SCRUMES"
                 }
@@ -70,7 +70,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             // Arrange
             Planner planner = new Planner();
 
-            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
                 CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1, 
                 new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
@@ -102,7 +102,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             // Arrange
             Planner planner = new Planner();
 
-            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
                 CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1, new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
                 CreateNewModelCourseWithOneCourseImplementation("ENEST", 1, new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5), new DateTime(2017, 1, 6) }),
@@ -131,7 +131,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             // Arrange
             Planner planner = new Planner();
 
-            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
                 CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 2, new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
                 CreateNewModelCourseWithOneCourseImplementation("ENEST", 1, new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5), new DateTime(2017, 1, 6) }),
@@ -160,7 +160,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             // Arrange
             Planner planner = new Planner();
 
-            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
                 CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 2, new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
                 CreateNewModelCourseWithOneCourseImplementation("ENEST", 1, new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5), new DateTime(2017, 1, 6) }),
@@ -189,7 +189,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             // Arrange
             Planner planner = new Planner();
 
-            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
                 CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 3, new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
                 CreateNewModelCourseWithOneCourseImplementation("ENEST", 2, new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5), new DateTime(2017, 1, 6) }),
@@ -218,7 +218,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             // Arrange
             Planner planner = new Planner();
 
-            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
                 CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1, 
                 new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
@@ -245,7 +245,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             // Arrange
             Planner planner = new Planner();
 
-            IEnumerable<model.Course> coursesToPlan = new List<model.Course>()
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
                 CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1, new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
                 CreateNewModelCourseWithOneCourseImplementation("ENEST", 1, new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5), new DateTime(2017, 1, 6) }),

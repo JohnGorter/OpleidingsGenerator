@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using com.infosupport.afstuderen.opleidingsplan.api;
-using com.infosupport.afstuderen.opleidingsplan.api.Controllers;
-using com.infosupport.afstuderen.opleidingsplan.api.Managers;
+using com.infosupport.afstuderen.opleidingsplan.api.controllers;
+using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using Moq;
-using com.infosupport.afstuderen.opleidingsplan.api.Models;
-using com.infosupport.afstuderen.opleidingsplan.API.tests.helpers;
+using com.infosupport.afstuderen.opleidingsplan.api.models;
+using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.API.tests.controllers
+namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
 {
     [TestClass]
     public class EducationPlanControllerTest : EducationPlanTestHelper

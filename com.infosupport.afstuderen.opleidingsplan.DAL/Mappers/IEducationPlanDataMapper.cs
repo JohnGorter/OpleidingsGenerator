@@ -1,8 +1,8 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.model;
+﻿using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;
 
-namespace com.infosupport.afstuderen.opleidingsplan.DAL.Mappers.Mappers
+namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 {
     public interface IEducationPlanDataMapper
     {

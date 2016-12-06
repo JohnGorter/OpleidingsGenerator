@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace com.infosupport.afstuderen.opleidingsplan.DAL.mapper
+namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 {
     public interface IDataMapper<T>
     {

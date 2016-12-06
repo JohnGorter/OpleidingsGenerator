@@ -1,13 +1,12 @@
 ﻿using System;
-using com.infosupport.afstuderen.opleidingsplan.DAL.mapper;
-using com.infosupport.afstuderen.opleidingsplan.model;
+using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using com.infosupport.afstuderen.opleidingsplan.models;
 using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
-using com.infosupport.afstuderen.opleidingsplan.DAL.Mappers.Mappers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.DAL.Mappers
+namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 {
     public class EducationPlanJSONDataMapper : IEducationPlanDataMapper
     {

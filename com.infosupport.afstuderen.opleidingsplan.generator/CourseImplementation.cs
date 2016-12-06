@@ -13,7 +13,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public IEnumerable<DateTime> Days { get; set; }
         public Status Status { get; set; }
 
-        public static explicit operator CourseImplementation(model.CourseImplementation courseImplementation)
+        public static explicit operator CourseImplementation(models.CourseImplementation courseImplementation)
         {
             return new CourseImplementation
             {

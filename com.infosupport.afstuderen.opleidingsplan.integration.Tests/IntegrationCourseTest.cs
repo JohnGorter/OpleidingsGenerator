@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 
-namespace com.infosupport.afstuderen.opleidingsplan.integration.test
+namespace com.infosupport.afstuderen.opleidingsplan.integration.tests
 {
     [TestClass]
     public class IntegrationCourseTest

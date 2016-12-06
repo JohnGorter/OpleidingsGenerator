@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using com.infosupport.afstuderen.opleidingsplan.integration;
 using Moq;
-using com.infosupport.afstuderen.opleidingsplan.api.Managers;
+using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using System.Linq;
-using com.infosupport.afstuderen.opleidingsplan.API.tests.helpers;
+using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
+namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
 {
     /// <summary>
     /// Summary description for CourseManagerTest

@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using com.infosupport.afstuderen.opleidingsplan.DAL.mapper;
-using com.infosupport.afstuderen.opleidingsplan.model;
-using com.infosupport.afstuderen.opleidingsplan.API.tests.helpers;
-using com.infosupport.afstuderen.opleidingsplan.api.Managers;
+using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using com.infosupport.afstuderen.opleidingsplan.models;
+using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
+using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using System.Linq;
 
-namespace com.infosupport.afstuderen.opleidingsplan.API.tests.managers
+namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
 {
     [TestClass]
     public class AdministrationManagerTest : AdministrationTestHelper

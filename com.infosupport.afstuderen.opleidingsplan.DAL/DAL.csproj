@@ -7,8 +7,8 @@
     <ProjectGuid>{8E448124-E651-4A3D-A9BA-C0ADA3023AFD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.DAL</RootNamespace>
-    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.DAL</AssemblyName>
+    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.dal</RootNamespace>
+    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.dal</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,7 +48,7 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="Mappers\EducationPlanJSONDataMapper.cs" />
     <Compile Include="Mappers\IDataMapper.cs" />
-    <Compile Include="Mappers\Mappers\IEducationPlanDataMapper.cs" />
+    <Compile Include="Mappers\IEducationPlanDataMapper.cs" />
     <Compile Include="Mappers\ProfileJSONDataMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

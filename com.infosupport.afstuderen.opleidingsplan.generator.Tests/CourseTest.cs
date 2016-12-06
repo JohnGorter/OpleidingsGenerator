@@ -14,7 +14,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void ExplicitCastTest()
         {
             // Arrange
-            model.Course course = CreateNewModelCourseWithOneCourseImplementation("ENDEVN", 1,
+            models.Course course = CreateNewModelCourseWithOneCourseImplementation("ENDEVN", 1,
                 new DateTime[] { new DateTime(2017, 2, 14), new DateTime(2017, 2, 15), new DateTime(2017, 2, 16) });
 
             // Act

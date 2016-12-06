@@ -6,8 +6,8 @@
     <ProjectGuid>{2804EDC3-F51A-4D99-806C-D4231DCA8C3C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.integration.test</RootNamespace>
-    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.integration.test</AssemblyName>
+    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.integration.tests</RootNamespace>
+    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.integration.tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

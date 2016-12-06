@@ -1,11 +1,11 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.api.Models;
-using com.infosupport.afstuderen.opleidingsplan.model;
+﻿using com.infosupport.afstuderen.opleidingsplan.api.models;
+using com.infosupport.afstuderen.opleidingsplan.models;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace com.infosupport.afstuderen.opleidingsplan.API.tests.helpers
+namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
 {
     public class AdministrationTestHelper
     {

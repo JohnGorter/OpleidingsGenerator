@@ -1,5 +1,5 @@
 ﻿using com.infosupport.afstuderen.opleidingsplan.integration;
-using com.infosupport.afstuderen.opleidingsplan.model;
+using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

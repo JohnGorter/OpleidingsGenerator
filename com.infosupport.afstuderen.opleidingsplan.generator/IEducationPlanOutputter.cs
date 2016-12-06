@@ -1,4 +1,4 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.model;
+﻿using com.infosupport.afstuderen.opleidingsplan.models;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator
 {

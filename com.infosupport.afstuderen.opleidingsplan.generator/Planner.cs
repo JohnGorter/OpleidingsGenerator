@@ -1,4 +1,4 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.model;
+﻿using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +29,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return _coursePlanning.GetCourses();
         }
 
-        public void PlanCourses(IEnumerable<model.Course> coursesToPlan)
+        public void PlanCourses(IEnumerable<models.Course> coursesToPlan)
         {
             coursesToPlan = coursesToPlan.OrderBy(course => course.Priority);
 
