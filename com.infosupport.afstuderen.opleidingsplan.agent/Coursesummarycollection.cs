@@ -11,7 +11,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration
     public class Coursesummarycollection
     {
         [XmlElement(ElementName = "CourseSummary", Namespace = "http://schemas.datacontract.org/2004/07/InfoSupport.Trainingen")]
-        public IEnumerable<Coursesummary> Coursesummary { get; set; }
+        public List<Coursesummary> Coursesummary { get; set; }
         [XmlAttribute(AttributeName = "xmlns")]
         public string Xmlns { get; set; }
         [XmlAttribute(AttributeName = "i", Namespace = "http://www.w3.org/2000/xmlns/")]
