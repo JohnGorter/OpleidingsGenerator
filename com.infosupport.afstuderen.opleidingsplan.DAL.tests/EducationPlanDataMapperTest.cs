@@ -211,7 +211,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void FindAllUpdated_TwoUpdatedEducationPlansFound()
         {
             // Arrange
-            IEducationPlanDataMapper dataMapper = new EducationPlanJSONDataMapper(_educationPlanPath, _updatedDirPath);
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
             EducationPlan educationPlan = GetDummyEducationPlan();
             educationPlan.Id = 1;
             dataMapper.Update(educationPlan);

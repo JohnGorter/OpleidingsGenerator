@@ -23,21 +23,103 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             };
         }
 
+        //TODO: Test
         public bool Intersects(IEnumerable<CourseImplementation> courseImplementations)
         {
             return courseImplementations.Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day)));
         }
 
-        public bool IntersectsPlannedImplementation(IEnumerable<CourseImplementation> courseImplementations)
-        {
-            return courseImplementations.Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day) && courseImplementation.Status == Status.AVAILABLE));
-        }
-
-        public bool IntersectsWithStatus(IEnumerable<Course> courses, Status status)
+        //TODO: Test
+        public bool Intersects(IEnumerable<Course> courses)
         {
             return courses
                 .SelectMany(course => course.CourseImplementations)
-                .Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day) && courseImplementation.Status == status));
+                .Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day)));
+        }
+
+        //TODO: Test
+        public bool IntersectsWithStatus(IEnumerable<Course> courses, Status status)
+        {
+            return GetIntersectedImplementationsWithStatus(courses, status).Any();
+        }
+
+        //TODO: Test
+        public int IntersectsWithStatusCount(IEnumerable<Course> courses, Status status)
+        {
+            return GetIntersectedImplementationsWithStatus(courses, status).Count();
+        }
+
+        public bool IsPlannable(IEnumerable<Course> courses, int priority, string code)
+        {
+            if(!Intersects(courses))
+            {
+                return true;
+            }
+
+            List<string> scannedCourses = new List<string>();
+
+            var coursesToCheck = courses.Where(course => course.Code != code).ToList();
+            //Add self for intersection
+            coursesToCheck.Add(new Course
+            {
+                Code = code,
+                Priority = priority,
+                CourseImplementations = new List<CourseImplementation>()
+                {
+                    this,
+                },
+            });
+            return IsPlannable(coursesToCheck, scannedCourses, priority);
+
+        }
+
+        private bool IsPlannable(IEnumerable<Course> courses, List<string> scannedCourses, int priority)
+        {
+            bool plannable = false;
+
+            if (this.GetIntersectedCourseImplementations(courses).All(ci => ci.Status == Status.PLANNED))
+            {
+                return false;
+            }
+
+            var notPlannedIntersectedCourses = this.GetIntersectedCourses(courses)
+                .Where(course => course.CourseImplementations.All(ci => ci.Status != Status.PLANNED) && course.Priority <= priority);
+            var notPlannedIntersectedCoursesWithoutScanned = notPlannedIntersectedCourses.Where(intersectedCourse => !scannedCourses.Contains(intersectedCourse.Code)).ToList();
+
+            foreach (var intersectedCourse in notPlannedIntersectedCoursesWithoutScanned)
+            {
+                scannedCourses.Add(intersectedCourse.Code);
+
+                if (intersectedCourse.HasIntersectedCourseWithFreeImplementation(courses, priority))
+                {
+                    return true;
+                }
+
+                if (!plannable)
+                {
+                    plannable = intersectedCourse.CourseImplementations.Any(ci => ci.IsPlannable(courses, scannedCourses, priority));
+                }
+            }
+
+            return plannable;
+        }
+
+        private IEnumerable<Course> GetIntersectedCourses(IEnumerable<Course> courses)
+        {
+            return courses
+                .Where(course => course.CourseImplementations.Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day))));
+        }
+
+        private IEnumerable<CourseImplementation> GetIntersectedCourseImplementations(IEnumerable<Course> courses)
+        {
+            return courses
+                 .SelectMany(course => course.CourseImplementations)
+                 .Where(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day)));
+        }
+
+        private IEnumerable<CourseImplementation> GetIntersectedImplementationsWithStatus(IEnumerable<Course> courses, Status status)
+        {
+            return GetIntersectedCourseImplementations(courses).Where(courseImplementation => courseImplementation.Status == status);
         }
     }
 }

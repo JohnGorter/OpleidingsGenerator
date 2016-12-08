@@ -145,5 +145,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
                 KnowledgeOf = "MVC, DPAT, OOUML, SCRUMES",
             };
         }
+
+        protected generator.CourseImplementation CreateNewGeneratorCourseImplementation(DateTime[] days)
+        {
+            return new generator.CourseImplementation
+            {
+                Days = days.ToList(),
+                StartDay = days.First(),
+            };            
+        }
     }
 }

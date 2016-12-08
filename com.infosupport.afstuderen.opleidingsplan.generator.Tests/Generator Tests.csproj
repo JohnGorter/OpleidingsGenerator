@@ -61,6 +61,8 @@
     <Compile Include="Helpers\CourseTestHelper.cs" />
     <Compile Include="CourseTest.cs" />
     <Compile Include="EducationPlanOutputterTest.cs" />
+    <Compile Include="CourseIsPlannableTest.cs" />
+    <Compile Include="CourseImplementationIsPlannableTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.generator\Generator.csproj">

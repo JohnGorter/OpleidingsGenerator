@@ -11,7 +11,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         UNKNOWN,
         AVAILABLE,
         PLANNED,
-        NOTUSED,
         NOTPLANNED,
+        UNPLANNABLE,
     }
 }

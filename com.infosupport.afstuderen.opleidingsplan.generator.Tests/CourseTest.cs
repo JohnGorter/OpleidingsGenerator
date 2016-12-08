@@ -29,124 +29,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         }
 
         [TestMethod]
-        public void HasMultipleAvailableImplementations_OnePlannedCourse_NoAvailableImplementations()
-        {
-            // Arrange
-            generator.Course course = CreateNewGeneratorCourseWithOneCourseImplementation("ENDEVN", 1,
-                new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) });
-
-            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
-            {
-                CreateNewGeneratorCourseWithOneCourseImplementationAndStatus("SCRUMES", 1,
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }, Status.PLANNED),
-            };
-
-            // Act
-            var result = course.HasMultipleAvailableImplementations(coursesPlanned);
-
-            // Assert
-            Assert.IsFalse(result);
-        }
-
-
-        [TestMethod]
-        public void HasMultipleAvailableImplementations_OnePlannedCourse_OneAvailableImplementation()
-        {
-            // Arrange
-            generator.Course course = CreateNewGeneratorCourseWithOneCourseImplementation("ENDEVN", 1,
-                new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) });
-
-            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
-            {
-                CreateNewGeneratorCourseWithOneCourseImplementationAndStatus("SCRUMES", 1,
-                new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }, Status.AVAILABLE),
-            };
-
-            // Act
-            var result = course.HasMultipleAvailableImplementations(coursesPlanned);
-
-            // Assert
-            Assert.IsFalse(result);
-        }
-
-        [TestMethod]
-        public void HasMultipleAvailableImplementations_NoPlannedCourse_TwovailableImplementations()
-        {
-            // Arrange
-            generator.Course course = CreateNewGeneratorCourseWithTwoCourseImplementations("ENDEVN", 1,
-                new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18), new DateTime(2017, 4, 19) },
-                new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) });
-
-            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>();
-
-            // Act
-            var result = course.HasMultipleAvailableImplementations(coursesPlanned);
-
-            // Assert
-            Assert.IsTrue(result);
-        }
-
-        [TestMethod]
-        public void HasMultipleAvailableImplementations_FourPlannedCourse_OnevailableImplementations()
-        {
-            // Arrange
-            generator.Course course = CreateNewGeneratorCourseWithTwoCourseImplementations("ENDEVN", 1,
-                new DateTime[] { new DateTime(2017, 3, 7), new DateTime(2017, 3, 8), new DateTime(2017, 3, 9) },
-                new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) });
-
-            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
-            {
-                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ALMUVS", 1,
-                new DateTime[] { new DateTime(2017, 3, 8), new DateTime(2017, 3, 9)}, Status.PLANNED,
-                new DateTime[] { new DateTime(2017, 5, 15), new DateTime(2017, 5, 16), new DateTime(2017, 5, 17)}, Status.NOTUSED),
-                CreateNewGeneratorCourseWithOneCourseImplementationAndStatus("MS20461", 1,
-                new DateTime[] { new DateTime(2017, 3, 7) }, Status.PLANNED),
-                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("SCRUMES", 1,
-                new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }, Status.PLANNED,
-                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }, Status.NOTUSED),
-                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENEST", 1,
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3)}, Status.NOTUSED,
-                new DateTime[] { new DateTime(2017, 2, 13), new DateTime(2017, 2, 14)}, Status.PLANNED),
-            };
-
-            // Act
-            var result = course.HasMultipleAvailableImplementations(coursesPlanned);
-
-            // Assert
-            Assert.IsFalse(result);
-        }
-
-        [TestMethod]
-        public void HasMultipleAvailableImplementations_FourPlannedCourse_TwoAvailableImplementations()
-        {
-            // Arrange
-            generator.Course course = CreateNewGeneratorCourseWithTwoCourseImplementations("ENDEVN", 1,
-                new DateTime[] { new DateTime(2017, 3, 8), new DateTime(2017, 3, 9) },
-                new DateTime[] { new DateTime(2017, 1, 5), new DateTime(2017, 1, 6) });
-
-            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
-            {
-                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ALMUVS", 1,
-                new DateTime[] { new DateTime(2017, 3, 8), new DateTime(2017, 3, 9)}, Status.NOTUSED,
-                new DateTime[] { new DateTime(2017, 5, 15), new DateTime(2017, 5, 16), new DateTime(2017, 5, 17)}, Status.PLANNED),
-                CreateNewGeneratorCourseWithOneCourseImplementationAndStatus("MS20461", 1,
-                new DateTime[] { new DateTime(2017, 3, 7) }, Status.PLANNED),
-                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("SCRUMES", 1,
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }, Status.PLANNED,
-                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }, Status.NOTUSED),
-                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENEST", 1,
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3)}, Status.NOTUSED,
-                new DateTime[] { new DateTime(2017, 2, 13), new DateTime(2017, 2, 14)}, Status.PLANNED),
-            };
-
-            // Act
-            var result = course.HasMultipleAvailableImplementations(coursesPlanned);
-
-            // Assert
-            Assert.IsTrue(result);
-        }
-
-        [TestMethod]
         public void MarkAllImplementations_TwoImplementations()
         {
             // Arrange
@@ -232,14 +114,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             {
                 CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ALMUVS", 1,
                 new DateTime[] { new DateTime(2017, 3, 8), new DateTime(2017, 3, 9)}, Status.PLANNED,
-                new DateTime[] { new DateTime(2017, 5, 15), new DateTime(2017, 5, 16), new DateTime(2017, 5, 17)}, Status.NOTUSED),
+                new DateTime[] { new DateTime(2017, 5, 15), new DateTime(2017, 5, 16), new DateTime(2017, 5, 17)}, Status.NOTPLANNED),
                 CreateNewGeneratorCourseWithOneCourseImplementationAndStatus("MS20461", 1,
                 new DateTime[] { new DateTime(2017, 3, 7) }, Status.PLANNED),
                 CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("SCRUMES", 1,
                 new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }, Status.PLANNED,
-                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }, Status.NOTUSED),
+                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }, Status.NOTPLANNED),
                 CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENEST", 1,
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3)}, Status.NOTUSED,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3)}, Status.NOTPLANNED,
                 new DateTime[] { new DateTime(2017, 2, 13), new DateTime(2017, 2, 14)}, Status.PLANNED),
             };
 
@@ -261,15 +143,15 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
             {
                 CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ALMUVS", 1,
-                new DateTime[] { new DateTime(2017, 3, 8), new DateTime(2017, 3, 9)}, Status.NOTUSED,
+                new DateTime[] { new DateTime(2017, 3, 8), new DateTime(2017, 3, 9)}, Status.NOTPLANNED,
                 new DateTime[] { new DateTime(2017, 5, 15), new DateTime(2017, 5, 16), new DateTime(2017, 5, 17)}, Status.PLANNED),
                 CreateNewGeneratorCourseWithOneCourseImplementationAndStatus("MS20461", 1,
                 new DateTime[] { new DateTime(2017, 3, 7) }, Status.PLANNED),
                 CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("SCRUMES", 1,
                 new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }, Status.PLANNED,
-                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }, Status.NOTUSED),
+                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }, Status.NOTPLANNED),
                 CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENEST", 1,
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3)}, Status.NOTUSED,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3)}, Status.NOTPLANNED,
                 new DateTime[] { new DateTime(2017, 2, 13), new DateTime(2017, 2, 14)}, Status.PLANNED),
             };
 
@@ -389,14 +271,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             {
                 CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ALMUVS", 1,
                 new DateTime[] { new DateTime(2017, 3, 8), new DateTime(2017, 3, 9)}, Status.PLANNED,
-                new DateTime[] { new DateTime(2017, 5, 15), new DateTime(2017, 5, 16), new DateTime(2017, 5, 17)}, Status.NOTUSED),
+                new DateTime[] { new DateTime(2017, 5, 15), new DateTime(2017, 5, 16), new DateTime(2017, 5, 17)}, Status.NOTPLANNED),
                 CreateNewGeneratorCourseWithOneCourseImplementationAndStatus("MS20461", 1,
                 new DateTime[] { new DateTime(2017, 3, 7) }, Status.PLANNED),
                 CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("SCRUMES", 1,
                 new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }, Status.PLANNED,
-                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }, Status.NOTUSED),
+                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }, Status.NOTPLANNED),
                 CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENEST", 1,
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3)}, Status.NOTUSED,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3)}, Status.NOTPLANNED,
                 new DateTime[] { new DateTime(2017, 2, 13), new DateTime(2017, 2, 14)}, Status.PLANNED),
             };
 
@@ -410,7 +292,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
 
         [TestMethod]
         [ExpectedException(typeof(AmountImplementationException))]
-        public void MarkFirstImplementationPlanned_OnePlannedCourse_NoAvailableImplementations_ExceptionThrowed()
+        public void MarkMinimumIntersectedFirstAvailableImplementationPlanned_OnePlannedCourse_NoAvailableImplementations_ExceptionThrowed()
         {
             // Arrange
             generator.Course course = CreateNewGeneratorCourseWithOneCourseImplementation("ENDEVN", 1,
@@ -423,13 +305,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             // Act
-            course.MarkFirstAvailableImplementationPlanned(coursesPlanned);
+            course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(coursesPlanned);
 
             // Assert throw AmountImplementationException
         }
 
         [TestMethod]
-        public void MarkFirstImplementationPlanned_NoPlannedCourse_Order_TwovailableImplementations()
+        public void MarkMinimumIntersectedFirstAvailableImplementationPlanned_NoPlannedCourse_Order_TwovailableImplementations()
         {
             // Arrange
             generator.Course course = CreateNewGeneratorCourseWithTwoCourseImplementations("ENDEVN", 1,
@@ -439,7 +321,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>();
 
             // Act
-            course.MarkFirstAvailableImplementationPlanned(coursesPlanned);
+            course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(coursesPlanned);
 
             // Assert
             Assert.AreEqual(Status.UNKNOWN, course.CourseImplementations.ElementAt(0).Status);
@@ -447,11 +329,37 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         }
 
         [TestMethod]
+        public void MarkMinimumIntersectedFirstAvailableImplementationPlanned_TwoPlannedCourse_FirstImplementationHasIntersectedCourseWithFreeImplementation_FirstImplementationPlanned()
+        {
+            // Arrange
+            generator.Course course = CreateNewGeneratorCourseWithTwoCourseImplementations("ENDEVN", 1,
+                new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) },
+                new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18), new DateTime(2017, 4, 19) });
+
+            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
+            {
+                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("SCRUMES", 1,
+                new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }, Status.AVAILABLE,
+                new DateTime[] { new DateTime(2017, 4, 19), new DateTime(2017, 4, 20), new DateTime(2017, 4, 21) }, Status.AVAILABLE),
+                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENEST", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3)}, Status.AVAILABLE,
+                new DateTime[] { new DateTime(2017, 2, 13), new DateTime(2017, 2, 14)}, Status.AVAILABLE),
+            };
+
+            // Act
+            course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(coursesPlanned);
+
+            // Assert
+            Assert.AreEqual(Status.PLANNED, course.CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual(Status.UNKNOWN, course.CourseImplementations.ElementAt(1).Status);
+        }
+
+        [TestMethod]
         public void GetPlannedImplementation_Order()
         {
             // Arrange
             generator.Course course = CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENDEVN", 1,
-                new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18), new DateTime(2017, 4, 19) }, Status.NOTUSED,
+                new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18), new DateTime(2017, 4, 19) }, Status.NOTPLANNED,
                 new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }, Status.PLANNED);
 
             // Act
@@ -476,51 +384,51 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.IsNull(result);
         }
 
-        [TestMethod]
-        public void GetAvailableIntersectedCoursesWithPlannedImplementation_OnePlannedCourse_OneAvailable()
-        {
-            // Arrange
-            generator.Course course = CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENDEVN", 1,
-                new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18), new DateTime(2017, 4, 19) }, Status.PLANNED,
-                new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }, Status.NOTUSED);
+        //[TestMethod]
+        //public void GetAvailableIntersectedCoursesWithPlannedImplementation_OnePlannedCourse_OneAvailable()
+        //{
+        //    // Arrange
+        //    generator.Course course = CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENDEVN", 1,
+        //        new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18), new DateTime(2017, 4, 19) }, Status.PLANNED,
+        //        new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }, Status.NOTPLANNED);
 
 
-            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
-            {
-                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENEST", 1,
-                new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18),}, Status.AVAILABLE,
-                new DateTime[] { new DateTime(2017, 2, 13), new DateTime(2017, 2, 14)}, Status.AVAILABLE),
-            };
+        //    IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
+        //    {
+        //        CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENEST", 1,
+        //        new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18),}, Status.AVAILABLE,
+        //        new DateTime[] { new DateTime(2017, 2, 13), new DateTime(2017, 2, 14)}, Status.AVAILABLE),
+        //    };
 
-            // Act
-            var result = course.GetAvailableIntersectedCoursesWithPlannedImplementation(coursesPlanned);
+        //    // Act
+        //    var result = course.GetAvailableIntersectedCoursesWithPlannedImplementation(coursesPlanned);
 
-            // Assert
-            Assert.AreEqual(1, result.Count());
-        }
+        //    // Assert
+        //    Assert.AreEqual(1, result.Count());
+        //}
 
-        [TestMethod]
-        public void GetAvailableIntersectedCoursesWithPlannedImplementation_OnePlannedCourse_NoAvailable()
-        {
-            // Arrange
-            generator.Course course = CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENDEVN", 1,
-                new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18), new DateTime(2017, 4, 19) }, Status.PLANNED,
-                new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }, Status.NOTUSED);
+        //[TestMethod]
+        //public void GetAvailableIntersectedCoursesWithPlannedImplementation_OnePlannedCourse_NoAvailable()
+        //{
+        //    // Arrange
+        //    generator.Course course = CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENDEVN", 1,
+        //        new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18), new DateTime(2017, 4, 19) }, Status.PLANNED,
+        //        new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }, Status.NOTPLANNED);
 
 
-            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
-            {
-                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENEST", 1,
-                new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18),}, Status.NOTPLANNED,
-                new DateTime[] { new DateTime(2017, 2, 13), new DateTime(2017, 2, 14)}, Status.NOTPLANNED),
-            };
+        //    IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
+        //    {
+        //        CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENEST", 1,
+        //        new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18),}, Status.UNPLANNABLE,
+        //        new DateTime[] { new DateTime(2017, 2, 13), new DateTime(2017, 2, 14)}, Status.UNPLANNABLE),
+        //    };
 
-            // Act
-            var result = course.GetAvailableIntersectedCoursesWithPlannedImplementation(coursesPlanned);
+        //    // Act
+        //    var result = course.GetAvailableIntersectedCoursesWithPlannedImplementation(coursesPlanned);
 
-            // Assert
-            Assert.AreEqual(0, result.Count());
-        }
+        //    // Assert
+        //    Assert.AreEqual(0, result.Count());
+        //}
 
 
 

@@ -33,19 +33,21 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         {
             coursesToPlan = coursesToPlan.OrderBy(course => course.Priority);
 
+
+             
             foreach (var courseToPlan in coursesToPlan)
             {
                 var course = (generator.Course)courseToPlan;
                 var knownCourses = _coursePlanning.GetCourses();
 
-                MutateCourseImplementations(course, knownCourses);
+                MarkCourseImplementations(course, knownCourses);
                 _coursePlanning.AddCourse(course);
             }
 
             var availableCourses = _coursePlanning.GetAvailableCourses();
             if (availableCourses.Any())
             {
-                MutateCourseImplementations();
+                MarkAvailableCourseImplementations();
             }
 
             var plannedCourses = _coursePlanning.GetPlannedCourses();
@@ -57,25 +59,26 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         }
 
 
-        private void MutateCourseImplementations(generator.Course course, IEnumerable<generator.Course> knownCourses)
+        private void MarkCourseImplementations(generator.Course course, IEnumerable<generator.Course> knownCourses)
         {
-            if (course.HasMultipleAvailableImplementations(knownCourses))
+           
+            if (course.HasOnlyImplementationsWithStatus(Status.UNKNOWN))
             {
                 course.MarkAllImplementations(Status.AVAILABLE);
             }
-            else if (course.HasOneAvailableImplementation(knownCourses))
+            else if (course.HasOneImplementation() && course.IsPlannable(knownCourses))
             {
-                course.MarkAllImplementations(Status.NOTUSED);
+                course.MarkAllImplementations(Status.NOTPLANNED);
                 course.MarkOnlyAvailableImplementationPlanned(knownCourses);
             }
             else
             {
-                course.MarkAllImplementations(Status.NOTPLANNED);
+                course.MarkAllImplementations(Status.UNPLANNABLE);
             }
         }
 
 
-        private void MutateCourseImplementations()
+        private void MarkAvailableCourseImplementations()
         {
             var availableCourses = _coursePlanning.GetAvailableCourses(); //TODO: First courses with one available implementation
             var plannedCourses = _coursePlanning.GetCourses();
@@ -87,36 +90,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
                 if(course.HasAvailableImplementations(plannedCourses))
                 {
-                    course.MarkAllImplementations(Status.NOTUSED);
-                    course.MarkFirstAvailableImplementationPlanned(plannedCourses);
-                    MarkOnlyAvailablePlanned(course, plannedCourses);
-                }
-                else
-                {
                     course.MarkAllImplementations(Status.NOTPLANNED);
-                }
-            }
-
-        }
-
-        private void MarkOnlyAvailablePlanned(generator.Course course, IEnumerable<generator.Course> knownCourses)
-        {
-            IEnumerable<Course> intersectedCourses = course.GetAvailableIntersectedCoursesWithPlannedImplementation(knownCourses);
-
-            foreach (var intersectedCourse in intersectedCourses)
-            {
-                if (intersectedCourse.HasAvailableImplementations(knownCourses))
-                {
-                    intersectedCourse.MarkAllImplementations(Status.NOTUSED);
-                    intersectedCourse.MarkFirstAvailableImplementationPlanned(knownCourses);
-                    MarkOnlyAvailablePlanned(intersectedCourse, knownCourses);
+                    course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(plannedCourses);
                 }
                 else
                 {
-                    intersectedCourse.MarkAllImplementations(Status.NOTPLANNED);
+                    course.MarkAllImplementations(Status.UNPLANNABLE);
                 }
             }
-
 
         }
     }
