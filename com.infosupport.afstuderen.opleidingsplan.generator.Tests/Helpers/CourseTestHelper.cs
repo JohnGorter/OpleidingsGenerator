@@ -51,6 +51,34 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
             };
         }
 
+        protected models.Course CreateNewModelCourseWithTreeCourseImplementations(string courseId, int priority, DateTime[] days1, DateTime[] days2, DateTime[] days3)
+        {
+            return new models.Course
+            {
+                Code = courseId,
+                Priority = priority,
+                Duration = days1.Count() + " dagen",
+                CourseImplementations = new List<models.CourseImplementation>()
+                {
+                    new models.CourseImplementation
+                    {
+                        Days = days1.ToList(),
+                        StartDay =  days1.First(),
+                    },
+                    new models.CourseImplementation
+                    {
+                        Days = days2.ToList(),
+                        StartDay =  days2.First(),
+                    },
+                    new models.CourseImplementation
+                    {
+                        Days = days3.ToList(),
+                        StartDay =  days3.First(),
+                    }
+                }
+            };
+        }
+
         protected generator.Course CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus(string courseId, int priority, DateTime[] days1, Status status1, DateTime[] days2, Status status2)
         {
             return new generator.Course

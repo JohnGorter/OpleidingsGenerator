@@ -62,14 +62,22 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         private void MarkCourseImplementations(generator.Course course, IEnumerable<generator.Course> knownCourses)
         {
            
-            if (course.HasOnlyImplementationsWithStatus(Status.UNKNOWN))
+            if (course.HasOneImplementation())
+            {
+                if(course.IsPlannable(knownCourses))
+                {
+                    course.MarkAllImplementations(Status.NOTPLANNED);
+                    course.MarkOnlyAvailableImplementationPlanned(knownCourses);
+                    course.MarkAllPlannedIntersectedImplementations(Status.UNPLANNABLE, knownCourses);
+                }
+                else
+                {
+                    course.MarkAllImplementations(Status.UNPLANNABLE);
+                }
+            }
+            else if (course.HasOnlyImplementationsWithStatus(Status.UNKNOWN))
             {
                 course.MarkAllImplementations(Status.AVAILABLE);
-            }
-            else if (course.HasOneImplementation() && course.IsPlannable(knownCourses))
-            {
-                course.MarkAllImplementations(Status.NOTPLANNED);
-                course.MarkOnlyAvailableImplementationPlanned(knownCourses);
             }
             else
             {
@@ -92,6 +100,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 {
                     course.MarkAllImplementations(Status.NOTPLANNED);
                     course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(plannedCourses);
+                    course.MarkAllPlannedIntersectedImplementations(Status.UNPLANNABLE, plannedCourses);
                 }
                 else
                 {

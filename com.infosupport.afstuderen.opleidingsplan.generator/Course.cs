@@ -42,7 +42,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         {
             foreach (var implementation in this.CourseImplementations)
             {
-                implementation.Status = status;
+                if(implementation.Status != Status.UNPLANNABLE)
+                {
+                    implementation.Status = status;
+                }
             }
         }
 
@@ -61,6 +64,26 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public bool HasOneImplementation()
         {
             return this.CourseImplementations.Count() == 1;
+        }
+        
+        //TODO: Test
+        public void MarkAllPlannedIntersectedImplementations(Status status, IEnumerable<generator.Course> courses)
+        {
+            var plannedCourseImplementation = this.CourseImplementations.FirstOrDefault(courseImplementation => courseImplementation.Status == Status.PLANNED);
+
+            if(plannedCourseImplementation == null)
+            {
+                throw new AmountImplementationException("There is no planned implementation");
+            }
+
+            var courseWithouSelf = courses.Where(course => course.Code != this.Code);
+            var intersectedCourseImplementations = plannedCourseImplementation.GetIntersectedCourseImplementations(courseWithouSelf);
+
+            foreach (var implementation in intersectedCourseImplementations)
+            {
+                implementation.Status = status;
+            }
+
         }
 
         public bool HasAvailableImplementations(IEnumerable<Course> plannedCourses)
@@ -90,8 +113,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             {
                 throw new AmountImplementationException("No available implementations");
             }
-
-
 
             var availableImplementations = GetCourseAvailableImplementation(courses).OrderBy(courseImplementation => courseImplementation.StartDay);
 
@@ -124,6 +145,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return course.CourseImplementations.Any(courseImplementation => courseImplementation.Intersects(this.CourseImplementations));
         }
 
+        //TODO: Test
+        public bool Intersectstest(generator.Course course)
+        {
+            return course.CourseImplementations.Any(courseImplementation => courseImplementation.Intersects(this.CourseImplementations) && courseImplementation.Status != Status.UNPLANNABLE);
+        }
+
         public bool IsPlannable(IEnumerable<Course> courses)
         {
             return this.CourseImplementations.Any(courseImplementation => courseImplementation.IsPlannable(courses, this.Priority, this.Code));
@@ -141,6 +168,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         //TODO: Test
         public bool HasImplementationsWithoutIntersection(IEnumerable<Course> courses, int priority)
         {
+
+            //coursesWithoutSelfcoursesWithoutSelfcoursesWithoutSelfcoursesWithoutSelfcoursesWithoutSelfcoursesWithoutSelfcoursesWithoutSelfcoursesWithoutSelf
             var coursesWithoutSelf = courses.Where(course => course.Code != this.Code && this.Priority <= priority);
             return this.CourseImplementations.Any(courseImplementation => !courseImplementation.Intersects(coursesWithoutSelf));
         }
@@ -163,7 +192,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private IEnumerable<generator.Course> GetIntersectedCoursesWithEqualOrHigherPriority(IEnumerable<Course> courses)
         {
-            return courses.Where(course => course.Intersects(this) && course.Priority <= this.Priority).ToList();
+            return courses.Where(course => course.Intersectstest(this) && course.Priority <= this.Priority).ToList();
         }
 
         private IEnumerable<generator.CourseImplementation> GetCourseAvailableImplementation(IEnumerable<generator.Course> courses)
