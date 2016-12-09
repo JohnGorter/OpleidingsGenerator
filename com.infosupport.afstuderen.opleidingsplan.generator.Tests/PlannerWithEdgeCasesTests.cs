@@ -8,7 +8,7 @@ using com.infosupport.afstuderen.opleidingsplan.models;
 namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
 {
     [TestClass]
-    public class PlannerWithMixCourseImplementationTests : CourseTestHelper
+    public class PlannerWithEdgeCasesTests : CourseTestHelper
     {
         [TestMethod]
         public void PlanThreeCourses_TwoCoursesPlanned()
