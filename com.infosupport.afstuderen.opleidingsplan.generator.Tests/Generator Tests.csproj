@@ -57,7 +57,7 @@
     <Compile Include="EducationPlanTest.cs" />
     <Compile Include="PlannerWithOneCourseImplementationTests.cs" />
     <Compile Include="PlannerWithTwoCourseImplementationTests.cs" />
-    <Compile Include="PlannerWithMixCourseImplementationTests.cs" />
+    <Compile Include="PlannerWithEdgeCasesTests.cs" />
     <Compile Include="Helpers\CourseTestHelper.cs" />
     <Compile Include="CourseTest.cs" />
     <Compile Include="EducationPlanOutputterTest.cs" />

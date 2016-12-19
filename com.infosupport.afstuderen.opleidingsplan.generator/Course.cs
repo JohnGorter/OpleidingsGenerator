@@ -118,7 +118,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
             MarkFirstImplementationThatIntersectsCourseWithOneFreeImplementation(courses, availableImplementations);
 
-            if(!this.CourseImplementations.Any(courseImplementation => courseImplementation.Status == Status.PLANNED))
+            if(GetPlannedImplementation() == null)
             {
                 var availableImplementation = GetCourseAvailableImplementation(courses)
                     .OrderBy(courseImplementation => courseImplementation.IntersectsWithStatusCount(courses, Status.AVAILABLE))
@@ -146,7 +146,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         }
 
         //TODO: Test
-        public bool Intersectstest(generator.Course course)
+        public bool IntersectsNotUnplannable(generator.Course course)
         {
             return course.CourseImplementations.Any(courseImplementation => courseImplementation.Intersects(this.CourseImplementations) && courseImplementation.Status != Status.UNPLANNABLE);
         }
@@ -192,7 +192,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private IEnumerable<generator.Course> GetIntersectedCoursesWithEqualOrHigherPriority(IEnumerable<Course> courses)
         {
-            return courses.Where(course => course.Intersectstest(this) && course.Priority <= this.Priority).ToList();
+            return courses.Where(course => course.IntersectsNotUnplannable(this) && course.Priority <= this.Priority).ToList();
         }
 
         private IEnumerable<generator.CourseImplementation> GetCourseAvailableImplementation(IEnumerable<generator.Course> courses)

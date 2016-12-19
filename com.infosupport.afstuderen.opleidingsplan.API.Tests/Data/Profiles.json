@@ -1,0 +1,372 @@
+[
+  {
+    "Id": 1,
+    "Name": "NET_Developer",
+    "Courses": [
+      {
+        "Code": "WINDEV",
+        "Priority": 3
+      },
+      {
+        "Code": "NETFOUNB",
+        "Priority": 2
+      },
+      {
+        "Code": "ADCSB",
+        "Priority": 2
+      },
+      {
+        "Code": "JSDEVLANG",
+        "Priority": 2
+      },
+      {
+        "Code": "HTMLCSSADV",
+        "Priority": 2
+      },
+      {
+        "Code": "HTMLCSSCOR",
+        "Priority": 2
+      },
+      {
+        "Code": "MVC",
+        "Priority": 2
+      },
+      {
+        "Code": "SCRUMES",
+        "Priority": 1
+      },
+      {
+        "Code": "ENEST",
+        "Priority": 1
+      },
+      {
+        "Code": "ENDEVN",
+        "Priority": 1
+      },
+      {
+        "Code": "SECDEV",
+        "Priority": 3
+      },
+      {
+        "Code": "XSD",
+        "Priority": 3
+      },
+      {
+        "Code": "ALMUVS",
+        "Priority": 3
+      },
+      {
+        "Code": "MS20461",
+        "Priority": 3
+      },
+      {
+        "Code": "MS20464",
+        "Priority": 2
+      },
+      {
+        "Code": "OOUML",
+        "Priority": 1
+      },
+      {
+        "Code": "WCFDEV",
+        "Priority": 2
+      },
+      {
+        "Code": "CONDEVES",
+        "Priority": 4
+      },
+      {
+        "Code": "DDAS",
+        "Priority": 3
+      },
+      {
+        "Code": "ANGULARJS",
+        "Priority": 4
+      },
+      {
+        "Code": "POSHDSC",
+        "Priority": 4
+      },
+      {
+        "Code": "WFDEV",
+        "Priority": 4
+      },
+      {
+        "Code": "XSLT",
+        "Priority": 4
+      },
+      {
+        "Code": "MS20488",
+        "Priority": 4
+      },
+      {
+        "Code": "MS20489",
+        "Priority": 4
+      },
+      {
+        "Code": "DPAT",
+        "Priority": 4
+      },
+      {
+        "Code": "QLIMM",
+        "Priority": 4
+      },
+      {
+        "Code": "UTVS",
+        "Priority": 4
+      },
+      {
+        "Code": "FITSEL",
+        "Priority": 4
+      },
+      {
+        "Code": "INBI",
+        "Priority": 4
+      },
+      {
+        "Code": "MS20532",
+        "Priority": 4
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Name": "Developer_Mobile",
+    "Courses": [
+      {
+        "Code": "CNETIN",
+        "Priority": 2
+      },
+      {
+        "Code": "NETFOUNB",
+        "Priority": 2
+      },
+      {
+        "Code": "ADCSB",
+        "Priority": 2
+      },
+      {
+        "Code": "JAVANC",
+        "Priority": 2
+      },
+      {
+        "Code": "JAVA7UP",
+        "Priority": 3
+      },
+      {
+        "Code": "JSDEVLANG",
+        "Priority": 2
+      },
+      {
+        "Code": "HTMLCSSCOR",
+        "Priority": 2
+      },
+      {
+        "Code": "HTMLCSSADV",
+        "Priority": 2
+      },
+      {
+        "Code": "SCRUMES",
+        "Priority": 1
+      },
+      {
+        "Code": "ENEST",
+        "Priority": 1
+      },
+      {
+        "Code": "ENDEVN",
+        "Priority": 1
+      },
+      {
+        "Code": "SECDEV",
+        "Priority": 3
+      },
+      {
+        "Code": "XSD",
+        "Priority": 3
+      },
+      {
+        "Code": "ALMUVS",
+        "Priority": 3
+      },
+      {
+        "Code": "OOUML",
+        "Priority": 1
+      },
+      {
+        "Code": "SLPHONE",
+        "Priority": 3
+      },
+      {
+        "Code": "ENMETROCS",
+        "Priority": 3
+      },
+      {
+        "Code": "XAMFUN",
+        "Priority": 3
+      },
+      {
+        "Code": "CONDEVES",
+        "Priority": 4
+      },
+      {
+        "Code": "ANGULARJS",
+        "Priority": 4
+      },
+      {
+        "Code": "XAMADV",
+        "Priority": 4
+      },
+      {
+        "Code": "XAMCAL",
+        "Priority": 4
+      },
+      {
+        "Code": "GIT",
+        "Priority": 4
+      },
+      {
+        "Code": "DEVIOS",
+        "Priority": 4
+      },
+      {
+        "Code": "DPAT",
+        "Priority": 4
+      },
+      {
+        "Code": "XSLT",
+        "Priority": 4
+      },
+      {
+        "Code": "ANDROIDDEV",
+        "Priority": 4
+      },
+      {
+        "Code": "UTVS",
+        "Priority": 4
+      },
+      {
+        "Code": "INBI",
+        "Priority": 4
+      },
+      {
+        "Code": "FITSEL",
+        "Priority": 4
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Name": "JAVA_Developer",
+    "Courses": [
+      {
+        "Code": "JAVA7UP",
+        "Priority": 1
+      },
+      {
+        "Code": "J2SA",
+        "Priority": 1
+      },
+      {
+        "Code": "JavaWeb",
+        "Priority": 1
+      },
+      {
+        "Code": "JSDEVLANG",
+        "Priority": 1
+      },
+      {
+        "Code": "HTMLCSSCOR",
+        "Priority": 1
+      },
+      {
+        "Code": "HTMLCSSADV",
+        "Priority": 1
+      },
+      {
+        "Code": "JAVAWS",
+        "Priority": 1
+      },
+      {
+        "Code": "JPA",
+        "Priority": 4
+      },
+      {
+        "Code": "JEE7ADV",
+        "Priority": 2
+      },
+      {
+        "Code": "SPRINGADV",
+        "Priority": 2
+      },
+      {
+        "Code": "MS20464",
+        "Priority": 1
+      },
+      {
+        "Code": "SCRUMES",
+        "Priority": 1
+      },
+      {
+        "Code": "ENEST",
+        "Priority": 1
+      },
+      {
+        "Code": "GIT",
+        "Priority": 3
+      },
+      {
+        "Code": "ENDEVJ",
+        "Priority": 1
+      },
+      {
+        "Code": "SECDEV",
+        "Priority": 3
+      },
+      {
+        "Code": "OOUML",
+        "Priority": 3
+      },
+      {
+        "Code": "JAVA8",
+        "Priority": 2
+      },
+      {
+        "Code": "CONDEVES",
+        "Priority": 3
+      },
+      {
+        "Code": "UNIXDEV",
+        "Priority": 3
+      },
+      {
+        "Code": "ANGULARJS",
+        "Priority": 3
+      },
+      {
+        "Code": "DPAT",
+        "Priority": 4
+      },
+      {
+        "Code": "FITSEL",
+        "Priority": 4
+      },
+      {
+        "Code": "INBI",
+        "Priority": 4
+      },
+      {
+        "Code": "XSD",
+        "Priority": 3
+      },
+      {
+        "Code": "XSLT",
+        "Priority": 3
+      },
+      {
+        "Code": "WINDEV",
+        "Priority": 4
+      }
+    ]
+  }
+]

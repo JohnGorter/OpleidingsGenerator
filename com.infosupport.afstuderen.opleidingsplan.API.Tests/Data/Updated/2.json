@@ -1,0 +1,39 @@
+{
+  "Id": 2,
+  "Created": "2016-12-04T01:25:34.6000888+01:00",
+  "InPaymentFrom": "2016-12-09T01:25:34.6000888+01:00",
+  "EmployableFrom": "2017-03-04T01:25:34.6000888+01:00",
+  "NameEmployee": "Jan Verstegen",
+  "NameTeacher": "Felix Sedney",
+  "KnowledgeOf": "MVC, DPAT, OOUML, SCRUMES",
+  "Profile": "NET_Developer",
+  "PlannedCourses": [
+    {
+      "Code": "2NETARCH",
+      "Date": "2016-11-29T00:00:00",
+      "Name": ".NET for Architects and Project Managers",
+      "Days": 2,
+      "Commentary": "geen opmerkingen",
+      "Price": 1150.0,
+      "IntersectedCourses": null,
+      "Week": 48,
+      "PriceWithDiscount": 920.00
+    },
+    {
+      "Code": "ADCSB",
+      "Date": "2016-12-05T00:00:00",
+      "Name": "Advanced C#",
+      "Days": 2,
+      "Commentary": "geen opmerkingen",
+      "Price": 1050.0,
+      "IntersectedCourses": null,
+      "Week": 49,
+      "PriceWithDiscount": 840.00
+    }
+  ],
+  "NotPlannedCourses": [],
+  "PlannedCoursesTotalPrice": 2200.0,
+  "PlannedCoursesTotalPriceWithDiscount": 1760.00,
+  "NotPlannedCoursesTotalPrice": 0.0,
+  "NotPlannedCoursesTotalPriceWithDiscount": 0.0
+}

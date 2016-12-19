@@ -33,8 +33,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         {
             coursesToPlan = coursesToPlan.OrderBy(course => course.Priority);
 
-
-             
             foreach (var courseToPlan in coursesToPlan)
             {
                 var course = (generator.Course)courseToPlan;

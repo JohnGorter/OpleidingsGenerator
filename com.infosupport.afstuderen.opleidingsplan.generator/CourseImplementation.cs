@@ -35,10 +35,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return courses
                 .SelectMany(course => course.CourseImplementations)
                 .Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day)));
-
-            //return courses
-            //    .SelectMany(course => course.CourseImplementations)
-            //    .Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day)) && courseImplementation.Status != Status.PLANNED);
         }
 
         //TODO: Test
@@ -63,7 +59,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public bool IsPlannable(IEnumerable<Course> courses, int priority, string code)
         {
-            if(!Intersects(courses))
+            if(!this.Intersects(courses))
             {
                 return true;
             }
@@ -114,6 +110,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
                 if (!plannable)
                 {
+                    //plannable = intersectedCourse.IsPlannable(courses);
+
                     plannable = intersectedCourse.CourseImplementations.Any(ci => ci.IsPlannable(courses, scannedCourses, priority));
                 }
             }

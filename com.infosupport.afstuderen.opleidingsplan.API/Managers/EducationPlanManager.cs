@@ -18,6 +18,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
         private readonly IEducationPlanOutputter _educationPlanOutputter;
         private readonly IDataMapper<opleidingsplan.models.CourseProfile> _profileDataMapper;
 
+        public EducationPlanManager(string profilePath, ICourseService courseService)
+        {
+            _courseService = courseService;
+            _planner = new Planner();
+            _educationPlanOutputter = new EducationPlanOutputter(_planner);
+            _profileDataMapper = new ProfileJsonDataMapper(profilePath);
+        }
+
         public EducationPlanManager(string profilePath)
         {
             _courseService = new CourseService();
@@ -41,12 +49,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             foreach (var course in courses)
             {
                 opleidingsplan.models.Course courseToPlan = Mapper.Map<opleidingsplan.models.Course>(course);
-
-                CoursePriority coursePriority = profile.Courses.FirstOrDefault(profileCourse => profileCourse.Code == course.Code);
-                if (coursePriority != null)
+                if(profile != null)
                 {
-                    courseToPlan.Priority = coursePriority.Priority;
-                }
+                    CoursePriority coursePriority = profile.Courses.FirstOrDefault(profileCourse => profileCourse.Code == course.Code);
+                    if (coursePriority != null)
+                    {
+                        courseToPlan.Priority = coursePriority.Priority;
+                    }
+                }               
                 coursesToPlan.Add(courseToPlan);
             }
 
@@ -55,8 +65,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 
         public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan)
         {
-
-            opleidingsplan.models.CourseProfile profile = _profileDataMapper.FindById(educationPlan.ProfileId);
+            opleidingsplan.models.CourseProfile profile = null;
+            if (educationPlan.ProfileId != 0)
+            {
+                profile = _profileDataMapper.FindById(educationPlan.ProfileId);
+            }
 
             IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlan.Courses);
             List<opleidingsplan.models.Course> coursesToPlan = ConvertCourses(courses, profile);

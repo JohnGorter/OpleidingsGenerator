@@ -62,12 +62,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             return new integration.Course
             {
                 Code = courseId,
+                Duration = days1.Count() + " dagen",
                 CourseImplementations = new integration.CourseImplementation[]
                 {
                     new integration.CourseImplementation
                     {
                         Days = days1,
-                        Location = "Veenendaal"
+                        Location = "Veenendaal",
                     },
                     new integration.CourseImplementation
                     {
