@@ -305,7 +305,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             // Act
-            course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(coursesPlanned);
+            course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(coursesPlanned, new DateTime(2017,1,1), new List<DateTime>());
 
             // Assert throw AmountImplementationException
         }
@@ -321,7 +321,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>();
 
             // Act
-            course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(coursesPlanned);
+            course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(coursesPlanned, new DateTime(2017, 1, 1), new List<DateTime>());
 
             // Assert
             Assert.AreEqual(Status.UNKNOWN, course.CourseImplementations.ElementAt(0).Status);
@@ -347,7 +347,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             // Act
-            course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(coursesPlanned);
+            course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(coursesPlanned, new DateTime(2017, 1, 1), new List<DateTime>());
 
             // Assert
             Assert.AreEqual(Status.PLANNED, course.CourseImplementations.ElementAt(0).Status);

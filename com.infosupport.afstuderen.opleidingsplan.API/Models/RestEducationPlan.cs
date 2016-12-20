@@ -14,5 +14,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.models
         public string NameTeacher { get; set; }
         public string KnowledgeOf { get; set; }
         public int ProfileId { get; set; }
+        public List<DateTime> BlockedDates { get; set; }
     }
 }

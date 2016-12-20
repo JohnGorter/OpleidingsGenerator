@@ -57,8 +57,27 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                  .Where(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day)));
         }
 
-        public bool IsPlannable(IEnumerable<Course> courses, int priority, string code)
+        public bool IsPlannable(IEnumerable<Course> courses, int priority, string code, DateTime startDate, IEnumerable<DateTime> blockedDates)
         {
+
+            int periodInDays = GeneratorConfiguration.GetConfiguration().PeriodEducationPlanInDays;
+            var endDate = startDate.AddDays(periodInDays);
+
+            if(this.StartDay > endDate)
+            {
+                return false;
+            }
+
+            if (this.StartDay < startDate)
+            {
+                return false;
+            }
+            
+            if (this.Days.Any(day => blockedDates.Contains(day)))
+            {
+                return false;
+            }
+
             if(!this.Intersects(courses))
             {
                 return true;
@@ -110,8 +129,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
                 if (!plannable)
                 {
-                    //plannable = intersectedCourse.IsPlannable(courses);
-
                     plannable = intersectedCourse.CourseImplementations.Any(ci => ci.IsPlannable(courses, scannedCourses, priority));
                 }
             }

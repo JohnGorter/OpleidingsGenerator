@@ -10,6 +10,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
     public class Planner : IPlanner
     {
         private CoursePlanning _coursePlanning = new CoursePlanning();
+        public DateTime StartDate { get; set; } = DateTime.Now;
+        public List<DateTime> BlockedDates { get; set; } = new List<DateTime>();
+
 
         public Planner()
         {
@@ -62,7 +65,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
            
             if (course.HasOneImplementation())
             {
-                if(course.IsPlannable(knownCourses))
+                if (course.IsPlannable(knownCourses, StartDate, BlockedDates))
                 {
                     course.MarkAllImplementations(Status.NOTPLANNED);
                     course.MarkOnlyAvailableImplementationPlanned(knownCourses);
@@ -86,9 +89,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void MarkAvailableCourseImplementations()
         {
-            var availableCourses = _coursePlanning.GetAvailableCourses(); //TODO: First courses with one available implementation
+            var availableCourses = _coursePlanning.GetAvailableCourses();
             var plannedCourses = _coursePlanning.GetCourses();
-
 
             while (availableCourses.Any())
             {
@@ -97,7 +99,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 if(course.HasAvailableImplementations(plannedCourses))
                 {
                     course.MarkAllImplementations(Status.NOTPLANNED);
-                    course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(plannedCourses);
+                    course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(plannedCourses, StartDate, BlockedDates);
                     course.MarkAllPlannedIntersectedImplementations(Status.UNPLANNABLE, plannedCourses);
                 }
                 else

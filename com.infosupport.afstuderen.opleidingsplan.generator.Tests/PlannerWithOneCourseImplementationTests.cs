@@ -15,6 +15,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         {
             // Arrange
             Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
@@ -47,6 +48,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         {
             // Arrange
             Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
@@ -69,6 +71,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         {
             // Arrange
             Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
@@ -101,6 +104,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         {
             // Arrange
             Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
@@ -130,6 +134,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         {
             // Arrange
             Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
@@ -159,6 +164,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         {
             // Arrange
             Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
@@ -188,6 +194,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         {
             // Arrange
             Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
@@ -217,6 +224,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         {
             // Arrange
             Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
@@ -244,6 +252,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         {
             // Arrange
             Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
@@ -274,6 +283,117 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.AreEqual(2, planner.GetNotPlannedCourses().ElementAt(1).IntersectedCourseIds.Count());
             Assert.AreEqual("SECDEV", planner.GetNotPlannedCourses().ElementAt(1).IntersectedCourseIds.ElementAt(0));
             Assert.AreEqual("XSD", planner.GetNotPlannedCourses().ElementAt(1).IntersectedCourseIds.ElementAt(1));
+        }
+
+        [TestMethod]
+        public void PlanThreeCourses_StartDayAfterFirstDate_TwoCoursesPlanned()
+        {
+            // Arrange
+            Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 3);
+
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
+            {
+                CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
+                CreateNewModelCourseWithOneCourseImplementation("ENEST", 1,
+                new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }),
+                CreateNewModelCourseWithOneCourseImplementation("ENDEVN", 1,
+                new DateTime[] { new DateTime(2017, 1, 16), new DateTime(2017, 1, 17), new DateTime(2017, 1, 18) }),
+            };
+
+            // Act
+            planner.PlanCourses(coursesToPlan);
+
+            // Assert
+            Assert.AreEqual(3, planner.GetAllCourses().Count());
+
+            Assert.AreEqual(2, planner.GetPlannedCourses().Count());
+            Assert.AreEqual(Status.PLANNED, planner.GetPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENEST", planner.GetPlannedCourses().ElementAt(0).Code);
+            Assert.AreEqual(Status.PLANNED, planner.GetPlannedCourses().ElementAt(1).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENDEVN", planner.GetPlannedCourses().ElementAt(1).Code);
+
+            Assert.AreEqual(1, planner.GetNotPlannedCourses().Count());
+            Assert.AreEqual(Status.UNPLANNABLE, planner.GetNotPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("SCRUMES", planner.GetNotPlannedCourses().ElementAt(0).Code);
+        }
+
+        [TestMethod]
+        public void PlanThreeCourses_StartDayAfterPeriod_TwoCoursesPlanned()
+        {
+            // Arrange
+            Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
+
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
+            {
+                CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
+                CreateNewModelCourseWithOneCourseImplementation("ENEST", 1,
+                new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }),
+                CreateNewModelCourseWithOneCourseImplementation("ENDEVN", 1,
+                new DateTime[] { new DateTime(2017, 4, 16), new DateTime(2017, 1, 17), new DateTime(2017, 1, 18) }),
+            };
+
+            // Act
+            planner.PlanCourses(coursesToPlan);
+
+            // Assert
+            Assert.AreEqual(3, planner.GetAllCourses().Count());
+
+            Assert.AreEqual(2, planner.GetPlannedCourses().Count());
+            Assert.AreEqual(Status.PLANNED, planner.GetPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().ElementAt(0).Code);
+            Assert.AreEqual(Status.PLANNED, planner.GetPlannedCourses().ElementAt(1).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENEST", planner.GetPlannedCourses().ElementAt(1).Code);
+
+            Assert.AreEqual(1, planner.GetNotPlannedCourses().Count());
+            Assert.AreEqual(Status.UNPLANNABLE, planner.GetNotPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENDEVN", planner.GetNotPlannedCourses().ElementAt(0).Code);
+        }
+
+        [TestMethod]
+        public void PlanThreeCourses_BlockDates_OneCoursePlanned()
+        {
+            // Arrange
+            Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
+            planner.BlockedDates = new List<DateTime>()
+            {
+                new DateTime(2017, 1, 11),
+                new DateTime(2017, 1, 12),
+                new DateTime(2017, 1, 13),
+                new DateTime(2017, 1, 14),
+                new DateTime(2017, 1, 15),
+                new DateTime(2017, 1, 16),
+            };
+
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
+            {
+                CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
+                CreateNewModelCourseWithOneCourseImplementation("ENEST", 1,
+                new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }),
+                CreateNewModelCourseWithOneCourseImplementation("ENDEVN", 1,
+                new DateTime[] { new DateTime(2017, 1, 16), new DateTime(2017, 1, 17), new DateTime(2017, 1, 18) }),
+            };
+
+            // Act
+            planner.PlanCourses(coursesToPlan);
+
+            // Assert
+            Assert.AreEqual(3, planner.GetAllCourses().Count());
+
+            Assert.AreEqual(1, planner.GetPlannedCourses().Count());
+            Assert.AreEqual(Status.PLANNED, planner.GetPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().ElementAt(0).Code);
+
+            Assert.AreEqual(2, planner.GetNotPlannedCourses().Count());
+            Assert.AreEqual(Status.UNPLANNABLE, planner.GetNotPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENEST", planner.GetNotPlannedCourses().ElementAt(0).Code);
+            Assert.AreEqual(Status.UNPLANNABLE, planner.GetNotPlannedCourses().ElementAt(1).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENDEVN", planner.GetNotPlannedCourses().ElementAt(1).Code);
         }
     }
 }

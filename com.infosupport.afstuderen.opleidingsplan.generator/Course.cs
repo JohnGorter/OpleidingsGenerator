@@ -107,7 +107,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         /// else it will mark the first minimum intersected implementation to Planned
         /// </summary>
         /// <param name="courses"></param>
-        public void MarkMinimumIntersectedFirstAvailableImplementationPlanned(IEnumerable<generator.Course> courses)
+        public void MarkMinimumIntersectedFirstAvailableImplementationPlanned(IEnumerable<generator.Course> courses, DateTime startDate, IEnumerable<DateTime> blockedDates)
         {
             if (GetCourseAvailableImplementation(courses).None())
             {
@@ -116,7 +116,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
             var availableImplementations = GetCourseAvailableImplementation(courses).OrderBy(courseImplementation => courseImplementation.StartDay);
 
-            MarkFirstImplementationThatIntersectsCourseWithOneFreeImplementation(courses, availableImplementations);
+            MarkFirstImplementationThatIntersectsCourseWithOneFreeImplementation(courses, availableImplementations, startDate, blockedDates);
 
             if(GetPlannedImplementation() == null)
             {
@@ -151,9 +151,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return course.CourseImplementations.Any(courseImplementation => courseImplementation.Intersects(this.CourseImplementations) && courseImplementation.Status != Status.UNPLANNABLE);
         }
 
-        public bool IsPlannable(IEnumerable<Course> courses)
+        public bool IsPlannable(IEnumerable<Course> courses, DateTime startDate, IEnumerable<DateTime> blockedDates)
         {
-            return this.CourseImplementations.Any(courseImplementation => courseImplementation.IsPlannable(courses, this.Priority, this.Code));
+            return this.CourseImplementations.Any(courseImplementation => courseImplementation.IsPlannable(courses, this.Priority, this.Code, startDate, blockedDates));
         }
 
         //TODO: Test
@@ -178,11 +178,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         /// <summary>
         /// Marks the first implementation that intersects with a course that has an implementation without intersection
         /// </summary>
-        private void MarkFirstImplementationThatIntersectsCourseWithOneFreeImplementation(IEnumerable<Course> courses, IEnumerable<CourseImplementation> availableImplementations)
+        private void MarkFirstImplementationThatIntersectsCourseWithOneFreeImplementation(IEnumerable<Course> courses, IEnumerable<CourseImplementation> availableImplementations, DateTime startDate, IEnumerable<DateTime> blockedDates)
         {
             foreach (var courseImplementation in availableImplementations)
             {
-                if(courseImplementation.IsPlannable(courses, this.Priority, this.Code))
+                if(courseImplementation.IsPlannable(courses, this.Priority, this.Code, startDate, blockedDates))
                 {
                     courseImplementation.Status = Status.PLANNED;
                     return;

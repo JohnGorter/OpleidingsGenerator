@@ -55,6 +55,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         {
             // Arrange
             Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
@@ -96,6 +97,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         {
             // Arrange
             Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {
@@ -170,6 +172,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         {
             // Arrange
             Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
             {

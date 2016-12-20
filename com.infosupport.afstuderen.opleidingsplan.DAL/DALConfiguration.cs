@@ -22,7 +22,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal
             return new DALConfiguration();
         }
 
-        [ConfigurationProperty("profile-path", IsRequired = false)]
+        [ConfigurationProperty("profile-path", IsRequired = true)]
         public string ProfilePath
         {
             get
@@ -31,7 +31,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal
             }
         }
 
-        [ConfigurationProperty("educationplan-path", IsRequired = false)]
+        [ConfigurationProperty("educationplan-path", IsRequired = true)]
         public string EducationPlanPath
         {
             get
@@ -40,7 +40,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal
             }
         }
 
-        [ConfigurationProperty("educationplan-updated-path", IsRequired = false)]
+        [ConfigurationProperty("educationplan-updated-path", IsRequired = true)]
         public string EducationPlanUpdatedPath
         {
             get
