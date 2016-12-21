@@ -29,8 +29,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             return new EducationPlan
             {
                 Created = DateTime.Now,
-                InPaymentFrom = DateTime.Now.AddDays(5),
-                EmployableFrom = DateTime.Now.AddDays(90),
+                InPaymentFrom = new DateTime(2017, 1, 1),
+                EmployableFrom = new DateTime(2017, 4, 1),
                 KnowledgeOf = "MVC, DPAT, OOUML, SCRUMES",
                 NameEmployee = "Pim Verheij",
                 NameTeacher = "Felix Sedney",

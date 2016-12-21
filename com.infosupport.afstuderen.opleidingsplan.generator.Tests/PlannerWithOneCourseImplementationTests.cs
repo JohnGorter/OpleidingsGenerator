@@ -395,5 +395,37 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.AreEqual(Status.UNPLANNABLE, planner.GetNotPlannedCourses().ElementAt(1).CourseImplementations.ElementAt(0).Status);
             Assert.AreEqual("ENDEVN", planner.GetNotPlannedCourses().ElementAt(1).Code);
         }
+
+        [TestMethod]
+        public void PlanTwoCourses_StartDayOfFirstImplementationAfterPeriod_TwoCoursesPlanned()
+        {
+            // Arrange
+            Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 5);
+
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
+            {
+                CreateNewModelCourseWithTwoCourseImplementations("SCRUMES", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
+                new DateTime[] { new DateTime(2017, 1, 16), new DateTime(2017, 1, 17), new DateTime(2017, 1, 17) }),
+                CreateNewModelCourseWithOneCourseImplementation("ENEST", 1,
+                new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }),
+            };
+
+            // Act
+            planner.PlanCourses(coursesToPlan);
+
+            // Assert
+            Assert.AreEqual(2, planner.GetAllCourses().Count());
+
+            Assert.AreEqual(2, planner.GetPlannedCourses().Count());
+            Assert.AreEqual(Status.NOTPLANNED, planner.GetPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual(Status.PLANNED, planner.GetPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(1).Status);
+            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().ElementAt(0).Code);
+            Assert.AreEqual(Status.PLANNED, planner.GetPlannedCourses().ElementAt(1).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENEST", planner.GetPlannedCourses().ElementAt(1).Code);
+
+            Assert.AreEqual(0, planner.GetNotPlannedCourses().Count());
+        }
     }
 }

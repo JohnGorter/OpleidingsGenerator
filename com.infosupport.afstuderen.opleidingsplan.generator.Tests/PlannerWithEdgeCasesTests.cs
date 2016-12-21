@@ -89,7 +89,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         }
 
         [TestMethod]
-        public void PlanFourCourses_ThreeCoursesPlanned()
+        public void PlanFourCourses_TwoCoursesPlanned_TwoImplementationsAfterEndDate()
         {
             //Arrange
             Planner planner = new Planner();
@@ -107,6 +107,46 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
                 new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4)}),
                 CreateNewModelCourseWithOneCourseImplementation("SECDEV", 1,
                 new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18), new DateTime(2017, 4, 19)}),
+            };
+
+            //Act
+            planner.PlanCourses(coursesToPlan);
+
+            // Assert
+            Assert.AreEqual(2, planner.GetPlannedCourses().Count());
+            Assert.AreEqual(2, planner.GetNotPlannedCourses().Count());
+
+            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().ElementAt(0).Code);
+            Assert.AreEqual(Status.UNPLANNABLE, planner.GetPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual(Status.PLANNED, planner.GetPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(1).Status);
+            Assert.AreEqual("ENEST", planner.GetPlannedCourses().ElementAt(1).Code);
+            Assert.AreEqual(Status.PLANNED, planner.GetPlannedCourses().ElementAt(1).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual(Status.NOTPLANNED, planner.GetPlannedCourses().ElementAt(1).CourseImplementations.ElementAt(1).Status);
+            Assert.AreEqual("ENDEVN", planner.GetNotPlannedCourses().ElementAt(0).Code);
+            Assert.AreEqual(Status.UNPLANNABLE, planner.GetNotPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("SECDEV", planner.GetNotPlannedCourses().ElementAt(1).Code);
+            Assert.AreEqual(Status.UNPLANNABLE, planner.GetNotPlannedCourses().ElementAt(1).CourseImplementations.ElementAt(0).Status);
+        }
+
+        [TestMethod]
+        public void PlanFourCourses_ThreeCoursesPlanned()
+        {
+            //Arrange
+            Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
+
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
+            {
+                CreateNewModelCourseWithTwoCourseImplementations("SCRUMES", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
+                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }),
+                CreateNewModelCourseWithTwoCourseImplementations("ENEST", 1,
+                new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4)},
+                new DateTime[] { new DateTime(2017, 3, 13), new DateTime(2017, 3, 14)}),
+                CreateNewModelCourseWithOneCourseImplementation("ENDEVN", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4)}),
+                CreateNewModelCourseWithOneCourseImplementation("SECDEV", 1,
+                new DateTime[] { new DateTime(2017, 3, 13), new DateTime(2017, 3, 14), new DateTime(2017, 3, 15)}),
             };
 
             //Act

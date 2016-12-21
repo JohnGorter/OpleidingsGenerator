@@ -65,6 +65,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 
         public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan)
         {
+            _planner.StartDate = educationPlan.InPaymentFrom;
+
             opleidingsplan.models.CourseProfile profile = null;
             if (educationPlan.ProfileId != 0)
             {

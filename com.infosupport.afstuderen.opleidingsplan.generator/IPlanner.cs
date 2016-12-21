@@ -5,6 +5,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 {
     public interface IPlanner
     {
+        DateTime StartDate { get; set; }
+        List<DateTime> BlockedDates { get; set; }
+
         IEnumerable<Course> GetPlannedCourses();
         IEnumerable<Course> GetNotPlannedCourses();
         IEnumerable<Course> GetAllCourses();

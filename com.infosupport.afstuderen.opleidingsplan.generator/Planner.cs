@@ -10,7 +10,22 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
     public class Planner : IPlanner
     {
         private CoursePlanning _coursePlanning = new CoursePlanning();
-        public DateTime StartDate { get; set; } = DateTime.Now;
+        private DateTime _startDate = DateTime.Now;
+        public DateTime StartDate
+        {
+            get
+            {
+                return _startDate;
+            }
+            set
+            {
+                if(value != null)
+                {
+                    _startDate = value;
+                }
+            }
+        }
+
         public List<DateTime> BlockedDates { get; set; } = new List<DateTime>();
 
 
@@ -36,13 +51,32 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         {
             coursesToPlan = coursesToPlan.OrderBy(course => course.Priority);
 
-            foreach (var courseToPlan in coursesToPlan)
-            {
-                var course = (generator.Course)courseToPlan;
-                var knownCourses = _coursePlanning.GetCourses();
+            var courses = coursesToPlan.Select(courseToPlan => (generator.Course)courseToPlan);
 
-                MarkCourseImplementations(course, knownCourses);
+            //foreach (var courseToPlan in coursesToPlan)
+            //{
+            //    var course = (generator.Course)courseToPlan;
+            //    var knownCourses = _coursePlanning.GetCourses();
+
+            //    MarkCourseImplementations(course, knownCourses);
+            //    _coursePlanning.AddCourse(course);
+            //}
+
+            foreach (var course in courses)
+            {
                 _coursePlanning.AddCourse(course);
+            }
+
+            var knownCourses = _coursePlanning.GetCourses();
+
+            foreach (var course in _coursePlanning.GetCourses())
+            {
+                //var course = (generator.Course)courseToPlan;
+                if(course.HasAvailableImplementations(knownCourses, StartDate, BlockedDates))
+                {
+                    MarkCourseImplementations(course, knownCourses);
+                }
+                //_coursePlanning.AddCourse(course);
             }
 
             var availableCourses = _coursePlanning.GetAvailableCourses();
@@ -63,13 +97,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         private void MarkCourseImplementations(generator.Course course, IEnumerable<generator.Course> knownCourses)
         {
            
-            if (course.HasOneImplementation())
+            if (course.HasOneImplementation(StartDate, BlockedDates))
             {
                 if (course.IsPlannable(knownCourses, StartDate, BlockedDates))
                 {
                     course.MarkAllImplementations(Status.NOTPLANNED);
-                    course.MarkOnlyAvailableImplementationPlanned(knownCourses);
-                    course.MarkAllPlannedIntersectedImplementations(Status.UNPLANNABLE, knownCourses);
+                    course.MarkOnlyAvailableImplementationPlanned(knownCourses, StartDate, BlockedDates);
+                    course.MarkAllIntersectedOfPlannedImplementations(Status.UNPLANNABLE, knownCourses);
                 }
                 else
                 {
@@ -96,11 +130,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             {
                 var course = availableCourses.First();
 
-                if(course.HasAvailableImplementations(plannedCourses))
+                if(course.HasAvailableImplementations(plannedCourses, StartDate, BlockedDates))
                 {
                     course.MarkAllImplementations(Status.NOTPLANNED);
-                    course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(plannedCourses, StartDate, BlockedDates);
-                    course.MarkAllPlannedIntersectedImplementations(Status.UNPLANNABLE, plannedCourses);
+                    course.MarkMinimumIntersectedFirstAvailableImplementationPlannedOrAllUnplannable(plannedCourses, StartDate, BlockedDates);
+                    course.MarkAllIntersectedOfPlannedImplementations(Status.UNPLANNABLE, plannedCourses);
                 }
                 else
                 {

@@ -30,5 +30,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
             return 0;
         }
+
+        public static DateTime GetEndDay(this DateTime source)
+        {
+            int periodInDays = GeneratorConfiguration.GetConfiguration().PeriodEducationPlanInDays;
+            var endDate = source.AddDays(periodInDays);
+
+            return endDate;
+        }
     }
 }

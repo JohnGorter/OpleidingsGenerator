@@ -27,7 +27,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         {
             get
             {
-                return (int) this["period-educationplan-days"];
+                return (int)this["period-educationplan-days"];
+            }
+        }
+
+        [ConfigurationProperty("period-after-last-course-employable", IsRequired = true)]
+        public int PeriodAfterLastCourseEmployable
+        {
+            get
+            {
+                return (int)this["period-after-last-course-employable"];
             }
         }
     }
