@@ -63,11 +63,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         //TODO: Test
         public bool HasOneImplementation()
         {
-            return this.CourseImplementations.Count() == 1;
+            return this.CourseImplementations.Where(ci => ci.Status != Status.UNPLANNABLE).Count() == 1;
         }
         
         //TODO: Test
-        public void MarkAllPlannedIntersectedImplementations(Status status, IEnumerable<generator.Course> courses)
+        public void MarkAllIntersectedOfPlannedImplementations(Status status, IEnumerable<generator.Course> courses)
         {
             var plannedCourseImplementation = this.CourseImplementations.FirstOrDefault(courseImplementation => courseImplementation.Status == Status.PLANNED);
 
@@ -107,7 +107,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         /// else it will mark the first minimum intersected implementation to Planned
         /// </summary>
         /// <param name="courses"></param>
-        public void MarkMinimumIntersectedFirstAvailableImplementationPlanned(IEnumerable<generator.Course> courses, DateTime startDate, IEnumerable<DateTime> blockedDates)
+        public void MarkMinimumIntersectedFirstAvailableImplementationPlanned(IEnumerable<generator.Course> courses)
         {
             if (GetCourseAvailableImplementation(courses).None())
             {
@@ -116,7 +116,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
             var availableImplementations = GetCourseAvailableImplementation(courses).OrderBy(courseImplementation => courseImplementation.StartDay);
 
-            MarkFirstImplementationThatIntersectsCourseWithOneFreeImplementation(courses, availableImplementations, startDate, blockedDates);
+            MarkFirstImplementationThatIntersectsCourseWithOneFreeImplementation(courses, availableImplementations);
 
             if(GetPlannedImplementation() == null)
             {
@@ -151,16 +151,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return course.CourseImplementations.Any(courseImplementation => courseImplementation.Intersects(this.CourseImplementations) && courseImplementation.Status != Status.UNPLANNABLE);
         }
 
-        public bool IsPlannable(IEnumerable<Course> courses, DateTime startDate, IEnumerable<DateTime> blockedDates)
+        public bool IsPlannable(IEnumerable<Course> courses)
         {
-            return this.CourseImplementations.Any(courseImplementation => courseImplementation.IsPlannable(courses, this.Priority, this.Code, startDate, blockedDates));
+            return this.CourseImplementations.Any(courseImplementation => courseImplementation.IsPlannable(courses, this.Priority, this.Code) && courseImplementation.Status != Status.UNPLANNABLE);
         }
 
         //TODO: Test
         public bool HasIntersectedCourseWithFreeImplementation(IEnumerable<Course> courses, int priority)
         {
             var intersectedCourses = this.GetIntersectedCoursesWithEqualOrHigherPriority(courses)
-                .Where(course => course.Code != this.Code && !course.CourseImplementations.Any(ci => ci.Status == Status.PLANNED));
+                .Where(course => course.Code != this.Code && !course.CourseImplementations.Any(ci => ci.Status == Status.PLANNED) && !course.CourseImplementations.Any(ci => ci.Status == Status.UNPLANNABLE));
 
             return intersectedCourses.Any(course => course.HasImplementationsWithoutIntersection(courses, priority));
         }
@@ -178,11 +178,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         /// <summary>
         /// Marks the first implementation that intersects with a course that has an implementation without intersection
         /// </summary>
-        private void MarkFirstImplementationThatIntersectsCourseWithOneFreeImplementation(IEnumerable<Course> courses, IEnumerable<CourseImplementation> availableImplementations, DateTime startDate, IEnumerable<DateTime> blockedDates)
+        private void MarkFirstImplementationThatIntersectsCourseWithOneFreeImplementation(IEnumerable<Course> courses, IEnumerable<CourseImplementation> availableImplementations)
         {
             foreach (var courseImplementation in availableImplementations)
             {
-                if(courseImplementation.IsPlannable(courses, this.Priority, this.Code, startDate, blockedDates))
+                if(courseImplementation.IsPlannable(courses, this.Priority, this.Code))
                 {
                     courseImplementation.Status = Status.PLANNED;
                     return;
@@ -198,7 +198,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         private IEnumerable<generator.CourseImplementation> GetCourseAvailableImplementation(IEnumerable<generator.Course> courses)
         {
             return this.CourseImplementations
-                .Where(courseImplementation => !courseImplementation.IntersectsWithStatus(courses, Status.PLANNED));
+                .Where(courseImplementation => !courseImplementation.IntersectsWithStatus(courses, Status.PLANNED) && courseImplementation.Status != Status.UNPLANNABLE);
         }
     }
 

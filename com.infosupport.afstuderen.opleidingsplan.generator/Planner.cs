@@ -19,7 +19,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             }
             set
             {
-                if(value != null)
+                if (value != null)
                 {
                     _startDate = value;
                 }
@@ -50,34 +50,33 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public void PlanCourses(IEnumerable<models.Course> coursesToPlan)
         {
             coursesToPlan = coursesToPlan.OrderBy(course => course.Priority);
+            //var courses = coursesToPlan.Select(courseToPlan => (generator.Course)courseToPlan);
 
-            var courses = coursesToPlan.Select(courseToPlan => (generator.Course)courseToPlan);
-
-            //foreach (var courseToPlan in coursesToPlan)
-            //{
-            //    var course = (generator.Course)courseToPlan;
-            //    var knownCourses = _coursePlanning.GetCourses();
-
-            //    MarkCourseImplementations(course, knownCourses);
-            //    _coursePlanning.AddCourse(course);
-            //}
-
-            foreach (var course in courses)
+            foreach (var courseToPlan in coursesToPlan)
             {
+                var course = (generator.Course)courseToPlan;
+                var knownCourses = _coursePlanning.GetCourses();
+
+                MarkCourseImplementations(course, knownCourses);
                 _coursePlanning.AddCourse(course);
             }
 
-            var knownCourses = _coursePlanning.GetCourses();
+            //foreach (var course in courses)
+            //{
+            //    _coursePlanning.AddCourse(course);
+            //}
 
-            foreach (var course in _coursePlanning.GetCourses())
-            {
-                //var course = (generator.Course)courseToPlan;
-                if(course.HasAvailableImplementations(knownCourses, StartDate, BlockedDates))
-                {
-                    MarkCourseImplementations(course, knownCourses);
-                }
-                //_coursePlanning.AddCourse(course);
-            }
+            //var knownCourses = _coursePlanning.GetCourses();
+
+            //foreach (var course in _coursePlanning.GetCourses())
+            //{
+            //    //var course = (generator.Course)courseToPlan;
+            //    if(course.HasAvailableImplementations(knownCourses))
+            //    {
+            //        MarkCourseImplementations(course, knownCourses);
+            //    }
+            //    //_coursePlanning.AddCourse(course);
+            //}
 
             var availableCourses = _coursePlanning.GetAvailableCourses();
             if (availableCourses.Any())
@@ -93,16 +92,37 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             }
         }
 
+        private generator.Course RemoveBlockedImplementations(generator.Course course)
+        {
+            //var periodEducationPlanInDays = GeneratorConfiguration.GetConfiguration().PeriodEducationPlanInDays;
+            DateTime endDate = StartDate.GetEndDay();
+
+            var blockedImplementations = course.CourseImplementations.Where(ci => ci.StartDay < StartDate || ci.StartDay > endDate || ci.Days.Any(day => BlockedDates.Contains(day)));
+
+            foreach (var implementation in blockedImplementations)
+            {
+                implementation.Status = Status.UNPLANNABLE;
+            }
+
+
+            return course;
+        }
 
         private void MarkCourseImplementations(generator.Course course, IEnumerable<generator.Course> knownCourses)
         {
-           
-            if (course.HasOneImplementation(StartDate, BlockedDates))
+            course = RemoveBlockedImplementations(course);
+
+            if (course.HasOnlyImplementationsWithStatus(Status.UNPLANNABLE))
             {
-                if (course.IsPlannable(knownCourses, StartDate, BlockedDates))
+                return;
+            }
+
+            if (course.HasOneImplementation())
+            {
+                if (course.IsPlannable(knownCourses))
                 {
                     course.MarkAllImplementations(Status.NOTPLANNED);
-                    course.MarkOnlyAvailableImplementationPlanned(knownCourses, StartDate, BlockedDates);
+                    course.MarkOnlyAvailableImplementationPlanned(knownCourses);
                     course.MarkAllIntersectedOfPlannedImplementations(Status.UNPLANNABLE, knownCourses);
                 }
                 else
@@ -130,10 +150,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             {
                 var course = availableCourses.First();
 
-                if(course.HasAvailableImplementations(plannedCourses, StartDate, BlockedDates))
+                if (course.HasAvailableImplementations(plannedCourses))
                 {
                     course.MarkAllImplementations(Status.NOTPLANNED);
-                    course.MarkMinimumIntersectedFirstAvailableImplementationPlannedOrAllUnplannable(plannedCourses, StartDate, BlockedDates);
+                    course.MarkMinimumIntersectedFirstAvailableImplementationPlanned(plannedCourses);
                     course.MarkAllIntersectedOfPlannedImplementations(Status.UNPLANNABLE, plannedCourses);
                 }
                 else

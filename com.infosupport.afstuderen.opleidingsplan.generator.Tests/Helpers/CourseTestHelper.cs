@@ -103,6 +103,36 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
             };
         }
 
+        protected generator.Course CreateNewGeneratorCourseWithThreeCourseImplementationsAndStatus(string courseId, int priority, DateTime[] days1, Status status1, DateTime[] days2, Status status2, DateTime[] days3, Status status3)
+        {
+            return new generator.Course
+            {
+                Code = courseId,
+                Priority = priority,
+                CourseImplementations = new List<generator.CourseImplementation>()
+                {
+                    new generator.CourseImplementation
+                    {
+                        Days = days1.ToList(),
+                        StartDay =  days1.First(),
+                        Status = status1,
+                    },
+                    new generator.CourseImplementation
+                    {
+                        Days = days2.ToList(),
+                        StartDay =  days2.First(),
+                        Status = status2,
+                    },
+                    new generator.CourseImplementation
+                    {
+                        Days = days3.ToList(),
+                        StartDay =  days2.First(),
+                        Status = status3,
+                    }
+                },
+            };
+        }
+
         protected generator.Course CreateNewGeneratorCourseWithOneCourseImplementationAndStatus(string courseId, int priority, DateTime[] days, Status status)
         {
             return new generator.Course

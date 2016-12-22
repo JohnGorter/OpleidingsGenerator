@@ -17,7 +17,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>();
 
             //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), new List<DateTime>());
+            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN");
 
             //Assert
             Assert.IsTrue(result);
@@ -39,7 +39,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), new List<DateTime>());
+            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN");
 
             //Assert
             Assert.IsTrue(result);
@@ -59,7 +59,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), new List<DateTime>());
+            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN");
 
             //Assert
             Assert.IsFalse(result);
@@ -83,7 +83,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), new List<DateTime>());
+            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN");
 
             //Assert
             Assert.IsTrue(result);
@@ -106,7 +106,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), new List<DateTime>());
+            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN");
 
             //Assert
             Assert.IsFalse(result);
@@ -133,7 +133,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), new List<DateTime>());
+            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN");
 
             //Assert
             Assert.IsTrue(result);
@@ -162,7 +162,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), new List<DateTime>());
+            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN");
 
             //Assert
             Assert.IsTrue(result);
@@ -191,7 +191,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), new List<DateTime>());
+            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN");
 
             //Assert
             Assert.IsFalse(result);
@@ -211,148 +211,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), new List<DateTime>());
+            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN");
 
             //Assert
             Assert.IsFalse(result);
         }
-
-        [TestMethod]
-        public void CI_IsPlannable_OnePlannedCourse_TestStartDate_BeforeStartDate_ResultIsFalse()
-        {
-            //Arrange
-            generator.CourseImplementation courseImplementation =
-                CreateNewGeneratorCourseImplementation(new DateTime[] { new DateTime(2016, 12, 26), new DateTime(2016, 12, 27), new DateTime(2016, 12, 28) });
-
-            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
-            {
-                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("SCRUMES", 1,
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }, Status.UNKNOWN,
-                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }, Status.UNKNOWN),
-            };
-
-            //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), new List<DateTime>());
-
-            //Assert
-            Assert.IsFalse(result);
-        }
-
-        [TestMethod]
-        public void CI_IsPlannable_OnePlannedCourse_TestStartDate_OnStartDate_ResultIsTrue()
-        {
-            //Arrange
-            generator.CourseImplementation courseImplementation =
-                CreateNewGeneratorCourseImplementation(new DateTime[] { new DateTime(2017, 1, 1), new DateTime(2017, 1, 2), new DateTime(2017, 1, 3) });
-
-            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
-            {
-                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("SCRUMES", 1,
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }, Status.UNKNOWN,
-                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }, Status.UNKNOWN),
-            };
-
-            //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), new List<DateTime>());
-
-            //Assert
-            Assert.IsTrue(result);
-        }
-
-
-        [TestMethod]
-        public void CI_IsPlannable_OnePlannedCourse_TestBlockDates_NoIntersectedBlockedDates_ResultIsTrue()
-        {
-            //Arrange
-            var blockedDates = new List<DateTime>()
-            {
-                new DateTime(2017, 1, 4),
-            };
-
-            generator.CourseImplementation courseImplementation =
-                CreateNewGeneratorCourseImplementation(new DateTime[] { new DateTime(2017, 1, 1), new DateTime(2017, 1, 2), new DateTime(2017, 1, 3) });
-
-            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
-            {
-                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("SCRUMES", 1,
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }, Status.UNKNOWN,
-                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }, Status.UNKNOWN),
-            };
-
-            //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), blockedDates);
-
-            //Assert
-            Assert.IsTrue(result);
-        }
-
-        [TestMethod]
-        public void CI_IsPlannable_OnePlannedCourse_TestBlockDates_IntersectedBlockedDates_ResultIsFalse()
-        {
-            //Arrange
-            var blockedDates = new List<DateTime>()
-            {
-                new DateTime(2017, 1, 1),
-            };
-
-            generator.CourseImplementation courseImplementation =
-                CreateNewGeneratorCourseImplementation(new DateTime[] { new DateTime(2017, 1, 1), new DateTime(2017, 1, 2), new DateTime(2017, 1, 3) });
-
-            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
-            {
-                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("SCRUMES", 1,
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }, Status.UNKNOWN,
-                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }, Status.UNKNOWN),
-            };
-
-            //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), blockedDates);
-
-            //Assert
-            Assert.IsFalse(result);
-        }
-
-        [TestMethod]
-        public void CI_IsPlannable_OnePlannedCourse_TestPeriodOfEducationPlan_StartsOneDayAfterPeriod_ResultIsFalse()
-        {
-            //Arrange
-            generator.CourseImplementation courseImplementation =
-                CreateNewGeneratorCourseImplementation(new DateTime[] { new DateTime(2017, 4, 2), new DateTime(2017, 4, 3), new DateTime(2017, 4, 4) });
-
-            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
-            {
-                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("SCRUMES", 1,
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }, Status.UNKNOWN,
-                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }, Status.UNKNOWN),
-            };
-
-            //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), new List<DateTime>());
-
-            //Assert
-            Assert.IsFalse(result);
-        }
-
-        [TestMethod]
-        public void CI_IsPlannable_OnePlannedCourse_TestPeriodOfEducationPlan_StartsOnEndOfPeriod_ResultIsTrue()
-        {
-            //Arrange
-            generator.CourseImplementation courseImplementation =
-                CreateNewGeneratorCourseImplementation(new DateTime[] { new DateTime(2017, 4, 1), new DateTime(2017, 4, 2), new DateTime(2017, 4, 3) });
-
-            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
-            {
-                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("SCRUMES", 1,
-                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }, Status.UNKNOWN,
-                new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }, Status.UNKNOWN),
-            };
-
-            //Act
-            bool result = courseImplementation.IsPlannable(coursesPlanned, 1, "ENDEVN", new DateTime(2017, 1, 1), new List<DateTime>());
-
-            //Assert
-            Assert.IsTrue(result);
-        }
-
     }
 }

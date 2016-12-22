@@ -419,7 +419,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.AreEqual(2, planner.GetAllCourses().Count());
 
             Assert.AreEqual(2, planner.GetPlannedCourses().Count());
-            Assert.AreEqual(Status.NOTPLANNED, planner.GetPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual(Status.UNPLANNABLE, planner.GetPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
             Assert.AreEqual(Status.PLANNED, planner.GetPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(1).Status);
             Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().ElementAt(0).Code);
             Assert.AreEqual(Status.PLANNED, planner.GetPlannedCourses().ElementAt(1).CourseImplementations.ElementAt(0).Status);
