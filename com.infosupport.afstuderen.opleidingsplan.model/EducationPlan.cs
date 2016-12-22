@@ -12,11 +12,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.models
         public DateTime Created { get; set; }
         public DateTime InPaymentFrom { get; set; }
         public DateTime EmployableFrom { get; set; }
+        public List<DateTime> BlockedDates { get; set; }
         public string NameEmployee { get; set; }
         public string NameTeacher { get; set; }
         public string KnowledgeOf { get; set; }
         public string Profile { get; set; }
 
+        public IEnumerable<EducationPlanCourse> CoursesJustBeforeStart { get; set; }
         public IEnumerable<EducationPlanCourse> PlannedCourses { get; set; }
         public IEnumerable<EducationPlanCourse> NotPlannedCourses { get; set; }
         public decimal PlannedCoursesTotalPrice

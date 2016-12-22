@@ -50,7 +50,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public void PlanCourses(IEnumerable<models.Course> coursesToPlan)
         {
             coursesToPlan = coursesToPlan.OrderBy(course => course.Priority);
-            //var courses = coursesToPlan.Select(courseToPlan => (generator.Course)courseToPlan);
 
             foreach (var courseToPlan in coursesToPlan)
             {
@@ -60,23 +59,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 MarkCourseImplementations(course, knownCourses);
                 _coursePlanning.AddCourse(course);
             }
-
-            //foreach (var course in courses)
-            //{
-            //    _coursePlanning.AddCourse(course);
-            //}
-
-            //var knownCourses = _coursePlanning.GetCourses();
-
-            //foreach (var course in _coursePlanning.GetCourses())
-            //{
-            //    //var course = (generator.Course)courseToPlan;
-            //    if(course.HasAvailableImplementations(knownCourses))
-            //    {
-            //        MarkCourseImplementations(course, knownCourses);
-            //    }
-            //    //_coursePlanning.AddCourse(course);
-            //}
 
             var availableCourses = _coursePlanning.GetAvailableCourses();
             if (availableCourses.Any())
@@ -94,16 +76,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private generator.Course RemoveBlockedImplementations(generator.Course course)
         {
-            //var periodEducationPlanInDays = GeneratorConfiguration.GetConfiguration().PeriodEducationPlanInDays;
-            DateTime endDate = StartDate.GetEndDay();
-
-            var blockedImplementations = course.CourseImplementations.Where(ci => ci.StartDay < StartDate || ci.StartDay > endDate || ci.Days.Any(day => BlockedDates.Contains(day)));
-
-            foreach (var implementation in blockedImplementations)
+            if (BlockedDates != null)
             {
-                implementation.Status = Status.UNPLANNABLE;
-            }
+                DateTime endDate = StartDate.GetEndDay();
 
+                var blockedImplementations = course.CourseImplementations.Where(ci => ci.StartDay < StartDate || ci.StartDay > endDate || ci.Days.Any(day => BlockedDates.Select(bd => bd.Date).Contains(day)));
+
+                foreach (var implementation in blockedImplementations)
+                {
+                    implementation.Status = Status.UNPLANNABLE;
+                }
+            }
 
             return course;
         }
@@ -130,7 +113,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                     course.MarkAllImplementations(Status.UNPLANNABLE);
                 }
             }
-            else if (course.HasOnlyImplementationsWithStatus(Status.UNKNOWN))
+            else if (course.HasMultipleImplementationsWithStatus(Status.UNKNOWN))
             {
                 course.MarkAllImplementations(Status.AVAILABLE);
             }

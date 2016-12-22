@@ -54,7 +54,36 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
 
             Assert.AreEqual(new DateTime(2016, 11, 29), result.Created);
             Assert.AreEqual(new DateTime(2016, 12, 5), result.InPaymentFrom);
-            Assert.AreEqual(new DateTime(2017, 2, 6), result.EmployableFrom);
+            Assert.AreEqual(new DateTime(2017, 1, 26), result.EmployableFrom);
+            Assert.AreEqual("NET_Developer", result.Profile);
+            Assert.AreEqual("Pim Verheij", result.NameEmployee);
+            Assert.AreEqual("Felix Sedney", result.NameTeacher);
+            Assert.AreEqual("MVC, DPAT, OOUML, SCRUMES", result.KnowledgeOf);
+        }
+
+        [TestMethod]
+        public void GenerateEducationPlan_NoCoursePlanned_()
+        {
+            // Arrange
+            EducationPlanData data = GetDummyEducationPlanData();
+            Planner planner = new Planner();
+            planner.StartDate = data.InPaymentFrom;
+
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>();
+
+            planner.PlanCourses(coursesToPlan);
+
+            EducationPlanOutputter outputter = new EducationPlanOutputter(planner);
+
+            // Act
+            var result = outputter.GenerateEducationPlan(data);
+
+            // Assert
+            Assert.AreEqual(0, result.PlannedCourses.Count());
+
+            Assert.AreEqual(new DateTime(2016, 11, 29), result.Created);
+            Assert.AreEqual(new DateTime(2016, 12, 5), result.InPaymentFrom);
+            Assert.AreEqual(new DateTime(2016, 12, 12), result.EmployableFrom);
             Assert.AreEqual("NET_Developer", result.Profile);
             Assert.AreEqual("Pim Verheij", result.NameEmployee);
             Assert.AreEqual("Felix Sedney", result.NameTeacher);

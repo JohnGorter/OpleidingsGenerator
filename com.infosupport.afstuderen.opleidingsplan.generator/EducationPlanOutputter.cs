@@ -22,17 +22,30 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             List<EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(_planner.GetPlannedCourses().ToList()).OrderBy(course => course.Date).ToList();
             List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.GetNotPlannedCourses().ToList(), educationPlannedCourses).OrderBy(course => course.Date).ToList();
 
+            int daysAfterLastCourseEmployable = GeneratorConfiguration.GetConfiguration().PeriodAfterLastCourseEmployable;
+
+            DateTime dateEmployableFrom = educationPlanData.InPaymentFrom.AddDays(daysAfterLastCourseEmployable);
+            DateTime? lastDayOfPlanning = educationPlannedCourses.LastOrDefault()?.Date;
+
+            if (lastDayOfPlanning != null)
+            {
+                dateEmployableFrom = lastDayOfPlanning.Value
+                    .AddDays(educationPlannedCourses.Last().Days)
+                    .AddDays(daysAfterLastCourseEmployable);
+            }
+
             return new EducationPlan
             {
                 Created = educationPlanData.Created,
                 PlannedCourses = educationPlannedCourses,
                 NotPlannedCourses = educationNotPlannedCourses,
                 InPaymentFrom = educationPlanData.InPaymentFrom,
-                EmployableFrom = educationPlanData.EmployableFrom,
+                EmployableFrom = dateEmployableFrom,
                 Profile = educationPlanData.Profile,
                 NameEmployee = educationPlanData.NameEmployee,
                 NameTeacher = educationPlanData.NameTeacher,
                 KnowledgeOf = educationPlanData.KnowledgeOf,
+                BlockedDates = educationPlanData.BlockedDates,
             };
         }
 

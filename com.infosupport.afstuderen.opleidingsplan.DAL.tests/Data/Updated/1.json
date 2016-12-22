@@ -3,6 +3,7 @@
   "Created": "2016-12-04T01:21:59.2438631+01:00",
   "InPaymentFrom": "2016-12-09T01:21:59.2468713+01:00",
   "EmployableFrom": "2017-03-04T01:21:59.2468713+01:00",
+  "BlockedDates": null,
   "NameEmployee": "Alex Verbeek",
   "NameTeacher": "Felix Sedney",
   "KnowledgeOf": "MVC, DPAT, OOUML, SCRUMES",

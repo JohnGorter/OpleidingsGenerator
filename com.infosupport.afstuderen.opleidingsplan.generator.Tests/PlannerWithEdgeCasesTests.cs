@@ -238,9 +238,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             {
                 CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1,
                 new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }),
-                CreateNewModelCourseWithTwoCourseImplementations("ENEST", 1, 
+                CreateNewModelCourseWithTwoCourseImplementations("ENEST", 1,
                 new DateTime[] { new DateTime(2016, 12, 26), new DateTime(2016, 12, 27), new DateTime(2016, 12, 28) },
-                new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }),       
+                new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }),
             };
 
             // Act
@@ -255,6 +255,34 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.AreEqual("ENEST", planner.GetNotPlannedCourses().ElementAt(0).Code);
 
             Assert.AreEqual(1, planner.GetNotPlannedCourses().Count());
+        }
+
+        [TestMethod]
+        public void PlanOneCourses_StartDayOfFirstImplementationBeforeStartDate_OneCoursesPlanned()
+        {
+            // Arrange
+            Planner planner = new Planner();
+            planner.StartDate = new DateTime(2017, 1, 1);
+
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
+            {
+                CreateNewModelCourseWithTreeCourseImplementations("SCRUMES", 1,
+                new DateTime[] { new DateTime(2016, 1, 26), new DateTime(2016, 1, 27), new DateTime(2016, 1, 28) },
+                new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) },
+                new DateTime[] { new DateTime(2017, 2, 20), new DateTime(2017, 2, 21), new DateTime(2017, 2, 22) }),
+            };
+
+            // Act
+            planner.PlanCourses(coursesToPlan);
+
+            // Assert
+            Assert.AreEqual(1, planner.GetPlannedCourses().Count());
+            Assert.AreEqual("SCRUMES", planner.GetPlannedCourses().ElementAt(0).Code);
+            Assert.AreEqual(Status.UNPLANNABLE, planner.GetPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual(Status.PLANNED, planner.GetPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(1).Status);
+            Assert.AreEqual(Status.NOTPLANNED, planner.GetPlannedCourses().ElementAt(0).CourseImplementations.ElementAt(2).Status);
+
+            Assert.AreEqual(0, planner.GetNotPlannedCourses().Count());
         }
     }
 }

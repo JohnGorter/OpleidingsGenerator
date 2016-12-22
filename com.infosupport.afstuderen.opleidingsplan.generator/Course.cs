@@ -60,6 +60,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return this.CourseImplementations.All(courseImplementation => courseImplementation.Status == status);
         }
 
+        internal bool HasMultipleImplementationsWithStatus(Status status)
+        {
+            return this.CourseImplementations.Where(courseImplementation => courseImplementation.Status == status).Count() > 1;
+        }
+
         //TODO: Test
         public bool HasOneImplementation()
         {
@@ -168,8 +173,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         //TODO: Test
         public bool HasImplementationsWithoutIntersection(IEnumerable<Course> courses, int priority)
         {
-
-            //coursesWithoutSelfcoursesWithoutSelfcoursesWithoutSelfcoursesWithoutSelfcoursesWithoutSelfcoursesWithoutSelfcoursesWithoutSelfcoursesWithoutSelf
             var coursesWithoutSelf = courses.Where(course => course.Code != this.Code && this.Priority <= priority);
             return this.CourseImplementations.Any(courseImplementation => !courseImplementation.Intersects(coursesWithoutSelf));
         }

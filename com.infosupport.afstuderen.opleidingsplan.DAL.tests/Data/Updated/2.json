@@ -3,6 +3,7 @@
   "Created": "2016-12-04T01:25:34.6000888+01:00",
   "InPaymentFrom": "2016-12-09T01:25:34.6000888+01:00",
   "EmployableFrom": "2017-03-04T01:25:34.6000888+01:00",
+  "BlockedDates": null,
   "NameEmployee": "Jan Verstegen",
   "NameTeacher": "Felix Sedney",
   "KnowledgeOf": "MVC, DPAT, OOUML, SCRUMES",

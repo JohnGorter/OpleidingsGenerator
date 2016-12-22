@@ -36,6 +36,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
             plannerMock.Setup(planner => planner.PlanCourses(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
             plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
+            plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<List<DateTime>>()).Verifiable();
 
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
             courseServiceMock.Setup(service => service.FindCourses(courses)).Returns(
@@ -61,6 +62,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             courseServiceMock.Verify(outputter => outputter.FindCourses(courses));
             profileDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
             plannerMock.VerifySet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom);
+            plannerMock.VerifySet(planner => planner.BlockedDates = It.IsAny<List<DateTime>>());
+
         }
 
     }
