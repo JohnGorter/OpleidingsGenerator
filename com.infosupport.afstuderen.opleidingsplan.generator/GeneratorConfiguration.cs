@@ -39,5 +39,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 return (int)this["period-after-last-course-employable"];
             }
         }
+
+        [ConfigurationProperty("period-before-start-days", IsRequired = true)]
+        public int PeriodeBeforeStartDays
+        {
+            get
+            {
+                return (int)this["period-before-start-days"];
+            }
+        }
     }
 }

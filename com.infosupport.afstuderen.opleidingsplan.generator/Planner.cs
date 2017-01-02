@@ -21,12 +21,26 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             {
                 if (value != null)
                 {
-                    _startDate = value;
+                    _startDate = value.Date;
                 }
             }
         }
+        private List<DateTime> _blockedDates = new List<DateTime>();
 
-        public List<DateTime> BlockedDates { get; set; } = new List<DateTime>();
+        public List<DateTime> BlockedDates
+        {
+            get
+            {
+                return _blockedDates;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    _blockedDates = value.Select(date => date.Date).ToList();
+                }
+            }
+        }
 
 
         public Planner()
@@ -80,7 +94,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             {
                 DateTime endDate = StartDate.GetEndDay();
 
-                var blockedImplementations = course.CourseImplementations.Where(ci => ci.StartDay < StartDate || ci.StartDay > endDate || ci.Days.Any(day => BlockedDates.Select(bd => bd.Date).Contains(day)));
+                var blockedImplementations = course.CourseImplementations.Where(ci => ci.StartDay < StartDate || ci.StartDay > endDate || ci.Days.Any(day => BlockedDates.Contains(day)));
 
                 foreach (var implementation in blockedImplementations)
                 {
