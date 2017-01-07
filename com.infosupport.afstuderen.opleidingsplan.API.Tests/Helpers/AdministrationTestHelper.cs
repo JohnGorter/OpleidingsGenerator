@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
 {
-    public class AdministrationTestHelper
+    public class ProfileTestHelper
     {
         protected List<CourseProfile> GetDummyDataProfiles()
         {

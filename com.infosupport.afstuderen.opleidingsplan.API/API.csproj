@@ -149,10 +149,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Managers\AdministrationManager.cs" />
+    <Compile Include="Managers\ProfileManager.cs" />
     <Compile Include="Managers\CourseManager.cs" />
     <Compile Include="Managers\EducationPlanManager.cs" />
-    <Compile Include="Managers\IAdministrationManager.cs" />
+    <Compile Include="Managers\IProfileManager.cs" />
     <Compile Include="Managers\ICourseManager.cs" />
     <Compile Include="Managers\IEducationPlanManager.cs" />
     <Compile Include="Models\RestEducationPlan.cs" />

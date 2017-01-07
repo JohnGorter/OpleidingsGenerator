@@ -86,5 +86,53 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
             }
 
         }
+
+        [TestMethod]
+        public void Post_CoursePriority()
+        {
+            // Arrange
+            var courseManagerMock = new Mock<ICourseManager>(MockBehavior.Strict);
+            courseManagerMock.Setup(manager => manager.Update(It.IsAny<CoursePriority>()));
+
+            CourseController controller = new CourseController(courseManagerMock.Object);
+
+            // Act
+            controller.Post(GetDummyCourse());
+
+            // Assert
+            courseManagerMock.Verify(manager => manager.Update(It.IsAny<CoursePriority>()));
+        }
+
+        [TestMethod]
+        public void Put_CoursePriority()
+        {
+            // Arrange
+            var courseManagerMock = new Mock<ICourseManager>(MockBehavior.Strict);
+            courseManagerMock.Setup(manager => manager.Insert(It.IsAny<CoursePriority>()));
+
+            CourseController controller = new CourseController(courseManagerMock.Object);
+
+            // Act
+            controller.Put(GetDummyCourse());
+
+            // Assert
+            courseManagerMock.Verify(manager => manager.Insert(It.IsAny<CoursePriority>()));
+        }
+
+        [TestMethod]
+        public void Delete_CoursePriority()
+        {
+            // Arrange
+            var courseManagerMock = new Mock<ICourseManager>(MockBehavior.Strict);
+            courseManagerMock.Setup(manager => manager.Delete(It.IsAny<CoursePriority>()));
+
+            CourseController controller = new CourseController(courseManagerMock.Object);
+
+            // Act
+            controller.Delete(GetDummyCourse());
+
+            // Assert
+            courseManagerMock.Verify(manager => manager.Delete(It.IsAny<CoursePriority>()));
+        }
     }
 }

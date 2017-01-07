@@ -1,11 +1,12 @@
-﻿using System;
+﻿using com.infosupport.afstuderen.opleidingsplan.models;
+using System;
 using System.Collections.Generic;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
 {
     public class CourseTestHelper
     {
-        internal static integration.Course GetDummyDataIntegrationCourse()
+        internal integration.Course GetDummyDataIntegrationCourse()
         {
             return new integration.Course
             {
@@ -19,7 +20,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             };
         }
 
-        internal static opleidingsplan.models.Course GetDummyDataModelCourse()
+        internal opleidingsplan.models.Course GetDummyDataModelCourse()
         {
             return new opleidingsplan.models.Course
             {
@@ -33,7 +34,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             };
         }
 
-        internal static integration.Coursesummarycollection GetDummyDataIntegrationCourses()
+        internal integration.Coursesummarycollection GetDummyDataIntegrationCourses()
         {
             return new integration.Coursesummarycollection
             {
@@ -61,7 +62,18 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             };
         }
 
-        private static integration.CourseImplementation[] GetDummyDataIntegrationCourseImplementations()
+        internal CoursePriority GetDummyCourse()
+        {
+            return new CoursePriority
+            {
+                Id = 1,
+                Code = "WINDEV",
+                Priority = 3,
+                ProfileId = 1,
+            };
+        }
+
+        private integration.CourseImplementation[] GetDummyDataIntegrationCourseImplementations()
         {
             return new integration.CourseImplementation[]
             {
@@ -89,7 +101,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             };
         }
 
-        private static IEnumerable<opleidingsplan.models.CourseImplementation> GetDummyDataModelCourseImplementations()
+        private IEnumerable<opleidingsplan.models.CourseImplementation> GetDummyDataModelCourseImplementations()
         {
             return new List<opleidingsplan.models.CourseImplementation>()
             {

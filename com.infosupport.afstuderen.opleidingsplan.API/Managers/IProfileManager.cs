@@ -8,10 +8,13 @@ using System.Threading.Tasks;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 {
-    public interface IAdministrationManager
+    public interface IProfileManager
     {
         IEnumerable<CourseProfile> FindProfiles();
         CourseProfile FindProfile(string profileName);
         CourseProfile FindProfileById(int id);
+        void Insert(CourseProfile profile);
+        void Update(CourseProfile profile);
+        void Delete(CourseProfile profile);
     }
 }

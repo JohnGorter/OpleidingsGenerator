@@ -10,7 +10,7 @@ using System.Linq;
 namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
 {
     [TestClass]
-    public class AdministrationManagerTest : AdministrationTestHelper
+    public class ProfileManagerTest : ProfileTestHelper
     {
         [TestMethod]
         public void FindProfilesTest()
@@ -19,7 +19,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
             profileDataMapperMock.Setup(dataMapper => dataMapper.FindAll()).Returns(GetDummyDataProfiles());
 
-            AdministrationManager manager = new AdministrationManager(profileDataMapperMock.Object);
+            ProfileManager manager = new ProfileManager(profileDataMapperMock.Object);
 
             // Act
             var result = manager.FindProfiles();
@@ -36,7 +36,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
             profileDataMapperMock.Setup(dataMapper => dataMapper.Find(It.IsAny<Func<CourseProfile, bool>>())).Returns(GetDummyDataProfiles());
 
-            AdministrationManager manager = new AdministrationManager(profileDataMapperMock.Object);
+            ProfileManager manager = new ProfileManager(profileDataMapperMock.Object);
 
             // Act
             var result = manager.FindProfile("NET_Developer");
@@ -53,7 +53,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
             profileDataMapperMock.Setup(dataMapper => dataMapper.FindById(1)).Returns(GetDummyDataProfiles().First());
 
-            AdministrationManager manager = new AdministrationManager(profileDataMapperMock.Object);
+            ProfileManager manager = new ProfileManager(profileDataMapperMock.Object);
 
             // Act
             var result = manager.FindProfileById(1);
@@ -62,6 +62,54 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             profileDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
             Assert.AreEqual(31, result.Courses.Count());
             Assert.AreEqual("NET_Developer", result.Name);
+        }
+
+        [TestMethod]
+        public void Insert_NewCourseProfile()
+        {
+            // Arrange
+            var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
+            profileDataMapperMock.Setup(dataMapper => dataMapper.Insert(It.IsAny<CourseProfile>()));
+
+            ProfileManager manager = new ProfileManager(profileDataMapperMock.Object);
+
+            // Act
+            manager.Insert(GetDummyDataProfiles().First());
+
+            // Assert
+            profileDataMapperMock.Verify(dataMapper => dataMapper.Insert(It.IsAny<CourseProfile>()));
+        }
+
+        [TestMethod]
+        public void Update_CourseProfile()
+        {
+            // Arrange
+            var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
+            profileDataMapperMock.Setup(dataMapper => dataMapper.Update(It.IsAny<CourseProfile>()));
+
+            ProfileManager manager = new ProfileManager(profileDataMapperMock.Object);
+
+            // Act
+            manager.Update(GetDummyDataProfiles().First());
+
+            // Assert
+            profileDataMapperMock.Verify(dataMapper => dataMapper.Update(It.IsAny<CourseProfile>()));
+        }
+
+        [TestMethod]
+        public void Delete_CourseProfile()
+        {
+            // Arrange
+            var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
+            profileDataMapperMock.Setup(dataMapper => dataMapper.Delete(It.IsAny<CourseProfile>()));
+
+            ProfileManager manager = new ProfileManager(profileDataMapperMock.Object);
+
+            // Act
+            manager.Delete(GetDummyDataProfiles().First());
+
+            // Assert
+            profileDataMapperMock.Verify(dataMapper => dataMapper.Delete(It.IsAny<CourseProfile>()));
         }
     }
 }

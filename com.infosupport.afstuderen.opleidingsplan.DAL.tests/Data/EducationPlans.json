@@ -1,14 +1,15 @@
 [
   {
     "Id": 1,
-    "Created": "2016-12-22T22:37:47.9916601+01:00",
-    "InPaymentFrom": "2016-12-27T22:37:47.9916601+01:00",
-    "EmployableFrom": "2017-03-22T22:37:47.9916601+01:00",
+    "Created": "2017-01-07T09:30:01.8440641+01:00",
+    "InPaymentFrom": "2017-01-12T09:30:01.8440641+01:00",
+    "EmployableFrom": "2017-04-07T09:30:01.8440641+02:00",
     "BlockedDates": null,
     "NameEmployee": "Pim Verheij",
     "NameTeacher": "Felix Sedney",
     "KnowledgeOf": "MVC, DPAT, OOUML, SCRUMES",
     "Profile": "NET_Developer",
+    "CoursesJustBeforeStart": null,
     "PlannedCourses": [
       {
         "Code": "2NETARCH",
@@ -41,14 +42,15 @@
   },
   {
     "Id": 2,
-    "Created": "2016-12-22T22:37:47.9916601+01:00",
-    "InPaymentFrom": "2016-12-27T22:37:47.9916601+01:00",
-    "EmployableFrom": "2017-03-22T22:37:47.9916601+01:00",
+    "Created": "2017-01-07T09:30:01.8440641+01:00",
+    "InPaymentFrom": "2017-01-12T09:30:01.8440641+01:00",
+    "EmployableFrom": "2017-04-07T09:30:01.8440641+02:00",
     "BlockedDates": null,
     "NameEmployee": "Pim Verheij",
     "NameTeacher": "Felix Sedney",
     "KnowledgeOf": "MVC, DPAT, OOUML, SCRUMES",
     "Profile": "NET_Developer",
+    "CoursesJustBeforeStart": null,
     "PlannedCourses": [
       {
         "Code": "2NETARCH",
@@ -89,6 +91,7 @@
     "NameTeacher": "Felix Sedney",
     "KnowledgeOf": "MVC, DPAT, OOUML, SCRUMES",
     "Profile": "NET_Developer",
+    "CoursesJustBeforeStart": null,
     "PlannedCourses": [
       {
         "Code": "2NETARCH",

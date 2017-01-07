@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
 {
-    public abstract class EducationPlanTestHelper : AdministrationTestHelper
+    public abstract class EducationPlanTestHelper : ProfileTestHelper
     {
         protected RestEducationPlan GetDummyRestEducationPlan(string[] courses)
         {

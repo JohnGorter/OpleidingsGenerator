@@ -5,18 +5,19 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using com.infosupport.afstuderen.opleidingsplan.api.controllers;
 using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
+using com.infosupport.afstuderen.opleidingsplan.models;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
 {
     [TestClass]
-    public class ProfileControllerTest : AdministrationTestHelper
+    public class ProfileControllerTest : ProfileTestHelper
     {
 
         [TestMethod]
         public void Get_FindProfiles()
         {
             // Arrange
-            var administrationManagerMock = new Mock<IAdministrationManager>(MockBehavior.Strict);
+            var administrationManagerMock = new Mock<IProfileManager>(MockBehavior.Strict);
             administrationManagerMock.Setup(manager => manager.FindProfiles()).Returns(GetDummyDataProfiles());
 
             ProfileController controller = new ProfileController(administrationManagerMock.Object);
@@ -36,7 +37,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
         public void Get_NET_Developer_FindProfile_31_Courses()
         {
             // Arrange
-            var administrationManagerMock = new Mock<IAdministrationManager>(MockBehavior.Strict);
+            var administrationManagerMock = new Mock<IProfileManager>(MockBehavior.Strict);
             administrationManagerMock.Setup(manager => manager.FindProfileById(1)).Returns(GetDummyDataProfiles().First());
 
             ProfileController controller = new ProfileController(administrationManagerMock.Object);
@@ -48,6 +49,54 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
             administrationManagerMock.Verify(manager => manager.FindProfileById(1));
             Assert.AreEqual(31, result.Courses.Count());
             Assert.AreEqual("NET_Developer", result.Name);
+        }
+
+        [TestMethod]
+        public void Post_CourseProfile()
+        {
+            // Arrange
+            var administrationManagerMock = new Mock<IProfileManager>(MockBehavior.Strict);
+            administrationManagerMock.Setup(manager => manager.Update(It.IsAny<CourseProfile>()));
+
+            ProfileController controller = new ProfileController(administrationManagerMock.Object);
+
+            // Act
+            controller.Post(GetDummyDataProfiles().First());
+
+            // Assert
+            administrationManagerMock.Verify(manager => manager.Update(It.IsAny<CourseProfile>()));
+        }
+
+        [TestMethod]
+        public void Put_CourseProfile()
+        {
+            // Arrange
+            var administrationManagerMock = new Mock<IProfileManager>(MockBehavior.Strict);
+            administrationManagerMock.Setup(manager => manager.Insert(It.IsAny<CourseProfile>()));
+
+            ProfileController controller = new ProfileController(administrationManagerMock.Object);
+
+            // Act
+            controller.Put(GetDummyDataProfiles().First());
+
+            // Assert
+            administrationManagerMock.Verify(manager => manager.Insert(It.IsAny<CourseProfile>()));
+        }
+
+        [TestMethod]
+        public void Delete_CourseProfile()
+        {
+            // Arrange
+            var administrationManagerMock = new Mock<IProfileManager>(MockBehavior.Strict);
+            administrationManagerMock.Setup(manager => manager.Delete(It.IsAny<CourseProfile>()));
+
+            ProfileController controller = new ProfileController(administrationManagerMock.Object);
+
+            // Act
+            controller.Delete(GetDummyDataProfiles().First());
+
+            // Assert
+            administrationManagerMock.Verify(manager => manager.Delete(It.IsAny<CourseProfile>()));
         }
     }
 }

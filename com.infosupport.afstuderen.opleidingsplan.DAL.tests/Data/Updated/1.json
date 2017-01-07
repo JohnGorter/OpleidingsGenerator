@@ -8,6 +8,7 @@
   "NameTeacher": "Felix Sedney",
   "KnowledgeOf": "MVC, DPAT, OOUML, SCRUMES",
   "Profile": "NET_Developer",
+  "CoursesJustBeforeStart": null,
   "PlannedCourses": [
     {
       "Code": "2NETARCH",

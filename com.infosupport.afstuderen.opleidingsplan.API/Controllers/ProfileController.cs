@@ -14,49 +14,49 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
     [EnableCors("*", "*", "*")]
     public class ProfileController : ApiController
     {
-        private readonly IAdministrationManager _administrationManager;
+        private readonly IProfileManager _administrationManager;
 
         public ProfileController()
         {
             string profilepath = dal.DALConfiguration.GetConfiguration().ProfilePath;
             string pathToProfiles = HttpContext.Current.Server.MapPath(profilepath);
 
-            _administrationManager = new AdministrationManager(pathToProfiles);
+            _administrationManager = new ProfileManager(pathToProfiles);
         }
 
-        public ProfileController(IAdministrationManager administrationManager)
+        public ProfileController(IProfileManager administrationManager)
         {
             _administrationManager = administrationManager;
         }
 
-        // GET: api/Administration
+        // GET: api/Profile
         public IEnumerable<CourseProfile> Get()
         {
             return _administrationManager.FindProfiles();
         }
 
-        // GET: api/Administration/5
+        // GET: api/Profile/5
         public CourseProfile Get(int id)
         {
             return _administrationManager.FindProfileById(id);
         }
 
-        // POST: api/Administration
-        public void Post([FromBody]string value)
+        // POST: api/Profile
+        public void Post(CourseProfile profile)
         {
-            throw new NotSupportedException();
+            _administrationManager.Update(profile);
         }
 
-        // PUT: api/Administration/5
-        public void Put(int id, [FromBody]string value)
+        // PUT: api/Profile/profile
+        public void Put(CourseProfile profile)
         {
-            throw new NotSupportedException();
+            _administrationManager.Insert(profile);
         }
 
-        // DELETE: api/Administration/5
-        public void Delete(int id)
+        // DELETE: api/Profile/profile
+        public void Delete(CourseProfile profile)
         {
-            throw new NotSupportedException();
+            _administrationManager.Delete(profile);
         }
     }
 }

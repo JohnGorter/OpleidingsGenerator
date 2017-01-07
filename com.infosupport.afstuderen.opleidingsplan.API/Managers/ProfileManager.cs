@@ -8,16 +8,16 @@ using System.Web;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 {
-    public class AdministrationManager : IAdministrationManager
+    public class ProfileManager : IProfileManager
     {
         private readonly IDataMapper<CourseProfile> _profileDataMapper;
 
-        public AdministrationManager(string pathToProfiles)
+        public ProfileManager(string pathToProfiles)
         {
             _profileDataMapper = new ProfileJsonDataMapper(pathToProfiles);
         }
 
-        public AdministrationManager(IDataMapper<CourseProfile> profileDataMapper)
+        public ProfileManager(IDataMapper<CourseProfile> profileDataMapper)
         {
             _profileDataMapper = profileDataMapper;
         }
@@ -35,6 +35,21 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
         public IEnumerable<CourseProfile> FindProfiles()
         {
             return _profileDataMapper.FindAll();
+        }
+
+        public void Insert(CourseProfile profile)
+        {
+            _profileDataMapper.Insert(profile);
+        }
+
+        public void Update(CourseProfile profile)
+        {
+            _profileDataMapper.Update(profile);
+        }
+
+        public void Delete(CourseProfile profile)
+        {
+            _profileDataMapper.Delete(profile);
         }
     }
 }

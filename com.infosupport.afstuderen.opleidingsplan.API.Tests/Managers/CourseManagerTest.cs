@@ -7,6 +7,8 @@ using Moq;
 using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using System.Linq;
 using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
+using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using com.infosupport.afstuderen.opleidingsplan.models;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
 {
@@ -50,6 +52,54 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             // Assert
             courseServiceMock.Verify(service => service.FindAllCourses());
             TestCoursesWithDummyData(GetDummyDataIntegrationCourses(), result.Coursesummary);
+        }
+
+        [TestMethod]
+        public void Insert_NewCoursePriority()
+        {
+            // Arrange
+            var courseDataMapperMock = new Mock<ICourseDataMapper>(MockBehavior.Strict);
+            courseDataMapperMock.Setup(dataMapper => dataMapper.Insert(It.IsAny<CoursePriority>()));
+
+            CourseManager manager = new CourseManager(courseDataMapperMock.Object);
+
+            // Act
+            manager.Insert(GetDummyCourse());
+
+            // Assert
+            courseDataMapperMock.Verify(dataMapper => dataMapper.Insert(It.IsAny<CoursePriority>()));
+        }
+
+        [TestMethod]
+        public void Update_CoursePriority()
+        {
+            // Arrange
+            var courseDataMapperMock = new Mock<ICourseDataMapper>(MockBehavior.Strict);
+            courseDataMapperMock.Setup(dataMapper => dataMapper.Update(It.IsAny<CoursePriority>()));
+
+            CourseManager manager = new CourseManager(courseDataMapperMock.Object);
+
+            // Act
+            manager.Update(GetDummyCourse());
+
+            // Assert
+            courseDataMapperMock.Verify(dataMapper => dataMapper.Update(It.IsAny<CoursePriority>()));
+        }
+
+        [TestMethod]
+        public void Delete_NewCoursePriority()
+        {
+            // Arrange
+            var courseDataMapperMock = new Mock<ICourseDataMapper>(MockBehavior.Strict);
+            courseDataMapperMock.Setup(dataMapper => dataMapper.Delete(It.IsAny<CoursePriority>()));
+
+            CourseManager manager = new CourseManager(courseDataMapperMock.Object);
+
+            // Act
+            manager.Delete(GetDummyCourse());
+
+            // Assert
+            courseDataMapperMock.Verify(dataMapper => dataMapper.Delete(It.IsAny<CoursePriority>()));
         }
 
         private void TestCoursesWithDummyData(Coursesummarycollection expected, IEnumerable<Coursesummary> actual)
