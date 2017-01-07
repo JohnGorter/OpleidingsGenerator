@@ -61,6 +61,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return _coursePlanning.GetCourses();
         }
 
+        public void PlanCoursesWithOLC(IEnumerable<models.Course> coursesToPlan)
+        {
+            PlanCourses(coursesToPlan);
+            ApplyOLC();
+        }
+
         public void PlanCourses(IEnumerable<models.Course> coursesToPlan)
         {
             coursesToPlan = coursesToPlan.OrderBy(course => course.Priority);
@@ -88,7 +94,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             }
         }
 
-        private generator.Course RemoveBlockedImplementations(generator.Course course)
+        private generator.Course RemoveBlockedAndOutsitePeriodImplementations(generator.Course course)
         {
             if (BlockedDates != null)
             {
@@ -107,7 +113,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void MarkCourseImplementations(generator.Course course, IEnumerable<generator.Course> knownCourses)
         {
-            course = RemoveBlockedImplementations(course);
+            course = RemoveBlockedAndOutsitePeriodImplementations(course);
 
             if (course.HasOnlyImplementationsWithStatus(Status.UNPLANNABLE))
             {
@@ -137,7 +143,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             }
         }
 
-
         private void MarkAvailableCourseImplementations()
         {
             var availableCourses = _coursePlanning.GetAvailableCourses();
@@ -159,6 +164,99 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 }
             }
 
+        }
+
+        private void ApplyOLC()
+        {
+            //ADD PRICE TO OLC
+            List<Course> plannedCourses = _coursePlanning.GetPlannedCourses().ToList();
+
+            int daysAfterLastCourseEmployable = GeneratorConfiguration.GetConfiguration().PeriodAfterLastCourseEmployable;
+            DateTime dateEmployableFrom = StartDate.AddDays(daysAfterLastCourseEmployable);
+
+            DateTime? lastDayOfPlanning = plannedCourses.LastOrDefault()?.GetPlannedImplementation().Days.Last();
+
+            if (lastDayOfPlanning != null)
+            {
+                dateEmployableFrom = lastDayOfPlanning.Value
+                    .AddDays(daysAfterLastCourseEmployable);
+            }
+
+            var datesOfPeriod = Enumerable.Range(0, 1 + dateEmployableFrom.Subtract(StartDate).Days)
+               .Select(offset => StartDate.AddDays(offset))
+               .ToList();
+
+            List<EducationPlanCourse> olcCourses = new List<EducationPlanCourse>();
+
+            List<DateTime> olcDates = new List<DateTime>();
+            Course previousCourse = new Course();
+            Course previousDayCourse = new Course();
+
+            foreach (var date in datesOfPeriod)
+            {
+
+                if (IsWeekend(date))
+                {
+                    if(olcDates.Any())
+                    {
+                        AddOLC(olcDates);
+                        olcDates = new List<DateTime>();
+                    }
+                    continue;
+                }
+
+                Course selectedCourse = plannedCourses.FirstOrDefault(c => c.CourseImplementations.Any(ci => ci.Days.Contains(date) && ci.Status == Status.PLANNED));
+
+                if (selectedCourse == null && !BlockedDates.Contains(date))
+                {
+                    olcDates.Add(date);
+                }
+
+                if ((previousCourse != selectedCourse && previousDayCourse == null) && selectedCourse != null || BlockedDates.Contains(date))
+                {
+                    if (olcDates.Any())
+                    {
+                        AddOLC(olcDates);
+                        olcDates = new List<DateTime>();
+                    }
+                }
+
+                if (selectedCourse != null)
+                {
+                    previousCourse = selectedCourse;
+                }
+                previousDayCourse = selectedCourse;
+            }
+
+            if (olcDates.Any())
+            {
+                AddOLC(olcDates);
+            }
+        }
+
+        private void AddOLC(List<DateTime> dates)
+        {   
+            Course olc = new Course
+            {
+                Code = "OLC",
+                Name = "OLC",
+                CourseImplementations = new List<CourseImplementation>()
+                {
+                    new CourseImplementation
+                    {
+                        Days = dates,
+                        Status = Status.PLANNED,
+                    }
+                },
+                Price = 125 * dates.Count,
+            };
+
+            _coursePlanning.AddCourse(olc);
+        }
+
+        private bool IsWeekend(DateTime date)
+        {
+            return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
         }
     }
 }
