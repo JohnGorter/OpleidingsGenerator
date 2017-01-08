@@ -51,6 +51,8 @@
     <Compile Include="Mappers\ICourseDataMapper.cs" />
     <Compile Include="Mappers\IDataMapper.cs" />
     <Compile Include="Mappers\IEducationPlanDataMapper.cs" />
+    <Compile Include="Mappers\IManagementPropertiesDataMapper.cs" />
+    <Compile Include="Mappers\ManagementPropertiesJSONDataMapper.cs" />
     <Compile Include="Mappers\ProfileJsonDataMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

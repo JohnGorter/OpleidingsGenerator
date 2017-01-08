@@ -1,4 +1,5 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.models;
+﻿using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 {
     public class Planner : IPlanner
     {
+        private IManagementPropertiesDataMapper _managementPropertiesDataMapper;
         private CoursePlanning _coursePlanning = new CoursePlanning();
         private DateTime _startDate = DateTime.Now;
         public DateTime StartDate
@@ -42,9 +44,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             }
         }
 
-
-        public Planner()
+        public Planner(IManagementPropertiesDataMapper managementPropertiesDataMapper)
         {
+            _managementPropertiesDataMapper = managementPropertiesDataMapper;
         }
 
         public IEnumerable<Course> GetPlannedCourses()
@@ -98,7 +100,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         {
             if (BlockedDates != null)
             {
-                DateTime endDate = StartDate.GetEndDay();
+                int periodEducationPlanDays = _managementPropertiesDataMapper.FindManagementProperties().PeriodEducationPlanInDays;
+
+                DateTime endDate = StartDate.GetEndDay(periodEducationPlanDays);
 
                 var blockedImplementations = course.CourseImplementations.Where(ci => ci.StartDay < StartDate || ci.StartDay > endDate || ci.Days.Any(day => BlockedDates.Contains(day)));
 
@@ -171,7 +175,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             //ADD PRICE TO OLC
             List<Course> plannedCourses = _coursePlanning.GetPlannedCourses().ToList();
 
-            int daysAfterLastCourseEmployable = GeneratorConfiguration.GetConfiguration().PeriodAfterLastCourseEmployable;
+            int daysAfterLastCourseEmployable = _managementPropertiesDataMapper.FindManagementProperties().PeriodAfterLastCourseEmployableInDays;
+
             DateTime dateEmployableFrom = StartDate.AddDays(daysAfterLastCourseEmployable);
 
             DateTime? lastDayOfPlanning = plannedCourses.LastOrDefault()?.GetPlannedImplementation().Days.Last();
@@ -235,7 +240,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         }
 
         private void AddOLC(List<DateTime> dates)
-        {   
+        {
+            decimal olcPrice = _managementPropertiesDataMapper.FindManagementProperties().OLCPrice;
+
             Course olc = new Course
             {
                 Code = "OLC",
@@ -248,7 +255,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                         Status = Status.PLANNED,
                     }
                 },
-                Price = 125 * dates.Count,
+                Price = olcPrice * dates.Count,
             };
 
             _coursePlanning.AddCourse(olc);

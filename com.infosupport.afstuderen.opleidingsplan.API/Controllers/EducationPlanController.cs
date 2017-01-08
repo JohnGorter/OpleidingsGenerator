@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using com.infosupport.afstuderen.opleidingsplan.api.models;
+using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
 using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;
@@ -21,9 +22,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         public EducationPlanController()
         {
             string profilepath = dal.DALConfiguration.GetConfiguration().ProfilePath;
-            string pathToProfiles = HttpContext.Current.Server.MapPath(profilepath);
+            string profilepathMapped = HttpContext.Current.Server.MapPath(profilepath);
+            string managementPropertiesPath = dal.DALConfiguration.GetConfiguration().ManagementPropertiesPath;
+            string managementPropertiesPathMapped = HttpContext.Current.Server.MapPath(managementPropertiesPath);
 
-            _educationPlanManager = new EducationPlanManager(pathToProfiles);
+            _educationPlanManager = new EducationPlanManager(profilepathMapped, managementPropertiesPathMapped);
         }
 
         public EducationPlanController(IEducationPlanManager educationPlanManager)

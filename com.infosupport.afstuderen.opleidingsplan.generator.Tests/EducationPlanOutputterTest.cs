@@ -3,6 +3,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
 using com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers;
+using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using Moq;
+using com.infosupport.afstuderen.opleidingsplan.models;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
 {
@@ -14,7 +17,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void GenerateEducationPlan_FourCoursesPlanned()
         {
             // Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -29,7 +35,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
 
             planner.PlanCourses(coursesToPlan);
 
-            EducationPlanOutputter outputter = new EducationPlanOutputter(planner);
+
+            EducationPlanOutputter outputter = new EducationPlanOutputter(planner, managementPropertiesDataMapperMock.Object);
             EducationPlanData data = GetDummyEducationPlanData();
 
             // Act
@@ -62,18 +69,22 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         }
 
         [TestMethod]
-        public void GenerateEducationPlan_NoCoursePlanned_()
+        public void GenerateEducationPlan_NoCoursePlanned()
         {
             // Arrange
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
             EducationPlanData data = GetDummyEducationPlanData();
-            Planner planner = new Planner();
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = data.InPaymentFrom;
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>();
 
             planner.PlanCourses(coursesToPlan);
 
-            EducationPlanOutputter outputter = new EducationPlanOutputter(planner);
+            
+            EducationPlanOutputter outputter = new EducationPlanOutputter(planner, managementPropertiesDataMapperMock.Object);
 
             // Act
             var result = outputter.GenerateEducationPlan(data);

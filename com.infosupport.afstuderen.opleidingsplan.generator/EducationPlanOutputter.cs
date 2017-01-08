@@ -1,4 +1,5 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.integration;
+﻿using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using com.infosupport.afstuderen.opleidingsplan.integration;
 using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
     public class EducationPlanOutputter : IEducationPlanOutputter
     {
         private IPlanner _planner;
+        private IManagementPropertiesDataMapper _managementPropertiesDataMapper;
 
-        public EducationPlanOutputter(IPlanner planner)
+        public EducationPlanOutputter(IPlanner planner, IManagementPropertiesDataMapper managementPropertiesDataMapper)
         {
             _planner = planner;
+            _managementPropertiesDataMapper = managementPropertiesDataMapper;
         }
 
         public EducationPlan GenerateEducationPlan(EducationPlanData educationPlanData)
@@ -22,7 +25,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             List<EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(_planner.GetPlannedCourses().ToList()).OrderBy(course => course.Date).ToList();
             List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.GetNotPlannedCourses().ToList(), educationPlannedCourses).OrderBy(course => course.Date).ToList();
 
-            int daysAfterLastCourseEmployable = GeneratorConfiguration.GetConfiguration().PeriodAfterLastCourseEmployable;
+            int daysAfterLastCourseEmployable = _managementPropertiesDataMapper.FindManagementProperties().PeriodAfterLastCourseEmployableInDays;
 
             DateTime dateEmployableFrom = educationPlanData.InPaymentFrom.AddDays(daysAfterLastCourseEmployable);
             DateTime? lastDayOfPlanning = educationPlannedCourses.LastOrDefault()?.Date;

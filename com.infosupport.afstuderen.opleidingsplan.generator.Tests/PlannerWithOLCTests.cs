@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers;
 using System.Collections.Generic;
 using System.Linq;
+using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using Moq;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
 {
@@ -13,7 +15,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanThreeCourses_SevenCoursesPlanned_ApplyOLCFourTimes()
         {
             // Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -66,7 +71,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanThreeCourses_SixCoursesPlanned_ApplyOLCThreeTimes_TwoCoursesOneWeek()
         {
             // Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -115,7 +123,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanThreeCourses_SixCoursesPlanned_ApplyOLCThreeTimes_ThreeCoursesOneWeek()
         {
             // Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -164,7 +175,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanTwoCourses_SixCoursesPlanned_ApplyOLCFourTimes_OLCWithWeekend()
         {
             // Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2016, 12, 26);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -211,7 +225,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanTwoCourses_SixCoursesPlanned_ApplyOLCFourTimes_OLCWithBlockedDate()
         {
             // Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2016, 12, 26);
             planner.BlockedDates = new List<DateTime>()
             {

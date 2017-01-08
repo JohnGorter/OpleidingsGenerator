@@ -63,7 +63,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\AdministrationTestHelper.cs" />
+    <Compile Include="Controllers\ManagementPropertiesControllerTest.cs" />
+    <Compile Include="Helpers\ManagementPropertiesTestHelper.cs" />
+    <Compile Include="Helpers\ProfileTestHelper.cs" />
     <Compile Include="Controllers\CourseControllerTest.cs" />
     <Compile Include="Controllers\EducationPlanControllerTest.cs" />
     <Compile Include="Controllers\ProfileControllerTest.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Managers\CourseManagerTest.cs" />
     <Compile Include="Managers\EducationPlanManagerTest.cs" />
     <Compile Include="Managers\ProfileManagerTest.cs" />
+    <Compile Include="Managers\ManagementPropertiesManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IntegrationTest.cs" />
   </ItemGroup>
@@ -103,6 +106,7 @@
     <None Include="Data\EducationPlansOriginal.json" />
     <Content Include="Data\Profiles.json" />
     <Content Include="Data\ProfilesOriginal.json" />
+    <Content Include="Data\ManagementProperties.json" />
     <None Include="Helpers\Profiles.json" />
     <None Include="packages.config" />
   </ItemGroup>

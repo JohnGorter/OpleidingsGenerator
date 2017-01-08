@@ -18,19 +18,21 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
         private readonly IEducationPlanOutputter _educationPlanOutputter;
         private readonly IDataMapper<opleidingsplan.models.CourseProfile> _profileDataMapper;
 
-        public EducationPlanManager(string profilePath, ICourseService courseService)
+        public EducationPlanManager(string profilePath, ICourseService courseService, string managementPropertiesPath)
         {
             _courseService = courseService;
-            _planner = new Planner();
-            _educationPlanOutputter = new EducationPlanOutputter(_planner);
+            IManagementPropertiesDataMapper managementPropertiesDataMapper = new ManagementPropertiesJSONDataMapper(managementPropertiesPath);
+            _planner = new Planner(managementPropertiesDataMapper);
+            _educationPlanOutputter = new EducationPlanOutputter(_planner, managementPropertiesDataMapper);
             _profileDataMapper = new ProfileJsonDataMapper(profilePath);
         }
 
-        public EducationPlanManager(string profilePath)
+        public EducationPlanManager(string profilePath, string managementPropertiesPath)
         {
             _courseService = new CourseService();
-            _planner = new Planner();
-            _educationPlanOutputter = new EducationPlanOutputter(_planner);
+            IManagementPropertiesDataMapper managementPropertiesDataMapper = new ManagementPropertiesJSONDataMapper(managementPropertiesPath);
+            _planner = new Planner(managementPropertiesDataMapper);
+            _educationPlanOutputter = new EducationPlanOutputter(_planner, managementPropertiesDataMapper);
             _profileDataMapper = new ProfileJsonDataMapper(profilePath);
         }
 

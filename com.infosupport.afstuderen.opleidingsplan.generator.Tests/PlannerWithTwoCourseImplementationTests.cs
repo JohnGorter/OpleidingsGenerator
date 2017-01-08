@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
 using com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers;
+using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using Moq;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
 {
@@ -13,7 +15,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanThreeCourses_NoOverlap_ThreeCoursesPlanned()
         {
             // Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -51,7 +56,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanThreeCourses_OverlapOneImplementation_ThreeCoursesPlanned()
         {
             // Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -89,7 +97,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanThreeCourses_OverlapTwoImplementation()
         {
             // Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -127,7 +138,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanThreeCourses_OverlapTwoImplementation_TwoCoursesPlanned()
         {
             // Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -165,7 +179,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanThreeCourses_OverlapTwoImplementation_MoveSecondCourseImplementation_ThreeCoursesPlanned()
         {
             // Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()

@@ -58,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EducationPlanDataMapperTest.cs" />
     <Compile Include="CourseDataMapperTest.cs" />
+    <Compile Include="ManagementPropertiesDataMapperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Profiles.json" />
@@ -67,6 +68,8 @@
     <Content Include="Data\ProfilesOriginal.json" />
     <None Include="Data\EducationPlansOriginal.json" />
     <None Include="Data\EducationPlans.json" />
+    <Content Include="Data\ManagementProperties.json" />
+    <Content Include="Data\ManagementPropertiesOriginal.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.DAL\DAL.csproj">

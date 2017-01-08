@@ -49,7 +49,6 @@
     <Compile Include="EducationPlanData.cs" />
     <Compile Include="EducationPlanOutputter.cs" />
     <Compile Include="Extentions.cs" />
-    <Compile Include="GeneratorConfiguration.cs" />
     <Compile Include="IEducationPlanOutputter.cs" />
     <Compile Include="IPlanner.cs" />
     <Compile Include="Planner.cs" />
@@ -60,6 +59,10 @@
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.agent\IntegrationService.csproj">
       <Project>{5713F827-4539-4AC4-BF4D-82606CF97E5A}</Project>
       <Name>IntegrationService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.DAL\DAL.csproj">
+      <Project>{8E448124-E651-4A3D-A9BA-C0ADA3023AFD}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.model\Models.csproj">
       <Project>{0669767E-7628-4BDD-9A44-2590CB1DF4E6}</Project>

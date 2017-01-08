@@ -1,4 +1,5 @@
-﻿using System;
+﻿using com.infosupport.afstuderen.opleidingsplan.models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -210,7 +211,18 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
             {
                 Days = days.ToList(),
                 StartDay = days.First(),
-            };            
+            };
+        }
+
+        protected ManagementProperties GetDummyDataManagementProperties()
+        {
+            return new ManagementProperties
+            {
+                OLCPrice = 125,
+                PeriodAfterLastCourseEmployableInDays = 7,
+                PeriodBeforeStartNotifiable = 7,
+                PeriodEducationPlanInDays = 90,
+            };
         }
     }
 }

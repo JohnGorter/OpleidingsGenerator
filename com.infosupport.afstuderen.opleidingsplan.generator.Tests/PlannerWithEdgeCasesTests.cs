@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers;
 using com.infosupport.afstuderen.opleidingsplan.models;
+using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using Moq;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
 {
@@ -14,7 +16,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanThreeCourses_TwoCoursesPlanned()
         {
             //Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -51,7 +56,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanFourCourses_FourCoursesPlanned()
         {
             //Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -95,7 +103,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanFourCourses_ThreeCoursesPlanned()
         {
             //Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -135,7 +146,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanFiveCourses_ThreeCoursesPlanned()
         {
             //Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -185,7 +199,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanFiveCourses_ThreeCoursesPlanned_Matrix()
         {
             //Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -234,7 +251,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanTwoCourses_StartDayOfFirstImplementationBeforeStartDate_SecondCourseUnplannable_OneCoursesPlanned()
         {
             // Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
@@ -264,7 +284,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void PlanOneCourses_StartDayOfFirstImplementationBeforeStartDate_OneCoursesPlanned()
         {
             // Arrange
-            Planner planner = new Planner();
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
             IEnumerable<models.Course> coursesToPlan = new List<models.Course>()

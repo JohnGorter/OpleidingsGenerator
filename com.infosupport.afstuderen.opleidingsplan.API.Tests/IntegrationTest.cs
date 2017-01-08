@@ -35,7 +35,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests
                     new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) })
             });
 
-            IEducationPlanManager manager = new EducationPlanManager("../../Data/Profiles.json", courseServiceMock.Object);
+            IEducationPlanManager manager = new EducationPlanManager("../../Data/Profiles.json", courseServiceMock.Object, "../../Data/ManagementProperties.json");
 
             // Act
             var result = manager.GenerateEducationPlan(restEducationPlan);

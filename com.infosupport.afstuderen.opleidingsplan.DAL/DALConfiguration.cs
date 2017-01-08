@@ -40,6 +40,15 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal
             }
         }
 
+        [ConfigurationProperty("management-properties-path", IsRequired = true)]
+        public string ManagementPropertiesPath
+        {
+            get
+            {
+                return this["management-properties-path"] as string;
+            }
+        }
+
         [ConfigurationProperty("educationplan-updated-path", IsRequired = true)]
         public string EducationPlanUpdatedPath
         {

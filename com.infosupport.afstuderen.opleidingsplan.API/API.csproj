@@ -143,12 +143,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="AutoMapperConfiguration.cs" />
+    <Compile Include="Controllers\ManagementPropertiesController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\EducationPlanController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Managers\IManagementPropertiesManager.cs" />
+    <Compile Include="Managers\ManagementPropertiesManager.cs" />
     <Compile Include="Managers\ProfileManager.cs" />
     <Compile Include="Managers\CourseManager.cs" />
     <Compile Include="Managers\EducationPlanManager.cs" />
@@ -166,6 +169,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\web.config" />
     <Content Include="App_Data\EducationPlans.json" />
+    <Content Include="App_Data\ManagementProperties.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

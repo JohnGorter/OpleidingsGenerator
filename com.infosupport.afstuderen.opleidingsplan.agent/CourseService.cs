@@ -12,11 +12,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration
     public class CourseService : ICourseService
     {
 
-        private Uri baseUrl = new Uri("http://services.infosupport.com/ISTraining.External/v2/nl/");
+        private readonly Uri _baseUrl;
+
+        public CourseService()
+        {
+            string infoSupportTrainingURL = IntegrationConfiguration.GetConfiguration().InfoSupportTrainingURL;
+            _baseUrl = new Uri(infoSupportTrainingURL);
+        }
 
         public Coursesummarycollection FindAllCourses()
         {
-            Uri uri = new Uri(baseUrl, "courses");
+            Uri uri = new Uri(_baseUrl, "courses");
 
             HttpWebRequest request = WebRequest.Create(uri) as HttpWebRequest;
             HttpWebResponse response = request.GetResponse() as HttpWebResponse;
@@ -32,7 +38,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration
 
         public Course FindCourse(string courseCode)
         {
-            Uri uri = new Uri(baseUrl, "courses/" + courseCode);
+            Uri uri = new Uri(_baseUrl, "courses/" + courseCode);
 
             HttpWebRequest request = WebRequest.Create(uri) as HttpWebRequest;
             HttpWebResponse response = request.GetResponse() as HttpWebResponse;
