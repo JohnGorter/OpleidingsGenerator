@@ -232,5 +232,45 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
             Assert.AreEqual("Jan Verstegen", result.ElementAt(1).EducationPlanOld.NameEmployee);
             Assert.AreEqual("Pim Verheij", result.ElementAt(1).EducationPlanNew.NameEmployee);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Update_EducationPlanIsNull_ExceptionThrowed()
+        {
+            // Arrange
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
+
+            // Act
+            dataMapper.Update(null);
+
+            // Assert ArgumentNullException
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Delete_EducationPlanIsNull_ExceptionThrowed()
+        {
+            // Arrange
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
+
+            // Act
+            dataMapper.Delete(null);
+
+            // Assert ArgumentNullException
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Insert_EducationPlanIsNull_ExceptionThrowed()
+        {
+            // Arrange
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
+
+            // Act
+            dataMapper.Insert(null);
+
+            // Assert ArgumentNullException
+        }
+
     }
 }

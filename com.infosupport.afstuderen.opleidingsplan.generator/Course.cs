@@ -54,7 +54,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return GetCourseAvailableImplementation(courses).Count() == 1;
         }
 
-        //TODO: Test
         public bool HasOnlyImplementationsWithStatus(Status status)
         {
             return this.CourseImplementations.All(courseImplementation => courseImplementation.Status == status);
@@ -65,13 +64,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return this.CourseImplementations.Where(courseImplementation => courseImplementation.Status == status).Count() > 1;
         }
 
-        //TODO: Test
         public bool HasOneImplementation()
         {
             return this.CourseImplementations.Where(ci => ci.Status != Status.UNPLANNABLE).Count() == 1;
         }
         
-        //TODO: Test
         public void MarkAllIntersectedOfPlannedImplementations(Status status, IEnumerable<generator.Course> courses)
         {
             var plannedCourseImplementation = this.CourseImplementations.FirstOrDefault(courseImplementation => courseImplementation.Status == Status.PLANNED);
@@ -144,15 +141,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             this.IntersectedCourseIds = plannedCourses.Where(course => course.Intersects(this)).Select(course => course.Code).ToList();
         }
 
-        //TODO: Test
         public bool Intersects(generator.Course course)
         {
+            if (course == null) throw new ArgumentNullException("course");
+
             return course.CourseImplementations.Any(courseImplementation => courseImplementation.Intersects(this.CourseImplementations));
         }
 
-        //TODO: Test
         public bool IntersectsNotUnplannable(generator.Course course)
         {
+            if (course == null) throw new ArgumentNullException("course");
+
             return course.CourseImplementations.Any(courseImplementation => courseImplementation.Intersects(this.CourseImplementations) && courseImplementation.Status != Status.UNPLANNABLE);
         }
 
@@ -161,7 +160,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return this.CourseImplementations.Any(courseImplementation => courseImplementation.IsPlannable(courses, this.Priority, this.Code) && courseImplementation.Status != Status.UNPLANNABLE);
         }
 
-        //TODO: Test
         public bool HasIntersectedCourseWithFreeImplementation(IEnumerable<Course> courses, int priority)
         {
             var intersectedCourses = this.GetIntersectedCoursesWithEqualOrHigherPriority(courses)
@@ -170,7 +168,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return intersectedCourses.Any(course => course.HasImplementationsWithoutIntersection(courses, priority));
         }
 
-        //TODO: Test
         public bool HasImplementationsWithoutIntersection(IEnumerable<Course> courses, int priority)
         {
             var coursesWithoutSelf = courses.Where(course => course.Code != this.Code && this.Priority <= priority);

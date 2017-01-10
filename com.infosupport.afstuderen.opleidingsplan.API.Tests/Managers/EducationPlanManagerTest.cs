@@ -66,5 +66,41 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
 
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GenerateEducationPlan_null_ExceptionThrowed()
+        {
+            // Arrange
+            string[] courses = new string[] { "2NETARCH", "ADCSB" };
+
+            var educationPlanOutputterMock = new Mock<IEducationPlanOutputter>(MockBehavior.Strict);
+            educationPlanOutputterMock.Setup(planner => planner.GenerateEducationPlan(It.IsAny<EducationPlanData>())).Returns(GetDummyEducationPlan());
+
+            var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
+            plannerMock.Setup(planner => planner.PlanCoursesWithOLC(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
+            plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
+            plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<List<DateTime>>()).Verifiable();
+
+            var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
+            courseServiceMock.Setup(service => service.FindCourses(courses)).Returns(
+                new List<integration.Course>() {
+                    CreateNewIntegrationCourseWithTwoCourseImplementations("2NETARCH", 1,
+                    new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
+                    new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) })
+            });
+
+            var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
+            profileDataMapperMock.Setup(dataMapper => dataMapper.FindById(1)).Returns(GetDummyDataProfiles().First());
+
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object);
+            RestEducationPlan educationPlan = GetDummyRestEducationPlan(courses);
+
+
+            // Act
+            var result = manager.GenerateEducationPlan(null);
+
+            // Assert ArgumentNullException
+        }
+
     }
 }

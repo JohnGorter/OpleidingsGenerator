@@ -54,6 +54,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration
 
         public IEnumerable<integration.Course> FindCourses(string[] courseCodes)
         {
+            if (courseCodes == null) throw new ArgumentNullException("courseCodes");
+
             List<integration.Course> courses = new List<integration.Course>();
 
             foreach (var courseCode in courseCodes)

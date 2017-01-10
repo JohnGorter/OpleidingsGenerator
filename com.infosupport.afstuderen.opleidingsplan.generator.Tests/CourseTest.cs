@@ -384,57 +384,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.IsNull(result);
         }
 
-        //[TestMethod]
-        //public void GetAvailableIntersectedCoursesWithPlannedImplementation_OnePlannedCourse_OneAvailable()
-        //{
-        //    // Arrange
-        //    generator.Course course = CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENDEVN", 1,
-        //        new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18), new DateTime(2017, 4, 19) }, Status.PLANNED,
-        //        new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }, Status.NOTPLANNED);
-
-
-        //    IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
-        //    {
-        //        CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENEST", 1,
-        //        new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18),}, Status.AVAILABLE,
-        //        new DateTime[] { new DateTime(2017, 2, 13), new DateTime(2017, 2, 14)}, Status.AVAILABLE),
-        //    };
-
-        //    // Act
-        //    var result = course.GetAvailableIntersectedCoursesWithPlannedImplementation(coursesPlanned);
-
-        //    // Assert
-        //    Assert.AreEqual(1, result.Count());
-        //}
-
-        //[TestMethod]
-        //public void GetAvailableIntersectedCoursesWithPlannedImplementation_OnePlannedCourse_NoAvailable()
-        //{
-        //    // Arrange
-        //    generator.Course course = CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENDEVN", 1,
-        //        new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18), new DateTime(2017, 4, 19) }, Status.PLANNED,
-        //        new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }, Status.NOTPLANNED);
-
-
-        //    IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
-        //    {
-        //        CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENEST", 1,
-        //        new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18),}, Status.UNPLANNABLE,
-        //        new DateTime[] { new DateTime(2017, 2, 13), new DateTime(2017, 2, 14)}, Status.UNPLANNABLE),
-        //    };
-
-        //    // Act
-        //    var result = course.GetAvailableIntersectedCoursesWithPlannedImplementation(coursesPlanned);
-
-        //    // Assert
-        //    Assert.AreEqual(0, result.Count());
-        //}
-
-
-
-
-
-
         [TestMethod]
         public void AddIntersectedCourses_AddTwoIntersectedCourses()
         {
@@ -457,6 +406,37 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.AreEqual(2, course.IntersectedCourseIds.Count());
             Assert.AreEqual("SCRUMES", course.IntersectedCourseIds.ElementAt(0));
             Assert.AreEqual("ENEST", course.IntersectedCourseIds.ElementAt(1));
+        }
+
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Intersects_Course_null_ExceptionThrowed()
+        {
+            // Arrange
+            generator.Course course = CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENDEVN", 1,
+                new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18), new DateTime(2017, 4, 19) }, Status.NOTPLANNED,
+                new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }, Status.PLANNED);
+
+            // Act
+            course.Intersects(null);
+
+            // Assert ArgumentNullException
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void IntersectsNotUnplannable_Course_null_ExceptionThrowed()
+        {
+            // Arrange
+            generator.Course course = CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ENDEVN", 1,
+                new DateTime[] { new DateTime(2017, 4, 17), new DateTime(2017, 4, 18), new DateTime(2017, 4, 19) }, Status.NOTPLANNED,
+                new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }, Status.PLANNED);
+
+            // Act
+            course.IntersectsNotUnplannable(null);
+
+            // Assert ArgumentNullException
         }
     }
 }

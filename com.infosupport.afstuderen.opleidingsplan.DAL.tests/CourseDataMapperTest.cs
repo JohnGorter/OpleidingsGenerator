@@ -178,5 +178,44 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
 
             // Assert ArgumentException
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Delete_DataIsNull_ExceptionThrowed()
+        {
+            // Arrange
+            ICourseDataMapper dataMapper = new CourseJSONDataMapper(_profilePath);
+
+            // Act
+            dataMapper.Delete(null);
+
+            // Assert ArgumentNullException
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Insert_DataIsNull_ExceptionThrowed()
+        {
+            // Arrange
+            ICourseDataMapper dataMapper = new CourseJSONDataMapper(_profilePath);
+
+            // Act
+            dataMapper.Insert(null);
+
+            // Assert ArgumentNullException
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Update_DataIsNull_ExceptionThrowed()
+        {
+            // Arrange
+            ICourseDataMapper dataMapper = new CourseJSONDataMapper(_profilePath);
+
+            // Act
+            dataMapper.Update(null);
+
+            // Assert ArgumentNullException
+        }
     }
 }
