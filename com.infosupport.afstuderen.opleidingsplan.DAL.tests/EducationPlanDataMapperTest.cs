@@ -16,8 +16,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
 
         public EducationPlanDataMapperTest()
         {
-            _educationPlanPath = DALConfiguration.GetConfiguration().EducationPlanPath;
-            _updatedDirPath = DALConfiguration.GetConfiguration().EducationPlanUpdatedPath;
+            _educationPlanPath = DALConfiguration.Configuration.EducationPlanPath;
+            _updatedDirPath = DALConfiguration.Configuration.EducationPlanUpdatedPath;
         }
 
         [TestInitialize]

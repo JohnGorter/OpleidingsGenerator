@@ -9,17 +9,20 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal
 {
     public class DALConfiguration : ConfigurationSection
     {
-        public static DALConfiguration GetConfiguration()
+        public static DALConfiguration Configuration
         {
-            DALConfiguration configuration =
-                ConfigurationManager
-                .GetSection("profileJsonConnection")
-                as DALConfiguration;
+            get
+            {
+                DALConfiguration configuration =
+                    ConfigurationManager
+                    .GetSection("profileJsonConnection")
+                    as DALConfiguration;
 
-            if (configuration != null)
-                return configuration;
+                if (configuration != null)
+                    return configuration;
 
-            return new DALConfiguration();
+                return new DALConfiguration();
+            }
         }
 
         [ConfigurationProperty("profile-path", IsRequired = true)]

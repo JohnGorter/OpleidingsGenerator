@@ -21,9 +21,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
 
         public EducationPlanController()
         {
-            string profilepath = dal.DALConfiguration.GetConfiguration().ProfilePath;
+            string profilepath = dal.DALConfiguration.Configuration.ProfilePath;
             string profilepathMapped = HttpContext.Current.Server.MapPath(profilepath);
-            string managementPropertiesPath = dal.DALConfiguration.GetConfiguration().ManagementPropertiesPath;
+            string managementPropertiesPath = dal.DALConfiguration.Configuration.ManagementPropertiesPath;
             string managementPropertiesPathMapped = HttpContext.Current.Server.MapPath(managementPropertiesPath);
 
             _educationPlanManager = new EducationPlanManager(profilepathMapped, managementPropertiesPathMapped);

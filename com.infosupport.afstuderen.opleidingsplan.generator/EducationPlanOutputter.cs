@@ -22,7 +22,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public EducationPlan GenerateEducationPlan(EducationPlanData educationPlanData)
         {
-            if (educationPlanData == null) { throw new ArgumentNullException("educationPlanData"); }
+            if (educationPlanData == null)
+            {
+                throw new ArgumentNullException("educationPlanData");
+            }
 
             List<EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(_planner.PlannedCourses.ToList()).OrderBy(course => course.Date).ToList();
             List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.NotPlannedCourses.ToList(), educationPlannedCourses).OrderBy(course => course.Date).ToList();
@@ -54,7 +57,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             };
         }
 
-        private List<EducationPlanCourse> GetPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner)
+        private static List<EducationPlanCourse> GetPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner)
         {
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
 
@@ -75,7 +78,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return educationPlanCourses;
         }
 
-        private List<EducationPlanCourse> GetNotPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner, List<EducationPlanCourse> plannedCourses)
+        private static List<EducationPlanCourse> GetNotPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner, List<EducationPlanCourse> plannedCourses)
         {
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
 

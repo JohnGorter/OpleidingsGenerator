@@ -7,7 +7,7 @@ using System.Web.Routing;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api
 {
-    public class RouteConfig
+    public sealed class RouteConfig
     {
         private RouteConfig(){}
         public static void RegisterRoutes(RouteCollection routes)

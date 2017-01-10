@@ -88,7 +88,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
             WriteAllProfilesToFile(profiles);
         }
 
-        private int GenerateId(List<CourseProfile> allProfiles)
+        private static int GenerateId(List<CourseProfile> allProfiles)
         {
             int newId = allProfiles.Max(profile => profile.Id) + 1;
             return newId;

@@ -145,14 +145,20 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public bool Intersects(generator.Course course)
         {
-            if (course == null) { throw new ArgumentNullException("course"); }
+            if (course == null)
+            {
+                throw new ArgumentNullException("course");
+            }
 
             return course.CourseImplementations.Any(courseImplementation => courseImplementation.Intersects(this.CourseImplementations));
         }
 
         public bool IntersectsNotUnplannable(generator.Course course)
         {
-            if (course == null) { throw new ArgumentNullException("course"); }
+            if (course == null)
+            {
+                throw new ArgumentNullException("course");
+            }
 
             return course.CourseImplementations.Any(courseImplementation => courseImplementation.Intersects(this.CourseImplementations) && courseImplementation.Status != Status.UNPLANNABLE);
         }

@@ -22,7 +22,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
 
         public ManagementPropertiesController()
         {
-            string managementPropertiesPath = dal.DALConfiguration.GetConfiguration().ManagementPropertiesPath;
+            string managementPropertiesPath = dal.DALConfiguration.Configuration.ManagementPropertiesPath;
             string pathToManagementProperties = HttpContext.Current.Server.MapPath(managementPropertiesPath);
 
             _managementPropertiesManager = new ManagementPropertiesManager(pathToManagementProperties);

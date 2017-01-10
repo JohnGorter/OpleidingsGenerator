@@ -19,7 +19,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
 
         public CourseController()
         {
-            string profilepath = dal.DALConfiguration.GetConfiguration().ProfilePath;
+            string profilepath = dal.DALConfiguration.Configuration.ProfilePath;
             string pathToProfiles = HttpContext.Current.Server.MapPath(profilepath);
 
             _courseManager = new CourseManager(pathToProfiles);

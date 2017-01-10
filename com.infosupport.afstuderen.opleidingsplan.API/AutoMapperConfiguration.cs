@@ -6,7 +6,7 @@ using System.Web;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api
 {
-    public class AutoMapperConfiguration
+    public sealed class AutoMapperConfiguration
     {
         private AutoMapperConfiguration() { }
         public static void Configure()

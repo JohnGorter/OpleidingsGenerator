@@ -13,7 +13,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
 
         public ManagementPropertiesDataMapperTest()
         {
-            _managementPropertiesPath = DALConfiguration.GetConfiguration().ManagementPropertiesPath;
+            _managementPropertiesPath = DALConfiguration.Configuration.ManagementPropertiesPath;
         }
 
         [TestInitialize]

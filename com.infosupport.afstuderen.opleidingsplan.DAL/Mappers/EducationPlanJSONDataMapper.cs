@@ -23,7 +23,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         public void Delete(EducationPlan educationPlan)
         {
-            if (educationPlan == null) { throw new ArgumentNullException("educationPlan"); }
+            if (educationPlan == null)
+            {
+                throw new ArgumentNullException("educationPlan");
+            }
 
             var educationPlans = GetAllEducationPlans();
             EducationPlan educationPlanToDelete = educationPlans.FirstOrDefault(ep => ep.Id == educationPlan.Id);
@@ -58,7 +61,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         public void Insert(EducationPlan educationPlan)
         {
-            if (educationPlan == null) { throw new ArgumentNullException("educationPlan"); }
+            if (educationPlan == null)
+            {
+                throw new ArgumentNullException("educationPlan");
+            }
 
             var educationPlans = GetAllEducationPlans();
             educationPlan.Id = GenerateId(educationPlans);
@@ -69,7 +75,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         public void Update(EducationPlan educationPlan)
         {
-            if (educationPlan == null) { throw new ArgumentNullException("educationPlan"); }
+            if (educationPlan == null)
+            {
+                throw new ArgumentNullException("educationPlan");
+            }
 
             var educationPlans = GetAllEducationPlans();
             EducationPlan educationPlanToUpdate = educationPlans.FirstOrDefault(ep => ep.Id == educationPlan.Id);
@@ -127,7 +136,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
             string educationPlans = File.ReadAllText(_path);
             return JsonConvert.DeserializeObject<List<EducationPlan>>(educationPlans);
         }
-        private int GenerateId(List<EducationPlan> allEducationPlans)
+        private static int GenerateId(List<EducationPlan> allEducationPlans)
         {
             int newId = allEducationPlans.Max(educationPlan => educationPlan.Id) + 1;
             return newId;

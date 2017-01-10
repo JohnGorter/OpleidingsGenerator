@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api
 {
-    public class FilterConfig
+    public sealed class FilterConfig
     {
         private FilterConfig() {}
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)

@@ -44,21 +44,21 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             _profileDataMapper = profileDataMapper;
         }
 
-        private List<opleidingsplan.models.Course> ConvertCourses(IEnumerable<integration.Course> courses, opleidingsplan.models.CourseProfile profile)
+        private static List<opleidingsplan.models.Course> ConvertCourses(IEnumerable<integration.Course> courses, opleidingsplan.models.CourseProfile profile)
         {
             List<opleidingsplan.models.Course> coursesToPlan = new List<opleidingsplan.models.Course>();
 
             foreach (var course in courses)
             {
                 opleidingsplan.models.Course courseToPlan = Mapper.Map<opleidingsplan.models.Course>(course);
-                if(profile != null)
+                if (profile != null)
                 {
                     CoursePriority coursePriority = profile.Courses.FirstOrDefault(profileCourse => profileCourse.Code == course.Code);
                     if (coursePriority != null)
                     {
                         courseToPlan.Priority = coursePriority.Priority;
                     }
-                }               
+                }
                 coursesToPlan.Add(courseToPlan);
             }
 
@@ -67,7 +67,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 
         public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan)
         {
-            if (educationPlan == null) { throw new ArgumentNullException("educationPlan"); }
+            if (educationPlan == null)
+            {
+                throw new ArgumentNullException("educationPlan");
+            }
 
             _planner.StartDate = educationPlan.InPaymentFrom;
             _planner.BlockedDates = educationPlan.BlockedDates;
