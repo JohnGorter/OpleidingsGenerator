@@ -24,8 +24,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         {
             if (educationPlanData == null) { throw new ArgumentNullException("educationPlanData"); }
 
-            List<EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(_planner.GetPlannedCourses().ToList()).OrderBy(course => course.Date).ToList();
-            List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.GetNotPlannedCourses().ToList(), educationPlannedCourses).OrderBy(course => course.Date).ToList();
+            List<EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(_planner.PlannedCourses.ToList()).OrderBy(course => course.Date).ToList();
+            List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.NotPlannedCourses.ToList(), educationPlannedCourses).OrderBy(course => course.Date).ToList();
 
             int daysAfterLastCourseEmployable = _managementPropertiesDataMapper.FindManagementProperties().PeriodAfterLastCourseEmployableInDays;
 

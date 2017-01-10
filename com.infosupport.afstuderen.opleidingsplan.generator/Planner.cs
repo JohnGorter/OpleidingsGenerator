@@ -50,23 +50,34 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             }
         }
 
+        public IEnumerable<Course> PlannedCourses
+        {
+            get
+            {
+                return _coursePlanning.PlannedCourses;
+            }
+        }
+
+        public IEnumerable<Course> NotPlannedCourses
+        {
+            get
+            {
+                return _coursePlanning.NotPlannedCourses;
+            }
+        }
+
+        public IEnumerable<Course> AllCourses
+        {
+            get
+            {
+                return _coursePlanning.Courses;
+            }
+        }
+
+
         public Planner(IManagementPropertiesDataMapper managementPropertiesDataMapper)
         {
             _managementPropertiesDataMapper = managementPropertiesDataMapper;
-        }
-
-        public IEnumerable<Course> GetPlannedCourses()
-        {
-            return _coursePlanning.PlannedCourses;
-        }
-        public IEnumerable<Course> GetNotPlannedCourses()
-        {
-            return _coursePlanning.NotPlannedCourses;
-        }
-
-        public IEnumerable<Course> GetAllCourses()
-        {
-            return _coursePlanning.Courses;
         }
 
         public void PlanCoursesWithOLC(IEnumerable<models.Course> coursesToPlan)

@@ -34,35 +34,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
             _educationPlanManager = educationPlanManager;
         }
 
-        // GET: api/EducationPlan
-        public IEnumerable<string> Get()
-        {
-            throw new NotSupportedException();
-        }
-
-        // GET: api/EducationPlan/5
-        public EducationPlan Get(RestEducationPlan educationPlan)
-        {
-            throw new NotSupportedException();
-        }
-        
-
         // POST: api/EducationPlan
         public EducationPlan Post(RestEducationPlan educationPlan)
         {
             return _educationPlanManager.GenerateEducationPlan(educationPlan);
-        }
-
-        // PUT: api/EducationPlan/5
-        public void Put(int id, [FromBody]string value)
-        {
-            throw new NotSupportedException();
-        }
-
-        // DELETE: api/EducationPlan/5
-        public void Delete(int id)
-        {
-            throw new NotSupportedException();
         }
     }
 }
