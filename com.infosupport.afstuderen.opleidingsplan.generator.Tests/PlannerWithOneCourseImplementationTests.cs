@@ -6,6 +6,7 @@ using com.infosupport.afstuderen.opleidingsplan.models;
 using com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers;
 using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
 using Moq;
+using System.Collections.ObjectModel;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
 {
@@ -397,7 +398,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
 
             Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
-            planner.BlockedDates = new List<DateTime>()
+            planner.BlockedDates = new Collection<DateTime>()
             {
                 new DateTime(2017, 1, 11),
                 new DateTime(2017, 1, 12),

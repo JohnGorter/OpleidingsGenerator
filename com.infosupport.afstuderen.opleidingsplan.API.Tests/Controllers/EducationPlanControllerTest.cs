@@ -6,6 +6,7 @@ using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using Moq;
 using com.infosupport.afstuderen.opleidingsplan.api.models;
 using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
+using System.Collections.ObjectModel;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
 {
@@ -23,7 +24,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
         public void Post_ManagerCalled()
         {
             // Arrange
-            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(new string[] { "2NETARCH", "ADCSB" });
+            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(new Collection<string> { "2NETARCH", "ADCSB" });
 
             var educationPlanManagerMock = new Mock<IEducationPlanManager>(MockBehavior.Strict);
             educationPlanManagerMock.Setup(manager => manager.GenerateEducationPlan(restEducationPlan)).Returns(GetDummyEducationPlan());

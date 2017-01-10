@@ -2,6 +2,7 @@
 using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,9 +28,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 }
             }
         }
-        private List<DateTime> _blockedDates = new List<DateTime>();
+        private Collection<DateTime> _blockedDates = new Collection<DateTime>();
 
-        public List<DateTime> BlockedDates
+        public Collection<DateTime> BlockedDates
         {
             get
             {
@@ -39,7 +40,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             {
                 if (value != null)
                 {
-                    _blockedDates = value.Select(date => date.Date).ToList();
+                    Collection<DateTime> blockedDates = new Collection<DateTime>();
+                    foreach (var blockedDate in value)
+                    {
+                        blockedDates.Add(blockedDate.Date);
+                    }
+                    _blockedDates = blockedDates;
                 }
             }
         }

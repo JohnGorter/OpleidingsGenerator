@@ -29,7 +29,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         public void GenerateEducationPlan_Planner_Outputter_Service_DAL_Called()
         {
             // Arrange
-            string[] courses = new string[] { "2NETARCH", "ADCSB" };
+            var courses = new Collection<string> { "2NETARCH", "ADCSB" };
 
             var educationPlanOutputterMock = new Mock<IEducationPlanOutputter>(MockBehavior.Strict);
             educationPlanOutputterMock.Setup(planner => planner.GenerateEducationPlan(It.IsAny<EducationPlanData>())).Returns(GetDummyEducationPlan());
@@ -37,7 +37,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
             plannerMock.Setup(planner => planner.PlanCoursesWithOLC(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
             plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
-            plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<List<DateTime>>()).Verifiable();
+            plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
 
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
             courseServiceMock.Setup(service => service.FindCourses(courses)).Returns(
@@ -63,7 +63,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             courseServiceMock.Verify(outputter => outputter.FindCourses(courses));
             profileDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
             plannerMock.VerifySet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom);
-            plannerMock.VerifySet(planner => planner.BlockedDates = It.IsAny<List<DateTime>>());
+            plannerMock.VerifySet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>());
 
         }
 
@@ -72,7 +72,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         public void GenerateEducationPlan_null_ExceptionThrowed()
         {
             // Arrange
-            string[] courses = new string[] { "2NETARCH", "ADCSB" };
+            Collection<string> courses = new Collection<string> { "2NETARCH", "ADCSB" };
 
             var educationPlanOutputterMock = new Mock<IEducationPlanOutputter>(MockBehavior.Strict);
             educationPlanOutputterMock.Setup(planner => planner.GenerateEducationPlan(It.IsAny<EducationPlanData>())).Returns(GetDummyEducationPlan());
@@ -80,7 +80,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
             plannerMock.Setup(planner => planner.PlanCoursesWithOLC(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
             plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
-            plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<List<DateTime>>()).Verifiable();
+            plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
 
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
             courseServiceMock.Setup(service => service.FindCourses(courses)).Returns(

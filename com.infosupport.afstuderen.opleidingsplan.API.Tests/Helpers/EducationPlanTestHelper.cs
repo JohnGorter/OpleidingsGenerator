@@ -11,7 +11,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
 {
     public abstract class EducationPlanTestHelper : ProfileTestHelper
     {
-        protected RestEducationPlan GetDummyRestEducationPlan(string[] courses)
+        protected RestEducationPlan GetDummyRestEducationPlan(Collection<string> courses)
         {
             return new RestEducationPlan
             {

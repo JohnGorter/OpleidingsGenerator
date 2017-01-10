@@ -25,7 +25,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests
         public void GenerateEducationPlan_IntegrationTest()
         {
             // Arrange
-            var courses = new string[] { "2NETARCH" };
+            var courses = new Collection<string> { "2NETARCH" };
 
             RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(courses);
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);

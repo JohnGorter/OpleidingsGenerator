@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -52,7 +53,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration
             }
         }
 
-        public IEnumerable<integration.Course> FindCourses(string[] courseCodes)
+        public IEnumerable<integration.Course> FindCourses(Collection<string> courseCodes)
         {
             if (courseCodes == null) { throw new ArgumentNullException("courseCodes"); }
 
