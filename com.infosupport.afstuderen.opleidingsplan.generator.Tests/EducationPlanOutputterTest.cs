@@ -100,5 +100,30 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.AreEqual("Felix Sedney", result.NameTeacher);
             Assert.AreEqual("MVC, DPAT, OOUML, SCRUMES", result.KnowledgeOf);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GenerateEducationPlan_null_ExceptionThrowed()
+        {
+            // Arrange
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            EducationPlanData data = GetDummyEducationPlanData();
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
+            planner.StartDate = data.InPaymentFrom;
+
+            IEnumerable<models.Course> coursesToPlan = new List<models.Course>();
+
+            planner.PlanCourses(coursesToPlan);
+
+
+            EducationPlanOutputter outputter = new EducationPlanOutputter(planner, managementPropertiesDataMapperMock.Object);
+
+            // Act
+            var result = outputter.GenerateEducationPlan(null);
+
+            // Assert ArgumentNullException
+        }
     }
 }
