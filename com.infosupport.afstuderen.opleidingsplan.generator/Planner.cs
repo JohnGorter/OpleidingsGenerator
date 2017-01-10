@@ -51,16 +51,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public IEnumerable<Course> GetPlannedCourses()
         {
-            return _coursePlanning.GetPlannedCourses();
+            return _coursePlanning.PlannedCourses;
         }
         public IEnumerable<Course> GetNotPlannedCourses()
         {
-            return _coursePlanning.GetNotPlannedCourses();
+            return _coursePlanning.NotPlannedCourses;
         }
 
         public IEnumerable<Course> GetAllCourses()
         {
-            return _coursePlanning.GetCourses();
+            return _coursePlanning.Courses;
         }
 
         public void PlanCoursesWithOLC(IEnumerable<models.Course> coursesToPlan)
@@ -76,20 +76,20 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             foreach (var courseToPlan in coursesToPlan)
             {
                 var course = (generator.Course)courseToPlan;
-                var knownCourses = _coursePlanning.GetCourses();
+                var knownCourses = _coursePlanning.Courses;
 
                 MarkCourseImplementations(course, knownCourses);
-                _coursePlanning.AddCourse(course);
+                _coursePlanning.Courses.Add(course);
             }
 
-            var availableCourses = _coursePlanning.GetAvailableCourses();
+            var availableCourses = _coursePlanning.AvailableCourses;
             if (availableCourses.Any())
             {
                 MarkAvailableCourseImplementations();
             }
 
-            var plannedCourses = _coursePlanning.GetPlannedCourses();
-            var notPlannedCourses = _coursePlanning.GetNotPlannedCourses();
+            var plannedCourses = _coursePlanning.PlannedCourses;
+            var notPlannedCourses = _coursePlanning.NotPlannedCourses;
             foreach (var notPlannedCourse in notPlannedCourses)
             {
                 notPlannedCourse.AddIntersectedCourses(plannedCourses);
@@ -149,8 +149,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void MarkAvailableCourseImplementations()
         {
-            var availableCourses = _coursePlanning.GetAvailableCourses();
-            var plannedCourses = _coursePlanning.GetCourses();
+            var availableCourses = _coursePlanning.AvailableCourses;
+            var plannedCourses = _coursePlanning.Courses;
 
             while (availableCourses.Any())
             {
@@ -172,13 +172,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void ApplyOLC()
         {
-            List<Course> plannedCourses = _coursePlanning.GetPlannedCourses().OrderBy(course => course.GetPlannedImplementation().StartDay).ToList();
+            List<Course> plannedCourses = _coursePlanning.PlannedCourses.OrderBy(course => course.PlannedImplementation.StartDay).ToList();
 
             int daysAfterLastCourseEmployable = _managementPropertiesDataMapper.FindManagementProperties().PeriodAfterLastCourseEmployableInDays;
 
             DateTime dateEmployableFrom = StartDate.AddDays(daysAfterLastCourseEmployable);
 
-            DateTime? lastDayOfPlanning = plannedCourses.LastOrDefault()?.GetPlannedImplementation().Days.Last();
+            DateTime? lastDayOfPlanning = plannedCourses.LastOrDefault()?.PlannedImplementation.Days.Last();
 
             if (lastDayOfPlanning != null)
             {
@@ -189,8 +189,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             var datesOfPeriod = Enumerable.Range(0, 1 + dateEmployableFrom.Subtract(StartDate).Days)
                .Select(offset => StartDate.AddDays(offset))
                .ToList();
-
-            List<EducationPlanCourse> olcCourses = new List<EducationPlanCourse>();
 
             List<DateTime> olcDates = new List<DateTime>();
             Course previousCourse = new Course();
@@ -258,10 +256,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 Duration = dates.Count,
             };
 
-            _coursePlanning.AddCourse(olc);
+            _coursePlanning.Courses.Add(olc);
         }
 
-        private bool IsWeekend(DateTime date)
+        private static bool IsWeekend(DateTime date)
         {
             return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
         }

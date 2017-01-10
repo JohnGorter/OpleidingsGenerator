@@ -15,6 +15,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public IEnumerable<generator.CourseImplementation> CourseImplementations { get; set; }
         public IEnumerable<string> IntersectedCourseIds { get; private set; }
 
+        public CourseImplementation PlannedImplementation
+        {
+            get
+            {
+                return this.CourseImplementations.FirstOrDefault(course => course.Status == Status.PLANNED);
+            }
+        }
+
         public static explicit operator Course(models.Course course)
         {
             List<generator.CourseImplementation> courseImplementations = new List<CourseImplementation>();
@@ -120,7 +128,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
             MarkFirstImplementationThatIntersectsCourseWithOneFreeImplementation(courses, availableImplementations);
 
-            if(GetPlannedImplementation() == null)
+            if(PlannedImplementation == null)
             {
                 var availableImplementation = GetCourseAvailableImplementation(courses)
                     .OrderBy(courseImplementation => courseImplementation.IntersectsWithStatusCount(courses, Status.AVAILABLE))
@@ -128,12 +136,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                     .First();
                 availableImplementation.Status = Status.PLANNED;
             }
-        }
-
-        public CourseImplementation GetPlannedImplementation()
-        {
-            CourseImplementation plannedCourseImplementation = this.CourseImplementations.FirstOrDefault(course => course.Status == Status.PLANNED);
-            return plannedCourseImplementation;
         }
 
         public void AddIntersectedCourses(IEnumerable<generator.Course> plannedCourses)

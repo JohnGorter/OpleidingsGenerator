@@ -1,0 +1,12 @@
+﻿<Dictionary>
+  <Words>
+    <Recognized>
+      <Word>Plannable</Word>
+    </Recognized>
+  </Words>
+  <Acronyms>
+    <CasingExceptions>
+      <Acronym>JSON</Acronym>
+    </CasingExceptions>
+  </Acronyms>
+</Dictionary>

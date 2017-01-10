@@ -363,7 +363,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
                 new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }, Status.PLANNED);
 
             // Act
-            var result = course.GetPlannedImplementation();
+            var result = course.PlannedImplementation;
 
             // Assert
             Assert.AreEqual(new DateTime(2017, 1, 3), result.StartDay);
@@ -378,7 +378,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
                 new DateTime[] { new DateTime(2017, 1, 3), new DateTime(2017, 1, 4), new DateTime(2017, 1, 5) }, Status.AVAILABLE);
 
             // Act
-            var result = course.GetPlannedImplementation();
+            var result = course.PlannedImplementation;
 
             // Assert 
             Assert.IsNull(result);

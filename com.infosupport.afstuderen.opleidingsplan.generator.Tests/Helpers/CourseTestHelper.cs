@@ -91,13 +91,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
                     new generator.CourseImplementation
                     {
                         Days = days1.ToList(),
-                        StartDay =  days1.First(),
                         Status = status1,
                     },
                     new generator.CourseImplementation
                     {
                         Days = days2.ToList(),
-                        StartDay =  days2.First(),
                         Status = status2,
                     }
                 },
@@ -115,19 +113,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
                     new generator.CourseImplementation
                     {
                         Days = days1.ToList(),
-                        StartDay =  days1.First(),
                         Status = status1,
                     },
                     new generator.CourseImplementation
                     {
                         Days = days2.ToList(),
-                        StartDay =  days2.First(),
                         Status = status2,
                     },
                     new generator.CourseImplementation
                     {
                         Days = days3.ToList(),
-                        StartDay =  days2.First(),
                         Status = status3,
                     }
                 },
@@ -145,7 +140,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
                     new generator.CourseImplementation
                     {
                         Days = days.ToList(),
-                        StartDay =  days.First(),
                         Status = status,
                     },
                 },
@@ -163,7 +157,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
                     new generator.CourseImplementation
                     {
                         Days = days.ToList(),
-                        StartDay =  days.First(),
                     },
                 },
             };
@@ -180,12 +173,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
                     new generator.CourseImplementation
                     {
                         Days = days1.ToList(),
-                        StartDay =  days1.First(),
                     },
                     new generator.CourseImplementation
                     {
                         Days = days2.ToList(),
-                        StartDay =  days2.First(),
                     },
                 },
             };
@@ -210,7 +201,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
             return new generator.CourseImplementation
             {
                 Days = days.ToList(),
-                StartDay = days.First(),
             };
         }
 

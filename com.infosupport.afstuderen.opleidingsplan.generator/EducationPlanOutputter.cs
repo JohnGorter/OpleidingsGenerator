@@ -60,7 +60,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
             foreach (var course in coursesFromPlanner)
             {
-                DateTime? startDay = course.GetPlannedImplementation()?.StartDay;
+                DateTime? startDay = course.PlannedImplementation?.StartDay;
 
                 educationPlanCourses.Add(new EducationPlanCourse
                 {
@@ -81,7 +81,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
             foreach (var course in coursesFromPlanner)
             {
-                DateTime? startDay = course.GetPlannedImplementation()?.StartDay;
+                DateTime? startDay = course.PlannedImplementation?.StartDay;
 
                 educationPlanCourses.Add(new EducationPlanCourse
                 {

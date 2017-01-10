@@ -9,7 +9,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
     public class CourseImplementation
     {
         public string Location { get; set; }
-        public DateTime StartDay { get { return Days.FirstOrDefault(); } set { } }
+        public DateTime StartDay { get { return Days.FirstOrDefault(); }}
         public IEnumerable<DateTime> Days { get; set; }
         public Status Status { get; set; }
 
@@ -23,13 +23,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             };
         }
 
-        //TODO: Test
         public bool Intersects(IEnumerable<CourseImplementation> courseImplementations)
         {
             return courseImplementations.Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day)));
         }
 
-        //TODO: Test
         public bool Intersects(IEnumerable<Course> courses)
         {
             return courses
@@ -37,19 +35,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 .Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day)));
         }
 
-        //TODO: Test
         public bool IntersectsWithStatus(IEnumerable<Course> courses, Status status)
         {
             return GetIntersectedImplementationsWithStatus(courses, status).Any();
         }
 
-        //TODO: Test
         public int IntersectsWithStatusCount(IEnumerable<Course> courses, Status status)
         {
             return GetIntersectedImplementationsWithStatus(courses, status).Count();
         }
 
-        //TODO: Test
         public IEnumerable<CourseImplementation> GetIntersectedCourseImplementations(IEnumerable<Course> courses)
         {
             return courses
@@ -68,8 +63,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             {
                 return true;
             }
-
-            //TODO: Als deze overlapt met een Planned -> return false
 
             List<string> scannedCourses = new List<string>();
 
