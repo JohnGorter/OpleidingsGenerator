@@ -34,7 +34,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             educationPlanOutputterMock.Setup(planner => planner.GenerateEducationPlan(It.IsAny<EducationPlanData>())).Returns(GetDummyEducationPlan());
 
             var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
-            plannerMock.Setup(planner => planner.PlanCourses(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
+            plannerMock.Setup(planner => planner.PlanCoursesWithOLC(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
             plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
             plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<List<DateTime>>()).Verifiable();
 
@@ -58,7 +58,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
 
             // Assert
             educationPlanOutputterMock.Verify(outputter => outputter.GenerateEducationPlan(It.IsAny<EducationPlanData>()));
-            plannerMock.Verify(planner => planner.PlanCourses(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
+            plannerMock.Verify(planner => planner.PlanCoursesWithOLC(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
             courseServiceMock.Verify(outputter => outputter.FindCourses(courses));
             profileDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
             plannerMock.VerifySet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom);

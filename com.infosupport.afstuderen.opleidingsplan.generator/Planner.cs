@@ -172,8 +172,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void ApplyOLC()
         {
-            //ADD PRICE TO OLC
-            List<Course> plannedCourses = _coursePlanning.GetPlannedCourses().ToList();
+            List<Course> plannedCourses = _coursePlanning.GetPlannedCourses().OrderBy(course => course.GetPlannedImplementation().StartDay).ToList();
 
             int daysAfterLastCourseEmployable = _managementPropertiesDataMapper.FindManagementProperties().PeriodAfterLastCourseEmployableInDays;
 
@@ -256,6 +255,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                     }
                 },
                 Price = olcPrice * dates.Count,
+                Duration = dates.Count,
             };
 
             _coursePlanning.AddCourse(olc);

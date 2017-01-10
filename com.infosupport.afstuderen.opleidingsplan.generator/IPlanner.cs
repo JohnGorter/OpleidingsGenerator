@@ -12,5 +12,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         IEnumerable<Course> GetNotPlannedCourses();
         IEnumerable<Course> GetAllCourses();
         void PlanCourses(IEnumerable<models.Course> coursesToPlan);
+        void PlanCoursesWithOLC(IEnumerable<models.Course> coursesToPlan);
     }
 }

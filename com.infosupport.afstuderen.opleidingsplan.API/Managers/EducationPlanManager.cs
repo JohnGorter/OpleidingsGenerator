@@ -79,7 +79,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlan.Courses);
             List<opleidingsplan.models.Course> coursesToPlan = ConvertCourses(courses, profile);
 
-            _planner.PlanCourses(coursesToPlan);
+            _planner.PlanCoursesWithOLC(coursesToPlan);
 
             return _educationPlanOutputter.GenerateEducationPlan(Mapper.Map<EducationPlanData>(educationPlan));
         }

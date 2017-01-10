@@ -1,6 +1,6 @@
 {
-  "OLCPrice": 125,
+  "OLCPrice": 125.0,
   "PeriodEducationPlanInDays": 90,
   "PeriodAfterLastCourseEmployableInDays": 7,
-  "PeriodBeforeStartNotifiable": 7,
+  "PeriodBeforeStartNotifiable": 7
 }

@@ -44,10 +44,36 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests
             // Assert
             courseServiceMock.Verify(service => service.FindCourses(courses));
 
-            Assert.AreEqual(1, result.PlannedCourses.Count());
+            Assert.AreEqual(7, result.PlannedCourses.Count());
             Assert.AreEqual(0, result.NotPlannedCourses.Count());
-            Assert.AreEqual("2NETARCH", result.PlannedCourses.ElementAt(0).Code);
-            Assert.AreEqual(new DateTime(2017, 1, 2), result.PlannedCourses.ElementAt(0).Date);
+
+            Assert.AreEqual("OLC", result.PlannedCourses.ElementAt(0).Code);
+            Assert.AreEqual(new DateTime(2016, 12, 5), result.PlannedCourses.ElementAt(0).Date);
+            Assert.AreEqual(5, result.PlannedCourses.ElementAt(0).Days);
+
+            Assert.AreEqual("OLC", result.PlannedCourses.ElementAt(1).Code);
+            Assert.AreEqual(new DateTime(2016, 12, 12), result.PlannedCourses.ElementAt(1).Date);
+            Assert.AreEqual(5, result.PlannedCourses.ElementAt(1).Days);
+
+            Assert.AreEqual("OLC", result.PlannedCourses.ElementAt(2).Code);
+            Assert.AreEqual(new DateTime(2016, 12, 19), result.PlannedCourses.ElementAt(2).Date);
+            Assert.AreEqual(5, result.PlannedCourses.ElementAt(2).Days);
+
+            Assert.AreEqual("OLC", result.PlannedCourses.ElementAt(3).Code);
+            Assert.AreEqual(new DateTime(2016, 12, 26), result.PlannedCourses.ElementAt(3).Date);
+            Assert.AreEqual(5, result.PlannedCourses.ElementAt(3).Days);
+
+            Assert.AreEqual("2NETARCH", result.PlannedCourses.ElementAt(4).Code);
+            Assert.AreEqual(new DateTime(2017, 1, 2), result.PlannedCourses.ElementAt(4).Date);
+            Assert.AreEqual(3, result.PlannedCourses.ElementAt(4).Days);
+
+            Assert.AreEqual("OLC", result.PlannedCourses.ElementAt(5).Code);
+            Assert.AreEqual(new DateTime(2017, 1, 5), result.PlannedCourses.ElementAt(5).Date);
+            Assert.AreEqual(2, result.PlannedCourses.ElementAt(5).Days);
+
+            Assert.AreEqual("OLC", result.PlannedCourses.ElementAt(6).Code);
+            Assert.AreEqual(new DateTime(2017, 1, 9), result.PlannedCourses.ElementAt(6).Date);
+            Assert.AreEqual(3, result.PlannedCourses.ElementAt(6).Days);
         }
     }
 }
