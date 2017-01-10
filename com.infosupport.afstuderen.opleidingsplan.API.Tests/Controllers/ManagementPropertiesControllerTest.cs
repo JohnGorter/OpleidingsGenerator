@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using com.infosupport.afstuderen.opleidingsplan.api.Managers;
+using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using Moq;
 using com.infosupport.afstuderen.opleidingsplan.models;
 using com.infosupport.afstuderen.opleidingsplan.api.controllers;

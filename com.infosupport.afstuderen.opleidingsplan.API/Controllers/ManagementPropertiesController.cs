@@ -1,4 +1,4 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.api.Managers;
+﻿using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;

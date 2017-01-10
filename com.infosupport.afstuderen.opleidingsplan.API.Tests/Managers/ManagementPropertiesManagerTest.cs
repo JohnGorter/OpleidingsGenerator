@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
 using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
-using com.infosupport.afstuderen.opleidingsplan.api.Managers;
+using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using com.infosupport.afstuderen.opleidingsplan.models;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
