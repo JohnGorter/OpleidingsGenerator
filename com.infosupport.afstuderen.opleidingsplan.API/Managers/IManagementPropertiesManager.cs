@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
+namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 {
     public interface IManagementPropertiesManager
     {

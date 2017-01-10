@@ -5,7 +5,7 @@ using System.Web;
 using com.infosupport.afstuderen.opleidingsplan.models;
 using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.Managers
+namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 {
     public class ManagementPropertiesManager : IManagementPropertiesManager
     {
