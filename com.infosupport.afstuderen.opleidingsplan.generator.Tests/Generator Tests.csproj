@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="DummyData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EducationPlanTest.cs" />
     <Compile Include="PlannerWithOneCourseImplementationTests.cs" />
     <Compile Include="PlannerWithTwoCourseImplementationTests.cs" />
     <Compile Include="PlannerWithEdgeCasesTests.cs" />
