@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using System.Collections.ObjectModel;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator
 {
     public class CoursePlanning
     {
-        public List<Course> Courses { get; set; }
+        public Collection<Course> Courses { get; }
         public IEnumerable<Course> PlannedCourses
         {
             get
@@ -37,7 +38,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public CoursePlanning()
         {
-            Courses = new List<Course>();
+            Courses = new Collection<Course>();
         }
     }
 }

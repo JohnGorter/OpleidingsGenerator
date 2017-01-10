@@ -2,6 +2,7 @@
 using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,13 +58,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             };
         }
 
-        protected integration.Course CreateNewIntegrationCourseWithTwoCourseImplementations(string courseId, int priority, DateTime[] days1, DateTime[] days2)
+        protected integration.Course CreateNewIntegrationCourseWithTwoCourseImplementations(string courseId, int priority, Collection<DateTime> days1, Collection<DateTime> days2)
         {
             return new integration.Course
             {
                 Code = courseId,
                 Duration = days1.Count() + " dagen",
-                CourseImplementations = new integration.CourseImplementation[]
+                CourseImplementations = new Collection<integration.CourseImplementation>
                 {
                     new integration.CourseImplementation
                     {

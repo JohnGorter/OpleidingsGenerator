@@ -1,6 +1,7 @@
 ﻿using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
 {
@@ -38,7 +39,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
         {
             return new integration.Coursesummarycollection
             {
-                Coursesummary = new List<integration.Coursesummary>()
+                Coursesummary = new Collection<integration.Coursesummary>()
                 {
                     new integration.Coursesummary
                     {
@@ -73,13 +74,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             };
         }
 
-        private integration.CourseImplementation[] GetDummyDataIntegrationCourseImplementations()
+        private Collection<integration.CourseImplementation> GetDummyDataIntegrationCourseImplementations()
         {
-            return new integration.CourseImplementation[]
+            return new Collection<integration.CourseImplementation>
             {
                 new integration.CourseImplementation
                 {
-                    Days = new DateTime[]
+                    Days = new Collection<DateTime>
                     {
                         new DateTime(2017, 1, 16),
                         new DateTime(2017, 1, 17),
@@ -89,7 +90,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
                 },
                 new integration.CourseImplementation
                 {
-                    Days = new DateTime[]
+                    Days = new Collection<DateTime>
                     {
                         new DateTime(2017, 4, 3),
                         new DateTime(2017, 4, 4),

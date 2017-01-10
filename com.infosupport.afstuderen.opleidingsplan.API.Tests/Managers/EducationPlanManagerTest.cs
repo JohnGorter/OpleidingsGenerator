@@ -11,6 +11,7 @@ using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
 using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
 using com.infosupport.afstuderen.opleidingsplan.models;
 using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
 {
@@ -42,8 +43,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             courseServiceMock.Setup(service => service.FindCourses(courses)).Returns(
                 new List<integration.Course>() {
                     CreateNewIntegrationCourseWithTwoCourseImplementations("2NETARCH", 1,
-                    new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
-                    new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) })
+                    new Collection<DateTime> { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
+                    new Collection<DateTime> { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) })
             });
 
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
@@ -85,8 +86,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             courseServiceMock.Setup(service => service.FindCourses(courses)).Returns(
                 new List<integration.Course>() {
                     CreateNewIntegrationCourseWithTwoCourseImplementations("2NETARCH", 1,
-                    new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
-                    new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) })
+                    new Collection<DateTime> { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
+                    new Collection<DateTime> { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) })
             });
 
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);

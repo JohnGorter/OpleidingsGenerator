@@ -8,6 +8,7 @@ using com.infosupport.afstuderen.opleidingsplan.integration;
 using Moq;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.tests
 {
@@ -31,8 +32,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests
             courseServiceMock.Setup(service => service.FindCourses(courses)).Returns(
                 new List<integration.Course>() {
                     CreateNewIntegrationCourseWithTwoCourseImplementations("2NETARCH", 1,
-                    new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
-                    new DateTime[] { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) })
+                    new Collection<DateTime> { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
+                    new Collection<DateTime> { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) })
             });
 
             IEducationPlanManager manager = new EducationPlanManager("../../Data/Profiles.json", courseServiceMock.Object, "../../Data/ManagementProperties.json");

@@ -125,10 +125,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
             Assert.AreEqual(expected.ShortDescription, actual.ShortDescription);
             Assert.AreEqual(expected.SupplierName, actual.SupplierName);
 
-            for (int i = 0; i < expected.CourseImplementations.Length; i++)
+            for (int i = 0; i < expected.CourseImplementations.Count; i++)
             {
                 Assert.AreEqual(expected.CourseImplementations[i].Location, actual.CourseImplementations.ToArray()[i].Location);
-                for (int a = 0; a < expected.CourseImplementations[i].Days.Length; a++)
+                for (int a = 0; a < expected.CourseImplementations[i].Days.Count; a++)
                 {
                     Assert.AreEqual(expected.CourseImplementations[i].Days[a], actual.CourseImplementations.ToArray()[i].Days.ToArray()[a]);
                 }
