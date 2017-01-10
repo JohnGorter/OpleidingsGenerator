@@ -22,7 +22,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         public void Delete(CoursePriority data)
         {
-            if (data == null) throw new ArgumentNullException("data");
+            if (data == null) { throw new ArgumentNullException("data"); }
 
             var courses = GetAllCoursesFromProfile(data.ProfileId);
 
@@ -54,7 +54,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         public void Update(CoursePriority data)
         {
-            if (data == null) throw new ArgumentNullException("data");
+            if (data == null) { throw new ArgumentNullException("data"); }
 
             var courses = GetAllCoursesFromProfile(data.ProfileId);
             CoursePriority courseToUpdate = courses.FirstOrDefault(p => p.Id == data.Id);
@@ -75,7 +75,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         public void Insert(CoursePriority data)
         {
-            if (data == null) throw new ArgumentNullException("data");
+            if (data == null) { throw new ArgumentNullException("data"); }
 
             var courses = GetAllCoursesFromProfile(data.ProfileId);
             var profiles = GetAllProfiles();

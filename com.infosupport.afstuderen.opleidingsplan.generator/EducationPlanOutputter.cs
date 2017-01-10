@@ -22,7 +22,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public EducationPlan GenerateEducationPlan(EducationPlanData educationPlanData)
         {
-            if (educationPlanData == null) throw new ArgumentNullException("educationPlanData");
+            if (educationPlanData == null) { throw new ArgumentNullException("educationPlanData"); }
 
             List<EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(_planner.GetPlannedCourses().ToList()).OrderBy(course => course.Date).ToList();
             List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.GetNotPlannedCourses().ToList(), educationPlannedCourses).OrderBy(course => course.Date).ToList();

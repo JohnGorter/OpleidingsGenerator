@@ -67,7 +67,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 
         public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan)
         {
-            if (educationPlan == null) throw new ArgumentNullException("educationPlan");
+            if (educationPlan == null) { throw new ArgumentNullException("educationPlan"); }
 
             _planner.StartDate = educationPlan.InPaymentFrom;
             _planner.BlockedDates = educationPlan.BlockedDates;

@@ -23,7 +23,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         public void Delete(EducationPlan educationPlan)
         {
-            if (educationPlan == null) throw new ArgumentNullException("educationPlan");
+            if (educationPlan == null) { throw new ArgumentNullException("educationPlan"); }
 
             var educationPlans = GetAllEducationPlans();
             EducationPlan educationPlanToDelete = educationPlans.FirstOrDefault(ep => ep.Id == educationPlan.Id);
@@ -58,7 +58,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         public void Insert(EducationPlan educationPlan)
         {
-            if (educationPlan == null) throw new ArgumentNullException("educationPlan");
+            if (educationPlan == null) { throw new ArgumentNullException("educationPlan"); }
 
             var educationPlans = GetAllEducationPlans();
             educationPlan.Id = GenerateId(educationPlans);
@@ -69,7 +69,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         public void Update(EducationPlan educationPlan)
         {
-            if (educationPlan == null) throw new ArgumentNullException("educationPlan");
+            if (educationPlan == null) { throw new ArgumentNullException("educationPlan"); }
 
             var educationPlans = GetAllEducationPlans();
             EducationPlan educationPlanToUpdate = educationPlans.FirstOrDefault(ep => ep.Id == educationPlan.Id);
