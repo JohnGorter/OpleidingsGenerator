@@ -16,11 +16,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         private string _dateFromat = "dd-MM-yyyy";
         private EducationPlan _educationPlan;
 
-        public EducationPlanConverter(EducationPlan educationPlan, string managementPropertiesPath)
+        public EducationPlanConverter(EducationPlan educationPlan, string managementPropertiesPath, string path)
         {
             _educationPlan = educationPlan;
             managementPropertiesDataMapper = new ManagementPropertiesJSONDataMapper(managementPropertiesPath);
-            string fileName = @"C:\Users\pim\Documents\Info Support\Opleidingsplan.docx";
+            string fileName = path + @"\Opleidingsplan.docx";
             _document = DocX.Create(fileName);
         }
 

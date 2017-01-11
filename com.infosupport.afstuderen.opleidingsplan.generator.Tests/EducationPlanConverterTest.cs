@@ -12,7 +12,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
         public void GenerateWord_EducationPlanConverter()
         {
             // Arrange
-            EducationPlanConverter converter = new EducationPlanConverter(GetDummyEducationPlan(), "../../Data/ManagementProperties.json");
+            EducationPlanConverter converter = new EducationPlanConverter(GetDummyEducationPlan(), "../../Data/ManagementProperties.json", "../../Data/");
             // Act
             converter.GenerateWord();
 
