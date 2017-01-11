@@ -64,6 +64,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 return true;
             }
 
+            if (this.IntersectsWithStatus(courses, Status.PLANNED))
+            {
+                return false;
+            }
+
             List<string> scannedCourses = new List<string>();
 
             var coursesToCheck = courses.Where(course => course.Code != code).ToList();

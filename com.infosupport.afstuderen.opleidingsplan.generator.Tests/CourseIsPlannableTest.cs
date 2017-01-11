@@ -240,6 +240,29 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             //Assert
             Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        public void IsPlannable_PlannedIntersectedCourse_ResultIsFalse()
+        {
+            //Arrange
+            generator.Course course = CreateNewGeneratorCourseWithOneCourseImplementation("ENDEVN", 1,
+                new DateTime[] { new DateTime(2017, 2, 14), new DateTime(2017, 2, 15), new DateTime(2017, 2, 16) });
+
+            IEnumerable<generator.Course> coursesPlanned = new List<generator.Course>()
+            {
+                CreateNewGeneratorCourseWithOneCourseImplementationAndStatus("MS20461", 1,
+                new DateTime[] { new DateTime(2017, 2, 14), new DateTime(2017, 2, 15) }, Status.PLANNED),
+                CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus("ALMUVS", 1,
+                new DateTime[] { new DateTime(2017, 2, 14), new DateTime(2017, 2, 15) }, Status.UNKNOWN,
+                new DateTime[] { new DateTime(2017, 5, 15), new DateTime(2017, 5, 16) }, Status.AVAILABLE),
+            };
+
+            //Act
+            bool result = course.IsPlannable(coursesPlanned);
+
+            //Assert
+            Assert.IsFalse(result);
+        }
     }
 }
 
