@@ -30,6 +30,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             List<EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(_planner.PlannedCourses.ToList()).OrderBy(course => course.Date).ToList();
             List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.NotPlannedCourses.ToList(), educationPlannedCourses).OrderBy(course => course.Date).ToList();
 
+            int daysBeforeStart = _managementPropertiesDataMapper.FindManagementProperties().PeriodBeforeStartNotifiable;
+            DateTime justBeforeStart = educationPlanData.InPaymentFrom.AddDays(-daysBeforeStart);
+            var coursesJustBeforeStart = _planner.NotPlannedCourses.Where(course => course.CourseImplementations.Any(ci => ci.StartDay >= justBeforeStart && ci.StartDay < _planner.StartDate)).ToList();
+            List<EducationPlanCourse> educationCoursesJustBeforeStart = GetJustBeforeStartDateNotPlannedEducationPlanCourses(coursesJustBeforeStart, justBeforeStart).ToList();
+
             int daysAfterLastCourseEmployable = _managementPropertiesDataMapper.FindManagementProperties().PeriodAfterLastCourseEmployableInDays;
 
             DateTime dateEmployableFrom = educationPlanData.InPaymentFrom.AddDays(daysAfterLastCourseEmployable);
@@ -47,6 +52,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 Created = educationPlanData.Created,
                 PlannedCourses = educationPlannedCourses,
                 NotPlannedCourses = educationNotPlannedCourses,
+                CoursesJustBeforeStart = educationCoursesJustBeforeStart,
                 InPaymentFrom = educationPlanData.InPaymentFrom,
                 EmployableFrom = dateEmployableFrom,
                 Profile = educationPlanData.Profile,
@@ -55,6 +61,26 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 KnowledgeOf = educationPlanData.KnowledgeOf,
                 BlockedDates = educationPlanData.BlockedDates,
             };
+        }
+
+        private static List<EducationPlanCourse> GetJustBeforeStartDateNotPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner, DateTime justBeforeStart)
+        {
+            List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
+
+            foreach (var course in coursesFromPlanner)
+            {
+                DateTime? startDay = course.CourseImplementations.FirstOrDefault(ci => ci.StartDay > justBeforeStart)?.StartDay;
+                educationPlanCourses.Add(new EducationPlanCourse
+                {
+                    Code = course.Code,
+                    Date = startDay,
+                    Days = course.Duration.Value,
+                    Name = course.Name,
+                    Price = course.Price,
+                });
+            }
+
+            return educationPlanCourses;
         }
 
         private static List<EducationPlanCourse> GetPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner)
