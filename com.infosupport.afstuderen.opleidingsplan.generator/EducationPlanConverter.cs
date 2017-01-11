@@ -46,7 +46,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void InsertEducationPlanTable(List<EducationPlanCourse> courses, bool planned)
         {
-            Table table = _document.AddTable(courses.Count + 2, 7);
+            Table table = _document.AddTable(courses.Count + 3, 7);
             var firstRow = table.Rows[0];
             firstRow.Cells[0].Paragraphs.First().Append("Week");
             firstRow.Cells[1].Paragraphs.First().Append("Datum");
@@ -70,23 +70,18 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 row.Cells[6].Paragraphs.First().Append("€ " + course.PriceWithDiscount.ToString("N", _culture));
             }
 
-            //var lastRow = table.Rows[courses.Count];
-            //lastRow.Cells[0].Paragraphs.First().Append("Week");
-            //lastRow.Cells[1].Paragraphs.First().Append("Datum");
-            //lastRow.Cells[2].Paragraphs.First().Append("Cursusnaam");
-            //lastRow.Cells[3].Paragraphs.First().Append("Dagen");
-            //lastRow.Cells[4].Paragraphs.First().Append("Totaal");
-
-            //if (planned)
-            //{
-            //    lastRow.Cells[5].Paragraphs.First().Append("€ " + _educationPlan.PlannedCoursesTotalPrice.ToString("N", _culture));
-            //    lastRow.Cells[6].Paragraphs.First().Append("€ " + _educationPlan.PlannedCoursesTotalPriceWithDiscount.ToString("N", _culture));
-            //}
-            //else
-            //{
-            //    lastRow.Cells[5].Paragraphs.First().Append("€ " + _educationPlan.NotPlannedCoursesTotalPrice.ToString("N", _culture));
-            //    lastRow.Cells[6].Paragraphs.First().Append("€ " + _educationPlan.NotPlannedCoursesTotalPriceWithDiscount.ToString("N", _culture));
-            //}
+            var lastRow = table.Rows[courses.Count + 2];
+            lastRow.Cells[4].Paragraphs.First().Append("Totaal").Bold();
+            if (planned)
+            {
+                lastRow.Cells[5].Paragraphs.First().Append("€ " + _educationPlan.PlannedCoursesTotalPrice.ToString("N", _culture)).Bold();
+                lastRow.Cells[6].Paragraphs.First().Append("€ " + _educationPlan.PlannedCoursesTotalPriceWithDiscount.ToString("N", _culture)).Bold();
+            }
+            else
+            {
+                lastRow.Cells[5].Paragraphs.First().Append("€ " + _educationPlan.NotPlannedCoursesTotalPrice.ToString("N", _culture)).Bold();
+                lastRow.Cells[6].Paragraphs.First().Append("€ " + _educationPlan.NotPlannedCoursesTotalPriceWithDiscount.ToString("N", _culture)).Bold();
+            }
             _document.InsertTable(table);
         }
 
