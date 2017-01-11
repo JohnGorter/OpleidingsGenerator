@@ -19,6 +19,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
             _path = path;
         }
 
+        public ManagementPropertiesJSONDataMapper()
+        {
+        }
+
         public ManagementProperties FindManagementProperties()
         {
             return GetProperties();

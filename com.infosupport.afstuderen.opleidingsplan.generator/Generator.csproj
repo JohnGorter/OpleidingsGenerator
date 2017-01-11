@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocX, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.1.0.0.22\lib\net40\DocX.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -45,6 +49,7 @@
     <Compile Include="CourseImplementation.cs" />
     <Compile Include="CoursePlanning.cs" />
     <Compile Include="Course.cs" />
+    <Compile Include="EducationPlanConverter.cs" />
     <Compile Include="EducationPlanData.cs" />
     <Compile Include="EducationPlanOutputter.cs" />
     <Compile Include="Extentions.cs" />
@@ -70,6 +75,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dictionary.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

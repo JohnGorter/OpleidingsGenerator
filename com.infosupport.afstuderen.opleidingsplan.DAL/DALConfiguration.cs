@@ -15,7 +15,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal
             {
                 DALConfiguration configuration =
                     ConfigurationManager
-                    .GetSection("profileJsonConnection")
+                    .GetSection("DalJsonConnection")
                     as DALConfiguration;
 
                 if (configuration != null)

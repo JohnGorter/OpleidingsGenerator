@@ -12,5 +12,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.models
         public int PeriodEducationPlanInDays { get; set; }
         public int PeriodAfterLastCourseEmployableInDays { get; set; }
         public int PeriodBeforeStartNotifiable { get; set; }
+        public string Footer { get; set; }  
     }
 }

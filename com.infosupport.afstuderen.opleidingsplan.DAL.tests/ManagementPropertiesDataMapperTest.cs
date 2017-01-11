@@ -35,6 +35,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
                 PeriodAfterLastCourseEmployableInDays = 2,
                 PeriodBeforeStartNotifiable = 4,
                 PeriodEducationPlanInDays = 100,
+                Footer = "new footer"
             };
 
             // Act
@@ -47,6 +48,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
             Assert.AreEqual(2, propertiesResult.PeriodAfterLastCourseEmployableInDays);
             Assert.AreEqual(4, propertiesResult.PeriodBeforeStartNotifiable);
             Assert.AreEqual(100, propertiesResult.PeriodEducationPlanInDays);
+            Assert.AreEqual("new footer", propertiesResult.Footer);
         }
 
         [TestMethod]
@@ -63,6 +65,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
             Assert.AreEqual(7, result.PeriodAfterLastCourseEmployableInDays);
             Assert.AreEqual(7, result.PeriodBeforeStartNotifiable);
             Assert.AreEqual(90, result.PeriodEducationPlanInDays);
+            Assert.AreEqual("Conform de arbeidsvoorwaarden die van toepassing zijn op de arbeidsovereenkomst tussen <Naam> en Info Support is de studiekostenregeling bijlage 6 van toepassing. Concreet betekent dit dat iedere genoten opleiding in 36 maanden wordt afgeschreven ingaande de einddatum van de  opleiding.", result.Footer);
         }
     }
 }

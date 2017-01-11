@@ -259,7 +259,7 @@
         "Id": 43,
         "Code": "ENDEVN",
         "Priority": 1,
-        "ProfileId": 0
+        "ProfileId": 2
       },
       {
         "Id": 44,
@@ -373,7 +373,7 @@
         "Id": 62,
         "Code": "FITSEL",
         "Priority": 4,
-        "ProfileId": 0
+        "ProfileId": 2
       }
     ]
   },
@@ -391,7 +391,7 @@
         "Id": 64,
         "Code": "J2SA",
         "Priority": 1,
-        "ProfileId": 0
+        "ProfileId": 3
       },
       {
         "Id": 65,
