@@ -36,9 +36,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         }
 
         // GET: api/Profile/5
-        public CourseProfile Get(int id)
+        public CourseProfile Get(int? id)
         {
-            return _administrationManager.FindProfileById(id);
+            if(!id.HasValue)
+            {
+                return new CourseProfile();
+            }
+
+            return _administrationManager.FindProfileById(id.Value);
         }
 
         // POST: api/Profile

@@ -52,6 +52,21 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
         }
 
         [TestMethod]
+        public void Get_null_ReturnsEmptyCourseProfile()
+        {
+            // Arrange
+            var administrationManagerMock = new Mock<IProfileManager>(MockBehavior.Strict);
+            ProfileController controller = new ProfileController(administrationManagerMock.Object);
+
+            // Act
+            var result = controller.Get(null);
+
+            // Assert
+            Assert.AreEqual(0, result.Courses.Count());
+            Assert.IsNull(result.Name);
+        }
+
+        [TestMethod]
         public void Post_CourseProfile()
         {
             // Arrange

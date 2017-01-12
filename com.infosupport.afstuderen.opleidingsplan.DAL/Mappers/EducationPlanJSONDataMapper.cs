@@ -59,7 +59,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
             return educationPlan;
         }
 
-        public void Insert(EducationPlan educationPlan)
+        public long Insert(EducationPlan educationPlan)
         {
             if (educationPlan == null)
             {
@@ -71,6 +71,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
             educationPlans.Add(educationPlan);
             WriteEducationPlansToFile(educationPlans);
+            return educationPlan.Id;
         }
 
         public void Update(EducationPlan educationPlan)
@@ -138,6 +139,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
         }
         private static int GenerateId(List<EducationPlan> allEducationPlans)
         {
+            if(!allEducationPlans.Any())
+            {
+                return 1;
+            }
+
             int newId = allEducationPlans.Max(educationPlan => educationPlan.Id) + 1;
             return newId;
         }

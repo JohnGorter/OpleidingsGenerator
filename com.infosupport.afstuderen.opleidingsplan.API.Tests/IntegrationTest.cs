@@ -9,6 +9,7 @@ using Moq;
 using System.Collections.Generic;
 using System.Linq;
 using System.Collections.ObjectModel;
+using com.infosupport.afstuderen.opleidingsplan.dal;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.tests
 {
@@ -35,8 +36,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests
                     new Collection<DateTime> { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
                     new Collection<DateTime> { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) })
             });
+            var dalConfig = DALConfiguration.Configuration;
 
-            IEducationPlanManager manager = new EducationPlanManager("../../Data/Profiles.json", courseServiceMock.Object, "../../Data/ManagementProperties.json");
+            IEducationPlanManager manager = new EducationPlanManager(dalConfig.ProfilePath, courseServiceMock.Object, dalConfig.ManagementPropertiesPath, dalConfig.EducationPlanPath, dalConfig.EducationPlanUpdatedPath);
 
             // Act
             var result = manager.GenerateEducationPlan(restEducationPlan);

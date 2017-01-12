@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using com.infosupport.afstuderen.opleidingsplan.api.models;
+using com.infosupport.afstuderen.opleidingsplan.dal;
 using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
 using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
@@ -21,12 +22,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
 
         public EducationPlanController()
         {
-            string profilepath = dal.DALConfiguration.Configuration.ProfilePath;
-            string profilepathMapped = HttpContext.Current.Server.MapPath(profilepath);
-            string managementPropertiesPath = dal.DALConfiguration.Configuration.ManagementPropertiesPath;
-            string managementPropertiesPathMapped = HttpContext.Current.Server.MapPath(managementPropertiesPath);
+            string profilepath = HttpContext.Current.Server.MapPath(DALConfiguration.Configuration.ProfilePath);
+            string managementPropertiesPath = HttpContext.Current.Server.MapPath(DALConfiguration.Configuration.ManagementPropertiesPath);
+            string educationPlanPath = HttpContext.Current.Server.MapPath(DALConfiguration.Configuration.EducationPlanPath);
+            string educationPlanUpdatedPath = HttpContext.Current.Server.MapPath(DALConfiguration.Configuration.EducationPlanUpdatedPath);
 
-            _educationPlanManager = new EducationPlanManager(profilepathMapped, managementPropertiesPathMapped);
+            _educationPlanManager = new EducationPlanManager(profilepath, managementPropertiesPath, educationPlanPath, educationPlanUpdatedPath);
         }
 
         public EducationPlanController(IEducationPlanManager educationPlanManager)
@@ -38,6 +39,21 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         public EducationPlan Post(RestEducationPlan educationPlan)
         {
             return _educationPlanManager.GenerateEducationPlan(educationPlan);
+        }
+
+        public long Put(RestEducationPlan educationPlan)
+        {
+            return _educationPlanManager.SaveEducationPlan(educationPlan);
+        }
+
+        public EducationPlan Get(long id)
+        {
+            return _educationPlanManager.FindEducationPlan(id);
+        }
+
+        public List<EducationPlan> Search(EducationPlanSearch search)
+        {
+            return _educationPlanManager.FindEducationPlans(search);
         }
     }
 }

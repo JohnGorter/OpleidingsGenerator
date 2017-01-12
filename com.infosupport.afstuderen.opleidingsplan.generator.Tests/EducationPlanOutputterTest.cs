@@ -59,7 +59,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.AreEqual("SECDEV", result.NotPlannedCourses.ElementAt(1).IntersectedCourses.ElementAt(0).Code);
             Assert.AreEqual("XSD", result.NotPlannedCourses.ElementAt(1).IntersectedCourses.ElementAt(1).Code);
 
-            Assert.AreEqual(new DateTime(2016, 11, 29), result.Created);
+            Assert.AreEqual(DateTime.Now.Date, result.Created.Date);
             Assert.AreEqual(new DateTime(2016, 12, 5), result.InPaymentFrom);
             Assert.AreEqual(new DateTime(2017, 1, 26), result.EmployableFrom);
             Assert.AreEqual("NET_Developer", result.Profile);
@@ -92,7 +92,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             // Assert
             Assert.AreEqual(0, result.PlannedCourses.Count());
 
-            Assert.AreEqual(new DateTime(2016, 11, 29), result.Created);
+            Assert.AreEqual(DateTime.Now.Date, result.Created.Date);
             Assert.AreEqual(new DateTime(2016, 12, 5), result.InPaymentFrom);
             Assert.AreEqual(new DateTime(2016, 12, 12), result.EmployableFrom);
             Assert.AreEqual("NET_Developer", result.Profile);

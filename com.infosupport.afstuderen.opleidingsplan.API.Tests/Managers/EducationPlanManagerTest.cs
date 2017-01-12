@@ -12,6 +12,7 @@ using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
 using com.infosupport.afstuderen.opleidingsplan.models;
 using System.Linq;
 using System.Collections.ObjectModel;
+using com.infosupport.afstuderen.opleidingsplan.dal;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
 {
@@ -31,6 +32,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             // Arrange
             var courses = new Collection<string> { "2NETARCH", "ADCSB" };
 
+            var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
+
             var educationPlanOutputterMock = new Mock<IEducationPlanOutputter>(MockBehavior.Strict);
             educationPlanOutputterMock.Setup(planner => planner.GenerateEducationPlan(It.IsAny<EducationPlanData>())).Returns(GetDummyEducationPlan());
 
@@ -49,8 +52,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
 
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
             profileDataMapperMock.Setup(dataMapper => dataMapper.FindById(1)).Returns(GetDummyDataProfiles().First());
+            var dalConfig = DALConfiguration.Configuration;
 
-            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object);
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object);
             RestEducationPlan educationPlan = GetDummyRestEducationPlan(courses);
 
 
@@ -64,7 +68,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             profileDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
             plannerMock.VerifySet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom);
             plannerMock.VerifySet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>());
-
         }
 
         [TestMethod]
@@ -73,6 +76,30 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         {
             // Arrange
             Collection<string> courses = new Collection<string> { "2NETARCH", "ADCSB" };
+
+            var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
+            var educationPlanOutputterMock = new Mock<IEducationPlanOutputter>(MockBehavior.Strict);
+            var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
+            var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
+            var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
+
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object);
+            RestEducationPlan educationPlan = GetDummyRestEducationPlan(courses);
+
+            // Act
+            var result = manager.GenerateEducationPlan(null);
+
+            // Assert ArgumentNullException
+        }
+
+        [TestMethod]
+        public void SaveEducationPlan_Planner_Outputter_Service_DAL_Called()
+        {
+            // Arrange
+            var courses = new Collection<string> { "2NETARCH", "ADCSB" };
+
+            var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
+            educationPlanDataMapperMock.Setup(dataMapper => dataMapper.Insert(It.IsAny<EducationPlan>())).Returns(1);
 
             var educationPlanOutputterMock = new Mock<IEducationPlanOutputter>(MockBehavior.Strict);
             educationPlanOutputterMock.Setup(planner => planner.GenerateEducationPlan(It.IsAny<EducationPlanData>())).Returns(GetDummyEducationPlan());
@@ -93,14 +120,70 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
             profileDataMapperMock.Setup(dataMapper => dataMapper.FindById(1)).Returns(GetDummyDataProfiles().First());
 
-            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object);
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object);
             RestEducationPlan educationPlan = GetDummyRestEducationPlan(courses);
 
 
             // Act
-            var result = manager.GenerateEducationPlan(null);
+            var result = manager.SaveEducationPlan(educationPlan);
 
-            // Assert ArgumentNullException
+            // Assert
+            Assert.AreEqual(1, result);
+            educationPlanOutputterMock.Verify(outputter => outputter.GenerateEducationPlan(It.IsAny<EducationPlanData>()));
+            plannerMock.Verify(planner => planner.PlanCoursesWithOLC(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
+            courseServiceMock.Verify(outputter => outputter.FindCourses(courses));
+            profileDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
+            plannerMock.VerifySet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom);
+            plannerMock.VerifySet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>());
+            educationPlanDataMapperMock.Verify(dataMapper => dataMapper.Insert(It.IsAny<EducationPlan>()));
+        }
+
+        [TestMethod]
+        public void FindByIdEducationPlan_DAL_Called()
+        {
+            // Arrange
+            var courses = new Collection<string> { "2NETARCH", "ADCSB" };
+
+            var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
+            educationPlanDataMapperMock.Setup(dataMapper => dataMapper.FindById(1)).Returns(GetDummyEducationPlan());
+
+            var educationPlanOutputterMock = new Mock<IEducationPlanOutputter>(MockBehavior.Strict);
+            var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
+            var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
+        
+            var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
+
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object);
+
+            // Act
+            manager.FindEducationPlan(1);
+
+            // Assert
+            educationPlanDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
+        }
+
+        [TestMethod]
+        public void FindEducationPlans_DAL_Called()
+        {
+            // Arrange
+            var courses = new Collection<string> { "2NETARCH", "ADCSB" };
+
+            var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
+            educationPlanDataMapperMock.Setup(dataMapper => dataMapper.Find(It.IsAny<Func<EducationPlan, bool>>())).Returns(new List<EducationPlan>() { GetDummyEducationPlan() });
+
+            var educationPlanOutputterMock = new Mock<IEducationPlanOutputter>(MockBehavior.Strict);
+            var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
+            var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
+
+            var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
+
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object);
+
+            // Act
+            manager.FindEducationPlans(new EducationPlanSearch());
+
+            // Assert
+            educationPlanDataMapperMock.Verify(dataMapper => dataMapper.Find(It.IsAny<Func<EducationPlan, bool>>()));
         }
 
     }

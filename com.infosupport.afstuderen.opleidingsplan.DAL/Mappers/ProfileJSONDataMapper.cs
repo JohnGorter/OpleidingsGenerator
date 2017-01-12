@@ -90,6 +90,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         private static int GenerateId(List<CourseProfile> allProfiles)
         {
+            if (!allProfiles.Any())
+            {
+                return 1;
+            }
+
             int newId = allProfiles.Max(profile => profile.Id) + 1;
             return newId;
         }

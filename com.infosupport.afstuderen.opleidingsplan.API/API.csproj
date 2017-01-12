@@ -158,6 +158,7 @@
     <Compile Include="Managers\IProfileManager.cs" />
     <Compile Include="Managers\ICourseManager.cs" />
     <Compile Include="Managers\IEducationPlanManager.cs" />
+    <Compile Include="Models\EducationPlanSearch.cs" />
     <Compile Include="Models\RestEducationPlan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
