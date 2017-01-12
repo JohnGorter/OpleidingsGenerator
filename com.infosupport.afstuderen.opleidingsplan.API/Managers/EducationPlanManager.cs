@@ -79,10 +79,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             _planner.StartDate = educationPlan.InPaymentFrom;
             _planner.BlockedDates = educationPlan.BlockedDates;
 
+            var educationplanData = Mapper.Map<EducationPlanData>(educationPlan);  
             opleidingsplan.models.CourseProfile profile = null;
             if (educationPlan.ProfileId != 0)
             {
                 profile = _profileDataMapper.FindById(educationPlan.ProfileId);
+                educationplanData.Profile = profile.Name;
             }
 
             IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlan.Courses);
@@ -90,7 +92,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 
             _planner.PlanCoursesWithOLC(coursesToPlan);
 
-            return _educationPlanOutputter.GenerateEducationPlan(Mapper.Map<EducationPlanData>(educationPlan));
+            return _educationPlanOutputter.GenerateEducationPlan(educationplanData);
         }
 
         public long SaveEducationPlan(RestEducationPlan restEducationPlan)
@@ -106,7 +108,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 
         public List<EducationPlan> FindEducationPlans(EducationPlanSearch search)
         {
-            return _educationPlanDataMapper.Find(educationPlan => educationPlan.NameEmployee.Contains(search.Name) || educationPlan.Created.Date == search.Date).ToList();
+            return _educationPlanDataMapper.Find(educationPlan => educationPlan.NameEmployee.ToLower().Contains(search.Name.ToLower()) || search.Date.HasValue && educationPlan.Created.Date == search.Date).ToList();
         }
     }
 }

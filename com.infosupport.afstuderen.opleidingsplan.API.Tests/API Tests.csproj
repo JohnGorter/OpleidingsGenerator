@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ManagementPropertiesControllerTest.cs" />
+    <Compile Include="Controllers\EducationPlanSearchControllerTest.cs" />
     <Compile Include="Helpers\ManagementPropertiesTestHelper.cs" />
     <Compile Include="Helpers\ProfileTestHelper.cs" />
     <Compile Include="Controllers\CourseControllerTest.cs" />

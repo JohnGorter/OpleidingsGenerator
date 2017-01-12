@@ -80,20 +80,5 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
             educationPlanManagerMock.Verify(manager => manager.FindEducationPlan(1));
         }
 
-        [TestMethod]
-        public void Search_ManagerCalled()
-        {
-            // Arrange
-            var educationPlanManagerMock = new Mock<IEducationPlanManager>(MockBehavior.Strict);
-            educationPlanManagerMock.Setup(manager => manager.FindEducationPlans(It.IsAny<EducationPlanSearch>())).Returns(new List<EducationPlan>() { GetDummyEducationPlan() });
-
-            EducationPlanController controller = new EducationPlanController(educationPlanManagerMock.Object);
-
-            // Act
-            controller.Search(new EducationPlanSearch());
-
-            // Assert
-            educationPlanManagerMock.Verify(manager => manager.FindEducationPlans(It.IsAny<EducationPlanSearch>()));
-        }
     }
 }

@@ -1,8 +1,6 @@
-﻿using AutoMapper;
-using com.infosupport.afstuderen.opleidingsplan.api.managers;
+﻿using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using com.infosupport.afstuderen.opleidingsplan.api.models;
 using com.infosupport.afstuderen.opleidingsplan.dal;
-using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
 using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;
@@ -16,11 +14,11 @@ using System.Web.Http.Cors;
 namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
 {
     [EnableCors("*", "*", "*")]
-    public class EducationPlanController : ApiController
+    public class EducationPlanSearchController : ApiController
     {
         private readonly IEducationPlanManager _educationPlanManager;
 
-        public EducationPlanController()
+        public EducationPlanSearchController()
         {
             string profilepath = HttpContext.Current.Server.MapPath(DALConfiguration.Configuration.ProfilePath);
             string managementPropertiesPath = HttpContext.Current.Server.MapPath(DALConfiguration.Configuration.ManagementPropertiesPath);
@@ -30,27 +28,40 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
             _educationPlanManager = new EducationPlanManager(profilepath, managementPropertiesPath, educationPlanPath, educationPlanUpdatedPath);
         }
 
-        public EducationPlanController(IEducationPlanManager educationPlanManager)
+        public EducationPlanSearchController(IEducationPlanManager educationPlanManager)
         {
             _educationPlanManager = educationPlanManager;
         }
 
-        // POST: api/EducationPlan
-        [HttpPost]
-        [Route("EducationPlan")]
-        public EducationPlan Post(RestEducationPlan educationPlan)
+        // GET: api/EducationPlanSearch
+        public IEnumerable<string> Get()
         {
-            return _educationPlanManager.GenerateEducationPlan(educationPlan);
+            return new string[] { "value1", "value2" };
+        }
+    
+        // GET: api/EducationPlanSearch/5
+        public List<EducationPlan> Get(string name, DateTime? date)
+        {
+            return _educationPlanManager.FindEducationPlans(new EducationPlanSearch
+            {
+                Name = name,
+                Date = date,
+            });
         }
 
-        public long Put(RestEducationPlan educationPlan)
+        // POST: api/EducationPlanSearch
+        public void Post([FromBody]string value)
         {
-            return _educationPlanManager.SaveEducationPlan(educationPlan);
         }
 
-        public EducationPlan Get(long id)
+        // PUT: api/EducationPlanSearch/5
+        public void Put(int id, [FromBody]string value)
         {
-             return _educationPlanManager.FindEducationPlan(id);
+        }
+
+        // DELETE: api/EducationPlanSearch/5
+        public void Delete(int id)
+        {
         }
     }
 }
