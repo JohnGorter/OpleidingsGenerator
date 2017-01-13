@@ -14,5 +14,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
         long SaveEducationPlan(RestEducationPlan educationPlan);
         EducationPlan FindEducationPlan(long id);
         List<EducationPlan> FindEducationPlans(EducationPlanSearch search);
+        string GenerateWordFile(EducationPlan educationPlan);
     }
 }

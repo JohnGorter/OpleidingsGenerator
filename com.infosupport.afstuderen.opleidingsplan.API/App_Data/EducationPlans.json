@@ -12,6 +12,7 @@
     "NameTeacher": "Felix Sedney",
     "KnowledgeOf": "Ex-Minor",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -843,6 +844,7 @@
     "NameTeacher": "Joris N",
     "KnowledgeOf": "Ex-Minor",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -1553,6 +1555,7 @@
     "NameTeacher": "Felix Sedney",
     "KnowledgeOf": "Alles",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [
       {
         "Code": "OOUML",
@@ -2308,6 +2311,7 @@
     "NameTeacher": "test",
     "KnowledgeOf": "test",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -3106,6 +3110,7 @@
     "NameTeacher": "test",
     "KnowledgeOf": "test",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -3904,6 +3909,7 @@
     "NameTeacher": "t",
     "KnowledgeOf": "t",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -4702,6 +4708,7 @@
     "NameTeacher": "t",
     "KnowledgeOf": "t",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -5500,6 +5507,7 @@
     "NameTeacher": "t",
     "KnowledgeOf": "t",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -6298,6 +6306,7 @@
     "NameTeacher": "t",
     "KnowledgeOf": "t",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -7096,6 +7105,7 @@
     "NameTeacher": "te",
     "KnowledgeOf": "te",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -7894,6 +7904,7 @@
     "NameTeacher": "te",
     "KnowledgeOf": "te",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -8692,6 +8703,7 @@
     "NameTeacher": "4",
     "KnowledgeOf": "4",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -9490,6 +9502,7 @@
     "NameTeacher": "11",
     "KnowledgeOf": "11",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -10290,6 +10303,7 @@
     "NameTeacher": "test",
     "KnowledgeOf": "niks",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -11099,6 +11113,7 @@
     "NameTeacher": "fsaddfsa",
     "KnowledgeOf": "dfsdadfsadfa",
     "Profile": null,
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -11897,6 +11912,7 @@
     "NameTeacher": "Felix Sedney",
     "KnowledgeOf": "Ex-Minor",
     "Profile": "NET_Developer",
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -12698,6 +12714,7 @@
     "NameTeacher": "Joris N",
     "KnowledgeOf": "Ex-Minor Java",
     "Profile": "JAVA_Developer",
+    "ProfileId": 0,
     "CoursesJustBeforeStart": [],
     "PlannedCourses": [
       {
@@ -12742,7 +12759,7 @@
         "Price": 1050.0,
         "IntersectedCourses": null,
         "Week": 5,
-        "PriceWithDiscount": 840.0
+        "PriceWithDiscount": 840.00
       },
       {
         "Code": "SPRINGADV",
@@ -12753,7 +12770,7 @@
         "Price": 1725.0,
         "IntersectedCourses": null,
         "Week": 5,
-        "PriceWithDiscount": 1380.0
+        "PriceWithDiscount": 1380.00
       },
       {
         "Code": "HTMLCSSCOR",
@@ -12764,7 +12781,7 @@
         "Price": 1575.0,
         "IntersectedCourses": null,
         "Week": 6,
-        "PriceWithDiscount": 1260.0
+        "PriceWithDiscount": 1260.00
       },
       {
         "Code": "HTMLCSSADV",
@@ -12775,7 +12792,7 @@
         "Price": 1050.0,
         "IntersectedCourses": null,
         "Week": 6,
-        "PriceWithDiscount": 840.0
+        "PriceWithDiscount": 840.00
       },
       {
         "Code": "OLC",
@@ -12797,7 +12814,7 @@
         "Price": 525.0,
         "IntersectedCourses": null,
         "Week": 7,
-        "PriceWithDiscount": 420.0
+        "PriceWithDiscount": 420.00
       },
       {
         "Code": "ENDEVJ",
@@ -12808,7 +12825,7 @@
         "Price": 1905.0,
         "IntersectedCourses": null,
         "Week": 7,
-        "PriceWithDiscount": 1524.0
+        "PriceWithDiscount": 1524.00
       },
       {
         "Code": "J2SA",
@@ -12819,7 +12836,7 @@
         "Price": 2100.0,
         "IntersectedCourses": null,
         "Week": 8,
-        "PriceWithDiscount": 1680.0
+        "PriceWithDiscount": 1680.00
       },
       {
         "Code": "OLC",
@@ -12841,7 +12858,7 @@
         "Price": 1050.0,
         "IntersectedCourses": null,
         "Week": 9,
-        "PriceWithDiscount": 840.0
+        "PriceWithDiscount": 840.00
       },
       {
         "Code": "SCRUMES",
@@ -12852,7 +12869,7 @@
         "Price": 575.0,
         "IntersectedCourses": null,
         "Week": 9,
-        "PriceWithDiscount": 460.0
+        "PriceWithDiscount": 460.00
       },
       {
         "Code": "ENEST",
@@ -12863,7 +12880,7 @@
         "Price": 1270.0,
         "IntersectedCourses": null,
         "Week": 9,
-        "PriceWithDiscount": 1016.0
+        "PriceWithDiscount": 1016.00
       },
       {
         "Code": "XSD",
@@ -12874,7 +12891,7 @@
         "Price": 1725.0,
         "IntersectedCourses": null,
         "Week": 10,
-        "PriceWithDiscount": 1380.0
+        "PriceWithDiscount": 1380.00
       },
       {
         "Code": "OLC",
@@ -12896,7 +12913,7 @@
         "Price": 1150.0,
         "IntersectedCourses": null,
         "Week": 11,
-        "PriceWithDiscount": 920.0
+        "PriceWithDiscount": 920.00
       },
       {
         "Code": "JEE7ADV",
@@ -12907,7 +12924,7 @@
         "Price": 1725.0,
         "IntersectedCourses": null,
         "Week": 11,
-        "PriceWithDiscount": 1380.0
+        "PriceWithDiscount": 1380.00
       },
       {
         "Code": "OLC",
@@ -12951,7 +12968,7 @@
         "Price": 1575.0,
         "IntersectedCourses": null,
         "Week": 14,
-        "PriceWithDiscount": 1260.0
+        "PriceWithDiscount": 1260.00
       },
       {
         "Code": "OLC",
@@ -12973,7 +12990,7 @@
         "Price": 1725.0,
         "IntersectedCourses": null,
         "Week": 15,
-        "PriceWithDiscount": 1380.0
+        "PriceWithDiscount": 1380.00
       },
       {
         "Code": "OLC",
@@ -13008,7 +13025,7 @@
         "Price": 485.0,
         "IntersectedCourses": [],
         "Week": -1,
-        "PriceWithDiscount": 388.0
+        "PriceWithDiscount": 388.00
       },
       {
         "Code": "JSDEVLANG",
@@ -13019,7 +13036,7 @@
         "Price": 2100.0,
         "IntersectedCourses": [],
         "Week": -1,
-        "PriceWithDiscount": 1680.0
+        "PriceWithDiscount": 1680.00
       },
       {
         "Code": "MS20464",
@@ -13030,7 +13047,7 @@
         "Price": 2425.0,
         "IntersectedCourses": [],
         "Week": -1,
-        "PriceWithDiscount": 1940.0
+        "PriceWithDiscount": 1940.00
       },
       {
         "Code": "SECDEV",
@@ -13049,11 +13066,11 @@
             "Price": 1725.0,
             "IntersectedCourses": null,
             "Week": 11,
-            "PriceWithDiscount": 1380.0
+            "PriceWithDiscount": 1380.00
           }
         ],
         "Week": -1,
-        "PriceWithDiscount": 920.0
+        "PriceWithDiscount": 920.00
       },
       {
         "Code": "OOUML",
@@ -13072,7 +13089,7 @@
             "Price": 1575.0,
             "IntersectedCourses": null,
             "Week": 6,
-            "PriceWithDiscount": 1260.0
+            "PriceWithDiscount": 1260.00
           },
           {
             "Code": "HTMLCSSADV",
@@ -13083,7 +13100,7 @@
             "Price": 1050.0,
             "IntersectedCourses": null,
             "Week": 6,
-            "PriceWithDiscount": 840.0
+            "PriceWithDiscount": 840.00
           },
           {
             "Code": "J2SA",
@@ -13094,7 +13111,7 @@
             "Price": 2100.0,
             "IntersectedCourses": null,
             "Week": 8,
-            "PriceWithDiscount": 1680.0
+            "PriceWithDiscount": 1680.00
           },
           {
             "Code": "ENEST",
@@ -13105,7 +13122,7 @@
             "Price": 1270.0,
             "IntersectedCourses": null,
             "Week": 9,
-            "PriceWithDiscount": 1016.0
+            "PriceWithDiscount": 1016.00
           },
           {
             "Code": "JPA",
@@ -13116,7 +13133,7 @@
             "Price": 1150.0,
             "IntersectedCourses": null,
             "Week": 11,
-            "PriceWithDiscount": 920.0
+            "PriceWithDiscount": 920.00
           },
           {
             "Code": "JEE7ADV",
@@ -13127,11 +13144,11 @@
             "Price": 1725.0,
             "IntersectedCourses": null,
             "Week": 11,
-            "PriceWithDiscount": 1380.0
+            "PriceWithDiscount": 1380.00
           }
         ],
         "Week": -1,
-        "PriceWithDiscount": 2300.0
+        "PriceWithDiscount": 2300.00
       },
       {
         "Code": "CONDEVES",
@@ -13150,11 +13167,11 @@
             "Price": 1725.0,
             "IntersectedCourses": null,
             "Week": 5,
-            "PriceWithDiscount": 1380.0
+            "PriceWithDiscount": 1380.00
           }
         ],
         "Week": -1,
-        "PriceWithDiscount": 460.0
+        "PriceWithDiscount": 460.00
       },
       {
         "Code": "ANGULARJS",
@@ -13173,7 +13190,7 @@
             "Price": 1050.0,
             "IntersectedCourses": null,
             "Week": 5,
-            "PriceWithDiscount": 840.0
+            "PriceWithDiscount": 840.00
           },
           {
             "Code": "SPRINGADV",
@@ -13184,7 +13201,7 @@
             "Price": 1725.0,
             "IntersectedCourses": null,
             "Week": 5,
-            "PriceWithDiscount": 1380.0
+            "PriceWithDiscount": 1380.00
           },
           {
             "Code": "HTMLCSSCOR",
@@ -13195,7 +13212,7 @@
             "Price": 1575.0,
             "IntersectedCourses": null,
             "Week": 6,
-            "PriceWithDiscount": 1260.0
+            "PriceWithDiscount": 1260.00
           },
           {
             "Code": "JAVAWEB",
@@ -13206,7 +13223,7 @@
             "Price": 1050.0,
             "IntersectedCourses": null,
             "Week": 9,
-            "PriceWithDiscount": 840.0
+            "PriceWithDiscount": 840.00
           },
           {
             "Code": "JPA",
@@ -13217,7 +13234,7 @@
             "Price": 1150.0,
             "IntersectedCourses": null,
             "Week": 11,
-            "PriceWithDiscount": 920.0
+            "PriceWithDiscount": 920.00
           },
           {
             "Code": "JEE7ADV",
@@ -13228,11 +13245,11 @@
             "Price": 1725.0,
             "IntersectedCourses": null,
             "Week": 11,
-            "PriceWithDiscount": 1380.0
+            "PriceWithDiscount": 1380.00
           }
         ],
         "Week": -1,
-        "PriceWithDiscount": 1260.0
+        "PriceWithDiscount": 1260.00
       },
       {
         "Code": "XSLT",
@@ -13251,7 +13268,7 @@
             "Price": 1905.0,
             "IntersectedCourses": null,
             "Week": 7,
-            "PriceWithDiscount": 1524.0
+            "PriceWithDiscount": 1524.00
           },
           {
             "Code": "J2SA",
@@ -13262,7 +13279,7 @@
             "Price": 2100.0,
             "IntersectedCourses": null,
             "Week": 8,
-            "PriceWithDiscount": 1680.0
+            "PriceWithDiscount": 1680.00
           },
           {
             "Code": "JAVAWEB",
@@ -13273,7 +13290,7 @@
             "Price": 1050.0,
             "IntersectedCourses": null,
             "Week": 9,
-            "PriceWithDiscount": 840.0
+            "PriceWithDiscount": 840.00
           },
           {
             "Code": "SCRUMES",
@@ -13284,11 +13301,11 @@
             "Price": 575.0,
             "IntersectedCourses": null,
             "Week": 9,
-            "PriceWithDiscount": 460.0
+            "PriceWithDiscount": 460.00
           }
         ],
         "Week": -1,
-        "PriceWithDiscount": 1380.0
+        "PriceWithDiscount": 1380.00
       },
       {
         "Code": "DPAT",
@@ -13307,7 +13324,7 @@
             "Price": 1905.0,
             "IntersectedCourses": null,
             "Week": 7,
-            "PriceWithDiscount": 1524.0
+            "PriceWithDiscount": 1524.00
           },
           {
             "Code": "JAVAWEB",
@@ -13318,7 +13335,7 @@
             "Price": 1050.0,
             "IntersectedCourses": null,
             "Week": 9,
-            "PriceWithDiscount": 840.0
+            "PriceWithDiscount": 840.00
           },
           {
             "Code": "JPA",
@@ -13329,11 +13346,11 @@
             "Price": 1150.0,
             "IntersectedCourses": null,
             "Week": 11,
-            "PriceWithDiscount": 920.0
+            "PriceWithDiscount": 920.00
           }
         ],
         "Week": -1,
-        "PriceWithDiscount": 460.0
+        "PriceWithDiscount": 460.00
       },
       {
         "Code": "FITSEL",
@@ -13344,7 +13361,7 @@
         "Price": 575.0,
         "IntersectedCourses": [],
         "Week": -1,
-        "PriceWithDiscount": 460.0
+        "PriceWithDiscount": 460.00
       },
       {
         "Code": "INBI",
@@ -13363,11 +13380,11 @@
             "Price": 1575.0,
             "IntersectedCourses": null,
             "Week": 14,
-            "PriceWithDiscount": 1260.0
+            "PriceWithDiscount": 1260.00
           }
         ],
         "Week": -1,
-        "PriceWithDiscount": 388.0
+        "PriceWithDiscount": 388.00
       },
       {
         "Code": "WINDEV",
@@ -13386,16 +13403,5139 @@
             "Price": 1050.0,
             "IntersectedCourses": null,
             "Week": 6,
-            "PriceWithDiscount": 840.0
+            "PriceWithDiscount": 840.00
           }
         ],
         "Week": -1,
-        "PriceWithDiscount": 840.0
+        "PriceWithDiscount": 840.00
       }
     ],
     "PlannedCoursesTotalPrice": 24725.0,
     "PlannedCoursesTotalPriceWithDiscount": 19780.00,
     "NotPlannedCoursesTotalPrice": 15595.0,
-    "NotPlannedCoursesTotalPriceWithDiscount": 12476.0
+    "NotPlannedCoursesTotalPriceWithDiscount": 12476.00
+  },
+  {
+    "Id": 18,
+    "Created": "2017-01-13T10:09:23.4166256+01:00",
+    "InPaymentFrom": "2017-01-13T09:09:00.993Z",
+    "EmployableFrom": "2017-04-06T00:00:00Z",
+    "BlockedDates": [],
+    "NameEmployee": "profile",
+    "NameTeacher": "felix",
+    "KnowledgeOf": "Geen",
+    "Profile": "Developer_Mobile",
+    "ProfileId": 0,
+    "CoursesJustBeforeStart": [],
+    "PlannedCourses": [
+      {
+        "Code": "OLC",
+        "Date": "2017-01-13T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 2,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "ADCSB",
+        "Date": "2017-01-16T00:00:00",
+        "Name": "Advanced C#",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 3,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-01-18T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 3,
+        "PriceWithDiscount": 300.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-01-23T00:00:00Z",
+        "Name": "OLC",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 625.0,
+        "IntersectedCourses": null,
+        "Week": 4,
+        "PriceWithDiscount": 500.00
+      },
+      {
+        "Code": "ALMUVS",
+        "Date": "2017-01-30T00:00:00",
+        "Name": "Application Lifecycle Management Using Visual Studio",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": null,
+        "Week": 5,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "UTVS",
+        "Date": "2017-02-02T00:00:00",
+        "Name": "Unit Testing in Visual Studio",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1150.0,
+        "IntersectedCourses": null,
+        "Week": 5,
+        "PriceWithDiscount": 920.00
+      },
+      {
+        "Code": "HTMLCSSCOR",
+        "Date": "2017-02-06T00:00:00",
+        "Name": "Core HTML en CSS",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": null,
+        "Week": 6,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "HTMLCSSADV",
+        "Date": "2017-02-09T00:00:00",
+        "Name": "Advanced HTML and CSS",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 6,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "INBI",
+        "Date": "2017-02-13T00:00:00",
+        "Name": "Introduction to Business Intelligence",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 485.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 388.00
+      },
+      {
+        "Code": "GIT",
+        "Date": "2017-02-14T00:00:00",
+        "Name": "Git for Developers",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 525.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 420.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-15T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "DPAT",
+        "Date": "2017-02-17T00:00:00",
+        "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "NETFOUNB",
+        "Date": "2017-02-20T00:00:00",
+        "Name": ".NET Framework Foundation",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 1940.0,
+        "IntersectedCourses": null,
+        "Week": 8,
+        "PriceWithDiscount": 1552.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-24T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 8,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-27T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "SCRUMES",
+        "Date": "2017-03-01T00:00:00",
+        "Name": "Scrum Essentials",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "ENEST",
+        "Date": "2017-03-02T00:00:00",
+        "Name": "Endeavour Essentials",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1270.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 1016.00
+      },
+      {
+        "Code": "XSD",
+        "Date": "2017-03-06T00:00:00",
+        "Name": "Defining a Document Grammar using XML Schemas",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-03-09T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "CONDEVES",
+        "Date": "2017-03-10T00:00:00",
+        "Name": "Continuous Delivery Essentials",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "ENDEVN",
+        "Date": "2017-03-13T00:00:00",
+        "Name": "Endeavour .NET Development",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1905.0,
+        "IntersectedCourses": null,
+        "Week": 11,
+        "PriceWithDiscount": 1524.00
+      },
+      {
+        "Code": "SECDEV",
+        "Date": "2017-03-16T00:00:00",
+        "Name": "Secure Programming Foundation",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1150.0,
+        "IntersectedCourses": null,
+        "Week": 11,
+        "PriceWithDiscount": 920.00
+      },
+      {
+        "Code": "XAMFUN",
+        "Date": "2017-03-20T00:00:00",
+        "Name": "Xamarin Fundamentals",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": null,
+        "Week": 12,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-03-23T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 12,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-03-27T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 13,
+        "PriceWithDiscount": 300.00
+      }
+    ],
+    "NotPlannedCourses": [
+      {
+        "Code": "OOUML",
+        "Date": null,
+        "Name": "Object Oriented Analysis & Design using UML",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2875.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-02-09T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 6,
+            "PriceWithDiscount": 1260.00
+          },
+          {
+            "Code": "HTMLCSSADV",
+            "Date": "2017-02-09T00:00:00",
+            "Name": "Advanced HTML and CSS",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 6,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "ENEST",
+            "Date": "2017-03-02T00:00:00",
+            "Name": "Endeavour Essentials",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1270.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 1016.00
+          },
+          {
+            "Code": "ENDEVN",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Endeavour .NET Development",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1905.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 1524.00
+          },
+          {
+            "Code": "SECDEV",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Secure Programming Foundation",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1150.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 920.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2300.00
+      },
+      {
+        "Code": "CNETIN",
+        "Date": null,
+        "Name": "Programming with C#",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2425.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-02-09T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 6,
+            "PriceWithDiscount": 1260.00
+          },
+          {
+            "Code": "HTMLCSSADV",
+            "Date": "2017-02-09T00:00:00",
+            "Name": "Advanced HTML and CSS",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 6,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "ENDEVN",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Endeavour .NET Development",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1905.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 1524.00
+          },
+          {
+            "Code": "SECDEV",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Secure Programming Foundation",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1150.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 920.00
+          },
+          {
+            "Code": "XAMFUN",
+            "Date": "2017-03-23T00:00:00",
+            "Name": "Xamarin Fundamentals",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 12,
+            "PriceWithDiscount": 1260.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1940.00
+      },
+      {
+        "Code": "JAVANC",
+        "Date": null,
+        "Name": "Java Programming",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2425.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-02-23T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 8,
+            "PriceWithDiscount": 1552.00
+          },
+          {
+            "Code": "SCRUMES",
+            "Date": "2017-03-04T00:00:00",
+            "Name": "Scrum Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "ENEST",
+            "Date": "2017-03-02T00:00:00",
+            "Name": "Endeavour Essentials",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1270.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 1016.00
+          },
+          {
+            "Code": "SECDEV",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Secure Programming Foundation",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1150.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 920.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1940.00
+      },
+      {
+        "Code": "JSDEVLANG",
+        "Date": null,
+        "Name": "Javascript Development",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1680.00
+      },
+      {
+        "Code": "JAVA7UP",
+        "Date": null,
+        "Name": "Java 7 Upgrade",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 485.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 388.00
+      },
+      {
+        "Code": "SLPHONE",
+        "Date": null,
+        "Name": "Silverlight for Windows Phone Development",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2300.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1840.00
+      },
+      {
+        "Code": "ENMETROCS",
+        "Date": null,
+        "Name": "Essentials of Developing Windows Store Apps Using C#",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2875.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 2300.00
+      },
+      {
+        "Code": "ANGULARJS",
+        "Date": null,
+        "Name": "Building Professional Single Page Applications with AngularJS",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-02-09T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 6,
+            "PriceWithDiscount": 1260.00
+          },
+          {
+            "Code": "DPAT",
+            "Date": "2017-02-17T00:00:00",
+            "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 7,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "XAMFUN",
+            "Date": "2017-03-23T00:00:00",
+            "Name": "Xamarin Fundamentals",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 12,
+            "PriceWithDiscount": 1260.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "XAMADV",
+        "Date": null,
+        "Name": "Xamarin Advanced",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "DPAT",
+            "Date": "2017-02-17T00:00:00",
+            "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 7,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "SCRUMES",
+            "Date": "2017-03-04T00:00:00",
+            "Name": "Scrum Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 460.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "XAMCAL",
+        "Date": null,
+        "Name": "Automated Mobile Tests with Xamarin Test Cloud and the Calabash Framework",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1500.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1200.00
+      },
+      {
+        "Code": "DEVIOS",
+        "Date": null,
+        "Name": "Developing Applications for iPhone Operating System",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 3175.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 2540.00
+      },
+      {
+        "Code": "XSLT",
+        "Date": null,
+        "Name": "Transforming XML using XSLT Stylesheets",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": [
+          {
+            "Code": "DPAT",
+            "Date": "2017-02-17T00:00:00",
+            "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 7,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-02-23T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 8,
+            "PriceWithDiscount": 1552.00
+          },
+          {
+            "Code": "SCRUMES",
+            "Date": "2017-03-04T00:00:00",
+            "Name": "Scrum Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "CONDEVES",
+            "Date": "2017-03-10T00:00:00",
+            "Name": "Continuous Delivery Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 460.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "ANDROIDDEV",
+        "Date": null,
+        "Name": "Android Development",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2875.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 2300.00
+      },
+      {
+        "Code": "FITSEL",
+        "Date": null,
+        "Name": "FitNesse & Selenium",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 460.00
+      }
+    ],
+    "PlannedCoursesTotalPrice": 21350.0,
+    "PlannedCoursesTotalPriceWithDiscount": 17080.00,
+    "NotPlannedCoursesTotalPrice": 28635.0,
+    "NotPlannedCoursesTotalPriceWithDiscount": 22908.00
+  },
+  {
+    "Id": 19,
+    "Created": "2017-01-13T10:37:33.8716876+01:00",
+    "InPaymentFrom": "2017-01-13T09:36:58.875Z",
+    "EmployableFrom": "2017-04-27T00:00:00Z",
+    "BlockedDates": [
+      "2017-01-28T09:37:07.314Z"
+    ],
+    "NameEmployee": "Pim Verheij1",
+    "NameTeacher": "Felix",
+    "KnowledgeOf": ".Net",
+    "Profile": "NET_Developer",
+    "ProfileId": 1,
+    "CoursesJustBeforeStart": [],
+    "PlannedCourses": [
+      {
+        "Code": "OLC",
+        "Date": "2017-01-13T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 2,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "ADCSB",
+        "Date": "2017-01-16T00:00:00",
+        "Name": "Advanced C#",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 3,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-01-18T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 3,
+        "PriceWithDiscount": 300.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-01-23T00:00:00Z",
+        "Name": "OLC",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 625.0,
+        "IntersectedCourses": null,
+        "Week": 4,
+        "PriceWithDiscount": 500.00
+      },
+      {
+        "Code": "ALMUVS",
+        "Date": "2017-01-30T00:00:00",
+        "Name": "Application Lifecycle Management Using Visual Studio",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": null,
+        "Week": 5,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "UTVS",
+        "Date": "2017-02-02T00:00:00",
+        "Name": "Unit Testing in Visual Studio",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1150.0,
+        "IntersectedCourses": null,
+        "Week": 5,
+        "PriceWithDiscount": 920.00
+      },
+      {
+        "Code": "MS20532",
+        "Date": "2017-02-06T00:00:00",
+        "Name": "Developing Microsoft Azure Solutions",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": null,
+        "Week": 6,
+        "PriceWithDiscount": 1680.00
+      },
+      {
+        "Code": "INBI",
+        "Date": "2017-02-13T00:00:00",
+        "Name": "Introduction to Business Intelligence",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 485.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 388.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-14T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 300.00
+      },
+      {
+        "Code": "DPAT",
+        "Date": "2017-02-17T00:00:00",
+        "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "MVC",
+        "Date": "2017-02-20T00:00:00",
+        "Name": "Developing ASP.NET MVC 5 Web Applications",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": null,
+        "Week": 8,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-27T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "SCRUMES",
+        "Date": "2017-03-01T00:00:00",
+        "Name": "Scrum Essentials",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "ENEST",
+        "Date": "2017-03-02T00:00:00",
+        "Name": "Endeavour Essentials",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1270.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 1016.00
+      },
+      {
+        "Code": "WCFDEV",
+        "Date": "2017-03-06T00:00:00",
+        "Name": "Developing using Windows Communication Foundation (WCF)",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 1680.00
+      },
+      {
+        "Code": "CONDEVES",
+        "Date": "2017-03-10T00:00:00",
+        "Name": "Continuous Delivery Essentials",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "ENDEVN",
+        "Date": "2017-03-13T00:00:00",
+        "Name": "Endeavour .NET Development",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1905.0,
+        "IntersectedCourses": null,
+        "Week": 11,
+        "PriceWithDiscount": 1524.00
+      },
+      {
+        "Code": "SECDEV",
+        "Date": "2017-03-16T00:00:00",
+        "Name": "Secure Programming Foundation",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1150.0,
+        "IntersectedCourses": null,
+        "Week": 11,
+        "PriceWithDiscount": 920.00
+      },
+      {
+        "Code": "DDAS",
+        "Date": "2017-03-20T00:00:00",
+        "Name": "Developing Data Access Solutions with Microsoft Visual Studio",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": null,
+        "Week": 12,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "HTMLCSSCOR",
+        "Date": "2017-03-27T00:00:00",
+        "Name": "Core HTML en CSS",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": null,
+        "Week": 13,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "HTMLCSSADV",
+        "Date": "2017-03-30T00:00:00",
+        "Name": "Advanced HTML and CSS",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 13,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "NETFOUNB",
+        "Date": "2017-04-03T00:00:00",
+        "Name": ".NET Framework Foundation",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 1940.0,
+        "IntersectedCourses": null,
+        "Week": 14,
+        "PriceWithDiscount": 1552.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-04-07T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 14,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "XSD",
+        "Date": "2017-04-10T00:00:00",
+        "Name": "Defining a Document Grammar using XML Schemas",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": null,
+        "Week": 15,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-04-13T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 15,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-04-17T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 16,
+        "PriceWithDiscount": 300.00
+      }
+    ],
+    "NotPlannedCourses": [
+      {
+        "Code": "OOUML",
+        "Date": null,
+        "Name": "Object Oriented Analysis & Design using UML",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2875.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "ENEST",
+            "Date": "2017-03-02T00:00:00",
+            "Name": "Endeavour Essentials",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1270.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 1016.00
+          },
+          {
+            "Code": "ENDEVN",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Endeavour .NET Development",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1905.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 1524.00
+          },
+          {
+            "Code": "SECDEV",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Secure Programming Foundation",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1150.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 920.00
+          },
+          {
+            "Code": "DDAS",
+            "Date": "2017-03-23T00:00:00",
+            "Name": "Developing Data Access Solutions with Microsoft Visual Studio",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 12,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 1260.00
+          },
+          {
+            "Code": "HTMLCSSADV",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Advanced HTML and CSS",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 840.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2300.00
+      },
+      {
+        "Code": "JSDEVLANG",
+        "Date": null,
+        "Name": "Javascript Development",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1680.00
+      },
+      {
+        "Code": "MS20464",
+        "Date": null,
+        "Name": "Developing a Microsoft SQL Server 2014 Database",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2425.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1940.00
+      },
+      {
+        "Code": "WINDEV",
+        "Date": null,
+        "Name": "Windows Infrastructure for Developers",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": [
+          {
+            "Code": "MS20532",
+            "Date": "2017-02-09T00:00:00",
+            "Name": "Developing Microsoft Azure Solutions",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 2100.0,
+            "IntersectedCourses": null,
+            "Week": 6,
+            "PriceWithDiscount": 1680.00
+          },
+          {
+            "Code": "HTMLCSSADV",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Advanced HTML and CSS",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 840.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "MS20461",
+        "Date": null,
+        "Name": "Querying Microsoft SQL Server 2014",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2425.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1940.00
+      },
+      {
+        "Code": "ANGULARJS",
+        "Date": null,
+        "Name": "Building Professional Single Page Applications with AngularJS",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "DPAT",
+            "Date": "2017-02-17T00:00:00",
+            "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 7,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 1260.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "POSHDSC",
+        "Date": null,
+        "Name": "Windows Powershell Desired State Configuration",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "WFDEV",
+        "Date": null,
+        "Name": "Developing with Windows Workflow Foundation (WF)",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "ENDEVN",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Endeavour .NET Development",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1905.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 1524.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "XSLT",
+        "Date": null,
+        "Name": "Transforming XML using XSLT Stylesheets",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": [
+          {
+            "Code": "DPAT",
+            "Date": "2017-02-17T00:00:00",
+            "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 7,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "MVC",
+            "Date": "2017-02-23T00:00:00",
+            "Name": "Developing ASP.NET MVC 5 Web Applications",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 8,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "SCRUMES",
+            "Date": "2017-03-04T00:00:00",
+            "Name": "Scrum Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "CONDEVES",
+            "Date": "2017-03-10T00:00:00",
+            "Name": "Continuous Delivery Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-04-06T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 14,
+            "PriceWithDiscount": 1552.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "MS20488",
+        "Date": null,
+        "Name": "Developing Microsoft SharePoint Server 2013 Core Solutions",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": [
+          {
+            "Code": "MVC",
+            "Date": "2017-02-23T00:00:00",
+            "Name": "Developing ASP.NET MVC 5 Web Applications",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 8,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "SCRUMES",
+            "Date": "2017-03-04T00:00:00",
+            "Name": "Scrum Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-04-06T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 14,
+            "PriceWithDiscount": 1552.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "MS20489",
+        "Date": null,
+        "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 3175.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "MS20532",
+            "Date": "2017-02-09T00:00:00",
+            "Name": "Developing Microsoft Azure Solutions",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 2100.0,
+            "IntersectedCourses": null,
+            "Week": 6,
+            "PriceWithDiscount": 1680.00
+          },
+          {
+            "Code": "MVC",
+            "Date": "2017-02-23T00:00:00",
+            "Name": "Developing ASP.NET MVC 5 Web Applications",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 8,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-04-06T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 14,
+            "PriceWithDiscount": 1552.00
+          },
+          {
+            "Code": "XSD",
+            "Date": "2017-04-13T00:00:00",
+            "Name": "Defining a Document Grammar using XML Schemas",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 15,
+            "PriceWithDiscount": 1380.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2540.00
+      },
+      {
+        "Code": "QLIMM",
+        "Date": null,
+        "Name": "BizTalk 2013 Developer Immersion",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 3275.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "MS20532",
+            "Date": "2017-02-09T00:00:00",
+            "Name": "Developing Microsoft Azure Solutions",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 2100.0,
+            "IntersectedCourses": null,
+            "Week": 6,
+            "PriceWithDiscount": 1680.00
+          },
+          {
+            "Code": "XSD",
+            "Date": "2017-04-13T00:00:00",
+            "Name": "Defining a Document Grammar using XML Schemas",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 15,
+            "PriceWithDiscount": 1380.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2620.00
+      },
+      {
+        "Code": "FITSEL",
+        "Date": null,
+        "Name": "FitNesse & Selenium",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 460.00
+      }
+    ],
+    "PlannedCoursesTotalPrice": 28700.0,
+    "PlannedCoursesTotalPriceWithDiscount": 22960.00,
+    "NotPlannedCoursesTotalPrice": 26975.0,
+    "NotPlannedCoursesTotalPriceWithDiscount": 21580.00
+  },
+  {
+    "Id": 20,
+    "Created": "2017-01-13T10:46:22.2701858+01:00",
+    "InPaymentFrom": "2017-01-13T09:36:58.875Z",
+    "EmployableFrom": "2017-04-29T00:00:00Z",
+    "BlockedDates": [
+      "2017-01-28T09:37:07.314Z"
+    ],
+    "NameEmployee": "Pim Verheij1",
+    "NameTeacher": "Felix",
+    "KnowledgeOf": ".Net",
+    "Profile": null,
+    "ProfileId": 0,
+    "CoursesJustBeforeStart": [],
+    "PlannedCourses": [
+      {
+        "Code": "OLC",
+        "Date": "2017-01-13T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 2,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "ADCSB",
+        "Date": "2017-01-16T00:00:00",
+        "Name": "Advanced C#",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 3,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-01-18T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 3,
+        "PriceWithDiscount": 300.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-01-23T00:00:00Z",
+        "Name": "OLC",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 625.0,
+        "IntersectedCourses": null,
+        "Week": 4,
+        "PriceWithDiscount": 500.00
+      },
+      {
+        "Code": "ALMUVS",
+        "Date": "2017-01-30T00:00:00",
+        "Name": "Application Lifecycle Management Using Visual Studio",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": null,
+        "Week": 5,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "UTVS",
+        "Date": "2017-02-02T00:00:00",
+        "Name": "Unit Testing in Visual Studio",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1150.0,
+        "IntersectedCourses": null,
+        "Week": 5,
+        "PriceWithDiscount": 920.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-06T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 6,
+        "PriceWithDiscount": 300.00
+      },
+      {
+        "Code": "WINDEV",
+        "Date": "2017-02-09T00:00:00",
+        "Name": "Windows Infrastructure for Developers",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 6,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "INBI",
+        "Date": "2017-02-13T00:00:00",
+        "Name": "Introduction to Business Intelligence",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 485.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 388.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-14T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 300.00
+      },
+      {
+        "Code": "DPAT",
+        "Date": "2017-02-17T00:00:00",
+        "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "MVC",
+        "Date": "2017-02-20T00:00:00",
+        "Name": "Developing ASP.NET MVC 5 Web Applications",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": null,
+        "Week": 8,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-27T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "SCRUMES",
+        "Date": "2017-03-01T00:00:00",
+        "Name": "Scrum Essentials",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "ENEST",
+        "Date": "2017-03-02T00:00:00",
+        "Name": "Endeavour Essentials",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1270.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 1016.00
+      },
+      {
+        "Code": "XSD",
+        "Date": "2017-03-06T00:00:00",
+        "Name": "Defining a Document Grammar using XML Schemas",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-03-09T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "CONDEVES",
+        "Date": "2017-03-10T00:00:00",
+        "Name": "Continuous Delivery Essentials",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "ENDEVN",
+        "Date": "2017-03-13T00:00:00",
+        "Name": "Endeavour .NET Development",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1905.0,
+        "IntersectedCourses": null,
+        "Week": 11,
+        "PriceWithDiscount": 1524.00
+      },
+      {
+        "Code": "SECDEV",
+        "Date": "2017-03-16T00:00:00",
+        "Name": "Secure Programming Foundation",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1150.0,
+        "IntersectedCourses": null,
+        "Week": 11,
+        "PriceWithDiscount": 920.00
+      },
+      {
+        "Code": "DDAS",
+        "Date": "2017-03-20T00:00:00",
+        "Name": "Developing Data Access Solutions with Microsoft Visual Studio",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": null,
+        "Week": 12,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "HTMLCSSCOR",
+        "Date": "2017-03-27T00:00:00",
+        "Name": "Core HTML en CSS",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": null,
+        "Week": 13,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "HTMLCSSADV",
+        "Date": "2017-03-30T00:00:00",
+        "Name": "Advanced HTML and CSS",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 13,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "NETFOUNB",
+        "Date": "2017-04-03T00:00:00",
+        "Name": ".NET Framework Foundation",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 1940.0,
+        "IntersectedCourses": null,
+        "Week": 14,
+        "PriceWithDiscount": 1552.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-04-07T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 14,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "MS20489",
+        "Date": "2017-04-10T00:00:00",
+        "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 3175.0,
+        "IntersectedCourses": null,
+        "Week": 15,
+        "PriceWithDiscount": 2540.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-04-17T00:00:00Z",
+        "Name": "OLC",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 625.0,
+        "IntersectedCourses": null,
+        "Week": 16,
+        "PriceWithDiscount": 500.00
+      }
+    ],
+    "NotPlannedCourses": [
+      {
+        "Code": "JSDEVLANG",
+        "Date": null,
+        "Name": "Javascript Development",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1680.00
+      },
+      {
+        "Code": "MS20461",
+        "Date": null,
+        "Name": "Querying Microsoft SQL Server 2014",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2425.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1940.00
+      },
+      {
+        "Code": "MS20464",
+        "Date": null,
+        "Name": "Developing a Microsoft SQL Server 2014 Database",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2425.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1940.00
+      },
+      {
+        "Code": "OOUML",
+        "Date": null,
+        "Name": "Object Oriented Analysis & Design using UML",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2875.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "ENEST",
+            "Date": "2017-03-02T00:00:00",
+            "Name": "Endeavour Essentials",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1270.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 1016.00
+          },
+          {
+            "Code": "ENDEVN",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Endeavour .NET Development",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1905.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 1524.00
+          },
+          {
+            "Code": "SECDEV",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Secure Programming Foundation",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1150.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 920.00
+          },
+          {
+            "Code": "DDAS",
+            "Date": "2017-03-23T00:00:00",
+            "Name": "Developing Data Access Solutions with Microsoft Visual Studio",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 12,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 1260.00
+          },
+          {
+            "Code": "HTMLCSSADV",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Advanced HTML and CSS",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 840.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2300.00
+      },
+      {
+        "Code": "WCFDEV",
+        "Date": null,
+        "Name": "Developing using Windows Communication Foundation (WCF)",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": [
+          {
+            "Code": "XSD",
+            "Date": "2017-03-09T00:00:00",
+            "Name": "Defining a Document Grammar using XML Schemas",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 1380.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1680.00
+      },
+      {
+        "Code": "ANGULARJS",
+        "Date": null,
+        "Name": "Building Professional Single Page Applications with AngularJS",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "DPAT",
+            "Date": "2017-02-17T00:00:00",
+            "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 7,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 1260.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "POSHDSC",
+        "Date": null,
+        "Name": "Windows Powershell Desired State Configuration",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "WFDEV",
+        "Date": null,
+        "Name": "Developing with Windows Workflow Foundation (WF)",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "ENDEVN",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Endeavour .NET Development",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1905.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 1524.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "XSLT",
+        "Date": null,
+        "Name": "Transforming XML using XSLT Stylesheets",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": [
+          {
+            "Code": "DPAT",
+            "Date": "2017-02-17T00:00:00",
+            "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 7,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "MVC",
+            "Date": "2017-02-23T00:00:00",
+            "Name": "Developing ASP.NET MVC 5 Web Applications",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 8,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "SCRUMES",
+            "Date": "2017-03-04T00:00:00",
+            "Name": "Scrum Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "CONDEVES",
+            "Date": "2017-03-10T00:00:00",
+            "Name": "Continuous Delivery Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-04-06T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 14,
+            "PriceWithDiscount": 1552.00
+          },
+          {
+            "Code": "MS20489",
+            "Date": "2017-04-13T00:00:00",
+            "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 3175.0,
+            "IntersectedCourses": null,
+            "Week": 15,
+            "PriceWithDiscount": 2540.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "MS20488",
+        "Date": null,
+        "Name": "Developing Microsoft SharePoint Server 2013 Core Solutions",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": [
+          {
+            "Code": "MVC",
+            "Date": "2017-02-23T00:00:00",
+            "Name": "Developing ASP.NET MVC 5 Web Applications",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 8,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "SCRUMES",
+            "Date": "2017-03-04T00:00:00",
+            "Name": "Scrum Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-04-06T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 14,
+            "PriceWithDiscount": 1552.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "QLIMM",
+        "Date": null,
+        "Name": "BizTalk 2013 Developer Immersion",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 3275.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "XSD",
+            "Date": "2017-03-09T00:00:00",
+            "Name": "Defining a Document Grammar using XML Schemas",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "MS20489",
+            "Date": "2017-04-13T00:00:00",
+            "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 3175.0,
+            "IntersectedCourses": null,
+            "Week": 15,
+            "PriceWithDiscount": 2540.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2620.00
+      },
+      {
+        "Code": "FITSEL",
+        "Date": null,
+        "Name": "FitNesse & Selenium",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "MS20532",
+        "Date": null,
+        "Name": "Developing Microsoft Azure Solutions",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "WINDEV",
+            "Date": "2017-02-09T00:00:00",
+            "Name": "Windows Infrastructure for Developers",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 6,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "XSD",
+            "Date": "2017-03-09T00:00:00",
+            "Name": "Defining a Document Grammar using XML Schemas",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 1260.00
+          },
+          {
+            "Code": "HTMLCSSADV",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Advanced HTML and CSS",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "MS20489",
+            "Date": "2017-04-13T00:00:00",
+            "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 3175.0,
+            "IntersectedCourses": null,
+            "Week": 15,
+            "PriceWithDiscount": 2540.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1680.00
+      },
+      {
+        "Code": "2NETARCH",
+        "Date": null,
+        "Name": ".NET for Architects and Project Managers",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1150.0,
+        "IntersectedCourses": [
+          {
+            "Code": "UTVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Unit Testing in Visual Studio",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1150.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 920.00
+          },
+          {
+            "Code": "INBI",
+            "Date": "2017-02-16T00:00:00",
+            "Name": "Introduction to Business Intelligence",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 485.0,
+            "IntersectedCourses": null,
+            "Week": 7,
+            "PriceWithDiscount": 388.00
+          },
+          {
+            "Code": "XSD",
+            "Date": "2017-03-09T00:00:00",
+            "Name": "Defining a Document Grammar using XML Schemas",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 1380.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 920.00
+      }
+    ],
+    "PlannedCoursesTotalPrice": 29225.0,
+    "PlannedCoursesTotalPriceWithDiscount": 23380.00,
+    "NotPlannedCoursesTotalPrice": 28100.0,
+    "NotPlannedCoursesTotalPriceWithDiscount": 22480.00
+  },
+  {
+    "Id": 21,
+    "Created": "2017-01-13T10:47:39.9645065+01:00",
+    "InPaymentFrom": "2017-01-13T09:36:58.875Z",
+    "EmployableFrom": "2017-04-29T00:00:00Z",
+    "BlockedDates": [
+      "2017-01-28T09:37:07.314Z"
+    ],
+    "NameEmployee": "Pim Verheij1",
+    "NameTeacher": "Felix",
+    "KnowledgeOf": ".Net",
+    "Profile": null,
+    "ProfileId": 1,
+    "CoursesJustBeforeStart": [],
+    "PlannedCourses": [
+      {
+        "Code": "OLC",
+        "Date": "2017-01-13T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 2,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "ADCSB",
+        "Date": "2017-01-16T00:00:00",
+        "Name": "Advanced C#",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 3,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-01-18T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 3,
+        "PriceWithDiscount": 300.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-01-23T00:00:00Z",
+        "Name": "OLC",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 625.0,
+        "IntersectedCourses": null,
+        "Week": 4,
+        "PriceWithDiscount": 500.00
+      },
+      {
+        "Code": "ALMUVS",
+        "Date": "2017-01-30T00:00:00",
+        "Name": "Application Lifecycle Management Using Visual Studio",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": null,
+        "Week": 5,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "UTVS",
+        "Date": "2017-02-02T00:00:00",
+        "Name": "Unit Testing in Visual Studio",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1150.0,
+        "IntersectedCourses": null,
+        "Week": 5,
+        "PriceWithDiscount": 920.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-06T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 6,
+        "PriceWithDiscount": 300.00
+      },
+      {
+        "Code": "WINDEV",
+        "Date": "2017-02-09T00:00:00",
+        "Name": "Windows Infrastructure for Developers",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 6,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "INBI",
+        "Date": "2017-02-13T00:00:00",
+        "Name": "Introduction to Business Intelligence",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 485.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 388.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-14T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 300.00
+      },
+      {
+        "Code": "DPAT",
+        "Date": "2017-02-17T00:00:00",
+        "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "MVC",
+        "Date": "2017-02-20T00:00:00",
+        "Name": "Developing ASP.NET MVC 5 Web Applications",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": null,
+        "Week": 8,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-27T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "SCRUMES",
+        "Date": "2017-03-01T00:00:00",
+        "Name": "Scrum Essentials",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "ENEST",
+        "Date": "2017-03-02T00:00:00",
+        "Name": "Endeavour Essentials",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1270.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 1016.00
+      },
+      {
+        "Code": "XSD",
+        "Date": "2017-03-06T00:00:00",
+        "Name": "Defining a Document Grammar using XML Schemas",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-03-09T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "CONDEVES",
+        "Date": "2017-03-10T00:00:00",
+        "Name": "Continuous Delivery Essentials",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "ENDEVN",
+        "Date": "2017-03-13T00:00:00",
+        "Name": "Endeavour .NET Development",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1905.0,
+        "IntersectedCourses": null,
+        "Week": 11,
+        "PriceWithDiscount": 1524.00
+      },
+      {
+        "Code": "SECDEV",
+        "Date": "2017-03-16T00:00:00",
+        "Name": "Secure Programming Foundation",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1150.0,
+        "IntersectedCourses": null,
+        "Week": 11,
+        "PriceWithDiscount": 920.00
+      },
+      {
+        "Code": "DDAS",
+        "Date": "2017-03-20T00:00:00",
+        "Name": "Developing Data Access Solutions with Microsoft Visual Studio",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": null,
+        "Week": 12,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "HTMLCSSCOR",
+        "Date": "2017-03-27T00:00:00",
+        "Name": "Core HTML en CSS",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": null,
+        "Week": 13,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "HTMLCSSADV",
+        "Date": "2017-03-30T00:00:00",
+        "Name": "Advanced HTML and CSS",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 13,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "NETFOUNB",
+        "Date": "2017-04-03T00:00:00",
+        "Name": ".NET Framework Foundation",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 1940.0,
+        "IntersectedCourses": null,
+        "Week": 14,
+        "PriceWithDiscount": 1552.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-04-07T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 14,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "MS20489",
+        "Date": "2017-04-10T00:00:00",
+        "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 3175.0,
+        "IntersectedCourses": null,
+        "Week": 15,
+        "PriceWithDiscount": 2540.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-04-17T00:00:00Z",
+        "Name": "OLC",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 625.0,
+        "IntersectedCourses": null,
+        "Week": 16,
+        "PriceWithDiscount": 500.00
+      }
+    ],
+    "NotPlannedCourses": [
+      {
+        "Code": "JSDEVLANG",
+        "Date": null,
+        "Name": "Javascript Development",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1680.00
+      },
+      {
+        "Code": "MS20461",
+        "Date": null,
+        "Name": "Querying Microsoft SQL Server 2014",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2425.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1940.00
+      },
+      {
+        "Code": "MS20464",
+        "Date": null,
+        "Name": "Developing a Microsoft SQL Server 2014 Database",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2425.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1940.00
+      },
+      {
+        "Code": "OOUML",
+        "Date": null,
+        "Name": "Object Oriented Analysis & Design using UML",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2875.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "ENEST",
+            "Date": "2017-03-02T00:00:00",
+            "Name": "Endeavour Essentials",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1270.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 1016.00
+          },
+          {
+            "Code": "ENDEVN",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Endeavour .NET Development",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1905.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 1524.00
+          },
+          {
+            "Code": "SECDEV",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Secure Programming Foundation",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1150.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 920.00
+          },
+          {
+            "Code": "DDAS",
+            "Date": "2017-03-23T00:00:00",
+            "Name": "Developing Data Access Solutions with Microsoft Visual Studio",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 12,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 1260.00
+          },
+          {
+            "Code": "HTMLCSSADV",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Advanced HTML and CSS",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 840.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2300.00
+      },
+      {
+        "Code": "WCFDEV",
+        "Date": null,
+        "Name": "Developing using Windows Communication Foundation (WCF)",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": [
+          {
+            "Code": "XSD",
+            "Date": "2017-03-09T00:00:00",
+            "Name": "Defining a Document Grammar using XML Schemas",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 1380.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1680.00
+      },
+      {
+        "Code": "ANGULARJS",
+        "Date": null,
+        "Name": "Building Professional Single Page Applications with AngularJS",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "DPAT",
+            "Date": "2017-02-17T00:00:00",
+            "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 7,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 1260.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "POSHDSC",
+        "Date": null,
+        "Name": "Windows Powershell Desired State Configuration",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "WFDEV",
+        "Date": null,
+        "Name": "Developing with Windows Workflow Foundation (WF)",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "ENDEVN",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Endeavour .NET Development",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1905.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 1524.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "XSLT",
+        "Date": null,
+        "Name": "Transforming XML using XSLT Stylesheets",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": [
+          {
+            "Code": "DPAT",
+            "Date": "2017-02-17T00:00:00",
+            "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 7,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "MVC",
+            "Date": "2017-02-23T00:00:00",
+            "Name": "Developing ASP.NET MVC 5 Web Applications",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 8,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "SCRUMES",
+            "Date": "2017-03-04T00:00:00",
+            "Name": "Scrum Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "CONDEVES",
+            "Date": "2017-03-10T00:00:00",
+            "Name": "Continuous Delivery Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-04-06T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 14,
+            "PriceWithDiscount": 1552.00
+          },
+          {
+            "Code": "MS20489",
+            "Date": "2017-04-13T00:00:00",
+            "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 3175.0,
+            "IntersectedCourses": null,
+            "Week": 15,
+            "PriceWithDiscount": 2540.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "MS20488",
+        "Date": null,
+        "Name": "Developing Microsoft SharePoint Server 2013 Core Solutions",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": [
+          {
+            "Code": "MVC",
+            "Date": "2017-02-23T00:00:00",
+            "Name": "Developing ASP.NET MVC 5 Web Applications",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 8,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "SCRUMES",
+            "Date": "2017-03-04T00:00:00",
+            "Name": "Scrum Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-04-06T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 14,
+            "PriceWithDiscount": 1552.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "QLIMM",
+        "Date": null,
+        "Name": "BizTalk 2013 Developer Immersion",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 3275.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "XSD",
+            "Date": "2017-03-09T00:00:00",
+            "Name": "Defining a Document Grammar using XML Schemas",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "MS20489",
+            "Date": "2017-04-13T00:00:00",
+            "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 3175.0,
+            "IntersectedCourses": null,
+            "Week": 15,
+            "PriceWithDiscount": 2540.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2620.00
+      },
+      {
+        "Code": "FITSEL",
+        "Date": null,
+        "Name": "FitNesse & Selenium",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "MS20532",
+        "Date": null,
+        "Name": "Developing Microsoft Azure Solutions",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "WINDEV",
+            "Date": "2017-02-09T00:00:00",
+            "Name": "Windows Infrastructure for Developers",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 6,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "XSD",
+            "Date": "2017-03-09T00:00:00",
+            "Name": "Defining a Document Grammar using XML Schemas",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 1260.00
+          },
+          {
+            "Code": "HTMLCSSADV",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Advanced HTML and CSS",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "MS20489",
+            "Date": "2017-04-13T00:00:00",
+            "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 3175.0,
+            "IntersectedCourses": null,
+            "Week": 15,
+            "PriceWithDiscount": 2540.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1680.00
+      }
+    ],
+    "PlannedCoursesTotalPrice": 29225.0,
+    "PlannedCoursesTotalPriceWithDiscount": 23380.00,
+    "NotPlannedCoursesTotalPrice": 26950.0,
+    "NotPlannedCoursesTotalPriceWithDiscount": 21560.00
+  },
+  {
+    "Id": 22,
+    "Created": "2017-01-13T11:05:07.1685937+01:00",
+    "InPaymentFrom": "2017-01-13T09:36:58.875Z",
+    "EmployableFrom": "2017-04-27T00:00:00Z",
+    "BlockedDates": [
+      "2017-01-28T09:37:07.314Z"
+    ],
+    "NameEmployee": "Pim Verheij1",
+    "NameTeacher": "Felix",
+    "KnowledgeOf": ".Net",
+    "Profile": "NET_Developer",
+    "ProfileId": 1,
+    "CoursesJustBeforeStart": [],
+    "PlannedCourses": [
+      {
+        "Code": "OLC",
+        "Date": "2017-01-13T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 2,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "ADCSB",
+        "Date": "2017-01-16T00:00:00",
+        "Name": "Advanced C#",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 3,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-01-18T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 3,
+        "PriceWithDiscount": 300.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-01-23T00:00:00Z",
+        "Name": "OLC",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 625.0,
+        "IntersectedCourses": null,
+        "Week": 4,
+        "PriceWithDiscount": 500.00
+      },
+      {
+        "Code": "ALMUVS",
+        "Date": "2017-01-30T00:00:00",
+        "Name": "Application Lifecycle Management Using Visual Studio",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": null,
+        "Week": 5,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "UTVS",
+        "Date": "2017-02-02T00:00:00",
+        "Name": "Unit Testing in Visual Studio",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1150.0,
+        "IntersectedCourses": null,
+        "Week": 5,
+        "PriceWithDiscount": 920.00
+      },
+      {
+        "Code": "MS20532",
+        "Date": "2017-02-06T00:00:00",
+        "Name": "Developing Microsoft Azure Solutions",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": null,
+        "Week": 6,
+        "PriceWithDiscount": 1680.00
+      },
+      {
+        "Code": "2NETARCH",
+        "Date": "2017-02-13T00:00:00",
+        "Name": ".NET for Architects and Project Managers",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1150.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 920.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-15T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "DPAT",
+        "Date": "2017-02-17T00:00:00",
+        "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "MVC",
+        "Date": "2017-02-20T00:00:00",
+        "Name": "Developing ASP.NET MVC 5 Web Applications",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": null,
+        "Week": 8,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-27T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "SCRUMES",
+        "Date": "2017-03-01T00:00:00",
+        "Name": "Scrum Essentials",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "ENEST",
+        "Date": "2017-03-02T00:00:00",
+        "Name": "Endeavour Essentials",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1270.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 1016.00
+      },
+      {
+        "Code": "WCFDEV",
+        "Date": "2017-03-06T00:00:00",
+        "Name": "Developing using Windows Communication Foundation (WCF)",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 1680.00
+      },
+      {
+        "Code": "CONDEVES",
+        "Date": "2017-03-10T00:00:00",
+        "Name": "Continuous Delivery Essentials",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "ENDEVN",
+        "Date": "2017-03-13T00:00:00",
+        "Name": "Endeavour .NET Development",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1905.0,
+        "IntersectedCourses": null,
+        "Week": 11,
+        "PriceWithDiscount": 1524.00
+      },
+      {
+        "Code": "SECDEV",
+        "Date": "2017-03-16T00:00:00",
+        "Name": "Secure Programming Foundation",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1150.0,
+        "IntersectedCourses": null,
+        "Week": 11,
+        "PriceWithDiscount": 920.00
+      },
+      {
+        "Code": "ADMTFS",
+        "Date": "2017-03-20T00:00:00",
+        "Name": "Administering Team Foundation Server",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": null,
+        "Week": 12,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-03-23T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 12,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "HTMLCSSCOR",
+        "Date": "2017-03-27T00:00:00",
+        "Name": "Core HTML en CSS",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": null,
+        "Week": 13,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "HTMLCSSADV",
+        "Date": "2017-03-30T00:00:00",
+        "Name": "Advanced HTML and CSS",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 13,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "NETFOUNB",
+        "Date": "2017-04-03T00:00:00",
+        "Name": ".NET Framework Foundation",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 1940.0,
+        "IntersectedCourses": null,
+        "Week": 14,
+        "PriceWithDiscount": 1552.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-04-07T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 14,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "XSD",
+        "Date": "2017-04-10T00:00:00",
+        "Name": "Defining a Document Grammar using XML Schemas",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": null,
+        "Week": 15,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-04-13T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 15,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-04-17T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 16,
+        "PriceWithDiscount": 300.00
+      }
+    ],
+    "NotPlannedCourses": [
+      {
+        "Code": "ADONETB",
+        "Date": null,
+        "Name": "ADO.NET Data Access Development with .NET",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "ADVB",
+        "Date": null,
+        "Name": "Advanced Visual Basic .NET Development",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 525.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 420.00
+      },
+      {
+        "Code": "OOUML",
+        "Date": null,
+        "Name": "Object Oriented Analysis & Design using UML",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2875.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "ENEST",
+            "Date": "2017-03-02T00:00:00",
+            "Name": "Endeavour Essentials",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1270.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 1016.00
+          },
+          {
+            "Code": "ENDEVN",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Endeavour .NET Development",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1905.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 1524.00
+          },
+          {
+            "Code": "SECDEV",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Secure Programming Foundation",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1150.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 920.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 1260.00
+          },
+          {
+            "Code": "HTMLCSSADV",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Advanced HTML and CSS",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 840.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2300.00
+      },
+      {
+        "Code": "JSDEVLANG",
+        "Date": null,
+        "Name": "Javascript Development",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1680.00
+      },
+      {
+        "Code": "MS20464",
+        "Date": null,
+        "Name": "Developing a Microsoft SQL Server 2014 Database",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2425.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1940.00
+      },
+      {
+        "Code": "WINDEV",
+        "Date": null,
+        "Name": "Windows Infrastructure for Developers",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": [
+          {
+            "Code": "MS20532",
+            "Date": "2017-02-09T00:00:00",
+            "Name": "Developing Microsoft Azure Solutions",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 2100.0,
+            "IntersectedCourses": null,
+            "Week": 6,
+            "PriceWithDiscount": 1680.00
+          },
+          {
+            "Code": "HTMLCSSADV",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Advanced HTML and CSS",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 840.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "MS20461",
+        "Date": null,
+        "Name": "Querying Microsoft SQL Server 2014",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2425.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1940.00
+      },
+      {
+        "Code": "DDAS",
+        "Date": null,
+        "Name": "Developing Data Access Solutions with Microsoft Visual Studio",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "DPAT",
+            "Date": "2017-02-17T00:00:00",
+            "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 7,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "MVC",
+            "Date": "2017-02-23T00:00:00",
+            "Name": "Developing ASP.NET MVC 5 Web Applications",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 8,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "ENEST",
+            "Date": "2017-03-02T00:00:00",
+            "Name": "Endeavour Essentials",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1270.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 1016.00
+          },
+          {
+            "Code": "ADMTFS",
+            "Date": "2017-03-23T00:00:00",
+            "Name": "Administering Team Foundation Server",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 12,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 1260.00
+          },
+          {
+            "Code": "HTMLCSSADV",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Advanced HTML and CSS",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 840.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "ANGULARJS",
+        "Date": null,
+        "Name": "Building Professional Single Page Applications with AngularJS",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "DPAT",
+            "Date": "2017-02-17T00:00:00",
+            "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 7,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 1260.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "POSHDSC",
+        "Date": null,
+        "Name": "Windows Powershell Desired State Configuration",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "WFDEV",
+        "Date": null,
+        "Name": "Developing with Windows Workflow Foundation (WF)",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-02-02T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 5,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "ENDEVN",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Endeavour .NET Development",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1905.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 1524.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "XSLT",
+        "Date": null,
+        "Name": "Transforming XML using XSLT Stylesheets",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": [
+          {
+            "Code": "DPAT",
+            "Date": "2017-02-17T00:00:00",
+            "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 7,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "MVC",
+            "Date": "2017-02-23T00:00:00",
+            "Name": "Developing ASP.NET MVC 5 Web Applications",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 8,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "SCRUMES",
+            "Date": "2017-03-04T00:00:00",
+            "Name": "Scrum Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "CONDEVES",
+            "Date": "2017-03-10T00:00:00",
+            "Name": "Continuous Delivery Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "ADMTFS",
+            "Date": "2017-03-23T00:00:00",
+            "Name": "Administering Team Foundation Server",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 12,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-04-06T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 14,
+            "PriceWithDiscount": 1552.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "MS20488",
+        "Date": null,
+        "Name": "Developing Microsoft SharePoint Server 2013 Core Solutions",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": [
+          {
+            "Code": "MVC",
+            "Date": "2017-02-23T00:00:00",
+            "Name": "Developing ASP.NET MVC 5 Web Applications",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 8,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "SCRUMES",
+            "Date": "2017-03-04T00:00:00",
+            "Name": "Scrum Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-04-06T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 14,
+            "PriceWithDiscount": 1552.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "MS20489",
+        "Date": null,
+        "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 3175.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "MS20532",
+            "Date": "2017-02-09T00:00:00",
+            "Name": "Developing Microsoft Azure Solutions",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 2100.0,
+            "IntersectedCourses": null,
+            "Week": 6,
+            "PriceWithDiscount": 1680.00
+          },
+          {
+            "Code": "MVC",
+            "Date": "2017-02-23T00:00:00",
+            "Name": "Developing ASP.NET MVC 5 Web Applications",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 8,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-04-06T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 14,
+            "PriceWithDiscount": 1552.00
+          },
+          {
+            "Code": "XSD",
+            "Date": "2017-04-13T00:00:00",
+            "Name": "Defining a Document Grammar using XML Schemas",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 15,
+            "PriceWithDiscount": 1380.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2540.00
+      },
+      {
+        "Code": "QLIMM",
+        "Date": null,
+        "Name": "BizTalk 2013 Developer Immersion",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 3275.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-01-19T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 3,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "MS20532",
+            "Date": "2017-02-09T00:00:00",
+            "Name": "Developing Microsoft Azure Solutions",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 2100.0,
+            "IntersectedCourses": null,
+            "Week": 6,
+            "PriceWithDiscount": 1680.00
+          },
+          {
+            "Code": "XSD",
+            "Date": "2017-04-13T00:00:00",
+            "Name": "Defining a Document Grammar using XML Schemas",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 15,
+            "PriceWithDiscount": 1380.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2620.00
+      },
+      {
+        "Code": "FITSEL",
+        "Date": null,
+        "Name": "FitNesse & Selenium",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "INBI",
+        "Date": null,
+        "Name": "Introduction to Business Intelligence",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 485.0,
+        "IntersectedCourses": [
+          {
+            "Code": "2NETARCH",
+            "Date": "2017-02-16T00:00:00",
+            "Name": ".NET for Architects and Project Managers",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1150.0,
+            "IntersectedCourses": null,
+            "Week": 7,
+            "PriceWithDiscount": 920.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 388.00
+      }
+    ],
+    "PlannedCoursesTotalPrice": 28590.0,
+    "PlannedCoursesTotalPriceWithDiscount": 22872.00,
+    "NotPlannedCoursesTotalPrice": 33235.0,
+    "NotPlannedCoursesTotalPriceWithDiscount": 26588.00
+  },
+  {
+    "Id": 23,
+    "Created": "2017-01-13T15:44:39.766841+01:00",
+    "InPaymentFrom": "2017-02-27T14:43:20.212Z",
+    "EmployableFrom": "2017-06-08T00:00:00Z",
+    "BlockedDates": [
+      "2017-01-29T14:43:36.956Z"
+    ],
+    "NameEmployee": "Jan Klaasen",
+    "NameTeacher": "John Gorter",
+    "KnowledgeOf": "HBO afgestudeerd",
+    "Profile": "NET_Developer",
+    "ProfileId": 1,
+    "CoursesJustBeforeStart": [],
+    "PlannedCourses": [
+      {
+        "Code": "ADCSB",
+        "Date": "2017-02-27T00:00:00",
+        "Name": "Advanced C#",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "SCRUMES",
+        "Date": "2017-03-01T00:00:00",
+        "Name": "Scrum Essentials",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-03-02T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "XSD",
+        "Date": "2017-03-06T00:00:00",
+        "Name": "Defining a Document Grammar using XML Schemas",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-03-09T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "CONDEVES",
+        "Date": "2017-03-10T00:00:00",
+        "Name": "Continuous Delivery Essentials",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "OOUML",
+        "Date": "2017-03-13T00:00:00",
+        "Name": "Object Oriented Analysis & Design using UML",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2875.0,
+        "IntersectedCourses": null,
+        "Week": 11,
+        "PriceWithDiscount": 2300.00
+      },
+      {
+        "Code": "DDAS",
+        "Date": "2017-03-20T00:00:00",
+        "Name": "Developing Data Access Solutions with Microsoft Visual Studio",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": null,
+        "Week": 12,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "HTMLCSSCOR",
+        "Date": "2017-03-27T00:00:00",
+        "Name": "Core HTML en CSS",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": null,
+        "Week": 13,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "HTMLCSSADV",
+        "Date": "2017-03-30T00:00:00",
+        "Name": "Advanced HTML and CSS",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 13,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "MS20488",
+        "Date": "2017-04-03T00:00:00",
+        "Name": "Developing Microsoft SharePoint Server 2013 Core Solutions",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": null,
+        "Week": 14,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "MS20489",
+        "Date": "2017-04-10T00:00:00",
+        "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 3175.0,
+        "IntersectedCourses": null,
+        "Week": 15,
+        "PriceWithDiscount": 2540.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-04-17T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 16,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "ANGULARJS",
+        "Date": "2017-04-19T00:00:00",
+        "Name": "Building Professional Single Page Applications with AngularJS",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": null,
+        "Week": 16,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "POSHDSC",
+        "Date": "2017-04-24T00:00:00",
+        "Name": "Windows Powershell Desired State Configuration",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": null,
+        "Week": 17,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-04-27T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 17,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "WCFDEV",
+        "Date": "2017-05-01T00:00:00",
+        "Name": "Developing using Windows Communication Foundation (WCF)",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": null,
+        "Week": 18,
+        "PriceWithDiscount": 1680.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-05-05T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 18,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "ALMUVS",
+        "Date": "2017-05-08T00:00:00",
+        "Name": "Application Lifecycle Management Using Visual Studio",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": null,
+        "Week": 19,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "ENEST",
+        "Date": "2017-05-11T00:00:00",
+        "Name": "Endeavour Essentials",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1270.0,
+        "IntersectedCourses": null,
+        "Week": 19,
+        "PriceWithDiscount": 1016.00
+      },
+      {
+        "Code": "NETFOUNB",
+        "Date": "2017-05-15T00:00:00",
+        "Name": ".NET Framework Foundation",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 1940.0,
+        "IntersectedCourses": null,
+        "Week": 20,
+        "PriceWithDiscount": 1552.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-05-19T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 20,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "ENDEVN",
+        "Date": "2017-05-22T00:00:00",
+        "Name": "Endeavour .NET Development",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1905.0,
+        "IntersectedCourses": null,
+        "Week": 21,
+        "PriceWithDiscount": 1524.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-05-25T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 21,
+        "PriceWithDiscount": 200.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-05-29T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 22,
+        "PriceWithDiscount": 300.00
+      }
+    ],
+    "NotPlannedCourses": [
+      {
+        "Code": "JSDEVLANG",
+        "Date": null,
+        "Name": "Javascript Development",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1680.00
+      },
+      {
+        "Code": "MVC",
+        "Date": null,
+        "Name": "Developing ASP.NET MVC 5 Web Applications",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2625.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-03-02T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "SCRUMES",
+            "Date": "2017-03-04T00:00:00",
+            "Name": "Scrum Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "DDAS",
+            "Date": "2017-03-23T00:00:00",
+            "Name": "Developing Data Access Solutions with Microsoft Visual Studio",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 12,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "MS20488",
+            "Date": "2017-04-06T00:00:00",
+            "Name": "Developing Microsoft SharePoint Server 2013 Core Solutions",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 14,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "MS20489",
+            "Date": "2017-04-13T00:00:00",
+            "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 3175.0,
+            "IntersectedCourses": null,
+            "Week": 15,
+            "PriceWithDiscount": 2540.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-05-18T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 20,
+            "PriceWithDiscount": 1552.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2100.00
+      },
+      {
+        "Code": "MS20464",
+        "Date": null,
+        "Name": "Developing a Microsoft SQL Server 2014 Database",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2425.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1940.00
+      },
+      {
+        "Code": "WINDEV",
+        "Date": null,
+        "Name": "Windows Infrastructure for Developers",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": [
+          {
+            "Code": "HTMLCSSADV",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Advanced HTML and CSS",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 840.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 840.00
+      },
+      {
+        "Code": "SECDEV",
+        "Date": null,
+        "Name": "Secure Programming Foundation",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1150.0,
+        "IntersectedCourses": [
+          {
+            "Code": "OOUML",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Object Oriented Analysis & Design using UML",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2875.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 2300.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-05-18T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 20,
+            "PriceWithDiscount": 1552.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 920.00
+      },
+      {
+        "Code": "MS20461",
+        "Date": null,
+        "Name": "Querying Microsoft SQL Server 2014",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 2425.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 1940.00
+      },
+      {
+        "Code": "WFDEV",
+        "Date": null,
+        "Name": "Developing with Windows Workflow Foundation (WF)",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1575.0,
+        "IntersectedCourses": [
+          {
+            "Code": "OOUML",
+            "Date": "2017-03-16T00:00:00",
+            "Name": "Object Oriented Analysis & Design using UML",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2875.0,
+            "IntersectedCourses": null,
+            "Week": 11,
+            "PriceWithDiscount": 2300.00
+          },
+          {
+            "Code": "POSHDSC",
+            "Date": "2017-04-27T00:00:00",
+            "Name": "Windows Powershell Desired State Configuration",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 17,
+            "PriceWithDiscount": 1260.00
+          },
+          {
+            "Code": "ALMUVS",
+            "Date": "2017-05-11T00:00:00",
+            "Name": "Application Lifecycle Management Using Visual Studio",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 19,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "ENDEVN",
+            "Date": "2017-05-25T00:00:00",
+            "Name": "Endeavour .NET Development",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1905.0,
+            "IntersectedCourses": null,
+            "Week": 21,
+            "PriceWithDiscount": 1524.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1260.00
+      },
+      {
+        "Code": "XSLT",
+        "Date": null,
+        "Name": "Transforming XML using XSLT Stylesheets",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 1725.0,
+        "IntersectedCourses": [
+          {
+            "Code": "SCRUMES",
+            "Date": "2017-03-04T00:00:00",
+            "Name": "Scrum Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "CONDEVES",
+            "Date": "2017-03-10T00:00:00",
+            "Name": "Continuous Delivery Essentials",
+            "Days": 1,
+            "Commentary": null,
+            "Price": 575.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 460.00
+          },
+          {
+            "Code": "MS20489",
+            "Date": "2017-04-13T00:00:00",
+            "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 3175.0,
+            "IntersectedCourses": null,
+            "Week": 15,
+            "PriceWithDiscount": 2540.00
+          },
+          {
+            "Code": "ANGULARJS",
+            "Date": "2017-04-22T00:00:00",
+            "Name": "Building Professional Single Page Applications with AngularJS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 16,
+            "PriceWithDiscount": 1260.00
+          },
+          {
+            "Code": "NETFOUNB",
+            "Date": "2017-05-18T00:00:00",
+            "Name": ".NET Framework Foundation",
+            "Days": 4,
+            "Commentary": null,
+            "Price": 1940.0,
+            "IntersectedCourses": null,
+            "Week": 20,
+            "PriceWithDiscount": 1552.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1380.00
+      },
+      {
+        "Code": "DPAT",
+        "Date": null,
+        "Name": "Design Patterns for C++, C#, VB.NET and Java Developers",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-03-02T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "DDAS",
+            "Date": "2017-03-23T00:00:00",
+            "Name": "Developing Data Access Solutions with Microsoft Visual Studio",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 2625.0,
+            "IntersectedCourses": null,
+            "Week": 12,
+            "PriceWithDiscount": 2100.00
+          },
+          {
+            "Code": "ANGULARJS",
+            "Date": "2017-04-22T00:00:00",
+            "Name": "Building Professional Single Page Applications with AngularJS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 16,
+            "PriceWithDiscount": 1260.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "QLIMM",
+        "Date": null,
+        "Name": "BizTalk 2013 Developer Immersion",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 3275.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-03-02T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "XSD",
+            "Date": "2017-03-09T00:00:00",
+            "Name": "Defining a Document Grammar using XML Schemas",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "MS20489",
+            "Date": "2017-04-13T00:00:00",
+            "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 3175.0,
+            "IntersectedCourses": null,
+            "Week": 15,
+            "PriceWithDiscount": 2540.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 2620.00
+      },
+      {
+        "Code": "UTVS",
+        "Date": null,
+        "Name": "Unit Testing in Visual Studio",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1150.0,
+        "IntersectedCourses": [
+          {
+            "Code": "XSD",
+            "Date": "2017-03-09T00:00:00",
+            "Name": "Defining a Document Grammar using XML Schemas",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 1380.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 920.00
+      },
+      {
+        "Code": "FITSEL",
+        "Date": null,
+        "Name": "FitNesse & Selenium",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 575.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 460.00
+      },
+      {
+        "Code": "INBI",
+        "Date": null,
+        "Name": "Introduction to Business Intelligence",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 485.0,
+        "IntersectedCourses": [],
+        "Week": -1,
+        "PriceWithDiscount": 388.00
+      },
+      {
+        "Code": "MS20532",
+        "Date": null,
+        "Name": "Developing Microsoft Azure Solutions",
+        "Days": 4,
+        "Commentary": null,
+        "Price": 2100.0,
+        "IntersectedCourses": [
+          {
+            "Code": "ADCSB",
+            "Date": "2017-03-02T00:00:00",
+            "Name": "Advanced C#",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 9,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "XSD",
+            "Date": "2017-03-09T00:00:00",
+            "Name": "Defining a Document Grammar using XML Schemas",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1725.0,
+            "IntersectedCourses": null,
+            "Week": 10,
+            "PriceWithDiscount": 1380.00
+          },
+          {
+            "Code": "HTMLCSSCOR",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Core HTML en CSS",
+            "Days": 3,
+            "Commentary": null,
+            "Price": 1575.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 1260.00
+          },
+          {
+            "Code": "HTMLCSSADV",
+            "Date": "2017-03-30T00:00:00",
+            "Name": "Advanced HTML and CSS",
+            "Days": 2,
+            "Commentary": null,
+            "Price": 1050.0,
+            "IntersectedCourses": null,
+            "Week": 13,
+            "PriceWithDiscount": 840.00
+          },
+          {
+            "Code": "MS20489",
+            "Date": "2017-04-13T00:00:00",
+            "Name": "Developing SharePoint Server 2013 Advanced Solutions",
+            "Days": 5,
+            "Commentary": null,
+            "Price": 3175.0,
+            "IntersectedCourses": null,
+            "Week": 15,
+            "PriceWithDiscount": 2540.00
+          }
+        ],
+        "Week": -1,
+        "PriceWithDiscount": 1680.00
+      }
+    ],
+    "PlannedCoursesTotalPrice": 31690.0,
+    "PlannedCoursesTotalPriceWithDiscount": 25352.00,
+    "NotPlannedCoursesTotalPrice": 23235.0,
+    "NotPlannedCoursesTotalPriceWithDiscount": 18588.00
+  },
+  {
+    "Id": 24,
+    "Created": "2017-01-13T15:55:52.3308536+01:00",
+    "InPaymentFrom": "2017-01-27T14:54:49.546Z",
+    "EmployableFrom": "2017-03-15T00:00:00Z",
+    "BlockedDates": [],
+    "NameEmployee": "we",
+    "NameTeacher": "fsf",
+    "KnowledgeOf": "fsa",
+    "Profile": null,
+    "ProfileId": 0,
+    "CoursesJustBeforeStart": [],
+    "PlannedCourses": [
+      {
+        "Code": "OLC",
+        "Date": "2017-01-27T00:00:00Z",
+        "Name": "OLC",
+        "Days": 1,
+        "Commentary": null,
+        "Price": 125.0,
+        "IntersectedCourses": null,
+        "Week": 4,
+        "PriceWithDiscount": 100.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-01-30T00:00:00Z",
+        "Name": "OLC",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 625.0,
+        "IntersectedCourses": null,
+        "Week": 5,
+        "PriceWithDiscount": 500.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-06T00:00:00Z",
+        "Name": "OLC",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 625.0,
+        "IntersectedCourses": null,
+        "Week": 6,
+        "PriceWithDiscount": 500.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-13T00:00:00Z",
+        "Name": "OLC",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 625.0,
+        "IntersectedCourses": null,
+        "Week": 7,
+        "PriceWithDiscount": 500.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-02-20T00:00:00Z",
+        "Name": "OLC",
+        "Days": 5,
+        "Commentary": null,
+        "Price": 625.0,
+        "IntersectedCourses": null,
+        "Week": 8,
+        "PriceWithDiscount": 500.00
+      },
+      {
+        "Code": "ADCSB",
+        "Date": "2017-02-27T00:00:00",
+        "Name": "Advanced C#",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 1050.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 840.0
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-03-01T00:00:00Z",
+        "Name": "OLC",
+        "Days": 3,
+        "Commentary": null,
+        "Price": 375.0,
+        "IntersectedCourses": null,
+        "Week": 9,
+        "PriceWithDiscount": 300.00
+      },
+      {
+        "Code": "OLC",
+        "Date": "2017-03-06T00:00:00Z",
+        "Name": "OLC",
+        "Days": 2,
+        "Commentary": null,
+        "Price": 250.0,
+        "IntersectedCourses": null,
+        "Week": 10,
+        "PriceWithDiscount": 200.00
+      }
+    ],
+    "NotPlannedCourses": [],
+    "PlannedCoursesTotalPrice": 4300.0,
+    "PlannedCoursesTotalPriceWithDiscount": 3440.00,
+    "NotPlannedCoursesTotalPrice": 0.0,
+    "NotPlannedCoursesTotalPriceWithDiscount": 0.0
   }
 ]

@@ -15,7 +15,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public string NameTeacher { get; set; }
         public string KnowledgeOf { get; set; }
         public string Profile { get; set; }
+        public int ProfileId { get; set; }
         public List<DateTime> BlockedDates { get; set; }
-
     }
 }

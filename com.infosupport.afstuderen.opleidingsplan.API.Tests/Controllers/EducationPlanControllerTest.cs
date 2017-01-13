@@ -80,5 +80,39 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
             educationPlanManagerMock.Verify(manager => manager.FindEducationPlan(1));
         }
 
+        [TestMethod]
+        public void Search_ManagerCalled()
+        {
+            // Arrange
+            var educationPlanManagerMock = new Mock<IEducationPlanManager>(MockBehavior.Strict);
+            educationPlanManagerMock.Setup(manager => manager.FindEducationPlans(It.IsAny<EducationPlanSearch>())).Returns(new List<EducationPlan>() { GetDummyEducationPlan() });
+
+            EducationPlanController controller = new EducationPlanController(educationPlanManagerMock.Object);
+
+            // Act
+            controller.Get("Pim", null);
+
+            // Assert
+            educationPlanManagerMock.Verify(manager => manager.FindEducationPlans(It.IsAny<EducationPlanSearch>()));
+        }
+
+        [TestMethod]
+        public void GenerateWordFile_ManagerCalled()
+        {
+            // Arrange
+            var educationPlanManagerMock = new Mock<IEducationPlanManager>(MockBehavior.Strict);
+            educationPlanManagerMock.Setup(manager => manager.FindEducationPlan(1)).Returns(GetDummyEducationPlan());
+            educationPlanManagerMock.Setup(manager => manager.GenerateWordFile(It.IsAny<EducationPlan>())).Returns("path");
+
+            EducationPlanController controller = new EducationPlanController(educationPlanManagerMock.Object);
+
+            // Act
+            var result = controller.GenerateWordFile(1);
+
+            // Assert
+            Assert.AreEqual("path", result);
+            educationPlanManagerMock.Verify(manager => manager.FindEducationPlan(1));
+            educationPlanManagerMock.Verify(manager => manager.GenerateWordFile(It.IsAny<EducationPlan>()));
+        }
     }
 }

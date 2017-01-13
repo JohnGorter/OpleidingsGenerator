@@ -53,6 +53,8 @@
     <Compile Include="EducationPlanData.cs" />
     <Compile Include="EducationPlanOutputter.cs" />
     <Compile Include="Extentions.cs" />
+    <Compile Include="GeneratorConfiguration.cs" />
+    <Compile Include="IEducationPlanConverter.cs" />
     <Compile Include="IEducationPlanOutputter.cs" />
     <Compile Include="IPlanner.cs" />
     <Compile Include="Planner.cs" />

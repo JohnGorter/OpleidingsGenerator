@@ -5,27 +5,36 @@ using Novacode;
 using System.Linq;
 using System.Globalization;
 using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using System.IO;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator
 {
-    public class EducationPlanConverter
+    public class EducationPlanConverter : IEducationPlanConverter
     {
         private DocX _document;
         private IManagementPropertiesDataMapper managementPropertiesDataMapper;
         private CultureInfo _culture = new CultureInfo("nl-NL");
         private string _dateFromat = "dd-MM-yyyy";
         private EducationPlan _educationPlan;
-
-        public EducationPlanConverter(EducationPlan educationPlan, string managementPropertiesPath, string path)
+        private string _path;
+        public EducationPlanConverter(string managementPropertiesPath, string path)
         {
-            _educationPlan = educationPlan;
             managementPropertiesDataMapper = new ManagementPropertiesJSONDataMapper(managementPropertiesPath);
-            string fileName = path + @"\Opleidingsplan.docx";
-            _document = DocX.Create(fileName);
+            _path = path;
         }
 
-        public void GenerateWord()
+        public string GenerateWord(EducationPlan educationPlan)
         {
+
+            if (!Directory.Exists(_path))
+            {
+                Directory.CreateDirectory(_path);
+            }
+
+            string fileName = @"\Opleidingsplan-" + educationPlan.NameEmployee + "-" + educationPlan.Created.ToString(_dateFromat) + ".docx";
+            _document = DocX.Create(_path + fileName);
+
+            _educationPlan = educationPlan;
             GenerateHeader();
             InsertNewLine();
             InsertEducationPlanTable(_educationPlan.PlannedCourses.ToList(), true);
@@ -35,6 +44,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             InsertFooter();
 
             _document.Save();
+
+            return fileName;
         }
 
         private void InsertFooter()
@@ -61,8 +72,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             {
                 var course = courses.ElementAt(i);
                 var row = table.Rows[i + 1];
-                row.Cells[0].Paragraphs.First().Append(course.Week.ToString());
-                row.Cells[1].Paragraphs.First().Append(course.Date.Value.ToString(_dateFromat));
+
+                if (course.Week > 0)
+                {
+                    row.Cells[0].Paragraphs.First().Append(course.Week.ToString());
+                }
+
+                if (course.Date.HasValue)
+                {
+                    row.Cells[1].Paragraphs.First().Append(course.Date.Value.ToString(_dateFromat));
+                }
+
                 row.Cells[2].Paragraphs.First().Append(course.Name);
                 row.Cells[3].Paragraphs.First().Append(course.Days.ToString());
                 row.Cells[4].Paragraphs.First().Append(course.Commentary);

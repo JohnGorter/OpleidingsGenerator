@@ -18,6 +18,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
         private readonly IEducationPlanOutputter _educationPlanOutputter;
         private readonly IDataMapper<opleidingsplan.models.CourseProfile> _profileDataMapper;
         private readonly IEducationPlanDataMapper _educationPlanDataMapper;
+        private readonly IEducationPlanConverter _educationPlanConverter;
 
         public EducationPlanManager(string profilePath, ICourseService courseService, string managementPropertiesPath, string educationPlanPath, string educationPlanUpdatedPath)
         {
@@ -29,7 +30,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             _educationPlanDataMapper = new EducationPlanJsonDataMapper(educationPlanPath, educationPlanUpdatedPath);
         }
 
-        public EducationPlanManager(string profilePath, string managementPropertiesPath, string educationPlanPath, string educationPlanUpdatedPath)
+        public EducationPlanManager(string profilePath, string managementPropertiesPath, string educationPlanPath, string educationPlanUpdatedPath, string educationPlanFilePath)
         {
             _courseService = new CourseService();
             IManagementPropertiesDataMapper managementPropertiesDataMapper = new ManagementPropertiesJSONDataMapper(managementPropertiesPath);
@@ -37,15 +38,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             _educationPlanOutputter = new EducationPlanOutputter(_planner, managementPropertiesDataMapper);
             _profileDataMapper = new ProfileJsonDataMapper(profilePath);
             _educationPlanDataMapper = new EducationPlanJsonDataMapper(educationPlanPath, educationPlanUpdatedPath);
+            _educationPlanConverter = new EducationPlanConverter(managementPropertiesPath, educationPlanFilePath);
         }
 
-        public EducationPlanManager(ICourseService courseService, IPlanner planner, IEducationPlanOutputter educationPlanOutputter, IDataMapper<opleidingsplan.models.CourseProfile> profileDataMapper, IEducationPlanDataMapper educationPlanDataMapper)
+        public EducationPlanManager(ICourseService courseService, IPlanner planner, IEducationPlanOutputter educationPlanOutputter, IDataMapper<opleidingsplan.models.CourseProfile> profileDataMapper, IEducationPlanDataMapper educationPlanDataMapper, IEducationPlanConverter educationPlanConverter)
         {
             _courseService = courseService;
             _planner = planner;
             _educationPlanOutputter = educationPlanOutputter;
             _profileDataMapper = profileDataMapper;
             _educationPlanDataMapper = educationPlanDataMapper;
+            _educationPlanConverter = educationPlanConverter;
         }
 
         private static List<opleidingsplan.models.Course> ConvertCourses(IEnumerable<integration.Course> courses, opleidingsplan.models.CourseProfile profile)
@@ -85,6 +88,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             {
                 profile = _profileDataMapper.FindById(educationPlan.ProfileId);
                 educationplanData.Profile = profile.Name;
+                educationplanData.ProfileId = educationPlan.ProfileId;
             }
 
             IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlan.Courses);
@@ -109,6 +113,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
         public List<EducationPlan> FindEducationPlans(EducationPlanSearch search)
         {
             return _educationPlanDataMapper.Find(educationPlan => educationPlan.NameEmployee.ToLower().Contains(search.Name.ToLower()) || search.Date.HasValue && educationPlan.Created.Date == search.Date).ToList();
+        }
+
+        public string GenerateWordFile(EducationPlan educationPlan)
+        {
+            return _educationPlanConverter.GenerateWord(educationPlan);
         }
     }
 }

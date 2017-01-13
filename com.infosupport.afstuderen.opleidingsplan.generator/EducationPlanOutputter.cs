@@ -56,6 +56,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 InPaymentFrom = educationPlanData.InPaymentFrom,
                 EmployableFrom = dateEmployableFrom,
                 Profile = educationPlanData.Profile,
+                ProfileId = educationPlanData.ProfileId,
                 NameEmployee = educationPlanData.NameEmployee,
                 NameTeacher = educationPlanData.NameTeacher,
                 KnowledgeOf = educationPlanData.KnowledgeOf,

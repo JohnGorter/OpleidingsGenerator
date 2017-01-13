@@ -3,6 +3,7 @@ using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using com.infosupport.afstuderen.opleidingsplan.api.models;
 using com.infosupport.afstuderen.opleidingsplan.dal;
 using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using com.infosupport.afstuderen.opleidingsplan.generator;
 using com.infosupport.afstuderen.opleidingsplan.models;
 using System;
 using System.Collections.Generic;
@@ -26,8 +27,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
             string managementPropertiesPath = HttpContext.Current.Server.MapPath(DALConfiguration.Configuration.ManagementPropertiesPath);
             string educationPlanPath = HttpContext.Current.Server.MapPath(DALConfiguration.Configuration.EducationPlanPath);
             string educationPlanUpdatedPath = HttpContext.Current.Server.MapPath(DALConfiguration.Configuration.EducationPlanUpdatedPath);
+            string educationPlanFilesDir = HttpContext.Current.Server.MapPath(GeneratorConfiguration.Configuration.EducationPlanFileDirPath);
 
-            _educationPlanManager = new EducationPlanManager(profilepath, managementPropertiesPath, educationPlanPath, educationPlanUpdatedPath);
+            _educationPlanManager = new EducationPlanManager(profilepath, managementPropertiesPath, educationPlanPath, educationPlanUpdatedPath, educationPlanFilesDir);
         }
 
         public EducationPlanController(IEducationPlanManager educationPlanManager)
@@ -35,9 +37,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
             _educationPlanManager = educationPlanManager;
         }
 
-        // POST: api/EducationPlan
-        [HttpPost]
-        [Route("EducationPlan")]
         public EducationPlan Post(RestEducationPlan educationPlan)
         {
             return _educationPlanManager.GenerateEducationPlan(educationPlan);
@@ -51,6 +50,25 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         public EducationPlan Get(long id)
         {
              return _educationPlanManager.FindEducationPlan(id);
+        }
+
+        [HttpGet]
+        [Route("api/EducationPlan/search")]
+        public List<EducationPlan> Get(string name, DateTime? date)
+        {
+            return _educationPlanManager.FindEducationPlans(new EducationPlanSearch
+            {
+                Name = name,
+                Date = date,
+            });
+        }
+
+        [HttpGet]
+        [Route("api/GenerateWordFile/{id}")]
+        public string GenerateWordFile(long id)
+        {
+            var educationPlan = _educationPlanManager.FindEducationPlan(id);
+            return _educationPlanManager.GenerateWordFile(educationPlan);
         }
     }
 }
