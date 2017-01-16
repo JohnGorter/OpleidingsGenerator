@@ -74,7 +74,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
             return educationPlan.Id;
         }
 
-        public void Update(EducationPlan educationPlan)
+        public long Update(EducationPlan educationPlan)
         {
             if (educationPlan == null)
             {
@@ -94,6 +94,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
             SaveNewUpdatedEducationPlan(educationPlanToUpdate);
             WriteEducationPlansToFile(educationPlans);
+
+            return educationPlan.Id;
         }
 
         public IEnumerable<EducationPlanCompare> FindAllUpdated()
@@ -137,14 +139,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
             string educationPlans = File.ReadAllText(_path);
             return JsonConvert.DeserializeObject<List<EducationPlan>>(educationPlans);
         }
-        private static int GenerateId(List<EducationPlan> allEducationPlans)
+        private static long GenerateId(List<EducationPlan> allEducationPlans)
         {
             if(!allEducationPlans.Any())
             {
                 return 1;
             }
 
-            int newId = allEducationPlans.Max(educationPlan => educationPlan.Id) + 1;
+            long newId = allEducationPlans.Max(educationPlan => educationPlan.Id) + 1;
             return newId;
         }
     }

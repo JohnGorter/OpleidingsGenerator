@@ -9,7 +9,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
         void Delete(EducationPlan educationPlan);
         IEnumerable<EducationPlan> Find(Func<EducationPlan, bool> predicate);
         long Insert(EducationPlan educationPlan);
-        void Update(EducationPlan educationPlan);
+        long Update(EducationPlan educationPlan);
         EducationPlan FindById(long id);
         IEnumerable<EducationPlanCompare> FindAllUpdated();
     }

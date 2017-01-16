@@ -49,6 +49,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
             return new EducationPlan
             {
+                Id = educationPlanData.EducationPlanId,
                 Created = DateTime.Now,
                 PlannedCourses = educationPlannedCourses,
                 NotPlannedCourses = educationNotPlannedCourses,

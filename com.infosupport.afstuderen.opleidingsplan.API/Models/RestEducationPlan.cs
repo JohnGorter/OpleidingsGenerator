@@ -8,6 +8,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.models
 {
     public class RestEducationPlan
     {
+        public long EducationPlanId { get; set; }
         public Collection<string> Courses { get; set; }
         public DateTime InPaymentFrom { get; set; }
         public DateTime EmployableFrom { get; set; }

@@ -23,7 +23,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
 
 
         [TestMethod]
-        public void Post_ManagerCalled()
+        public void GenerateEducationPlan_ManagerCalled()
         {
             // Arrange
             RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(new Collection<string> { "2NETARCH", "ADCSB" });
@@ -34,11 +34,32 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
             EducationPlanController controller = new EducationPlanController(educationPlanManagerMock.Object);
 
             // Act
-            controller.Post(restEducationPlan);
+            controller.GenerateEducationPlan(restEducationPlan);
 
 
             // Assert
             educationPlanManagerMock.Verify(manager => manager.GenerateEducationPlan(restEducationPlan));
+
+        }
+
+        [TestMethod]
+        public void Post_ManagerCalled()
+        {
+            // Arrange
+            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(new Collection<string> { "2NETARCH", "ADCSB" });
+
+            var educationPlanManagerMock = new Mock<IEducationPlanManager>(MockBehavior.Strict);
+            educationPlanManagerMock.Setup(manager => manager.UpdateEducationPlan(restEducationPlan)).Returns(1);
+
+            EducationPlanController controller = new EducationPlanController(educationPlanManagerMock.Object);
+
+            // Act
+            var result = controller.Post(restEducationPlan);
+
+
+            // Assert
+            Assert.AreEqual(1, result);
+            educationPlanManagerMock.Verify(manager => manager.UpdateEducationPlan(restEducationPlan));
 
         }
 
@@ -90,7 +111,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
             EducationPlanController controller = new EducationPlanController(educationPlanManagerMock.Object);
 
             // Act
-            controller.Get("Pim", null);
+            controller.Get("Pim", 1);
 
             // Assert
             educationPlanManagerMock.Verify(manager => manager.FindEducationPlans(It.IsAny<EducationPlanSearch>()));

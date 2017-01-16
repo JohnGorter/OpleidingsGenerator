@@ -11,7 +11,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
     public interface IEducationPlanManager
     {
         EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan);
-        long SaveEducationPlan(RestEducationPlan educationPlan);
+        long SaveEducationPlan(RestEducationPlan restEducationPlan);
+        long UpdateEducationPlan(RestEducationPlan restEducationPlan);
         EducationPlan FindEducationPlan(long id);
         List<EducationPlan> FindEducationPlans(EducationPlanSearch search);
         string GenerateWordFile(EducationPlan educationPlan);

@@ -240,3 +240,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/com.infosupport.afstuderen.opleidingsplan.API/App_Data/Updated
+/com.infosupport.afstuderen.opleidingsplan.API/Data/EducationPlanFiles

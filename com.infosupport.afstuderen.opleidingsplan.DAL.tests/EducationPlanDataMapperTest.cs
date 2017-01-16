@@ -68,12 +68,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
             EducationPlan educationPlan = GetDummyEducationPlan();
 
             // Act
-            dataMapper.Insert(educationPlan);
+            var result = dataMapper.Insert(educationPlan);
 
             // Assert
-            var result = dataMapper.Find(ep => ep.NameEmployee == "Pim Verheij");
+            var educationPlans = dataMapper.Find(ep => ep.NameEmployee == "Pim Verheij");
 
-            Assert.AreEqual(1, result.Count());
+            Assert.AreEqual(1, educationPlans.Count());
+            Assert.AreEqual(4, result);
         }
 
         [TestMethod]
@@ -124,11 +125,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
 
 
             // Act
-            dataMapper.Update(educationPlan);
+            var result = dataMapper.Update(educationPlan);
 
             // Assert
-            var result = dataMapper.FindById(1);
-            Assert.AreEqual("Pim Verheij", result.NameEmployee);
+            var educationPlanTest = dataMapper.FindById(1);
+            Assert.AreEqual("Pim Verheij", educationPlanTest.NameEmployee);
+            Assert.AreEqual(1, result);
         }
 
         [TestMethod]
@@ -155,9 +157,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
             educationPlan.Id = 1;
 
             // Act
-            dataMapper.Update(educationPlan);
+            var result = dataMapper.Update(educationPlan);
 
             // Assert
+            Assert.AreEqual(1, result);
             Assert.IsTrue(File.Exists("../../Data/Updated/1.json"));
         }
 

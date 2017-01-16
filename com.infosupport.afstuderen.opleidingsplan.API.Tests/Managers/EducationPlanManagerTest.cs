@@ -142,6 +142,53 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         }
 
         [TestMethod]
+        public void UpdateEducationPlan_Planner_Outputter_Service_DAL_Called()
+        {
+            // Arrange
+            var courses = new Collection<string> { "2NETARCH", "ADCSB" };
+            var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
+
+            var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
+            educationPlanDataMapperMock.Setup(dataMapper => dataMapper.Update(It.IsAny<EducationPlan>())).Returns(1);
+
+            var educationPlanOutputterMock = new Mock<IEducationPlanOutputter>(MockBehavior.Strict);
+            educationPlanOutputterMock.Setup(planner => planner.GenerateEducationPlan(It.IsAny<EducationPlanData>())).Returns(GetDummyEducationPlan());
+
+            var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
+            plannerMock.Setup(planner => planner.PlanCoursesWithOLC(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
+            plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
+            plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
+
+            var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
+            courseServiceMock.Setup(service => service.FindCourses(courses)).Returns(
+                new List<integration.Course>() {
+                    CreateNewIntegrationCourseWithTwoCourseImplementations("2NETARCH", 1,
+                    new Collection<DateTime> { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
+                    new Collection<DateTime> { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) })
+            });
+
+            var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
+            profileDataMapperMock.Setup(dataMapper => dataMapper.FindById(1)).Returns(GetDummyDataProfiles().First());
+
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object);
+            RestEducationPlan educationPlan = GetDummyRestEducationPlan(courses);
+
+
+            // Act
+            var result = manager.UpdateEducationPlan(educationPlan);
+
+            // Assert
+            Assert.AreEqual(1, result);
+            educationPlanOutputterMock.Verify(outputter => outputter.GenerateEducationPlan(It.IsAny<EducationPlanData>()));
+            plannerMock.Verify(planner => planner.PlanCoursesWithOLC(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
+            courseServiceMock.Verify(outputter => outputter.FindCourses(courses));
+            profileDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
+            plannerMock.VerifySet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom);
+            plannerMock.VerifySet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>());
+            educationPlanDataMapperMock.Verify(dataMapper => dataMapper.Update(It.IsAny<EducationPlan>()));
+        }
+
+        [TestMethod]
         public void FindByIdEducationPlan_DAL_Called()
         {
             // Arrange

@@ -91,6 +91,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
                 educationplanData.ProfileId = educationPlan.ProfileId;
             }
 
+            educationPlan.Courses.Remove("OLC"); 
+
             IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlan.Courses);
             List<opleidingsplan.models.Course> coursesToPlan = ConvertCourses(courses, profile);
 
@@ -104,6 +106,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             var educationPlan = GenerateEducationPlan(restEducationPlan);
             return _educationPlanDataMapper.Insert(educationPlan);
         }
+        public long UpdateEducationPlan(RestEducationPlan restEducationPlan)
+        {
+            var educationPlan = GenerateEducationPlan(restEducationPlan);
+            return _educationPlanDataMapper.Update(educationPlan);
+        }
 
         public EducationPlan FindEducationPlan(long id)
         {
@@ -112,12 +119,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 
         public List<EducationPlan> FindEducationPlans(EducationPlanSearch search)
         {
-            return _educationPlanDataMapper.Find(educationPlan => educationPlan.NameEmployee.ToLower().Contains(search.Name.ToLower()) || search.Date.HasValue && educationPlan.Created.Date == search.Date).ToList();
+            return _educationPlanDataMapper.Find(educationPlan => educationPlan.NameEmployee != null && educationPlan.NameEmployee.ToLower().Contains(search.Name.ToLower()) || search.Date.HasValue && educationPlan.Created.Date == search.Date).ToList();
         }
 
         public string GenerateWordFile(EducationPlan educationPlan)
         {
             return _educationPlanConverter.GenerateWord(educationPlan);
         }
+
+        
     }
 }

@@ -5,6 +5,7 @@ using com.infosupport.afstuderen.opleidingsplan.dal;
 using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
 using com.infosupport.afstuderen.opleidingsplan.generator;
 using com.infosupport.afstuderen.opleidingsplan.models;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
     public class EducationPlanController : ApiController
     {
         private readonly IEducationPlanManager _educationPlanManager;
+        private static ILog _logger = LogManager.GetLogger(typeof(EducationPlanController));
 
         public EducationPlanController()
         {
@@ -37,7 +39,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
             _educationPlanManager = educationPlanManager;
         }
 
-        public EducationPlan Post(RestEducationPlan educationPlan)
+        [HttpPost]
+        [Route("api/EducationPlan/generate")]
+        public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan)
         {
             return _educationPlanManager.GenerateEducationPlan(educationPlan);
         }
@@ -47,6 +51,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
             return _educationPlanManager.SaveEducationPlan(educationPlan);
         }
 
+        public long Post(RestEducationPlan educationPlan)
+        {
+            return _educationPlanManager.UpdateEducationPlan(educationPlan);
+        }
+
         public EducationPlan Get(long id)
         {
              return _educationPlanManager.FindEducationPlan(id);
@@ -54,12 +63,24 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
 
         [HttpGet]
         [Route("api/EducationPlan/search")]
-        public List<EducationPlan> Get(string name, DateTime? date)
+        public List<EducationPlan> Get(string name, long? date)
         {
+            _logger.Error("Searched");
+            DateTime? dateCreated = new DateTime();
+
+            if (date.HasValue)
+            {
+                dateCreated = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(date.Value).Date;
+            }
+            else
+            {
+                dateCreated = null;
+            }
+
             return _educationPlanManager.FindEducationPlans(new EducationPlanSearch
             {
                 Name = name,
-                Date = date,
+                Date = dateCreated,
             });
         }
 
