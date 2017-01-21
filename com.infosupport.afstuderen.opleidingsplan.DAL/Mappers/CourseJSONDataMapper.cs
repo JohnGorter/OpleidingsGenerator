@@ -56,7 +56,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
             profiles.FirstOrDefault(profile => profile.Id == coursePriority.ProfileId).Courses = courses;
 
             WriteAllProfilesToFile(profiles);
-            _logger.Debug(string.Format(_culture, "Course deleted with id {0}, code {1} and profile id", courseToDelete.Id, courseToDelete.Code, courseToDelete.ProfileId));
+            _logger.Debug(string.Format(_culture, "Course deleted with id {0}, code {1} and profile id {2}", courseToDelete.Id, courseToDelete.Code, courseToDelete.ProfileId));
         }
 
 
@@ -87,7 +87,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
             profiles.FirstOrDefault(profile => profile.Id == coursePriority.ProfileId).Courses = courses;
 
             WriteAllProfilesToFile(profiles);
-            _logger.Debug(string.Format(_culture, "Course updated with id {0}, code {1} and profile id", courseToUpdate.Id, courseToUpdate.Code, courseToUpdate.ProfileId));
+            _logger.Debug(string.Format(_culture, "Course updated with id {0}, code {1} and profile id {2}", courseToUpdate.Id, courseToUpdate.Code, courseToUpdate.ProfileId));
         }
 
         public void Insert(CoursePriority coursePriority)

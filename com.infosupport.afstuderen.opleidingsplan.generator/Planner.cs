@@ -313,7 +313,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             };
 
             _coursePlanning.Courses.Add(olc);
-            _logger.Debug(string.Format(_culture, "OLC added to course planning. {0} days with start day", olc.CourseImplementations.First().Days.Count(), olc.CourseImplementations.First().Days.First().ToString("dd-MM-yyyy")));
+            _logger.Debug(string.Format(_culture, "OLC added to course planning. {0} days with start day {1}", olc.CourseImplementations.First().Days.Count(), olc.CourseImplementations.First().Days.First().ToString("dd-MM-yyyy")));
         }
 
         private static bool IsWeekend(DateTime date)

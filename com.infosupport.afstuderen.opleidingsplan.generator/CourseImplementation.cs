@@ -107,7 +107,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private bool IsPlannable(IEnumerable<Course> courses, List<string> scannedCourses, int priority)
         {
-            _logger.Debug(string.Format(_culture, "private IsPlannable with startdate", StartDay.ToString("dd-MM-yyyy")));
+            _logger.Debug(string.Format(_culture, "private IsPlannable with startdate {0}", StartDay.ToString("dd-MM-yyyy")));
             bool plannable = false;
 
             if (this.GetIntersectedCourseImplementations(courses).All(ci => ci.Status == Status.PLANNED))
