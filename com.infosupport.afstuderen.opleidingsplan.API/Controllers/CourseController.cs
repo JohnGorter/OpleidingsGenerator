@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using com.infosupport.afstuderen.opleidingsplan.models;
+using log4net;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -15,6 +17,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
     [EnableCors("*","*","*")]
     public class CourseController : ApiController
     {
+        private static ILog _logger = LogManager.GetLogger(typeof(CourseController));
+        private CultureInfo _culture = new CultureInfo("nl-NL");
+
         private readonly ICourseManager _courseManager;
 
         public CourseController()
@@ -33,6 +38,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         // GET: api/Course
         public IEnumerable<opleidingsplan.models.CourseSummary> Get()
         {
+            _logger.Info(string.Format(_culture, "Get all courses"));
             var courses = _courseManager.FindCourses().Coursesummary;
             return Mapper.Map<IEnumerable<opleidingsplan.models.CourseSummary>>(courses);
         }
@@ -40,6 +46,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         // GET: api/Course/POLDEVEL
         public opleidingsplan.models.Course Get(string id)
         {
+            _logger.Info(string.Format(_culture, "Get course with id {0}", id));
             var course = _courseManager.FindCourse(id);
             return Mapper.Map<opleidingsplan.models.Course>(course);
         }
@@ -47,19 +54,43 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         // POST: api/Course
         public void Post(CoursePriority course)
         {
-            _courseManager.Update(course);
+            if(ModelState.IsValid)
+            {
+                _logger.Info(string.Format(_culture, "Post course {0}", course.Code));
+                _courseManager.Update(course);
+            }
+            else
+            {
+                _logger.Warn(string.Format(_culture, "Post course {0} modelstate not valid", course.Code));
+            }
         }
 
         // PUT: api/Course/course
         public void Put(CoursePriority course)
         {
-            _courseManager.Insert(course);
+            if (ModelState.IsValid)
+            {
+                _logger.Info(string.Format(_culture, "Put course {0}", course.Code));
+                _courseManager.Insert(course);
+            }
+            else
+            {
+                _logger.Warn(string.Format(_culture, "Put course {0} modelstate not valid", course.Code));
+            }
         }
 
         // DELETE: api/Course/course
         public void Delete(CoursePriority course)
         {
-            _courseManager.Delete(course);
+            if (ModelState.IsValid)
+            {
+                _logger.Info(string.Format(_culture, "Delete course {0}", course.Code));
+                _courseManager.Delete(course);
+            }
+            else
+            {
+                _logger.Warn(string.Format(_culture, "Delete course {0} modelstate not valid", course.Code));
+            }
         }
     }
 }

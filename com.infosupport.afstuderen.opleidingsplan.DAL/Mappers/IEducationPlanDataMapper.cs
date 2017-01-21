@@ -6,7 +6,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 {
     public interface IEducationPlanDataMapper
     {
-        void Delete(EducationPlan educationPlan);
+        void Delete(long id);
         IEnumerable<EducationPlan> Find(Func<EducationPlan, bool> predicate);
         long Insert(EducationPlan educationPlan);
         long Update(EducationPlan educationPlan);

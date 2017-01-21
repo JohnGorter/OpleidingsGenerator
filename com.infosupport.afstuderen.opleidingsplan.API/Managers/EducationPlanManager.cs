@@ -4,8 +4,10 @@ using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
 using com.infosupport.afstuderen.opleidingsplan.generator;
 using com.infosupport.afstuderen.opleidingsplan.integration;
 using com.infosupport.afstuderen.opleidingsplan.models;
+using log4net;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -19,6 +21,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
         private readonly IDataMapper<opleidingsplan.models.CourseProfile> _profileDataMapper;
         private readonly IEducationPlanDataMapper _educationPlanDataMapper;
         private readonly IEducationPlanConverter _educationPlanConverter;
+
+        private static ILog _logger = LogManager.GetLogger(typeof(EducationPlanManager));
+        private static CultureInfo _culture = new CultureInfo("nl-NL");
 
         public EducationPlanManager(string profilePath, ICourseService courseService, string managementPropertiesPath, string educationPlanPath, string educationPlanUpdatedPath)
         {
@@ -53,6 +58,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 
         private static List<opleidingsplan.models.Course> ConvertCourses(IEnumerable<integration.Course> courses, opleidingsplan.models.CourseProfile profile)
         {
+            _logger.Debug(string.Format(_culture, "ConvertCourses"));
             List<opleidingsplan.models.Course> coursesToPlan = new List<opleidingsplan.models.Course>();
 
             foreach (var course in courses)
@@ -76,8 +82,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
         {
             if (educationPlan == null)
             {
+                _logger.Error(string.Format(_culture, "ArgumentNullException: educationPlan"));
                 throw new ArgumentNullException("educationPlan");
             }
+
+            _logger.Debug(string.Format(_culture, "GenerateEducationPlan for employee {0}", educationPlan.NameEmployee));
 
             _planner.StartDate = educationPlan.InPaymentFrom;
             _planner.BlockedDates = educationPlan.BlockedDates;
@@ -86,6 +95,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             opleidingsplan.models.CourseProfile profile = null;
             if (educationPlan.ProfileId != 0)
             {
+                _logger.Debug(string.Format(_culture, "ProfileId exists: {0}", educationPlan.ProfileId));
                 profile = _profileDataMapper.FindById(educationPlan.ProfileId);
                 educationplanData.Profile = profile.Name;
                 educationplanData.ProfileId = educationPlan.ProfileId;
@@ -93,6 +103,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 
             educationPlan.Courses.Remove("OLC"); 
 
+            _logger.Debug(string.Format(_culture, "Find courses from service"));
             IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlan.Courses);
             List<opleidingsplan.models.Course> coursesToPlan = ConvertCourses(courses, profile);
 

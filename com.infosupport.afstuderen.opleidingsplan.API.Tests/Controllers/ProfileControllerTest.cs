@@ -103,15 +103,15 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
         {
             // Arrange
             var administrationManagerMock = new Mock<IProfileManager>(MockBehavior.Strict);
-            administrationManagerMock.Setup(manager => manager.Delete(It.IsAny<CourseProfile>()));
+            administrationManagerMock.Setup(manager => manager.Delete(1));
 
             ProfileController controller = new ProfileController(administrationManagerMock.Object);
 
             // Act
-            controller.Delete(GetDummyDataProfiles().First());
+            controller.Delete(1);
 
             // Assert
-            administrationManagerMock.Verify(manager => manager.Delete(It.IsAny<CourseProfile>()));
+            administrationManagerMock.Verify(manager => manager.Delete(1));
         }
     }
 }

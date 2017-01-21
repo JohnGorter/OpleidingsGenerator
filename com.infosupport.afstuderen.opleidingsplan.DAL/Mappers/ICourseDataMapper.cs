@@ -8,6 +8,5 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
         void Delete(CoursePriority data);
         void Insert(CoursePriority data);
         void Update(CoursePriority data);
-        List<CoursePriority> FindCoursesByProfile(int profileId);
     }
 }

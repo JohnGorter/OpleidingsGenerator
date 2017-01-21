@@ -10,6 +10,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
         IEnumerable<T> FindAll();
         IEnumerable<T> Find(Func<T, bool> predicate);
         void Update(T data);
-        void Delete(T data);
+        void Delete(long id);
     }
 }

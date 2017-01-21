@@ -1,7 +1,9 @@
 ﻿using com.infosupport.afstuderen.opleidingsplan.api.managers;
 using com.infosupport.afstuderen.opleidingsplan.models;
+using log4net;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -14,6 +16,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
     [EnableCors("*", "*", "*")]
     public class ManagementPropertiesController : ApiController
     {
+        private static ILog _logger = LogManager.GetLogger(typeof(EducationPlanController));
+        private CultureInfo _culture = new CultureInfo("nl-NL");
         private readonly IManagementPropertiesManager _managementPropertiesManager;
         public ManagementPropertiesController(IManagementPropertiesManager managementPropertiesManager)
         {
@@ -31,13 +35,22 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         // GET: api/ManagementProperties
         public ManagementProperties Get()
         {
+            _logger.Info(string.Format(_culture, "Get management properties"));
             return _managementPropertiesManager.FindManagementProperties();
         }
 
         // POST: api/ManagementProperties
         public void Post(ManagementProperties properties)
-        {
-            _managementPropertiesManager.Update(properties);
+        {   
+            if(ModelState.IsValid)
+            {
+                _logger.Info(string.Format(_culture, "Post management properties"));
+                _managementPropertiesManager.Update(properties);
+            }
+            else
+            {
+                _logger.Warn(string.Format(_culture, "Post management properties modelstate is not valid"));
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ using com.infosupport.afstuderen.opleidingsplan.models;
 using log4net;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -22,6 +23,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
     {
         private readonly IEducationPlanManager _educationPlanManager;
         private static ILog _logger = LogManager.GetLogger(typeof(EducationPlanController));
+        private CultureInfo _culture = new CultureInfo("nl-NL");
 
         public EducationPlanController()
         {
@@ -43,29 +45,33 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         [Route("api/EducationPlan/generate")]
         public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan)
         {
+            _logger.Info(string.Format(_culture, "GenerateEducationPlan"));
             return _educationPlanManager.GenerateEducationPlan(educationPlan);
         }
 
         public long Put(RestEducationPlan educationPlan)
         {
+            _logger.Info(string.Format(_culture, "Put educationplan"));
             return _educationPlanManager.SaveEducationPlan(educationPlan);
         }
 
         public long Post(RestEducationPlan educationPlan)
         {
+            _logger.Info(string.Format(_culture, "Post educationplan"));
             return _educationPlanManager.UpdateEducationPlan(educationPlan);
         }
 
         public EducationPlan Get(long id)
         {
-             return _educationPlanManager.FindEducationPlan(id);
+            _logger.Info(string.Format(_culture, "Get educationplan with id {0}", id));
+            return _educationPlanManager.FindEducationPlan(id);
         }
 
         [HttpGet]
         [Route("api/EducationPlan/search")]
         public List<EducationPlan> Get(string name, long? date)
         {
-            _logger.Error("Searched");
+            _logger.Info(string.Format(_culture, "Get educationplan with name {0} and date {1}", name, date));
             DateTime? dateCreated = new DateTime();
 
             if (date.HasValue)
@@ -88,6 +94,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         [Route("api/GenerateWordFile/{id}")]
         public string GenerateWordFile(long id)
         {
+            _logger.Info(string.Format(_culture, "GenerateWordFile with id {0}", id));
             var educationPlan = _educationPlanManager.FindEducationPlan(id);
             return _educationPlanManager.GenerateWordFile(educationPlan);
         }

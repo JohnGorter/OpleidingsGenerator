@@ -121,6 +121,19 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Insert_null_ExceptionThrowed()
+        {
+            // Arrange
+            IDataMapper<CourseProfile> dataMapper = new ProfileJsonDataMapper(_profilePath);
+
+            // Act
+            dataMapper.Insert(null);
+
+            // Assert ArgumentNullException
+        }
+
+        [TestMethod]
         public void Update_ProfileUpdated()
         {
             // Arrange
@@ -163,20 +176,28 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
             // Assert ArgumentException
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Update_null_ExceptionThrowed()
+        {
+            // Arrange
+            IDataMapper<CourseProfile> dataMapper = new ProfileJsonDataMapper(_profilePath);
+
+            // Act
+            dataMapper.Update(null);
+
+            // Assert ArgumentNullException
+        }
+
 
         [TestMethod]
         public void Delete_ProfileDeleted()
         {
             // Arrange
             IDataMapper<CourseProfile> dataMapper = new ProfileJsonDataMapper(_profilePath);
-            CourseProfile profile = new CourseProfile
-            {
-                Id = 1,
-                Name = "NET_Developer"
-            };
 
             // Act
-            dataMapper.Delete(profile);
+            dataMapper.Delete(1);
 
             // Assert
             var result = dataMapper.FindAll();
@@ -193,14 +214,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         {
             // Arrange
             IDataMapper<CourseProfile> dataMapper = new ProfileJsonDataMapper(_profilePath);
-            CourseProfile profile = new CourseProfile
-            {
-                Id = 100,
-                Name = "NET_Developer"
-            };
 
             // Act
-            dataMapper.Delete(profile);
+            dataMapper.Delete(100);
 
             // Assert ArgumentException
         }

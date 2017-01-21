@@ -82,13 +82,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         {
             // Arrange
             IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
-            EducationPlan educationPlan = new EducationPlan
-            {
-                Id = 1,
-            };
 
             // Act
-            dataMapper.Delete(educationPlan);
+            dataMapper.Delete(1);
 
             // Assert
             var result = dataMapper.Find(ep => ep.NameEmployee == "Alex Verbeek");
@@ -101,13 +97,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         {
             // Arrange
             IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
-            EducationPlan educationPlan = new EducationPlan
-            {
-                Id = 100,
-            };
 
             // Act
-            dataMapper.Delete(educationPlan);
+            dataMapper.Delete(100);
 
             // Assert ArgumentException
         }
@@ -245,19 +237,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
 
             // Act
             dataMapper.Update(null);
-
-            // Assert ArgumentNullException
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void Delete_EducationPlanIsNull_ExceptionThrowed()
-        {
-            // Arrange
-            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
-
-            // Act
-            dataMapper.Delete(null);
 
             // Assert ArgumentNullException
         }

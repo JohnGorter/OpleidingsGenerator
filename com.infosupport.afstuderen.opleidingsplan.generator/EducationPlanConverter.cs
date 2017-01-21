@@ -6,11 +6,13 @@ using System.Linq;
 using System.Globalization;
 using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
 using System.IO;
+using log4net;
 
 namespace com.infosupport.afstuderen.opleidingsplan.generator
 {
     public class EducationPlanConverter : IEducationPlanConverter
     {
+        private static ILog _logger = LogManager.GetLogger(typeof(EducationPlanConverter));
         private DocX _document;
         private IManagementPropertiesDataMapper managementPropertiesDataMapper;
         private CultureInfo _culture = new CultureInfo("nl-NL");
@@ -25,9 +27,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public string GenerateWord(EducationPlan educationPlan)
         {
+            _logger.Debug(string.Format(_culture, "GenerateWord"));
 
             if (!Directory.Exists(_path))
             {
+                _logger.Debug(string.Format(_culture, "Path {0} for word files doesn't exists", _path));
                 Directory.CreateDirectory(_path);
             }
 
@@ -50,6 +54,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void InsertFooter()
         {
+            _logger.Debug(string.Format(_culture, "InsertFooter"));
             string footer = managementPropertiesDataMapper.FindManagementProperties().Footer;
             footer = footer.Replace("<Naam>", _educationPlan.NameEmployee);
             _document.InsertParagraph(footer);
@@ -57,6 +62,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void InsertEducationPlanTable(List<EducationPlanCourse> courses, bool planned)
         {
+            _logger.Debug(string.Format(_culture, "InsertEducationPlanTable"));
             Table table = _document.AddTable(courses.Count + 3, 7);
             var firstRow = table.Rows[0];
             firstRow.Cells[0].Paragraphs.First().Append("Week");
@@ -107,6 +113,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void GenerateHeader()
         {
+            _logger.Debug(string.Format(_culture, "GenerateHeader"));
             CreateNameValue("Opleidingsgesprek:\t", _educationPlan.NameEmployee);
             CreateNameValue("Datum:\t\t\t", _educationPlan.Created.ToString(_dateFromat));
             CreateNameValue("Datum in dienst:\t", _educationPlan.InPaymentFrom.ToString(_dateFromat));
@@ -124,6 +131,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void CreateNameValue(string name, List<DateTime> blockedDates)
         {
+            _logger.Debug(string.Format(_culture, "CreateNameValue with name {0}", name));
             if (blockedDates != null && blockedDates.Any())
             {
                 var p = _document.InsertParagraph(name);
@@ -134,6 +142,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void CreateNameValue(string name, string value)
         {
+            _logger.Debug(string.Format(_culture, "CreateNameValue with name {0}", name));
             var p = _document.InsertParagraph(name);
             p.Append(value);
         }

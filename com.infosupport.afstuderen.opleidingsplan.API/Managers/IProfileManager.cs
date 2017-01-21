@@ -12,9 +12,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
     {
         IEnumerable<CourseProfile> FindProfiles();
         CourseProfile FindProfile(string profileName);
-        CourseProfile FindProfileById(int id);
+        CourseProfile FindProfileById(long id);
         void Insert(CourseProfile profile);
         void Update(CourseProfile profile);
-        void Delete(CourseProfile profile);
+        void Delete(long id);
     }
 }

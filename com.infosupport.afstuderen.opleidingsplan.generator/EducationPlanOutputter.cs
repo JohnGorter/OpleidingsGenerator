@@ -1,8 +1,10 @@
 ﻿using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
 using com.infosupport.afstuderen.opleidingsplan.integration;
 using com.infosupport.afstuderen.opleidingsplan.models;
+using log4net;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +13,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 {
     public class EducationPlanOutputter : IEducationPlanOutputter
     {
+        private static ILog _logger = LogManager.GetLogger(typeof(CourseImplementation));
+        private static readonly CultureInfo _culture = new CultureInfo("nl-NL");
+
         private IPlanner _planner;
         private IManagementPropertiesDataMapper _managementPropertiesDataMapper;
 
@@ -22,8 +27,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public EducationPlan GenerateEducationPlan(EducationPlanData educationPlanData)
         {
+            _logger.Debug(string.Format(_culture, "GenerateEducationPlan"));
             if (educationPlanData == null)
             {
+                _logger.Error("ArgumentNullException educationPlanData");
                 throw new ArgumentNullException("educationPlanData");
             }
 
@@ -47,6 +54,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                     .AddDays(daysAfterLastCourseEmployable);
             }
 
+            _logger.Debug(string.Format(_culture, "return EducationPlan"));
             return new EducationPlan
             {
                 Id = educationPlanData.EducationPlanId,
@@ -67,10 +75,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private static List<EducationPlanCourse> GetJustBeforeStartDateNotPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner, DateTime justBeforeStart)
         {
+            _logger.Debug(string.Format(_culture, "GetJustBeforeStartDateNotPlannedEducationPlanCourses with date justBeforeStart {0}", justBeforeStart.ToString("dd-MM-yyyy")));
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
 
             foreach (var course in coursesFromPlanner)
             {
+                _logger.Debug(string.Format(_culture, "Course {0} is just before startdate", course.Code));
+
                 DateTime? startDay = course.CourseImplementations.FirstOrDefault(ci => ci.StartDay > justBeforeStart)?.StartDay;
                 educationPlanCourses.Add(new EducationPlanCourse
                 {
@@ -87,6 +98,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private static List<EducationPlanCourse> GetPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner)
         {
+            _logger.Debug(string.Format(_culture, "GetPlannedEducationPlanCourses"));
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
 
             foreach (var course in coursesFromPlanner)
@@ -108,6 +120,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private static List<EducationPlanCourse> GetNotPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner, List<EducationPlanCourse> plannedCourses)
         {
+            _logger.Debug(string.Format(_culture, "GetNotPlannedEducationPlanCourses"));
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
 
             foreach (var course in coursesFromPlanner)

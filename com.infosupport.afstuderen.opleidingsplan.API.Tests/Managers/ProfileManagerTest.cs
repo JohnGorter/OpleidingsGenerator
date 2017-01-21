@@ -101,15 +101,15 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         {
             // Arrange
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
-            profileDataMapperMock.Setup(dataMapper => dataMapper.Delete(It.IsAny<CourseProfile>()));
+            profileDataMapperMock.Setup(dataMapper => dataMapper.Delete(1));
 
             ProfileManager manager = new ProfileManager(profileDataMapperMock.Object);
 
             // Act
-            manager.Delete(GetDummyDataProfiles().First());
+            manager.Delete(1);
 
             // Assert
-            profileDataMapperMock.Verify(dataMapper => dataMapper.Delete(It.IsAny<CourseProfile>()));
+            profileDataMapperMock.Verify(dataMapper => dataMapper.Delete(1));
         }
     }
 }

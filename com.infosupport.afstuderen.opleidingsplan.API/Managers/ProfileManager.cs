@@ -27,7 +27,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             return _profileDataMapper.Find(profile => profile.Name == profileName).First();
         }
 
-        public CourseProfile FindProfileById(int id)
+        public CourseProfile FindProfileById(long id)
         {
             return _profileDataMapper.FindById(id);
         }
@@ -47,9 +47,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             _profileDataMapper.Update(profile);
         }
 
-        public void Delete(CourseProfile profile)
+        public void Delete(long id)
         {
-            _profileDataMapper.Delete(profile);
+            _profileDataMapper.Delete(id);
         }
     }
 }
