@@ -22,7 +22,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
                     new models.CourseImplementation
                     {
                         Days = days.ToList(),
-                        StartDay =  days.First(),
                     }
                 }
 
@@ -41,12 +40,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
                     new models.CourseImplementation
                     {
                         Days = days1.ToList(),
-                        StartDay =  days1.First(),
                     },
                     new models.CourseImplementation
                     {
                         Days = days2.ToList(),
-                        StartDay =  days2.First(),
                     }
                 }
             };
@@ -64,17 +61,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
                     new models.CourseImplementation
                     {
                         Days = days1.ToList(),
-                        StartDay =  days1.First(),
                     },
                     new models.CourseImplementation
                     {
                         Days = days2.ToList(),
-                        StartDay =  days2.First(),
                     },
                     new models.CourseImplementation
                     {
                         Days = days3.ToList(),
-                        StartDay =  days3.First(),
                     }
                 }
             };

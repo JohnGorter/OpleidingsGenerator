@@ -108,7 +108,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             {
                 new opleidingsplan.models.CourseImplementation
                 {
-                    StartDay = new DateTime(2017, 16, 1),
                     Days = new List<DateTime>()
                     {
                         new DateTime(2017, 16, 1),
@@ -119,7 +118,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
                 },
                 new opleidingsplan.models.CourseImplementation
                 {
-                    StartDay = new DateTime(2017, 3, 4),
                     Days = new List<DateTime>()
                     {
                         new DateTime(2017, 3, 4),

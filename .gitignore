@@ -243,3 +243,4 @@ ModelManifest.xml
 .fake/
 /com.infosupport.afstuderen.opleidingsplan.API/App_Data/Updated
 /com.infosupport.afstuderen.opleidingsplan.API/Data/EducationPlanFiles
+/com.infosupport.afstuderen.opleidingsplan.generator.Tests/Data
