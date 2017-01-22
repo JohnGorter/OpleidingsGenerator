@@ -16,8 +16,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         private static ILog _logger = LogManager.GetLogger(typeof(CourseImplementation));
         private static readonly CultureInfo _culture = new CultureInfo("nl-NL");
 
-        private IPlanner _planner;
-        private IManagementPropertiesDataMapper _managementPropertiesDataMapper;
+        private readonly IPlanner _planner;
+        private readonly IManagementPropertiesDataMapper _managementPropertiesDataMapper;
 
         public EducationPlanOutputter(IPlanner planner, IManagementPropertiesDataMapper managementPropertiesDataMapper)
         {

@@ -13,8 +13,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 {
     public class Planner : IPlanner
     {
-        private IManagementPropertiesDataMapper _managementPropertiesDataMapper;
-        private CoursePlanning _coursePlanning = new CoursePlanning();
+        private readonly IManagementPropertiesDataMapper _managementPropertiesDataMapper;
+        private readonly CoursePlanning _coursePlanning = new CoursePlanning();
         private DateTime _startDate = DateTime.Now;
         private static ILog _logger = LogManager.GetLogger(typeof(Planner));
         private readonly CultureInfo _culture = new CultureInfo("nl-NL");
@@ -95,9 +95,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public void PlanCourses(IEnumerable<models.Course> coursesToPlan)
         {
             _logger.Debug(string.Format(_culture, "Plan courses"));
-            coursesToPlan = coursesToPlan.OrderBy(course => course.Priority);
+            var coursesToPlanOrdered = coursesToPlan.OrderBy(course => course.Priority);
 
-            foreach (var courseToPlan in coursesToPlan)
+            foreach (var courseToPlan in coursesToPlanOrdered)
             {
                 var course = (generator.Course)courseToPlan;
                 var knownCourses = _coursePlanning.Courses;
@@ -151,40 +151,40 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         private void MarkCourseImplementations(generator.Course course, IEnumerable<generator.Course> knownCourses)
         {
             _logger.Debug(string.Format(_culture, "Mark course implementations from course with code {0}", course.Code));
-            course = RemoveBlockedAndOutsidePeriodImplementations(course);
+            var courseWithoutBlocked = RemoveBlockedAndOutsidePeriodImplementations(course);
 
-            if (course.HasOnlyImplementationsWithStatus(Status.UNPLANNABLE))
+            if (courseWithoutBlocked.HasOnlyImplementationsWithStatus(Status.UNPLANNABLE))
             {
-                _logger.Debug(string.Format(_culture, "Course {0} has only implementations with status unplannable", course.Code));
+                _logger.Debug(string.Format(_culture, "Course {0} has only implementations with status unplannable", courseWithoutBlocked.Code));
                 return;
             }
 
-            if (course.HasOneImplementation())
+            if (courseWithoutBlocked.HasOneImplementation())
             {
-                _logger.Debug(string.Format(_culture, "Course {0} has only one implementations with status available", course.Code));
+                _logger.Debug(string.Format(_culture, "Course {0} has only one implementations with status available", courseWithoutBlocked.Code));
 
-                if (course.IsPlannable(knownCourses))
+                if (courseWithoutBlocked.IsPlannable(knownCourses))
                 {
-                    _logger.Debug(string.Format(_culture, "Course {0} is plannable", course.Code)); 
-                    course.MarkAllImplementations(Status.NOTPLANNED);
-                    course.MarkOnlyAvailableImplementationPlanned(knownCourses);
-                    course.MarkAllIntersectedOfPlannedImplementations(Status.UNPLANNABLE, knownCourses);
+                    _logger.Debug(string.Format(_culture, "Course {0} is plannable", courseWithoutBlocked.Code));
+                    courseWithoutBlocked.MarkAllImplementations(Status.NOTPLANNED);
+                    courseWithoutBlocked.MarkOnlyAvailableImplementationPlanned(knownCourses);
+                    courseWithoutBlocked.MarkAllIntersectedOfPlannedImplementations(Status.UNPLANNABLE, knownCourses);
                 }
                 else
                 {
-                    _logger.Debug(string.Format(_culture, "Course {0} is not plannable", course.Code));
-                    course.MarkAllImplementations(Status.UNPLANNABLE);
+                    _logger.Debug(string.Format(_culture, "Course {0} is not plannable", courseWithoutBlocked.Code));
+                    courseWithoutBlocked.MarkAllImplementations(Status.UNPLANNABLE);
                 }
             }
-            else if (course.HasMultipleImplementationsWithStatus(Status.UNKNOWN))
+            else if (courseWithoutBlocked.HasMultipleImplementationsWithStatus(Status.UNKNOWN))
             {
-                _logger.Debug(string.Format(_culture, "Course {0} has multiple implementations with status unknown", course.Code));
-                course.MarkAllImplementations(Status.AVAILABLE);
+                _logger.Debug(string.Format(_culture, "Course {0} has multiple implementations with status unknown", courseWithoutBlocked.Code));
+                courseWithoutBlocked.MarkAllImplementations(Status.AVAILABLE);
             }
             else
             {
-                _logger.Debug(string.Format(_culture, "Course {0} has only implementations with status unplannable", course.Code));
-                course.MarkAllImplementations(Status.UNPLANNABLE);
+                _logger.Debug(string.Format(_culture, "Course {0} has only implementations with status unplannable", courseWithoutBlocked.Code));
+                courseWithoutBlocked.MarkAllImplementations(Status.UNPLANNABLE);
             }
         }
 
@@ -266,14 +266,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                     olcDates.Add(date);
                 }
 
-                if ((previousCourse != selectedCourse && previousDayCourse == null) && selectedCourse != null || BlockedDates.Contains(date))
+                if (((previousCourse != selectedCourse && previousDayCourse == null) && selectedCourse != null || BlockedDates.Contains(date)) && olcDates.Any())
                 {
-                    if (olcDates.Any())
-                    {
-                        _logger.Debug(string.Format(_culture, "OLC dates is not empty at date {0}", date.ToString("dd-MM-yyyy")));
-                        AddOLC(olcDates);
-                        olcDates = new List<DateTime>();
-                    }
+                    _logger.Debug(string.Format(_culture, "OLC dates is not empty at date {0}", date.ToString("dd-MM-yyyy")));
+                    AddOLC(olcDates);
+                    olcDates = new List<DateTime>();                  
                 }
 
                 if (selectedCourse != null)

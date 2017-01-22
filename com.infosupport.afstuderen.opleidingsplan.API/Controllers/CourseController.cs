@@ -18,7 +18,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
     public class CourseController : ApiController
     {
         private static ILog _logger = LogManager.GetLogger(typeof(CourseController));
-        private CultureInfo _culture = new CultureInfo("nl-NL");
+        private readonly CultureInfo _culture = new CultureInfo("nl-NL");
 
         private readonly ICourseManager _courseManager;
 

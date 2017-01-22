@@ -14,21 +14,5 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             : base(message)
         {
         }
-
-        public AmountImplementationException() 
-            : base()
-        {
-        }
-
-        protected AmountImplementationException(SerializationInfo serializationInfo, StreamingContext streamingContext) 
-            : base(serializationInfo, streamingContext)
-        {
-        }
-
-        public AmountImplementationException(string message, Exception exception)
-            :base(message, exception)
-        {
-
-        }
     }
 }

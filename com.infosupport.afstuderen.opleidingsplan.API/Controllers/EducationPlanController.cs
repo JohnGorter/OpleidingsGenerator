@@ -23,7 +23,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
     {
         private readonly IEducationPlanManager _educationPlanManager;
         private static ILog _logger = LogManager.GetLogger(typeof(EducationPlanController));
-        private CultureInfo _culture = new CultureInfo("nl-NL");
+        private readonly CultureInfo _culture = new CultureInfo("nl-NL");
 
         public EducationPlanController()
         {
@@ -72,15 +72,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         public List<EducationPlan> Get(string name, long? date)
         {
             _logger.Info(string.Format(_culture, "Get educationplan with name {0} and date {1}", name, date));
-            DateTime? dateCreated = new DateTime();
+            DateTime? dateCreated = null;
 
             if (date.HasValue)
             {
-                dateCreated = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(date.Value).Date;
-            }
-            else
-            {
-                dateCreated = null;
+                dateCreated = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddSeconds(date.Value).AddHours(1).Date;
             }
 
             return _educationPlanManager.FindEducationPlans(new EducationPlanSearch

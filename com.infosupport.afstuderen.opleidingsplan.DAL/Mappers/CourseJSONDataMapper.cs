@@ -13,7 +13,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 {
     public class CourseJSONDataMapper : ICourseDataMapper
     {
-        private string _path;
+        private readonly string _path;
         private readonly CultureInfo _culture = new CultureInfo("nl-NL");
         private static ILog _logger = LogManager.GetLogger(typeof(CourseJSONDataMapper));
 

@@ -79,13 +79,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         internal bool HasMultipleImplementationsWithStatus(Status status)
         {
             _logger.Debug(string.Format(_culture, "HasMultipleImplementationsWithStatus with status {0} in course {1}", status, Code));
-            return this.CourseImplementations.Where(courseImplementation => courseImplementation.Status == status).Count() > 1;
+            return this.CourseImplementations.Count(courseImplementation => courseImplementation.Status == status) > 1;
         }
 
         public bool HasOneImplementation()
         {
             _logger.Debug(string.Format(_culture, "HasOneImplementation in course {0}", Code));
-            return this.CourseImplementations.Where(ci => ci.Status != Status.UNPLANNABLE).Count() == 1;
+            return this.CourseImplementations.Count(ci => ci.Status != Status.UNPLANNABLE) == 1;
         }
         
         public void MarkAllIntersectedOfPlannedImplementations(Status status, IEnumerable<generator.Course> courses)

@@ -14,11 +14,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
     {
         private static ILog _logger = LogManager.GetLogger(typeof(EducationPlanConverter));
         private DocX _document;
-        private IManagementPropertiesDataMapper managementPropertiesDataMapper;
-        private CultureInfo _culture = new CultureInfo("nl-NL");
-        private string _dateFromat = "dd-MM-yyyy";
+        private readonly IManagementPropertiesDataMapper managementPropertiesDataMapper;
+        private readonly CultureInfo _culture = new CultureInfo("nl-NL");
+        private readonly string _dateFromat = "dd-MM-yyyy";
         private EducationPlan _educationPlan;
-        private string _path;
+        private readonly string _path;
+
         public EducationPlanConverter(string managementPropertiesPath, string path)
         {
             managementPropertiesDataMapper = new ManagementPropertiesJSONDataMapper(managementPropertiesPath);

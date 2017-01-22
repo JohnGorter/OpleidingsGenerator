@@ -19,7 +19,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                     as GeneratorConfiguration;
 
                 if (configuration != null)
+                {
                     return configuration;
+                }
 
                 return new GeneratorConfiguration();
             }

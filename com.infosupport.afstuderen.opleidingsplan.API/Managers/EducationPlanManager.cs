@@ -130,7 +130,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 
         public List<EducationPlan> FindEducationPlans(EducationPlanSearch search)
         {
-            return _educationPlanDataMapper.Find(educationPlan => educationPlan.NameEmployee != null && educationPlan.NameEmployee.ToLower().Contains(search.Name.ToLower()) || search.Date.HasValue && educationPlan.Created.Date == search.Date).ToList();
+            return _educationPlanDataMapper
+                .Find(educationPlan => 
+                educationPlan.NameEmployee != null && search.Name != null &&
+                educationPlan.NameEmployee.ToLowerInvariant().Contains(search.Name.ToLowerInvariant()) || 
+                search.Date.HasValue && educationPlan.Created.Date == search.Date).ToList();
         }
 
         public string GenerateWordFile(EducationPlan educationPlan)

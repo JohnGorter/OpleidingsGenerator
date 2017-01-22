@@ -19,7 +19,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal
                     as DALConfiguration;
 
                 if (configuration != null)
+                {
                     return configuration;
+                }
 
                 return new DALConfiguration();
             }

@@ -14,7 +14,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 {
     public class ManagementPropertiesJSONDataMapper : IManagementPropertiesDataMapper
     {
-        private string _path;
+        private readonly string _path;
         private static ILog _logger = LogManager.GetLogger(typeof(ManagementPropertiesJSONDataMapper));
         private readonly CultureInfo _culture = new CultureInfo("nl-NL");
 
@@ -25,13 +25,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         public ManagementProperties FindManagementProperties()
         {
-            _logger.Debug("Find management properties");
+            _logger.Debug(string.Format(_culture, "Find management properties"));
             return GetProperties();
         }
 
         public void Update(ManagementProperties properties)
         {
-            _logger.Debug("Update management properties");
+            _logger.Debug(string.Format(_culture, "Update management properties"));
             WriteAllPropertiesToFile(properties);
         }
 
@@ -44,7 +44,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
             }
             catch (FileNotFoundException ex)
             {
-                _logger.Error("File to write properties not found", ex);
+                _logger.Error(string.Format(_culture, "File to write properties not found"), ex);
                 throw;
             }
 
@@ -59,12 +59,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
             }
             catch (FileNotFoundException ex)
             {
-                _logger.Error("File to get properties not found", ex);
+                _logger.Error(string.Format(_culture, "File to get properties not found"), ex);
                 throw;
             }
             catch (JsonReaderException ex)
             {
-                _logger.Error("Couldn't deserialize properties", ex);
+                _logger.Error(string.Format(_culture, "Couldn't deserialize properties"), ex);
                 throw;
             }
         }

@@ -17,7 +17,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration
                 as IntegrationConfiguration;
 
             if (configuration != null)
+            {
                 return configuration;
+            }
 
             return new IntegrationConfiguration();
         }

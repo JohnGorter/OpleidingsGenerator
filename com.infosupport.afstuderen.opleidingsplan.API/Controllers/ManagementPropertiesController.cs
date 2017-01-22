@@ -17,7 +17,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
     public class ManagementPropertiesController : ApiController
     {
         private static ILog _logger = LogManager.GetLogger(typeof(EducationPlanController));
-        private CultureInfo _culture = new CultureInfo("nl-NL");
+        private readonly CultureInfo _culture = new CultureInfo("nl-NL");
         private readonly IManagementPropertiesManager _managementPropertiesManager;
         public ManagementPropertiesController(IManagementPropertiesManager managementPropertiesManager)
         {
