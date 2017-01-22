@@ -50,13 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DALConfiguration.cs" />
-    <Compile Include="Mappers\CourseJSONDataMapper.cs" />
+    <Compile Include="Mappers\CourseJsonDataMapper.cs" />
     <Compile Include="Mappers\EducationPlanJsonDataMapper.cs" />
     <Compile Include="Mappers\ICourseDataMapper.cs" />
     <Compile Include="Mappers\IDataMapper.cs" />
     <Compile Include="Mappers\IEducationPlanDataMapper.cs" />
     <Compile Include="Mappers\IManagementPropertiesDataMapper.cs" />
-    <Compile Include="Mappers\ManagementPropertiesJSONDataMapper.cs" />
+    <Compile Include="Mappers\ManagementPropertiesJsonDataMapper.cs" />
     <Compile Include="Mappers\ProfileJsonDataMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

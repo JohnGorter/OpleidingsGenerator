@@ -28,7 +28,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration
         }
 
         [ConfigurationProperty("info-support-training-url", IsRequired = true)]
-        public string InfoSupportTrainingURL
+        public string InfoSupportTrainingUrl
         {
             get
             {

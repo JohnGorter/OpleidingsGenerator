@@ -22,13 +22,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public EducationPlanConverter(string managementPropertiesPath, string path)
         {
-            managementPropertiesDataMapper = new ManagementPropertiesJSONDataMapper(managementPropertiesPath);
+            managementPropertiesDataMapper = new ManagementPropertiesJsonDataMapper(managementPropertiesPath);
             _path = path;
         }
 
         public string GenerateWord(EducationPlan educationPlan)
         {
-            _logger.Debug(string.Format(_culture, "GenerateWord"));
+            _logger.Debug("GenerateWord");
 
             if (!Directory.Exists(_path))
             {
@@ -55,7 +55,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void InsertFooter()
         {
-            _logger.Debug(string.Format(_culture, "InsertFooter"));
+            _logger.Debug("InsertFooter");
             string footer = managementPropertiesDataMapper.FindManagementProperties().Footer;
             footer = footer.Replace("<Naam>", _educationPlan.NameEmployee);
             _document.InsertParagraph(footer);
@@ -63,7 +63,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void InsertEducationPlanTable(List<EducationPlanCourse> courses, bool planned)
         {
-            _logger.Debug(string.Format(_culture, "InsertEducationPlanTable"));
+            _logger.Debug("InsertEducationPlanTable");
             Table table = _document.AddTable(courses.Count + 3, 7);
             var firstRow = table.Rows[0];
             firstRow.Cells[0].Paragraphs.First().Append("Week");
@@ -114,7 +114,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void GenerateHeader()
         {
-            _logger.Debug(string.Format(_culture, "GenerateHeader"));
+            _logger.Debug("GenerateHeader");
             CreateNameValue("Opleidingsgesprek:\t", _educationPlan.NameEmployee);
             CreateNameValue("Datum:\t\t\t", _educationPlan.Created.ToString(_dateFromat));
             CreateNameValue("Datum in dienst:\t", _educationPlan.InPaymentFrom.ToString(_dateFromat));

@@ -26,7 +26,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
 
             // Assert
             managementPropertiesDataMapperMock.Verify(service => service.FindManagementProperties());
-            Assert.AreEqual(150, result.OLCPrice);
+            Assert.AreEqual(150, result.OlcPrice);
             Assert.AreEqual(2, result.PeriodAfterLastCourseEmployableInDays);
             Assert.AreEqual(4, result.PeriodBeforeStartNotifiable);
             Assert.AreEqual(100, result.PeriodEducationPlanInDays);

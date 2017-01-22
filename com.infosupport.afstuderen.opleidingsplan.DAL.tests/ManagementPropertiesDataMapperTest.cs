@@ -29,10 +29,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Update_ManagementProperties()
         {
             // Arrange
-            IManagementPropertiesDataMapper dataMapper = new ManagementPropertiesJSONDataMapper(_managementPropertiesPath);
+            IManagementPropertiesDataMapper dataMapper = new ManagementPropertiesJsonDataMapper(_managementPropertiesPath);
             ManagementProperties properties = new ManagementProperties
             {
-                OLCPrice = 150,
+                OlcPrice = 150,
                 PeriodAfterLastCourseEmployableInDays = 2,
                 PeriodBeforeStartNotifiable = 4,
                 PeriodEducationPlanInDays = 100,
@@ -45,7 +45,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
             // Assert
             var propertiesResult = dataMapper.FindManagementProperties();
 
-            Assert.AreEqual(150, propertiesResult.OLCPrice);
+            Assert.AreEqual(150, propertiesResult.OlcPrice);
             Assert.AreEqual(2, propertiesResult.PeriodAfterLastCourseEmployableInDays);
             Assert.AreEqual(4, propertiesResult.PeriodBeforeStartNotifiable);
             Assert.AreEqual(100, propertiesResult.PeriodEducationPlanInDays);
@@ -56,13 +56,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void FindManagementProperties_ManagementProperties()
         {
             // Arrange
-            IManagementPropertiesDataMapper dataMapper = new ManagementPropertiesJSONDataMapper(_managementPropertiesPath);
+            IManagementPropertiesDataMapper dataMapper = new ManagementPropertiesJsonDataMapper(_managementPropertiesPath);
 
             // Act
             var result = dataMapper.FindManagementProperties();
 
             // Assert
-            Assert.AreEqual(125, result.OLCPrice);
+            Assert.AreEqual(125, result.OlcPrice);
             Assert.AreEqual(7, result.PeriodAfterLastCourseEmployableInDays);
             Assert.AreEqual(7, result.PeriodBeforeStartNotifiable);
             Assert.AreEqual(90, result.PeriodEducationPlanInDays);
@@ -74,10 +74,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Update_WithNotExistingPath_ManagementProperties_ExceptionThrowed()
         {
             // Arrange
-            IManagementPropertiesDataMapper dataMapper = new ManagementPropertiesJSONDataMapper("noPath");
+            IManagementPropertiesDataMapper dataMapper = new ManagementPropertiesJsonDataMapper("noPath");
             ManagementProperties properties = new ManagementProperties
             {
-                OLCPrice = 150,
+                OlcPrice = 150,
                 PeriodAfterLastCourseEmployableInDays = 2,
                 PeriodBeforeStartNotifiable = 4,
                 PeriodEducationPlanInDays = 100,
@@ -95,7 +95,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void FindManagementProperties_WithNotExistingPath_ManagementProperties_ExceptionThrowed()
         {
             // Arrange
-            IManagementPropertiesDataMapper dataMapper = new ManagementPropertiesJSONDataMapper("noPath");
+            IManagementPropertiesDataMapper dataMapper = new ManagementPropertiesJsonDataMapper("noPath");
 
             // Act
             var result = dataMapper.FindManagementProperties();
@@ -108,7 +108,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void FindManagementProperties_WithCorruptedFile_ManagementProperties_ExceptionThrowed()
         {
             // Arrange
-            IManagementPropertiesDataMapper dataMapper = new ManagementPropertiesJSONDataMapper("../../Data/corrupted.json");
+            IManagementPropertiesDataMapper dataMapper = new ManagementPropertiesJsonDataMapper("../../Data/corrupted.json");
 
             // Act
             var result = dataMapper.FindManagementProperties();

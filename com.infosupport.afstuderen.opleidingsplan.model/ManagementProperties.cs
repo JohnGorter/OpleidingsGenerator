@@ -10,7 +10,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.models
     public class ManagementProperties
     {
         [Required]
-        public decimal OLCPrice { get; set; }
+        public decimal OlcPrice { get; set; }
         [Required]
         public int PeriodEducationPlanInDays { get; set; }
         [Required]

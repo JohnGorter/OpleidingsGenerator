@@ -29,7 +29,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Insert_NewCoursePriorityAdded()
         {
             // Arrange
-            ICourseDataMapper dataMapper = new CourseJSONDataMapper(_profilePath);
+            ICourseDataMapper dataMapper = new CourseJsonDataMapper(_profilePath);
             CoursePriority course = new CoursePriority
             {
                 ProfileId = 1,
@@ -57,7 +57,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Insert_ExistingProfile_ExceptionThrowed()
         {
             // Arrange
-            ICourseDataMapper dataMapper = new CourseJSONDataMapper(_profilePath);
+            ICourseDataMapper dataMapper = new CourseJsonDataMapper(_profilePath);
             CoursePriority course = new CoursePriority
             {
                 ProfileId = 1,
@@ -75,7 +75,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Update_CoursePriority()
         {
             // Arrange
-            ICourseDataMapper dataMapper = new CourseJSONDataMapper(_profilePath);
+            ICourseDataMapper dataMapper = new CourseJsonDataMapper(_profilePath);
             CoursePriority course = new CoursePriority
             {
                 Id = 1,
@@ -104,7 +104,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Update_WithNotExistingCourse_ExceptionThrowed()
         {
             // Arrange
-            ICourseDataMapper dataMapper = new CourseJSONDataMapper(_profilePath);
+            ICourseDataMapper dataMapper = new CourseJsonDataMapper(_profilePath);
             CoursePriority course = new CoursePriority
             {
                 Id = 99,
@@ -123,7 +123,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Delete_CoursePriority()
         {
             // Arrange
-            ICourseDataMapper dataMapper = new CourseJSONDataMapper(_profilePath);
+            ICourseDataMapper dataMapper = new CourseJsonDataMapper(_profilePath);
             CoursePriority course = new CoursePriority
             {
                 Id = 1,
@@ -149,7 +149,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Delete_WithNotExistingProfile_ExceptionThrowed()
         {
             // Arrange
-            ICourseDataMapper dataMapper = new CourseJSONDataMapper(_profilePath);
+            ICourseDataMapper dataMapper = new CourseJsonDataMapper(_profilePath);
             CoursePriority course = new CoursePriority
             {
                 ProfileId = 4,
@@ -167,7 +167,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Delete_WithNotExistingCourseInProfile_ExceptionThrowed()
         {
             // Arrange
-            ICourseDataMapper dataMapper = new CourseJSONDataMapper(_profilePath);
+            ICourseDataMapper dataMapper = new CourseJsonDataMapper(_profilePath);
             CoursePriority course = new CoursePriority
             {
                 ProfileId = 1,
@@ -185,7 +185,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Delete_DataIsNull_ExceptionThrowed()
         {
             // Arrange
-            ICourseDataMapper dataMapper = new CourseJSONDataMapper(_profilePath);
+            ICourseDataMapper dataMapper = new CourseJsonDataMapper(_profilePath);
 
             // Act
             dataMapper.Delete(null);
@@ -198,7 +198,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Insert_DataIsNull_ExceptionThrowed()
         {
             // Arrange
-            ICourseDataMapper dataMapper = new CourseJSONDataMapper(_profilePath);
+            ICourseDataMapper dataMapper = new CourseJsonDataMapper(_profilePath);
 
             // Act
             dataMapper.Insert(null);
@@ -211,7 +211,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Update_DataIsNull_ExceptionThrowed()
         {
             // Arrange
-            ICourseDataMapper dataMapper = new CourseJSONDataMapper(_profilePath);
+            ICourseDataMapper dataMapper = new CourseJsonDataMapper(_profilePath);
 
             // Act
             dataMapper.Update(null);
@@ -224,7 +224,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Insert_WithNotExistingPath_ExceptionThrowed()
         {
             // Arrange
-            ICourseDataMapper dataMapper = new CourseJSONDataMapper("noPath");
+            ICourseDataMapper dataMapper = new CourseJsonDataMapper("noPath");
             CoursePriority course = new CoursePriority
             {
                 ProfileId = 1,
@@ -243,7 +243,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void Insert_WithCorruptedFile_ExceptionThrowed()
         {
             // Arrange
-            ICourseDataMapper dataMapper = new CourseJSONDataMapper("../../Data/corrupted.json");
+            ICourseDataMapper dataMapper = new CourseJsonDataMapper("../../Data/corrupted.json");
             CoursePriority course = new CoursePriority
             {
                 ProfileId = 1,

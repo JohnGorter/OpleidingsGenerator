@@ -13,8 +13,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration.tests
             IntegrationConfiguration config = IntegrationConfiguration.Configuration;
 
             //Act
-            var result = config.InfoSupportTrainingURL;
-            result = config.InfoSupportTrainingURL;
+            var result = config.InfoSupportTrainingUrl;
+            result = config.InfoSupportTrainingUrl;
 
             //Assert
             Assert.AreEqual("http://services.infosupport.com/ISTraining.External/v2/nl/", result);

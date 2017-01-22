@@ -20,7 +20,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration
 
         public CourseService()
         {
-            string infoSupportTrainingURL = IntegrationConfiguration.Configuration.InfoSupportTrainingURL;
+            string infoSupportTrainingURL = IntegrationConfiguration.Configuration.InfoSupportTrainingUrl;
             _baseUrl = new Uri(infoSupportTrainingURL);
         }
 

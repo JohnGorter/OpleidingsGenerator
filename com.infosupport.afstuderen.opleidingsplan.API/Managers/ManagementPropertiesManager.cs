@@ -13,7 +13,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 
         public ManagementPropertiesManager(string managementPropertiesPath)
         {
-            _managementPropertiesDataMapper = new ManagementPropertiesJSONDataMapper(managementPropertiesPath);
+            _managementPropertiesDataMapper = new ManagementPropertiesJsonDataMapper(managementPropertiesPath);
         }
 
         public ManagementPropertiesManager(IManagementPropertiesDataMapper managementPropertiesDataMapper)

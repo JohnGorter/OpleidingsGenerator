@@ -12,12 +12,12 @@ using System.Globalization;
 
 namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 {
-    public class ManagementPropertiesJSONDataMapper : IManagementPropertiesDataMapper
+    public class ManagementPropertiesJsonDataMapper : IManagementPropertiesDataMapper
     {
         private readonly string _path;
-        private static ILog _logger = LogManager.GetLogger(typeof(ManagementPropertiesJSONDataMapper));
+        private static ILog _logger = LogManager.GetLogger(typeof(ManagementPropertiesJsonDataMapper));
 
-        public ManagementPropertiesJSONDataMapper(string path)
+        public ManagementPropertiesJsonDataMapper(string path)
         {
             _path = path;
         }

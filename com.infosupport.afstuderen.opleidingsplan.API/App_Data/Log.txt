@@ -1,1 +1,11 @@
 ﻿2017-01-16 14:32:37,854 ERROR com.infosupport.afstuderen.opleidingsplan.api.controllers.EducationPlanController - Searched
+2017-01-22 14:43:22,590 INFO  com.infosupport.afstuderen.opleidingsplan.api.controllers.EducationPlanController Get - Get management properties
+2017-01-22 14:44:21,098 INFO  com.infosupport.afstuderen.opleidingsplan.api.controllers.EducationPlanController Get - Get management properties
+2017-01-22 14:44:24,221 INFO  com.infosupport.afstuderen.opleidingsplan.api.controllers.CourseController Get - Get all course profiles
+2017-01-22 14:44:26,523 INFO  com.infosupport.afstuderen.opleidingsplan.api.controllers.CourseController Get - Get all course profiles
+2017-01-22 14:44:26,841 INFO  com.infosupport.afstuderen.opleidingsplan.api.controllers.CourseController Get - Get all course profile with id 1
+2017-01-22 14:44:31,843 INFO  com.infosupport.afstuderen.opleidingsplan.api.controllers.EducationPlanController Get - Get educationplan with name pim and date 0
+2017-01-22 14:44:34,572 INFO  com.infosupport.afstuderen.opleidingsplan.api.controllers.EducationPlanController Get - Get educationplan with id 19
+2017-01-22 14:44:37,706 INFO  com.infosupport.afstuderen.opleidingsplan.api.controllers.CourseController Get - Get all course profiles
+2017-01-22 14:44:37,707 INFO  com.infosupport.afstuderen.opleidingsplan.api.controllers.EducationPlanController Get - Get educationplan with id 19
+2017-01-22 14:44:47,511 INFO  com.infosupport.afstuderen.opleidingsplan.api.controllers.CourseController Get - Get all courses

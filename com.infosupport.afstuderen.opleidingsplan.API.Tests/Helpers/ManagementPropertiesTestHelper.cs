@@ -8,7 +8,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
         {
             return new ManagementProperties
             {
-                OLCPrice = 150,
+                OlcPrice = 150,
                 PeriodAfterLastCourseEmployableInDays = 2,
                 PeriodBeforeStartNotifiable = 4,
                 PeriodEducationPlanInDays = 100,

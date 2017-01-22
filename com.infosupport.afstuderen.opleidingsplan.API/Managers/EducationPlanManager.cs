@@ -28,7 +28,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
         public EducationPlanManager(string profilePath, ICourseService courseService, string managementPropertiesPath, string educationPlanPath, string educationPlanUpdatedPath)
         {
             _courseService = courseService;
-            IManagementPropertiesDataMapper managementPropertiesDataMapper = new ManagementPropertiesJSONDataMapper(managementPropertiesPath);
+            IManagementPropertiesDataMapper managementPropertiesDataMapper = new ManagementPropertiesJsonDataMapper(managementPropertiesPath);
             _planner = new Planner(managementPropertiesDataMapper);
             _educationPlanOutputter = new EducationPlanOutputter(_planner, managementPropertiesDataMapper);
             _profileDataMapper = new ProfileJsonDataMapper(profilePath);
@@ -38,7 +38,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
         public EducationPlanManager(string profilePath, string managementPropertiesPath, string educationPlanPath, string educationPlanUpdatedPath, string educationPlanFilePath)
         {
             _courseService = new CourseService();
-            IManagementPropertiesDataMapper managementPropertiesDataMapper = new ManagementPropertiesJSONDataMapper(managementPropertiesPath);
+            IManagementPropertiesDataMapper managementPropertiesDataMapper = new ManagementPropertiesJsonDataMapper(managementPropertiesPath);
             _planner = new Planner(managementPropertiesDataMapper);
             _educationPlanOutputter = new EducationPlanOutputter(_planner, managementPropertiesDataMapper);
             _profileDataMapper = new ProfileJsonDataMapper(profilePath);
@@ -107,7 +107,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlan.Courses);
             List<opleidingsplan.models.Course> coursesToPlan = ConvertCourses(courses, profile);
 
-            _planner.PlanCoursesWithOLC(coursesToPlan);
+            _planner.PlanCoursesWithOlc(coursesToPlan);
 
             return _educationPlanOutputter.GenerateEducationPlan(educationplanData);
         }

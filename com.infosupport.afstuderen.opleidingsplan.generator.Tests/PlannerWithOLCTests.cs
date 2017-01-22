@@ -33,7 +33,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             // Act
-            planner.PlanCoursesWithOLC(coursesToPlan);
+            planner.PlanCoursesWithOlc(coursesToPlan);
             
             // Assert
             Assert.AreEqual(7, planner.PlannedCourses.Count());
@@ -93,7 +93,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             // Act
-            planner.PlanCoursesWithOLC(coursesToPlan);
+            planner.PlanCoursesWithOlc(coursesToPlan);
 
             // Assert
             Assert.AreEqual(6, planner.PlannedCourses.Count());
@@ -148,7 +148,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             // Act
-            planner.PlanCoursesWithOLC(coursesToPlan);
+            planner.PlanCoursesWithOlc(coursesToPlan);
 
             // Assert
             Assert.AreEqual(6, planner.PlannedCourses.Count());
@@ -201,7 +201,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             // Act
-            planner.PlanCoursesWithOLC(coursesToPlan);
+            planner.PlanCoursesWithOlc(coursesToPlan);
 
             // Assert
             Assert.AreEqual(6, planner.PlannedCourses.Count());
@@ -259,7 +259,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             // Act
-            planner.PlanCoursesWithOLC(coursesToPlan);
+            planner.PlanCoursesWithOlc(coursesToPlan);
 
             // Assert
             Assert.AreEqual(6, planner.PlannedCourses.Count());
@@ -317,7 +317,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             };
 
             // Act
-            planner.PlanCoursesWithOLC(coursesToPlan);
+            planner.PlanCoursesWithOlc(coursesToPlan);
 
             // Assert
             Assert.AreEqual(9, planner.PlannedCourses.Count());

@@ -202,7 +202,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
         {
             return new ManagementProperties
             {
-                OLCPrice = 125,
+                OlcPrice = 125,
                 PeriodAfterLastCourseEmployableInDays = 7,
                 PeriodBeforeStartNotifiable = 7,
                 PeriodEducationPlanInDays = 90,

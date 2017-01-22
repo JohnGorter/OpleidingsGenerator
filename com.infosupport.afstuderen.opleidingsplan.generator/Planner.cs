@@ -85,11 +85,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             _managementPropertiesDataMapper = managementPropertiesDataMapper;
         }
 
-        public void PlanCoursesWithOLC(IEnumerable<models.Course> coursesToPlan)
+        public void PlanCoursesWithOlc(IEnumerable<models.Course> coursesToPlan)
         {
             _logger.Debug("Plan courses with OLC");
             PlanCourses(coursesToPlan);
-            ApplyOLC();
+            ApplyOlc();
         }
 
         public void PlanCourses(IEnumerable<models.Course> coursesToPlan)
@@ -215,7 +215,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         }
 
-        private void ApplyOLC()
+        private void ApplyOlc()
         {
             _logger.Debug("Apply OLC");
             List<Course> plannedCourses = _coursePlanning.PlannedCourses.OrderBy(course => course.PlannedImplementation.StartDay).ToList();
@@ -252,7 +252,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                     if (olcDates.Any())
                     {
                         _logger.Debug(string.Format(_culture, "OLC dates is not empty at date {0}", date.ToString("dd-MM-yyyy")));
-                        AddOLC(olcDates);
+                        AddOlc(olcDates);
                         olcDates = new List<DateTime>();
                     }
                     continue;
@@ -269,7 +269,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                 if (((previousCourse != selectedCourse && previousDayCourse == null) && selectedCourse != null || BlockedDates.Contains(date)) && olcDates.Any())
                 {
                     _logger.Debug(string.Format(_culture, "OLC dates is not empty at date {0}", date.ToString("dd-MM-yyyy")));
-                    AddOLC(olcDates);
+                    AddOlc(olcDates);
                     olcDates = new List<DateTime>();                  
                 }
 
@@ -284,14 +284,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             if (olcDates.Any())
             {
                 _logger.Debug("Add last OLC to planning");
-                AddOLC(olcDates);
+                AddOlc(olcDates);
             }
         }
 
-        private void AddOLC(List<DateTime> dates)
+        private void AddOlc(List<DateTime> dates)
         {
             _logger.Debug("Add OLC");
-            decimal olcPrice = _managementPropertiesDataMapper.FindManagementProperties().OLCPrice;
+            decimal olcPrice = _managementPropertiesDataMapper.FindManagementProperties().OlcPrice;
 
             Course olc = new Course
             {

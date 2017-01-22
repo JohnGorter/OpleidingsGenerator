@@ -16,7 +16,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
         public CourseManager(string pathToProfiles)
         {
             _courseService = new CourseService();
-            _courseDataMapper = new CourseJSONDataMapper(pathToProfiles);
+            _courseDataMapper = new CourseJsonDataMapper(pathToProfiles);
         }
 
         public CourseManager(ICourseService courseManager)

@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 {
-    public class CourseJSONDataMapper : ICourseDataMapper
+    public class CourseJsonDataMapper : ICourseDataMapper
     {
         private readonly string _path;
         private readonly CultureInfo _culture = new CultureInfo("nl-NL");
-        private static ILog _logger = LogManager.GetLogger(typeof(CourseJSONDataMapper));
+        private static ILog _logger = LogManager.GetLogger(typeof(CourseJsonDataMapper));
 
-        public CourseJSONDataMapper(string path)
+        public CourseJsonDataMapper(string path)
         {
             _path = path;
         }
@@ -119,7 +119,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         private long GenerateId(List<CourseProfile> allProfiles)
         {
-            _logger.Debug(string.Format(_culture, "Generate id for course"));
+            _logger.Debug("Generate id for course");
 
             long newId = 1;
 
