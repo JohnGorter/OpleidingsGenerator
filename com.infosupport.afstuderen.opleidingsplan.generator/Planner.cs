@@ -266,7 +266,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                     olcDates.Add(date);
                 }
 
-                if (((previousCourse != selectedCourse && previousDayCourse == null) && selectedCourse != null || BlockedDates.Contains(date)) && olcDates.Any())
+                bool newCourse = previousCourse != selectedCourse && previousDayCourse == null && selectedCourse != null;
+
+                if ((newCourse || BlockedDates.Contains(date)) && olcDates.Any())
                 {
                     _logger.Debug(string.Format(_culture, "OLC dates is not empty at date {0}", date.ToString("dd-MM-yyyy")));
                     AddOlc(olcDates);
