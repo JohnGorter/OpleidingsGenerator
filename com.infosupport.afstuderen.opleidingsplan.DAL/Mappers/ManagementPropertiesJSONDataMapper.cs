@@ -37,16 +37,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
         private void WriteAllPropertiesToFile(ManagementProperties properties)
         {
             var convertedJson = JsonConvert.SerializeObject(properties, Formatting.Indented);
-            try
+
+            if(File.Exists(_path))
             {
                 File.WriteAllText(_path, convertedJson);
             }
-            catch (FileNotFoundException ex)
+            else
             {
-                _logger.Error("File to write properties not found", ex);
-                throw;
+                string errorMessage = "File to write properties not found";
+                _logger.Error(errorMessage);
+                throw new FileNotFoundException(errorMessage);
             }
-
         }
 
         private ManagementProperties GetProperties()
@@ -61,7 +62,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
                 _logger.Error("File to get properties not found", ex);
                 throw;
             }
-            catch (JsonReaderException ex)
+            catch (JsonSerializationException ex)
             {
                 _logger.Error("Couldn't deserialize properties", ex);
                 throw;

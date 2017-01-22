@@ -4,6 +4,7 @@ using System.IO;
 using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
 using com.infosupport.afstuderen.opleidingsplan.models;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
 {
@@ -216,6 +217,44 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
             dataMapper.Update(null);
 
             // Assert ArgumentNullException
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FileNotFoundException))]
+        public void Insert_WithNotExistingPath_ExceptionThrowed()
+        {
+            // Arrange
+            ICourseDataMapper dataMapper = new CourseJSONDataMapper("noPath");
+            CoursePriority course = new CoursePriority
+            {
+                ProfileId = 1,
+                Code = "WINDOWDEV",
+                Priority = 5,
+            };
+
+            // Act
+            dataMapper.Insert(course);
+
+            // Assert FileNotFoundException
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(JsonReaderException))]
+        public void Insert_WithCorruptedFile_ExceptionThrowed()
+        {
+            // Arrange
+            ICourseDataMapper dataMapper = new CourseJSONDataMapper("../../Data/corrupted.json");
+            CoursePriority course = new CoursePriority
+            {
+                ProfileId = 1,
+                Code = "WINDOWDEV",
+                Priority = 5,
+            };
+
+            // Act
+            dataMapper.Insert(course);
+
+            // Assert FileNotFoundException
         }
     }
 }

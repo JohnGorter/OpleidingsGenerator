@@ -5,6 +5,7 @@ using com.infosupport.afstuderen.opleidingsplan.models;
 using com.infosupport.afstuderen.opleidingsplan.dal.tests.helpers;
 using System.IO;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
 {
@@ -226,6 +227,45 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
             Assert.AreEqual(2, result.ElementAt(1).EducationPlanNew.Id);
             Assert.AreEqual("Jan Verstegen", result.ElementAt(1).EducationPlanOld.NameEmployee);
             Assert.AreEqual("Pim Verheij", result.ElementAt(1).EducationPlanNew.NameEmployee);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FileNotFoundException))]
+        public void FindAllUpdated_WithNotExistingPath_ExceptionThrowed()
+        {
+            // Arrange
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper("NoPath", _updatedDirPath);
+
+            // Act
+            var result = dataMapper.FindAllUpdated();
+
+            // Assert
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(JsonReaderException))]
+        public void FindAllUpdated_WithCorruptedFile_ExceptionThrowed()
+        {
+            // Arrange
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper("../../Data/corrupted.json", _updatedDirPath);
+
+            // Act
+            var result = dataMapper.FindAllUpdated();
+
+            // Assert
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(DirectoryNotFoundException))]
+        public void FindAllUpdated_UpdatedDir_ExceptionThrowed()
+        {
+            // Arrange
+            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, "noPath");
+
+            // Act
+            var result = dataMapper.FindAllUpdated();
+
+            // Assert
         }
 
         [TestMethod]

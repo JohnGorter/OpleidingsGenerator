@@ -122,30 +122,37 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
             List<EducationPlanCompare> educationPlansCompareList = new List<EducationPlanCompare>();
             var educationPlans = GetAllEducationPlans();
             _logger.Debug(string.Format(_culture, "Find all updated: {0} education plans found", educationPlans.Count));
-
-            foreach (var file in Directory.GetFiles(_updatedDirPath))
+            try
             {
-                try
+                foreach (var file in Directory.GetFiles(_updatedDirPath))
                 {
-                    string educationPlanJSON = File.ReadAllText(file);
-                    var oldEducationPlan = JsonConvert.DeserializeObject<EducationPlan>(educationPlanJSON);
-                    var newEducationPlan = educationPlans.FirstOrDefault(ep => ep.Id == oldEducationPlan.Id);
-                    educationPlansCompareList.Add(new EducationPlanCompare
+                    try
                     {
-                        EducationPlanNew = newEducationPlan,
-                        EducationPlanOld = oldEducationPlan,
-                    });
+                        string educationPlanJSON = File.ReadAllText(file);
+                        var oldEducationPlan = JsonConvert.DeserializeObject<EducationPlan>(educationPlanJSON);
+                        var newEducationPlan = educationPlans.FirstOrDefault(ep => ep.Id == oldEducationPlan.Id);
+                        educationPlansCompareList.Add(new EducationPlanCompare
+                        {
+                            EducationPlanNew = newEducationPlan,
+                            EducationPlanOld = oldEducationPlan,
+                        });
+                    }
+                    catch (FileNotFoundException ex)
+                    {
+                        _logger.Error(string.Format(_culture, "File {0} with updated education plan not found", file), ex);
+                        throw;
+                    }
+                    catch (JsonReaderException ex)
+                    {
+                        _logger.Error(string.Format(_culture, "Couldn't deserialize updated education plan in file {0}", file), ex);
+                        throw;
+                    }
                 }
-                catch (FileNotFoundException ex)
-                {
-                    _logger.Error(string.Format(_culture, "File {0} with updated education plan not found", file), ex);
-                    throw;
-                }
-                catch (JsonReaderException ex)
-                {
-                    _logger.Error(string.Format(_culture, "Couldn't deserialize updated education plan in file {0}", file), ex);
-                    throw;
-                }
+            }
+            catch(DirectoryNotFoundException ex)
+            {
+                _logger.Error(string.Format(_culture, "Directory {0} with updated education plan not found", _updatedDirPath), ex);
+                throw;
             }
 
             return educationPlansCompareList;
@@ -161,16 +168,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
             var convertedJson = JsonConvert.SerializeObject(educationPlan, Formatting.Indented);
 
-            try
-            {
-                File.WriteAllText(Path.Combine(_updatedDirPath, educationPlan.Id + ".json"), convertedJson);
-                _logger.Debug(string.Format(_culture, "Saved new updated education plan to directory {0} with id {1} and employee {2}", _updatedDirPath, educationPlan.Id, educationPlan.NameEmployee));
-            }
-            catch (DirectoryNotFoundException ex)
-            {
-                _logger.Error(string.Format(_culture, "Directory {0} to write updated educationplan not found", _updatedDirPath), ex);
-                throw;
-            }
+            File.WriteAllText(Path.Combine(_updatedDirPath, educationPlan.Id + ".json"), convertedJson);
+            _logger.Debug(string.Format(_culture, "Saved new updated education plan to directory {0} with id {1} and employee {2}", _updatedDirPath, educationPlan.Id, educationPlan.NameEmployee));
+
         }
 
         private void WriteEducationPlansToFile(List<EducationPlan> educationPlan)
