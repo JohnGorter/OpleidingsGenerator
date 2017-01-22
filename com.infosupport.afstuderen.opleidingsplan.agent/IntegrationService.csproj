@@ -49,30 +49,16 @@
     <Compile Include="CourseService.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="Coursesummarycollection.cs" />
-    <Compile Include="EducationPlan.cs">
-      <DependentUpon>EducationPlan.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ICourseService.cs" />
     <Compile Include="IntegrationConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="coursexsd.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="courselist.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="EducationPlan.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="course.xml" />
     <Content Include="courselist.xml" />
-    <Content Include="EducationPlan.xml" />
-    <Content Include="svcutil.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.model\Models.csproj">

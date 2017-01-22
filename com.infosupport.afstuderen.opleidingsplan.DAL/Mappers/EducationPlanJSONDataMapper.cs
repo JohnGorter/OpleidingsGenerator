@@ -210,7 +210,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         private long GenerateId(List<EducationPlan> allEducationPlans)
         {
-            _logger.Debug(string.Format(_culture, "Generate id for education plan"));
+            _logger.Debug("Generate id for education plan");
 
             long newId = 1;
 
