@@ -59,6 +59,7 @@
     <Compile Include="EducationPlanDataMapperTest.cs" />
     <Compile Include="CourseDataMapperTest.cs" />
     <Compile Include="ManagementPropertiesDataMapperTest.cs" />
+    <Compile Include="ConfigurationTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Profiles.json" />

@@ -7,21 +7,24 @@ using System.Threading.Tasks;
 
 namespace com.infosupport.afstuderen.opleidingsplan.integration
 {
-    class IntegrationConfiguration : ConfigurationSection
+    public class IntegrationConfiguration : ConfigurationSection
     {
-        public static IntegrationConfiguration GetConfiguration()
+        public static IntegrationConfiguration Configuration
         {
-            IntegrationConfiguration configuration =
-                ConfigurationManager
-                .GetSection("serviceConnection")
-                as IntegrationConfiguration;
-
-            if (configuration != null)
+            get
             {
-                return configuration;
-            }
+                IntegrationConfiguration configuration =
+                    ConfigurationManager
+                    .GetSection("serviceConnection")
+                    as IntegrationConfiguration;
 
-            return new IntegrationConfiguration();
+                if (configuration != null)
+                {
+                    return configuration;
+                }
+
+                return new IntegrationConfiguration();
+            }
         }
 
         [ConfigurationProperty("info-support-training-url", IsRequired = true)]

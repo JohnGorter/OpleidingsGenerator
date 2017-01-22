@@ -73,6 +73,7 @@
     <Compile Include="CourseImplementationIsPlannableTest.cs" />
     <Compile Include="PlannerWithOLCTests.cs" />
     <Compile Include="EducationPlanConverterTest.cs" />
+    <Compile Include="ConfigurationTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\com.infosupport.afstuderen.opleidingsplan.DAL\DAL.csproj">
