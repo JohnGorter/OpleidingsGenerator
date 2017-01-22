@@ -40,15 +40,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
 
         // POST: api/ManagementProperties
         public void Post(ManagementProperties properties)
-        {   
-            if(ModelState.IsValid)
+        {
+            _logger.Info("Post management properties");
+
+            if (ModelState.IsValid)
             {
-                _logger.Info("Post management properties");
+                _logger.Info("Post management properties IsValid");
                 _managementPropertiesManager.Update(properties);
-            }
-            else
-            {
-                _logger.Warn("Post management properties modelstate is not valid");
             }
         }
     }
