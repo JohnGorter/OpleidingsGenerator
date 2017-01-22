@@ -46,7 +46,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             _educationPlanConverter = new EducationPlanConverter(managementPropertiesPath, educationPlanFilePath);
         }
 
-        public EducationPlanManager(ICourseService courseService, IPlanner planner, IEducationPlanOutputter educationPlanOutputter, IDataMapper<opleidingsplan.models.CourseProfile> profileDataMapper, IEducationPlanDataMapper educationPlanDataMapper, IEducationPlanConverter educationPlanConverter)
+        public EducationPlanManager(ICourseService courseService, IPlanner planner, IEducationPlanOutputter educationPlanOutputter, 
+            IDataMapper<opleidingsplan.models.CourseProfile> profileDataMapper, IEducationPlanDataMapper educationPlanDataMapper, 
+            IEducationPlanConverter educationPlanConverter)
         {
             _courseService = courseService;
             _planner = planner;
