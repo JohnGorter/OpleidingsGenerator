@@ -20,7 +20,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public static explicit operator CourseImplementation(models.CourseImplementation courseImplementation)
         {
-            _logger.Debug(string.Format(_culture, "Cast course implementation"));
+            _logger.Debug("Cast course implementation");
             return new CourseImplementation
             {
                 Location = courseImplementation.Location,
@@ -31,13 +31,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public bool Intersects(IEnumerable<CourseImplementation> courseImplementations)
         {
-            _logger.Debug(string.Format(_culture, "Intersects course implementations"));
+            _logger.Debug("Intersects course implementations");
             return courseImplementations.Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day)));
         }
 
         public bool Intersects(IEnumerable<Course> courses)
         {
-            _logger.Debug(string.Format(_culture, "Intersects courses"));
+            _logger.Debug("Intersects courses");
             return courses
                 .SelectMany(course => course.CourseImplementations)
                 .Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day)));
@@ -57,7 +57,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public IEnumerable<CourseImplementation> GetIntersectedCourseImplementations(IEnumerable<Course> courses)
         {
-            _logger.Debug(string.Format(_culture, "GetIntersectedCourseImplementations"));
+            _logger.Debug("GetIntersectedCourseImplementations");
             return courses
                  .SelectMany(course => course.CourseImplementations)
                  .Where(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day)));
@@ -65,7 +65,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public bool IsPlannable(IEnumerable<Course> courses, int priority, string code)
         {
-            _logger.Debug(string.Format(_culture, "IsPlannable"));
+            _logger.Debug("IsPlannable");
 
             if (!this.Intersects(courses))
             {
@@ -93,7 +93,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             {
                 Code = code,
                 Priority = priority,
-                CourseImplementations = new List<CourseImplementation>()
+                CourseImplementations = new List<CourseImplementation>
                 {
                     this,
                 },
@@ -112,7 +112,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
             if (this.GetIntersectedCourseImplementations(courses).All(ci => ci.Status == Status.PLANNED))
             {
-                _logger.Debug(string.Format(_culture, "All intersected course implementations are planned"));
+                _logger.Debug("All intersected course implementations are planned");
                 return false;
             }
 
@@ -143,7 +143,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private IEnumerable<Course> GetIntersectedCourses(IEnumerable<Course> courses)
         {
-            _logger.Debug(string.Format(_culture, "GetIntersectedCourses"));
+            _logger.Debug("GetIntersectedCourses");
             return courses
                 .Where(course => course.CourseImplementations.Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day))));
         }

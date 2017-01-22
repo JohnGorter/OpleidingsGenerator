@@ -87,14 +87,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public void PlanCoursesWithOLC(IEnumerable<models.Course> coursesToPlan)
         {
-            _logger.Debug(string.Format(_culture, "Plan courses with OLC"));
+            _logger.Debug("Plan courses with OLC");
             PlanCourses(coursesToPlan);
             ApplyOLC();
         }
 
         public void PlanCourses(IEnumerable<models.Course> coursesToPlan)
         {
-            _logger.Debug(string.Format(_culture, "Plan courses"));
+            _logger.Debug("Plan courses");
             var coursesToPlanOrdered = coursesToPlan.OrderBy(course => course.Priority);
 
             foreach (var courseToPlan in coursesToPlanOrdered)
@@ -138,7 +138,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
                 var blockedImplementations = course.CourseImplementations.Where(ci => ci.StartDay < StartDate || ci.StartDay > endDate || ci.Days.Any(day => BlockedDates.Contains(day)));
 
-                _logger.Debug(string.Format(_culture, "Set status of blocked implementations and implementations outside the period on unplannable"));
+                _logger.Debug("Set status of blocked implementations and implementations outside the period on unplannable");
                 foreach (var implementation in blockedImplementations)
                 {
                     implementation.Status = Status.UNPLANNABLE;
@@ -190,7 +190,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void MarkAvailableCourseImplementations()
         {
-            _logger.Debug(string.Format(_culture, "Mark available course implementations"));
+            _logger.Debug("Mark available course implementations");
             var availableCourses = _coursePlanning.AvailableCourses;
             var plannedCourses = _coursePlanning.Courses;
 
@@ -217,7 +217,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private void ApplyOLC()
         {
-            _logger.Debug(string.Format(_culture, "Apply OLC"));
+            _logger.Debug("Apply OLC");
             List<Course> plannedCourses = _coursePlanning.PlannedCourses.OrderBy(course => course.PlannedImplementation.StartDay).ToList();
 
             int daysAfterLastCourseEmployable = _managementPropertiesDataMapper.FindManagementProperties().PeriodAfterLastCourseEmployableInDays;
@@ -283,21 +283,21 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
             if (olcDates.Any())
             {
-                _logger.Debug(string.Format(_culture, "Add last OLC to planning"));
+                _logger.Debug("Add last OLC to planning");
                 AddOLC(olcDates);
             }
         }
 
         private void AddOLC(List<DateTime> dates)
         {
-            _logger.Debug(string.Format(_culture, "Add OLC"));
+            _logger.Debug("Add OLC");
             decimal olcPrice = _managementPropertiesDataMapper.FindManagementProperties().OLCPrice;
 
             Course olc = new Course
             {
                 Code = "OLC",
                 Name = "OLC",
-                CourseImplementations = new List<CourseImplementation>()
+                CourseImplementations = new List<CourseImplementation>
                 {
                     new CourseImplementation
                     {
@@ -310,7 +310,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             };
 
             _coursePlanning.Courses.Add(olc);
-            _logger.Debug(string.Format(_culture, "OLC added to course planning. {0} days with start day {1}", olc.CourseImplementations.First().Days.Count(), olc.CourseImplementations.First().Days.First().ToString("dd-MM-yyyy")));
+            _logger.Debug(string.Format(_culture, "OLC added to course planning. {0} days with start day {1}", dates.Count, dates.First().ToString("dd-MM-yyyy")));
         }
 
         private static bool IsWeekend(DateTime date)

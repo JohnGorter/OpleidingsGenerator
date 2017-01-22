@@ -151,7 +151,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
             if(PlannedImplementation == null)
             {
-                _logger.Debug(string.Format(_culture, "No planned implementation"));
+                _logger.Debug("No planned implementation");
 
                 var availableImplementation = GetCourseAvailableImplementation(courses)
                     .OrderBy(courseImplementation => courseImplementation.IntersectsWithStatusCount(courses, Status.AVAILABLE))
@@ -205,7 +205,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             _logger.Debug(string.Format(_culture, "HasIntersectedCourseWithFreeImplementation in course {0}", Code));
 
             var intersectedCourses = this.GetIntersectedCoursesWithEqualOrHigherPriority(courses)
-                .Where(course => course.Code != this.Code && !course.CourseImplementations.Any(ci => ci.Status == Status.PLANNED) && !course.CourseImplementations.Any(ci => ci.Status == Status.UNPLANNABLE));
+                .Where(course => 
+                course.Code != this.Code && 
+                !course.CourseImplementations.Any(ci => ci.Status == Status.PLANNED) && 
+                !course.CourseImplementations.Any(ci => ci.Status == Status.UNPLANNABLE));
 
             return intersectedCourses.Any(course => course.HasImplementationsWithoutIntersection(courses, priority));
         }

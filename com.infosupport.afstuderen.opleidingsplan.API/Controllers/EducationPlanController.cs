@@ -45,19 +45,19 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         [Route("api/EducationPlan/generate")]
         public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan)
         {
-            _logger.Info(string.Format(_culture, "GenerateEducationPlan"));
+            _logger.Info("GenerateEducationPlan");
             return _educationPlanManager.GenerateEducationPlan(educationPlan);
         }
 
         public long Put(RestEducationPlan educationPlan)
         {
-            _logger.Info(string.Format(_culture, "Put educationplan"));
+            _logger.Info("Put educationplan");
             return _educationPlanManager.SaveEducationPlan(educationPlan);
         }
 
         public long Post(RestEducationPlan educationPlan)
         {
-            _logger.Info(string.Format(_culture, "Post educationplan"));
+            _logger.Info("Post educationplan");
             return _educationPlanManager.UpdateEducationPlan(educationPlan);
         }
 

@@ -62,7 +62,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration
 
         public IEnumerable<integration.Course> FindCourses(Collection<string> courseCodes)
         {
-            _logger.Debug(string.Format(_culture, "FindCourses"));
+            _logger.Debug("FindCourses");
 
             if (courseCodes == null)
             {

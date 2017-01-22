@@ -36,7 +36,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         // GET: api/Profile
         public IEnumerable<CourseProfile> Get()
         {
-            _logger.Info(string.Format(_culture, "Get all course profiles"));
+            _logger.Info("Get all course profiles");
             return _administrationManager.FindProfiles();
         }
 
@@ -57,12 +57,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         {
             if (ModelState.IsValid)
             {
-                _logger.Info(string.Format(_culture, "Post course profile"));
+                _logger.Info("Post course profile");
                 _administrationManager.Update(profile);
             }
             else
             {
-                _logger.Warn(string.Format(_culture, "Post course profile modelstate is not valid"));
+                _logger.Warn("Post course profile modelstate is not valid");
             }
         }
 
@@ -71,12 +71,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         {
             if (ModelState.IsValid)
             {
-                _logger.Info(string.Format(_culture, "Put course profile"));
+                _logger.Info("Put course profile");
                 _administrationManager.Insert(profile);
             }
             else
             {
-                _logger.Warn(string.Format(_culture, "Put course profile modelstate is not valid"));
+                _logger.Warn("Put course profile modelstate is not valid");
             }
         }
 

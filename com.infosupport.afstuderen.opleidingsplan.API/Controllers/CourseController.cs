@@ -38,7 +38,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         // GET: api/Course
         public IEnumerable<opleidingsplan.models.CourseSummary> Get()
         {
-            _logger.Info(string.Format(_culture, "Get all courses"));
+            _logger.Info("Get all courses");
             var courses = _courseManager.FindCourses().Coursesummary;
             return Mapper.Map<IEnumerable<opleidingsplan.models.CourseSummary>>(courses);
         }

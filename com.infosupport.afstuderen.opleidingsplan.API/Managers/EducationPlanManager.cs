@@ -58,7 +58,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 
         private static List<opleidingsplan.models.Course> ConvertCourses(IEnumerable<integration.Course> courses, opleidingsplan.models.CourseProfile profile)
         {
-            _logger.Debug(string.Format(_culture, "ConvertCourses"));
+            _logger.Debug("ConvertCourses");
             List<opleidingsplan.models.Course> coursesToPlan = new List<opleidingsplan.models.Course>();
 
             foreach (var course in courses)
@@ -82,7 +82,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
         {
             if (educationPlan == null)
             {
-                _logger.Error(string.Format(_culture, "ArgumentNullException: educationPlan"));
+                _logger.Error("ArgumentNullException: educationPlan");
                 throw new ArgumentNullException("educationPlan");
             }
 
@@ -103,7 +103,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 
             educationPlan.Courses.Remove("OLC"); 
 
-            _logger.Debug(string.Format(_culture, "Find courses from service"));
+            _logger.Debug("Find courses from service");
             IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlan.Courses);
             List<opleidingsplan.models.Course> coursesToPlan = ConvertCourses(courses, profile);
 

@@ -27,7 +27,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         public EducationPlan GenerateEducationPlan(EducationPlanData educationPlanData)
         {
-            _logger.Debug(string.Format(_culture, "GenerateEducationPlan"));
+            _logger.Debug("GenerateEducationPlan");
             if (educationPlanData == null)
             {
                 _logger.Error("ArgumentNullException educationPlanData");
@@ -35,11 +35,15 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             }
 
             List<EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(_planner.PlannedCourses.ToList()).OrderBy(course => course.Date).ToList();
-            List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.NotPlannedCourses.ToList(), educationPlannedCourses).OrderBy(course => course.Date).ToList();
+            List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.NotPlannedCourses.ToList(), educationPlannedCourses)
+                .OrderBy(course => course.Date).ToList();
 
             int daysBeforeStart = _managementPropertiesDataMapper.FindManagementProperties().PeriodBeforeStartNotifiable;
             DateTime justBeforeStart = educationPlanData.InPaymentFrom.AddDays(-daysBeforeStart);
-            var coursesJustBeforeStart = _planner.NotPlannedCourses.Where(course => course.CourseImplementations.Any(ci => ci.StartDay >= justBeforeStart && ci.StartDay < _planner.StartDate)).ToList();
+            var coursesJustBeforeStart = _planner.NotPlannedCourses
+                .Where(course => course.CourseImplementations
+                .Any(ci => ci.StartDay >= justBeforeStart && ci.StartDay < _planner.StartDate))
+                .ToList();
             List<EducationPlanCourse> educationCoursesJustBeforeStart = GetJustBeforeStartDateNotPlannedEducationPlanCourses(coursesJustBeforeStart, justBeforeStart).ToList();
 
             int daysAfterLastCourseEmployable = _managementPropertiesDataMapper.FindManagementProperties().PeriodAfterLastCourseEmployableInDays;
@@ -54,7 +58,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                     .AddDays(daysAfterLastCourseEmployable);
             }
 
-            _logger.Debug(string.Format(_culture, "return EducationPlan"));
+            _logger.Debug("return EducationPlan");
             return new EducationPlan
             {
                 Id = educationPlanData.EducationPlanId,
@@ -98,7 +102,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private static List<EducationPlanCourse> GetPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner)
         {
-            _logger.Debug(string.Format(_culture, "GetPlannedEducationPlanCourses"));
+            _logger.Debug("GetPlannedEducationPlanCourses");
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
 
             foreach (var course in coursesFromPlanner)
@@ -120,7 +124,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
         private static List<EducationPlanCourse> GetNotPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner, List<EducationPlanCourse> plannedCourses)
         {
-            _logger.Debug(string.Format(_culture, "GetNotPlannedEducationPlanCourses"));
+            _logger.Debug("GetNotPlannedEducationPlanCourses");
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
 
             foreach (var course in coursesFromPlanner)

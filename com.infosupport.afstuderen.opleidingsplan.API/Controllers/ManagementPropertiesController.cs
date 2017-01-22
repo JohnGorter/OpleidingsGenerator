@@ -17,7 +17,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
     public class ManagementPropertiesController : ApiController
     {
         private static ILog _logger = LogManager.GetLogger(typeof(EducationPlanController));
-        private readonly CultureInfo _culture = new CultureInfo("nl-NL");
         private readonly IManagementPropertiesManager _managementPropertiesManager;
         public ManagementPropertiesController(IManagementPropertiesManager managementPropertiesManager)
         {
@@ -35,7 +34,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         // GET: api/ManagementProperties
         public ManagementProperties Get()
         {
-            _logger.Info(string.Format(_culture, "Get management properties"));
+            _logger.Info("Get management properties");
             return _managementPropertiesManager.FindManagementProperties();
         }
 
@@ -44,12 +43,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         {   
             if(ModelState.IsValid)
             {
-                _logger.Info(string.Format(_culture, "Post management properties"));
+                _logger.Info("Post management properties");
                 _managementPropertiesManager.Update(properties);
             }
             else
             {
-                _logger.Warn(string.Format(_culture, "Post management properties modelstate is not valid"));
+                _logger.Warn("Post management properties modelstate is not valid");
             }
         }
     }
