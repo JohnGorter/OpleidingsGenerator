@@ -36,7 +36,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests
                     new Collection<DateTime> { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
                     new Collection<DateTime> { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) })
             });
-            var dalConfig = DALConfiguration.Configuration;
+            var dalConfig = DalConfiguration.Configuration;
 
             IEducationPlanManager manager = new EducationPlanManager(dalConfig.ProfilePath, courseServiceMock.Object, dalConfig.ManagementPropertiesPath, dalConfig.EducationPlanPath, dalConfig.EducationPlanUpdatedPath);
 

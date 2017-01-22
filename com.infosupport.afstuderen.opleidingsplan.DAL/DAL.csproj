@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DALConfiguration.cs" />
+    <Compile Include="DalConfiguration.cs" />
     <Compile Include="Mappers\CourseJsonDataMapper.cs" />
     <Compile Include="Mappers\EducationPlanJsonDataMapper.cs" />
     <Compile Include="Mappers\ICourseDataMapper.cs" />

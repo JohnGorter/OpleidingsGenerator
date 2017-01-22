@@ -13,7 +13,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         private string _profilePath;
         public ProfileDataMapperTest()
         {
-            _profilePath = DALConfiguration.Configuration.ProfilePath;
+            _profilePath = DalConfiguration.Configuration.ProfilePath;
         }
 
         [TestInitialize]

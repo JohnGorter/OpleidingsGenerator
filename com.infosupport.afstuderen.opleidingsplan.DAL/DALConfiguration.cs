@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 
 namespace com.infosupport.afstuderen.opleidingsplan.dal
 {
-    public class DALConfiguration : ConfigurationSection
+    public class DalConfiguration : ConfigurationSection
     {
-        public static DALConfiguration Configuration
+        public static DalConfiguration Configuration
         {
             get
             {
-                DALConfiguration configuration =
+                DalConfiguration configuration =
                     ConfigurationManager
                     .GetSection("DalJsonConnection")
-                    as DALConfiguration;
+                    as DalConfiguration;
 
                 if (configuration != null)
                 {
                     return configuration;
                 }
 
-                return new DALConfiguration();
+                return new DalConfiguration();
             }
         }
 

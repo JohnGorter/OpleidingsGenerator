@@ -10,7 +10,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void GetProfilePathFromConfig()
         {
             //Arrange
-            DALConfiguration config = DALConfiguration.Configuration;
+            DalConfiguration config = DalConfiguration.Configuration;
 
             //Act
             var result = config.ProfilePath;
@@ -23,7 +23,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void GetEducationPlanPathFromConfig()
         {
             //Arrange
-            DALConfiguration config = DALConfiguration.Configuration;
+            DalConfiguration config = DalConfiguration.Configuration;
 
             //Act
             var result = config.EducationPlanPath;
@@ -36,7 +36,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void GetManagementPropertiesPathFromConfig()
         {
             //Arrange
-            DALConfiguration config = DALConfiguration.Configuration;
+            DalConfiguration config = DalConfiguration.Configuration;
 
             //Act
             var result = config.ManagementPropertiesPath;
@@ -49,7 +49,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
         public void GetEducationPlanUpdatedPathFromConfig()
         {
             //Arrange
-            DALConfiguration config = DALConfiguration.Configuration;
+            DalConfiguration config = DalConfiguration.Configuration;
 
             //Act
             var result = config.EducationPlanUpdatedPath;

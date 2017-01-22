@@ -22,7 +22,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
 
         public ProfileController()
         {
-            string profilepath = dal.DALConfiguration.Configuration.ProfilePath;
+            string profilepath = dal.DalConfiguration.Configuration.ProfilePath;
             string pathToProfiles = HttpContext.Current.Server.MapPath(profilepath);
 
             _administrationManager = new ProfileManager(pathToProfiles);

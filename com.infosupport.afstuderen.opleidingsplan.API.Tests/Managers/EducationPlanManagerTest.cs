@@ -53,7 +53,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
 
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
             profileDataMapperMock.Setup(dataMapper => dataMapper.FindById(1)).Returns(GetDummyDataProfiles().First());
-            var dalConfig = DALConfiguration.Configuration;
+            var dalConfig = DalConfiguration.Configuration;
 
             EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object);
             RestEducationPlan educationPlan = GetDummyRestEducationPlan(courses);
