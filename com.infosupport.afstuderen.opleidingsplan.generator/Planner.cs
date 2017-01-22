@@ -246,15 +246,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             foreach (var date in datesOfPeriod)
             {
                 _logger.Debug(string.Format(_culture, "Check date {0} for applying OLC", date.ToString("dd-MM-yyyy")));
+
+                if (IsWeekend(date) && olcDates.Any())
+                {
+                    _logger.Debug(string.Format(_culture, "OLC dates is not empty at date {0}", date.ToString("dd-MM-yyyy")));
+                    AddOlc(olcDates);
+                    olcDates = new List<DateTime>();
+                }
+
                 if (IsWeekend(date))
                 {
-                    _logger.Debug(string.Format(_culture, "Date {0} is weekend", date.ToString("dd-MM-yyyy")));
-                    if (olcDates.Any())
-                    {
-                        _logger.Debug(string.Format(_culture, "OLC dates is not empty at date {0}", date.ToString("dd-MM-yyyy")));
-                        AddOlc(olcDates);
-                        olcDates = new List<DateTime>();
-                    }
+                    _logger.Debug(string.Format(_culture, "Date {0} is weekend", date.ToString("dd-MM-yyyy")));    
                     continue;
                 }
 
