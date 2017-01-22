@@ -12,8 +12,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 {
     public class EducationPlanJsonDataMapper : IEducationPlanDataMapper
     {
-        private string _path;
-        private string _updatedDirPath;
+        private readonly string _path;
+        private readonly string _updatedDirPath;
         private readonly CultureInfo _culture = new CultureInfo("nl-NL");
         private static ILog _logger = LogManager.GetLogger(typeof(EducationPlanJsonDataMapper));
 
@@ -45,7 +45,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         public IEnumerable<EducationPlan> Find(Func<EducationPlan, bool> predicate)
         {
-            _logger.Debug(string.Format(_culture, "Find education plan"));
+            _logger.Debug("Find education plan");
             var educationPlans = GetAllEducationPlans();
             return educationPlans.Where(predicate);
         }

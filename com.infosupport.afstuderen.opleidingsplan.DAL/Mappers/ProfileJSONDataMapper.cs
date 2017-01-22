@@ -13,7 +13,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 {
     public class ProfileJsonDataMapper : IDataMapper<CourseProfile>
     {
-        private string _path;
+        private readonly string _path;
         private readonly CultureInfo _culture = new CultureInfo("nl-NL");
         private static ILog _logger = LogManager.GetLogger(typeof(ProfileJsonDataMapper));
 
@@ -61,13 +61,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         public IEnumerable<CourseProfile> Find(Func<CourseProfile, bool> predicate)
         {
-            _logger.Debug(string.Format(_culture, "Find profile"));
+            _logger.Debug("Find profile");
             return GetAllProfiles().Where(predicate);
         }
 
         public IEnumerable<CourseProfile> FindAll()
         {
-            _logger.Debug(string.Format(_culture, "Find all profiles"));
+            _logger.Debug("Find all profiles");
             return GetAllProfiles();
         }
 
@@ -127,7 +127,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
 
         private long GenerateId(List<CourseProfile> allProfiles)
         {
-            _logger.Debug(string.Format(_culture, "Generate id for profile"));
+            _logger.Debug("Generate id for profile");
 
             long newId = 1;
             if (allProfiles.Any())
