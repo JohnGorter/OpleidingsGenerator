@@ -36,12 +36,15 @@ namespace com.infosupport.afstuderen.opleidingsplan.models
                 return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(Date.Value, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
             }
         }
+
         public decimal PriceWithDiscount
         {
             get
             {
-                return Price * 0.8M;
+                return (Price/100) * StaffDiscountInPercentage;
             }
         }
+
+        public decimal StaffDiscountInPercentage { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 {
   "OLCPrice": 125.0,
+  "StaffDiscount": 80,
   "PeriodEducationPlanInDays": 90,
   "PeriodAfterLastCourseEmployableInDays": 7,
   "PeriodBeforeStartNotifiable": 7,

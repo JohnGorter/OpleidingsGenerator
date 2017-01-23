@@ -12,6 +12,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
                 PeriodAfterLastCourseEmployableInDays = 2,
                 PeriodBeforeStartNotifiable = 4,
                 PeriodEducationPlanInDays = 100,
+                Footer = "new footer",
+                StaffDiscount = 80,
             };
         }
     }

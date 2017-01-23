@@ -12,7 +12,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
     public class ManagementPropertiesControllerTest : ManagementPropertiesTestHelper
     {
         [TestMethod]
-        public void Post_ManagementPropertiesy()
+        public void Post_ManagementProperties()
         {
             // Arrange
             var managementPropertiesManagerMock = new Mock<IManagementPropertiesManager>(MockBehavior.Strict);
@@ -28,7 +28,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
         }
 
         [TestMethod]
-        public void Get_ManagementPropertiesy()
+        public void Get_ManagementProperties()
         {
             // Arrange
             var managementPropertiesManagerMock = new Mock<IManagementPropertiesManager>(MockBehavior.Strict);
@@ -45,6 +45,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
             Assert.AreEqual(2, result.PeriodAfterLastCourseEmployableInDays);
             Assert.AreEqual(4, result.PeriodBeforeStartNotifiable);
             Assert.AreEqual(100, result.PeriodEducationPlanInDays);
+            Assert.AreEqual("new footer", result.Footer);
+            Assert.AreEqual(80, result.StaffDiscount);
         }
     }
 }

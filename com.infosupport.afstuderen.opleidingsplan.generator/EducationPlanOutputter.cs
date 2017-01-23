@@ -77,10 +77,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             };
         }
 
-        private static List<EducationPlanCourse> GetJustBeforeStartDateNotPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner, DateTime justBeforeStart)
+        private List<EducationPlanCourse> GetJustBeforeStartDateNotPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner, DateTime justBeforeStart)
         {
             _logger.Debug(string.Format(_culture, "GetJustBeforeStartDateNotPlannedEducationPlanCourses with date justBeforeStart {0}", justBeforeStart.ToString("dd-MM-yyyy")));
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
+            var discount = _managementPropertiesDataMapper.FindManagementProperties().StaffDiscount;
 
             foreach (var course in coursesFromPlanner)
             {
@@ -94,16 +95,18 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                     Days = course.Duration.Value,
                     Name = course.Name,
                     Price = course.Price,
+                    StaffDiscountInPercentage = discount,
                 });
             }
 
             return educationPlanCourses;
         }
 
-        private static List<EducationPlanCourse> GetPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner)
+        private List<EducationPlanCourse> GetPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner)
         {
             _logger.Debug("GetPlannedEducationPlanCourses");
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
+            var discount = _managementPropertiesDataMapper.FindManagementProperties().StaffDiscount;
 
             foreach (var course in coursesFromPlanner)
             {
@@ -116,16 +119,18 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                     Days = course.Duration.Value,
                     Name = course.Name,
                     Price = course.Price,
+                    StaffDiscountInPercentage = discount,
                 });
             }
 
             return educationPlanCourses;
         }
 
-        private static List<EducationPlanCourse> GetNotPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner, List<EducationPlanCourse> plannedCourses)
+        private List<EducationPlanCourse> GetNotPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner, List<EducationPlanCourse> plannedCourses)
         {
             _logger.Debug("GetNotPlannedEducationPlanCourses");
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
+            var discount = _managementPropertiesDataMapper.FindManagementProperties().StaffDiscount;
 
             foreach (var course in coursesFromPlanner)
             {
@@ -139,6 +144,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                     Name = course.Name,
                     Price = course.Price,
                     IntersectedCourses = plannedCourses.Where(plannedCourse => course.IntersectedCourseIds.Contains(plannedCourse.Code)).ToList(),
+                    StaffDiscountInPercentage = discount,
                 });
             }
 

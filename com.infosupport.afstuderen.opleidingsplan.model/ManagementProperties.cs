@@ -18,6 +18,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.models
         [Required]
         public int PeriodBeforeStartNotifiable { get; set; }
         [Required]
-        public string Footer { get; set; }  
+        public string Footer { get; set; }
+        [Required]
+        public decimal StaffDiscount { get; set; }
     }
 }

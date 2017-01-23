@@ -78,6 +78,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             for (int i = 0; i < courses.Count; i++)
             {
                 var course = courses.ElementAt(i);
+                course.StaffDiscountInPercentage = managementPropertiesDataMapper.FindManagementProperties().StaffDiscount;
+
                 var row = table.Rows[i + 1];
 
                 if (course.Week > 0)

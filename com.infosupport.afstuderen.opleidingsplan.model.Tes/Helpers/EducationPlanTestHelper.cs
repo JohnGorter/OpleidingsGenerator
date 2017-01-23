@@ -35,6 +35,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.models.tests.helpers
                 Days = days,
                 Commentary = commentary,
                 Price = price,
+                StaffDiscountInPercentage = 80,
             };
         }
 

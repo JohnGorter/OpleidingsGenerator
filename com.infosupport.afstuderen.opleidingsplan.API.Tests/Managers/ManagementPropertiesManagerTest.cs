@@ -30,6 +30,8 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             Assert.AreEqual(2, result.PeriodAfterLastCourseEmployableInDays);
             Assert.AreEqual(4, result.PeriodBeforeStartNotifiable);
             Assert.AreEqual(100, result.PeriodEducationPlanInDays);
+            Assert.AreEqual("new footer", result.Footer);
+            Assert.AreEqual(80, result.StaffDiscount);
         }
 
         [TestMethod]
