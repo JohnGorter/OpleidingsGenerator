@@ -11,7 +11,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
 {
     public abstract class EducationPlanTestHelper : ProfileTestHelper
     {
-        protected RestEducationPlan GetDummyRestEducationPlan(Collection<string> courses)
+        protected RestEducationPlan GetDummyRestEducationPlan(Collection<RestEducationPlanCourse> courses)
         {
             return new RestEducationPlan
             {
@@ -76,6 +76,23 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
                         Days = days2,
                         Location = "Veenendaal",
                     },
+                },
+            };
+        }
+
+        protected integration.Course CreateNewIntegrationCourseWithOneCourseImplementation(string courseId, int priority, Collection<DateTime> days1)
+        {
+            return new integration.Course
+            {
+                Code = courseId,
+                Duration = days1.Count() + " dagen",
+                CourseImplementations = new Collection<integration.CourseImplementation>
+                {
+                    new integration.CourseImplementation
+                    {
+                        Days = days1,
+                        Location = "Veenendaal",
+                    }
                 },
             };
         }

@@ -120,6 +120,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                     Name = course.Name,
                     Price = course.Price,
                     StaffDiscountInPercentage = discount,
+                    Commentary = course.Commentary,
                 });
             }
 
@@ -145,6 +146,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
                     Price = course.Price,
                     IntersectedCourses = plannedCourses.Where(plannedCourse => course.IntersectedCourseIds.Contains(plannedCourse.Code)).ToList(),
                     StaffDiscountInPercentage = discount,
+                    Commentary = course.Commentary,
                 });
             }
 

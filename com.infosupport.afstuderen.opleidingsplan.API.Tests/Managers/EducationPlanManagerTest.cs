@@ -30,7 +30,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         public void GenerateEducationPlan_Planner_Outputter_Service_DAL_Called()
         {
             // Arrange
-            var courses = new Collection<string> { "2NETARCH", "ADCSB" };
+            var courses = new Collection<RestEducationPlanCourse> {
+                new RestEducationPlanCourse
+                {
+                    Code = "2NETARCH"
+                },
+                new RestEducationPlanCourse
+                {
+                    Code = "ADCSB"
+                },
+            };
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
 
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
@@ -44,7 +53,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
 
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
-            courseServiceMock.Setup(service => service.FindCourses(courses)).Returns(
+            courseServiceMock.Setup(service => service.FindCourses(new List<string> { "2NETARCH", "ADCSB" })).Returns(
                 new List<integration.Course>() {
                     CreateNewIntegrationCourseWithTwoCourseImplementations("2NETARCH", 1,
                     new Collection<DateTime> { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
@@ -65,7 +74,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             // Assert
             educationPlanOutputterMock.Verify(outputter => outputter.GenerateEducationPlan(It.IsAny<EducationPlanData>()));
             plannerMock.Verify(planner => planner.PlanCoursesWithOlc(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
-            courseServiceMock.Verify(outputter => outputter.FindCourses(courses));
+            courseServiceMock.Verify(outputter => outputter.FindCourses(new List<string> { "2NETARCH", "ADCSB" }));
             profileDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
             plannerMock.VerifySet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom);
             plannerMock.VerifySet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>());
@@ -76,7 +85,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         public void GenerateEducationPlan_null_ExceptionThrowed()
         {
             // Arrange
-            Collection<string> courses = new Collection<string> { "2NETARCH", "ADCSB" };
+            var courses = new Collection<RestEducationPlanCourse> {
+                new RestEducationPlanCourse
+                {
+                    Code = "2NETARCH"
+                },
+                new RestEducationPlanCourse
+                {
+                    Code = "ADCSB"
+                },
+            };
 
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
             var educationPlanOutputterMock = new Mock<IEducationPlanOutputter>(MockBehavior.Strict);
@@ -98,7 +116,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         public void SaveEducationPlan_Planner_Outputter_Service_DAL_Called()
         {
             // Arrange
-            var courses = new Collection<string> { "2NETARCH", "ADCSB" };
+            var courses = new Collection<RestEducationPlanCourse> {
+                new RestEducationPlanCourse
+                {
+                    Code = "2NETARCH"
+                },
+                new RestEducationPlanCourse
+                {
+                    Code = "ADCSB"
+                },
+            };
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
 
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
@@ -113,7 +140,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
 
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
-            courseServiceMock.Setup(service => service.FindCourses(courses)).Returns(
+            courseServiceMock.Setup(service => service.FindCourses(new List<string> { "2NETARCH", "ADCSB" })).Returns(
                 new List<integration.Course>() {
                     CreateNewIntegrationCourseWithTwoCourseImplementations("2NETARCH", 1,
                     new Collection<DateTime> { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
@@ -134,7 +161,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             Assert.AreEqual(1, result);
             educationPlanOutputterMock.Verify(outputter => outputter.GenerateEducationPlan(It.IsAny<EducationPlanData>()));
             plannerMock.Verify(planner => planner.PlanCoursesWithOlc(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
-            courseServiceMock.Verify(outputter => outputter.FindCourses(courses));
+            courseServiceMock.Verify(outputter => outputter.FindCourses(new List<string> { "2NETARCH", "ADCSB" }));
             profileDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
             plannerMock.VerifySet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom);
             plannerMock.VerifySet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>());
@@ -145,7 +172,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         public void UpdateEducationPlan_Planner_Outputter_Service_DAL_Called()
         {
             // Arrange
-            var courses = new Collection<string> { "2NETARCH", "ADCSB" };
+            var courses = new Collection<RestEducationPlanCourse> {
+                new RestEducationPlanCourse
+                {
+                    Code = "2NETARCH"
+                },
+                new RestEducationPlanCourse
+                {
+                    Code = "ADCSB"
+                },
+            };
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
 
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
@@ -160,7 +196,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
 
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
-            courseServiceMock.Setup(service => service.FindCourses(courses)).Returns(
+            courseServiceMock.Setup(service => service.FindCourses(new List<string> { "2NETARCH", "ADCSB" })).Returns(
                 new List<integration.Course>() {
                     CreateNewIntegrationCourseWithTwoCourseImplementations("2NETARCH", 1,
                     new Collection<DateTime> { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
@@ -181,7 +217,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             Assert.AreEqual(1, result);
             educationPlanOutputterMock.Verify(outputter => outputter.GenerateEducationPlan(It.IsAny<EducationPlanData>()));
             plannerMock.Verify(planner => planner.PlanCoursesWithOlc(It.IsAny<IEnumerable<opleidingsplan.models.Course>>()));
-            courseServiceMock.Verify(outputter => outputter.FindCourses(courses));
+            courseServiceMock.Verify(outputter => outputter.FindCourses(new List<string> { "2NETARCH", "ADCSB" }));
             profileDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
             plannerMock.VerifySet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom);
             plannerMock.VerifySet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>());
@@ -192,7 +228,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         public void FindByIdEducationPlan_DAL_Called()
         {
             // Arrange
-            var courses = new Collection<string> { "2NETARCH", "ADCSB" };
+            var courses = new Collection<RestEducationPlanCourse> {
+                new RestEducationPlanCourse
+                {
+                    Code = "2NETARCH"
+                },
+                new RestEducationPlanCourse
+                {
+                    Code = "ADCSB"
+                },
+            };
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
 
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
@@ -217,7 +262,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         public void FindEducationPlans_DAL_Called()
         {
             // Arrange
-            var courses = new Collection<string> { "2NETARCH", "ADCSB" };
+            var courses = new Collection<RestEducationPlanCourse> {
+                new RestEducationPlanCourse
+                {
+                    Code = "2NETARCH"
+                },
+                new RestEducationPlanCourse
+                {
+                    Code = "ADCSB"
+                },
+            };
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
 
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
@@ -242,8 +296,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         public void GenerateWordFile_EducationPlanConverter_Called()
         {
             // Arrange
-            var courses = new Collection<string> { "2NETARCH", "ADCSB" };
-
+            var courses = new Collection<RestEducationPlanCourse> {
+                new RestEducationPlanCourse
+                {
+                    Code = "2NETARCH"
+                },
+                new RestEducationPlanCourse
+                {
+                    Code = "ADCSB"
+                },
+            };
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
 
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
@@ -269,7 +331,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
         public void DeleteEducationPlan_DAL_Called()
         {
             // Arrange
-            var courses = new Collection<string> { "2NETARCH", "ADCSB" };
+            var courses = new Collection<RestEducationPlanCourse> {
+                new RestEducationPlanCourse
+                {
+                    Code = "2NETARCH"
+                },
+                new RestEducationPlanCourse
+                {
+                    Code = "ADCSB"
+                },
+            };
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
 
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);

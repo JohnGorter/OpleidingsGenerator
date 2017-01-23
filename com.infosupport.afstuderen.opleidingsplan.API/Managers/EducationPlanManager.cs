@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web;
+using System.Collections.ObjectModel;
 
 namespace com.infosupport.afstuderen.opleidingsplan.api.managers
 {
@@ -103,15 +104,34 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
                 educationplanData.ProfileId = educationPlan.ProfileId;
             }
 
-            educationPlan.Courses.Remove("OLC"); 
+            var educationPlanCourses = educationPlan.Courses.Where(course => course.Code != "OLC");
 
             _logger.Debug("Find courses from service");
-            IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlan.Courses);
+            IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlanCourses.Select(course => course.Code));
             List<opleidingsplan.models.Course> coursesToPlan = ConvertCourses(courses, profile);
-
+            coursesToPlan = OverrideRestCourse(coursesToPlan, educationPlan.Courses);
             _planner.PlanCoursesWithOlc(coursesToPlan);
 
             return _educationPlanOutputter.GenerateEducationPlan(educationplanData);
+        }
+
+        private List<opleidingsplan.models.Course> OverrideRestCourse(List<opleidingsplan.models.Course> courses, Collection<RestEducationPlanCourse> restCourses)
+        {
+            foreach (var restCourse in restCourses)
+            {
+                var course = courses.FirstOrDefault(c => c.Code == restCourse.Code);
+
+                if (course != null)
+                {
+                    if (restCourse.Priority != 0)
+                    {
+                        course.Priority = restCourse.Priority;
+                    }
+                    course.Commentary = restCourse.Commentary;
+                }
+            }
+
+            return courses;
         }
 
         public long SaveEducationPlan(RestEducationPlan restEducationPlan)

@@ -9,7 +9,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.models
     public class RestEducationPlan
     {
         public long EducationPlanId { get; set; }
-        public Collection<string> Courses { get; set; }
+        public Collection<RestEducationPlanCourse> Courses { get; set; }
         public DateTime InPaymentFrom { get; set; }
         public DateTime EmployableFrom { get; set; }
         public string NameEmployee { get; set; }
@@ -17,5 +17,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.models
         public string KnowledgeOf { get; set; }
         public int ProfileId { get; set; }
         public Collection<DateTime> BlockedDates { get; set; }
+    }
+
+    public class RestEducationPlanCourse
+    {
+        public string Code { get; set; }
+        public string Commentary { get; set; }
+        public int Priority { get; set; }
     }
 }

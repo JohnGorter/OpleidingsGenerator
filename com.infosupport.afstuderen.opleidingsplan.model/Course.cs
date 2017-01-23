@@ -14,10 +14,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.models
         public string Duration { get; set; }
         public string Description { get; set; }
         public string ShortDescription { get; set; }
-        public string Prerequisites { get; set; }
         public IEnumerable<CourseImplementation> CourseImplementations { get; set; }
         public decimal Price { get; set; }
         public int Priority { get; set; }
+        public string Commentary { get; set; }
     }
 
     public class CourseImplementation

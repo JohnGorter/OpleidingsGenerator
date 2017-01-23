@@ -26,7 +26,18 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
         public void GenerateEducationPlan_ManagerCalled()
         {
             // Arrange
-            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(new Collection<string> { "2NETARCH", "ADCSB" });
+            var courses = new Collection<RestEducationPlanCourse> {
+                new RestEducationPlanCourse
+                {
+                    Code = "2NETARCH"
+                },
+                new RestEducationPlanCourse
+                {
+                    Code = "ADCSB"
+                },
+            };
+
+            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(courses);
 
             var educationPlanManagerMock = new Mock<IEducationPlanManager>(MockBehavior.Strict);
             educationPlanManagerMock.Setup(manager => manager.GenerateEducationPlan(restEducationPlan)).Returns(GetDummyEducationPlan());
@@ -46,7 +57,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
         public void Post_ManagerCalled()
         {
             // Arrange
-            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(new Collection<string> { "2NETARCH", "ADCSB" });
+            var courses = new Collection<RestEducationPlanCourse> {
+                new RestEducationPlanCourse
+                {
+                    Code = "2NETARCH"
+                },
+                new RestEducationPlanCourse
+                {
+                    Code = "ADCSB"
+                },
+            };
+            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(courses);
 
             var educationPlanManagerMock = new Mock<IEducationPlanManager>(MockBehavior.Strict);
             educationPlanManagerMock.Setup(manager => manager.UpdateEducationPlan(restEducationPlan)).Returns(1);
@@ -67,7 +88,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
         public void Put_ManagerCalled()
         {
             // Arrange
-            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(new Collection<string> { "2NETARCH", "ADCSB" });
+            var courses = new Collection<RestEducationPlanCourse> {
+                new RestEducationPlanCourse
+                {
+                    Code = "2NETARCH"
+                },
+                new RestEducationPlanCourse
+                {
+                    Code = "ADCSB"
+                },
+            };
+            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(courses);
 
             var educationPlanManagerMock = new Mock<IEducationPlanManager>(MockBehavior.Strict);
             educationPlanManagerMock.Setup(manager => manager.SaveEducationPlan(restEducationPlan)).Returns(1);
@@ -87,7 +118,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
         public void Get_ManagerCalled()
         {
             // Arrange
-            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(new Collection<string> { "2NETARCH", "ADCSB" });
+            var courses = new Collection<RestEducationPlanCourse> {
+                new RestEducationPlanCourse
+                {
+                    Code = "2NETARCH"
+                },
+                new RestEducationPlanCourse
+                {
+                    Code = "ADCSB"
+                },
+            };
+            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(courses);
 
             var educationPlanManagerMock = new Mock<IEducationPlanManager>(MockBehavior.Strict);
             educationPlanManagerMock.Setup(manager => manager.FindEducationPlan(1)).Returns(GetDummyEducationPlan());
@@ -140,7 +181,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
         public void Delete_ManagerCalled()
         {
             // Arrange
-            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(new Collection<string> { "2NETARCH", "ADCSB" });
+            var courses = new Collection<RestEducationPlanCourse> {
+                new RestEducationPlanCourse
+                {
+                    Code = "2NETARCH"
+                },
+                new RestEducationPlanCourse
+                {
+                    Code = "ADCSB"
+                },
+            };
+            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(courses);
 
             var educationPlanManagerMock = new Mock<IEducationPlanManager>(MockBehavior.Strict);
             educationPlanManagerMock.Setup(manager => manager.DeleteEducationPlan(1));

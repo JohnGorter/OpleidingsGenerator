@@ -13,6 +13,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         private static readonly CultureInfo _culture = new CultureInfo("nl-NL");
 
         public string Code { get; set; }
+        public string Commentary { get; set; }
         public int Priority { get; set; }
         public int? Duration { get; set; }
         public string Name { get; set; }
@@ -45,6 +46,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             {
                 Code = course.Code,
                 CourseImplementations = courseImplementations,
+                Commentary = course.Commentary,
                 Priority = course.Priority,
                 Duration = course.Duration?.ToInt(),
                 Name = course.Name,

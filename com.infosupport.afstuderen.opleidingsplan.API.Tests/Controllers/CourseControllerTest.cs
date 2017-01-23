@@ -121,7 +121,6 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
             Assert.AreEqual(expected.Name, actual.Name);
             Assert.AreEqual(expected.Description, actual.Description);
             Assert.AreEqual(expected.Duration, actual.Duration);
-            Assert.AreEqual(expected.Prerequisites, actual.Prerequisites);
             Assert.AreEqual(expected.ShortDescription, actual.ShortDescription);
             Assert.AreEqual(expected.SupplierName, actual.SupplierName);
 
