@@ -135,5 +135,23 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
             educationPlanManagerMock.Verify(manager => manager.FindEducationPlan(1));
             educationPlanManagerMock.Verify(manager => manager.GenerateWordFile(It.IsAny<EducationPlan>()));
         }
+
+        [TestMethod]
+        public void Delete_ManagerCalled()
+        {
+            // Arrange
+            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(new Collection<string> { "2NETARCH", "ADCSB" });
+
+            var educationPlanManagerMock = new Mock<IEducationPlanManager>(MockBehavior.Strict);
+            educationPlanManagerMock.Setup(manager => manager.DeleteEducationPlan(1));
+
+            EducationPlanController controller = new EducationPlanController(educationPlanManagerMock.Object);
+
+            // Act
+            controller.Delete(1);
+
+            // Assert
+            educationPlanManagerMock.Verify(manager => manager.DeleteEducationPlan(1));
+        }
     }
 }

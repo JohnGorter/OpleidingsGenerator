@@ -67,6 +67,12 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
             return _educationPlanManager.FindEducationPlan(id);
         }
 
+        public void Delete(long id)
+        {
+            _logger.Info(string.Format(_culture, "Delete educationplan with id {0}", id));
+            _educationPlanManager.DeleteEducationPlan(id);
+        }
+
         [HttpGet]
         [Route("api/EducationPlan/search")]
         public List<EducationPlan> Get(string name, long? date)

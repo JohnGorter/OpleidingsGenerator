@@ -265,5 +265,30 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
             educationPlanConverterMock.Verify(converter => converter.GenerateWord(It.IsAny<EducationPlan>()));
         }
 
+        [TestMethod]
+        public void DeleteEducationPlan_DAL_Called()
+        {
+            // Arrange
+            var courses = new Collection<string> { "2NETARCH", "ADCSB" };
+            var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
+
+            var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
+            educationPlanDataMapperMock.Setup(dataMapper => dataMapper.Delete(1));
+
+            var educationPlanOutputterMock = new Mock<IEducationPlanOutputter>(MockBehavior.Strict);
+            var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
+            var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
+
+            var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
+
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object);
+
+            // Act
+            manager.DeleteEducationPlan(1);
+
+            // Assert
+            educationPlanDataMapperMock.Verify(dataMapper => dataMapper.Delete(1));
+        }
+
     }
 }

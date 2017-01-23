@@ -144,6 +144,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             return _educationPlanConverter.GenerateWord(educationPlan);
         }
 
-        
+        public void DeleteEducationPlan(long id)
+        {
+            _educationPlanDataMapper.Delete(id);
+        }
     }
 }
