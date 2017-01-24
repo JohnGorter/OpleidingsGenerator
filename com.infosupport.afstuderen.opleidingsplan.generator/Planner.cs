@@ -296,7 +296,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
 
             Course olc = new Course
             {
-                Code = "OLC",
+                Code = "OLC" + (_coursePlanning.Courses.Count(course => course.Name == "OLC") +1),
                 Name = "OLC",
                 CourseImplementations = new List<CourseImplementation>
                 {

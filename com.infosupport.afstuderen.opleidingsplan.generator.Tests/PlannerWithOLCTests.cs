@@ -49,22 +49,22 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.AreEqual(new DateTime(2017, 1, 16), planner.PlannedCourses.ElementAt(2).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(3, planner.PlannedCourses.ElementAt(2).CourseImplementations.ElementAt(0).Days.Count());
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(3).Code);
+            Assert.AreEqual("OLC1", planner.PlannedCourses.ElementAt(3).Code);
             Assert.AreEqual(new DateTime(2017, 1, 5), planner.PlannedCourses.ElementAt(3).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(3).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(3).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(4).Code);
+            Assert.AreEqual("OLC2", planner.PlannedCourses.ElementAt(4).Code);
             Assert.AreEqual(new DateTime(2017, 1, 12), planner.PlannedCourses.ElementAt(4).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(4).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(4).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(5).Code);
+            Assert.AreEqual("OLC3", planner.PlannedCourses.ElementAt(5).Code);
             Assert.AreEqual(new DateTime(2017, 1, 19), planner.PlannedCourses.ElementAt(5).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(5).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(5).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(6).Code);
+            Assert.AreEqual("OLC4", planner.PlannedCourses.ElementAt(6).Code);
             Assert.AreEqual(new DateTime(2017, 1, 23), planner.PlannedCourses.ElementAt(6).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(3, planner.PlannedCourses.ElementAt(6).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(3, planner.PlannedCourses.ElementAt(6).Duration);
@@ -109,17 +109,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.AreEqual(new DateTime(2017, 1, 9), planner.PlannedCourses.ElementAt(2).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(3, planner.PlannedCourses.ElementAt(2).CourseImplementations.ElementAt(0).Days.Count());
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(3).Code);
+            Assert.AreEqual("OLC1", planner.PlannedCourses.ElementAt(3).Code);
             Assert.AreEqual(new DateTime(2017, 1, 5), planner.PlannedCourses.ElementAt(3).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(1, planner.PlannedCourses.ElementAt(3).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(1, planner.PlannedCourses.ElementAt(3).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(4).Code);
+            Assert.AreEqual("OLC2", planner.PlannedCourses.ElementAt(4).Code);
             Assert.AreEqual(new DateTime(2017, 1, 12), planner.PlannedCourses.ElementAt(4).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(4).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(4).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(5).Code);
+            Assert.AreEqual("OLC3", planner.PlannedCourses.ElementAt(5).Code);
             Assert.AreEqual(new DateTime(2017, 1, 16), planner.PlannedCourses.ElementAt(5).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(3, planner.PlannedCourses.ElementAt(5).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(3, planner.PlannedCourses.ElementAt(5).Duration);
@@ -164,17 +164,17 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.AreEqual(new DateTime(2017, 1, 6), planner.PlannedCourses.ElementAt(2).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(1, planner.PlannedCourses.ElementAt(2).CourseImplementations.ElementAt(0).Days.Count());
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(3).Code);
+            Assert.AreEqual("OLC1", planner.PlannedCourses.ElementAt(3).Code);
             Assert.AreEqual(new DateTime(2017, 1, 3), planner.PlannedCourses.ElementAt(3).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(1, planner.PlannedCourses.ElementAt(3).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(1, planner.PlannedCourses.ElementAt(3).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(4).Code);
+            Assert.AreEqual("OLC2", planner.PlannedCourses.ElementAt(4).Code);
             Assert.AreEqual(new DateTime(2017, 1, 5), planner.PlannedCourses.ElementAt(4).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(1, planner.PlannedCourses.ElementAt(4).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(1, planner.PlannedCourses.ElementAt(4).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(5).Code);
+            Assert.AreEqual("OLC3", planner.PlannedCourses.ElementAt(5).Code);
             Assert.AreEqual(new DateTime(2017, 1, 9), planner.PlannedCourses.ElementAt(5).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(5, planner.PlannedCourses.ElementAt(5).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(5, planner.PlannedCourses.ElementAt(5).Duration);
@@ -213,22 +213,22 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.AreEqual(new DateTime(2017, 1, 11), planner.PlannedCourses.ElementAt(1).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(3, planner.PlannedCourses.ElementAt(1).CourseImplementations.ElementAt(0).Days.Count());
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(2).Code);
+            Assert.AreEqual("OLC1", planner.PlannedCourses.ElementAt(2).Code);
             Assert.AreEqual(new DateTime(2016, 12, 26), planner.PlannedCourses.ElementAt(2).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(5, planner.PlannedCourses.ElementAt(2).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(5, planner.PlannedCourses.ElementAt(2).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(3).Code);
+            Assert.AreEqual("OLC2", planner.PlannedCourses.ElementAt(3).Code);
             Assert.AreEqual(new DateTime(2017, 1, 5), planner.PlannedCourses.ElementAt(3).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(3).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(3).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(4).Code);
+            Assert.AreEqual("OLC3", planner.PlannedCourses.ElementAt(4).Code);
             Assert.AreEqual(new DateTime(2017, 1, 9), planner.PlannedCourses.ElementAt(4).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(4).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(4).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(5).Code);
+            Assert.AreEqual("OLC4", planner.PlannedCourses.ElementAt(5).Code);
             Assert.AreEqual(new DateTime(2017, 1, 16), planner.PlannedCourses.ElementAt(5).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(5, planner.PlannedCourses.ElementAt(5).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(5, planner.PlannedCourses.ElementAt(5).Duration);
@@ -271,22 +271,22 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.AreEqual(new DateTime(2017, 1, 6), planner.PlannedCourses.ElementAt(1).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(1, planner.PlannedCourses.ElementAt(1).CourseImplementations.ElementAt(0).Days.Count());
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(2).Code);
+            Assert.AreEqual("OLC1", planner.PlannedCourses.ElementAt(2).Code);
             Assert.AreEqual(new DateTime(2016, 12, 26), planner.PlannedCourses.ElementAt(2).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(5, planner.PlannedCourses.ElementAt(2).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(5, planner.PlannedCourses.ElementAt(2).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(3).Code);
+            Assert.AreEqual("OLC2", planner.PlannedCourses.ElementAt(3).Code);
             Assert.AreEqual(new DateTime(2017, 1, 3), planner.PlannedCourses.ElementAt(3).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(1, planner.PlannedCourses.ElementAt(3).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(1, planner.PlannedCourses.ElementAt(3).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(4).Code);
+            Assert.AreEqual("OLC3", planner.PlannedCourses.ElementAt(4).Code);
             Assert.AreEqual(new DateTime(2017, 1, 5), planner.PlannedCourses.ElementAt(4).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(1, planner.PlannedCourses.ElementAt(4).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(1, planner.PlannedCourses.ElementAt(4).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(5).Code);
+            Assert.AreEqual("OLC4", planner.PlannedCourses.ElementAt(5).Code);
             Assert.AreEqual(new DateTime(2017, 1, 9), planner.PlannedCourses.ElementAt(5).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(5, planner.PlannedCourses.ElementAt(5).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(5, planner.PlannedCourses.ElementAt(5).Duration);
@@ -334,32 +334,32 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Assert.AreEqual(new DateTime(2017, 1, 9), planner.PlannedCourses.ElementAt(2).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(3, planner.PlannedCourses.ElementAt(2).CourseImplementations.ElementAt(0).Days.Count());
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(3).Code);
+            Assert.AreEqual("OLC1", planner.PlannedCourses.ElementAt(3).Code);
             Assert.AreEqual(new DateTime(2017, 1, 5), planner.PlannedCourses.ElementAt(3).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(3).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(3).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(4).Code);
+            Assert.AreEqual("OLC2", planner.PlannedCourses.ElementAt(4).Code);
             Assert.AreEqual(new DateTime(2017, 1, 12), planner.PlannedCourses.ElementAt(4).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(4).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(2, planner.PlannedCourses.ElementAt(4).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(5).Code);
+            Assert.AreEqual("OLC3", planner.PlannedCourses.ElementAt(5).Code);
             Assert.AreEqual(new DateTime(2017, 1, 16), planner.PlannedCourses.ElementAt(5).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(5, planner.PlannedCourses.ElementAt(5).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(5, planner.PlannedCourses.ElementAt(5).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(6).Code);
+            Assert.AreEqual("OLC4", planner.PlannedCourses.ElementAt(6).Code);
             Assert.AreEqual(new DateTime(2017, 1, 23), planner.PlannedCourses.ElementAt(6).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(5, planner.PlannedCourses.ElementAt(6).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(5, planner.PlannedCourses.ElementAt(6).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(7).Code);
+            Assert.AreEqual("OLC5", planner.PlannedCourses.ElementAt(7).Code);
             Assert.AreEqual(new DateTime(2017, 1, 31), planner.PlannedCourses.ElementAt(7).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(4, planner.PlannedCourses.ElementAt(7).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(4, planner.PlannedCourses.ElementAt(7).Duration);
 
-            Assert.AreEqual("OLC", planner.PlannedCourses.ElementAt(8).Code);
+            Assert.AreEqual("OLC6", planner.PlannedCourses.ElementAt(8).Code);
             Assert.AreEqual(new DateTime(2017, 2, 6), planner.PlannedCourses.ElementAt(8).CourseImplementations.ElementAt(0).StartDay);
             Assert.AreEqual(1, planner.PlannedCourses.ElementAt(8).CourseImplementations.ElementAt(0).Days.Count());
             Assert.AreEqual(1, planner.PlannedCourses.ElementAt(8).Duration);
