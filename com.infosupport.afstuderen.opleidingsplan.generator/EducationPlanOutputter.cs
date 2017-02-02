@@ -1,6 +1,6 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
-using com.infosupport.afstuderen.opleidingsplan.integration;
-using com.infosupport.afstuderen.opleidingsplan.models;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers;
+using InfoSupport.KC.OpleidingsplanGenerator.Integration;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator
+namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
 {
     public class EducationPlanOutputter : IEducationPlanOutputter
     {
@@ -77,7 +77,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             };
         }
 
-        private List<EducationPlanCourse> GetJustBeforeStartDateNotPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner, DateTime justBeforeStart)
+        private List<EducationPlanCourse> GetJustBeforeStartDateNotPlannedEducationPlanCourses(List<Generator.Course> coursesFromPlanner, DateTime justBeforeStart)
         {
             _logger.Debug(string.Format(_culture, "GetJustBeforeStartDateNotPlannedEducationPlanCourses with date justBeforeStart {0}", justBeforeStart.ToString("dd-MM-yyyy")));
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
@@ -102,7 +102,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return educationPlanCourses;
         }
 
-        private List<EducationPlanCourse> GetPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner)
+        private List<EducationPlanCourse> GetPlannedEducationPlanCourses(List<Generator.Course> coursesFromPlanner)
         {
             _logger.Debug("GetPlannedEducationPlanCourses");
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
@@ -127,7 +127,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return educationPlanCourses;
         }
 
-        private List<EducationPlanCourse> GetNotPlannedEducationPlanCourses(List<generator.Course> coursesFromPlanner, List<EducationPlanCourse> plannedCourses)
+        private List<EducationPlanCourse> GetNotPlannedEducationPlanCourses(List<Generator.Course> coursesFromPlanner, List<EducationPlanCourse> plannedCourses)
         {
             _logger.Debug("GetNotPlannedEducationPlanCourses");
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();

@@ -7,8 +7,8 @@
     <ProjectGuid>{5713F827-4539-4AC4-BF4D-82606CF97E5A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>com.infosupport.afstuderen.opleidingsplan.integration</RootNamespace>
-    <AssemblyName>com.infosupport.afstuderen.opleidingsplan.integration</AssemblyName>
+    <RootNamespace>InfoSupport.KC.OpleidingsplanGenerator.Integration</RootNamespace>
+    <AssemblyName>InfoSupport.KC.OpleidingsplanGenerator.Integration</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

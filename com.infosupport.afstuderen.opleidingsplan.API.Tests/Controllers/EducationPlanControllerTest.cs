@@ -1,16 +1,16 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using com.infosupport.afstuderen.opleidingsplan.api;
-using com.infosupport.afstuderen.opleidingsplan.api.controllers;
-using com.infosupport.afstuderen.opleidingsplan.api.managers;
+using InfoSupport.KC.OpleidingsplanGenerator.Api;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Managers;
 using Moq;
-using com.infosupport.afstuderen.opleidingsplan.api.models;
-using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Models;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers;
 using System.Collections.ObjectModel;
-using com.infosupport.afstuderen.opleidingsplan.models;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using System.Collections.Generic;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Controllers
 {
     [TestClass]
     public class EducationPlanControllerTest : EducationPlanTestHelper

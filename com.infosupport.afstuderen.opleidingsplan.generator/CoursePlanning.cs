@@ -1,10 +1,10 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.models;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System;
 using System.Collections.ObjectModel;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator
+namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
 {
     public class CoursePlanning
     {

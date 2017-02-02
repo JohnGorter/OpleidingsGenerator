@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator
+namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
 {
     public class EducationPlanData
     {

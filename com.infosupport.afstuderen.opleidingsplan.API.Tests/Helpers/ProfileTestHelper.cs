@@ -1,11 +1,11 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.api.models;
-using com.infosupport.afstuderen.opleidingsplan.models;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Api.Models;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers
 {
     public class ProfileTestHelper
     {

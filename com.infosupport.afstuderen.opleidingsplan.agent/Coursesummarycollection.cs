@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace com.infosupport.afstuderen.opleidingsplan.integration
+namespace InfoSupport.KC.OpleidingsplanGenerator.Integration
 {
     [XmlRoot(ElementName = "CourseSummaryCollection", Namespace = "http://schemas.datacontract.org/2004/07/InfoSupport.Trainingen")]
     public class Coursesummarycollection

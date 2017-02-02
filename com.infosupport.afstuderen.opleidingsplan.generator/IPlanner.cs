@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator
+namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
 {
     public interface IPlanner
     {
@@ -12,7 +12,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         IEnumerable<Course> PlannedCourses { get; }
         IEnumerable<Course> NotPlannedCourses { get; }
         IEnumerable<Course> AllCourses { get; }
-        void PlanCourses(IEnumerable<models.Course> coursesToPlan);
-        void PlanCoursesWithOlc(IEnumerable<models.Course> coursesToPlan);
+        void PlanCourses(IEnumerable<Models.Course> coursesToPlan);
+        void PlanCoursesWithOlc(IEnumerable<Models.Course> coursesToPlan);
     }
 }

@@ -1,5 +1,5 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.api.managers;
-using com.infosupport.afstuderen.opleidingsplan.models;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Api.Managers;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
 {
     [EnableCors("*", "*", "*")]
     public class ManagementPropertiesController : ApiController
@@ -25,7 +25,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
 
         public ManagementPropertiesController()
         {
-            string managementPropertiesPath = dal.DalConfiguration.Configuration.ManagementPropertiesPath;
+            string managementPropertiesPath = Dal.DalConfiguration.Configuration.ManagementPropertiesPath;
             string pathToManagementProperties = HttpContext.Current.Server.MapPath(managementPropertiesPath);
 
             _managementPropertiesManager = new ManagementPropertiesManager(pathToManagementProperties);

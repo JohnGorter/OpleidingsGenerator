@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using com.infosupport.afstuderen.opleidingsplan.models;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using Novacode;
 using System.Linq;
 using System.Globalization;
-using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers;
 using System.IO;
 using log4net;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator
+namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
 {
     public class EducationPlanConverter : IEducationPlanConverter
     {

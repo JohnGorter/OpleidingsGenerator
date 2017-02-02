@@ -1,4 +1,4 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.models;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using log4net;
 using Newtonsoft.Json;
 using System;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers
 {
     public class CourseJsonDataMapper : ICourseDataMapper
     {

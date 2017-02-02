@@ -1,12 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
-using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
-using com.infosupport.afstuderen.opleidingsplan.models;
+using InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using System.Linq;
 using Newtonsoft.Json;
 
-namespace com.infosupport.afstuderen.opleidingsplan.dal.tests
+namespace InfoSupport.KC.OpleidingsplanGenerator.Dal.Tests
 {
     [TestClass]
     public class CourseDataMapperTest

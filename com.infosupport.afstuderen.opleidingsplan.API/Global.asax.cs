@@ -1,4 +1,4 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.api;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Api;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api
 {
     public sealed class FilterConfig
     {

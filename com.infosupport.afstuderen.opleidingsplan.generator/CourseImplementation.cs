@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator
+namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
 {
     public class CourseImplementation
     {
@@ -18,7 +18,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public IEnumerable<DateTime> Days { get; set; }
         public Status Status { get; set; }
 
-        public static explicit operator CourseImplementation(models.CourseImplementation courseImplementation)
+        public static explicit operator CourseImplementation(Models.CourseImplementation courseImplementation)
         {
             _logger.Debug("Cast course implementation");
             return new CourseImplementation

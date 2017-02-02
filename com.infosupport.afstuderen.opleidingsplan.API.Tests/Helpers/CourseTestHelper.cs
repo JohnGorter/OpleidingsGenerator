@@ -1,15 +1,15 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.models;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers
 {
     public class CourseTestHelper
     {
-        internal integration.Course GetDummyDataIntegrationCourse()
+        internal Integration.Course GetDummyDataIntegrationCourse()
         {
-            return new integration.Course
+            return new Integration.Course
             {
                 Code = "POLDEVEL",
                 Name = "Developing Polymer Elements",
@@ -21,9 +21,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             };
         }
 
-        internal opleidingsplan.models.Course GetDummyDataModelCourse()
+        internal OpleidingsplanGenerator.Models.Course GetDummyDataModelCourse()
         {
-            return new opleidingsplan.models.Course
+            return new OpleidingsplanGenerator.Models.Course
             {
                 Code = "POLDEVEL",
                 Name = "Developing Polymer Elements",
@@ -35,25 +35,25 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             };
         }
 
-        internal integration.Coursesummarycollection GetDummyDataIntegrationCourses()
+        internal Integration.Coursesummarycollection GetDummyDataIntegrationCourses()
         {
-            return new integration.Coursesummarycollection
+            return new Integration.Coursesummarycollection
             {
-                Coursesummary = new Collection<integration.Coursesummary>()
+                Coursesummary = new Collection<Integration.Coursesummary>()
                 {
-                    new integration.Coursesummary
+                    new Integration.Coursesummary
                     {
                         Code = "2NETARCH",
                         Name = ".NET for Architects and Project Managers",
                         Suppliername = "Info Support",
                     },
-                    new integration.Coursesummary
+                    new Integration.Coursesummary
                     {
                         Code = "ADCSB",
                         Name = "Advanced C#",
                         Suppliername = "Info Support",
                     },
-                    new integration.Coursesummary
+                    new Integration.Coursesummary
                     {
                         Code = "ADMTFS",
                         Name = "Administering Team Foundation Server",
@@ -74,11 +74,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             };
         }
 
-        private Collection<integration.CourseImplementation> GetDummyDataIntegrationCourseImplementations()
+        private Collection<Integration.CourseImplementation> GetDummyDataIntegrationCourseImplementations()
         {
-            return new Collection<integration.CourseImplementation>
+            return new Collection<Integration.CourseImplementation>
             {
-                new integration.CourseImplementation
+                new Integration.CourseImplementation
                 {
                     Days = new Collection<DateTime>
                     {
@@ -88,7 +88,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
                     },
                     Location = "Veenendaal",
                 },
-                new integration.CourseImplementation
+                new Integration.CourseImplementation
                 {
                     Days = new Collection<DateTime>
                     {
@@ -102,11 +102,11 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             };
         }
 
-        private IEnumerable<opleidingsplan.models.CourseImplementation> GetDummyDataModelCourseImplementations()
+        private IEnumerable<OpleidingsplanGenerator.Models.CourseImplementation> GetDummyDataModelCourseImplementations()
         {
-            return new List<opleidingsplan.models.CourseImplementation>()
+            return new List<OpleidingsplanGenerator.Models.CourseImplementation>()
             {
-                new opleidingsplan.models.CourseImplementation
+                new OpleidingsplanGenerator.Models.CourseImplementation
                 {
                     Days = new List<DateTime>()
                     {
@@ -116,7 +116,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
                     },
                     Location = "Veenendaal",
                 },
-                new opleidingsplan.models.CourseImplementation
+                new OpleidingsplanGenerator.Models.CourseImplementation
                 {
                     Days = new List<DateTime>()
                     {

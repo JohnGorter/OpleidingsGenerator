@@ -1,12 +1,12 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.api.models;
-using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
-using com.infosupport.afstuderen.opleidingsplan.models;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Api.Models;
+using InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.managers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
 {
     public class ProfileManager : IProfileManager
     {

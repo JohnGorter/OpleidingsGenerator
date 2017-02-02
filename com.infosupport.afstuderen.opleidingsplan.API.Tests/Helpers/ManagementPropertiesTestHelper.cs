@@ -1,6 +1,6 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.models;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Models;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers
 {
     public class ManagementPropertiesTestHelper
     {

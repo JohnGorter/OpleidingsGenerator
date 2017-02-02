@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.models
+namespace InfoSupport.KC.OpleidingsplanGenerator.Models
 {
     public class EducationPlanCourse
     {

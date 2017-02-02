@@ -1,5 +1,5 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.api.managers;
-using com.infosupport.afstuderen.opleidingsplan.models;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Api.Managers;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
 {
     [EnableCors("*", "*", "*")]
     public class ProfileController : ApiController
@@ -22,7 +22,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
 
         public ProfileController()
         {
-            string profilepath = dal.DalConfiguration.Configuration.ProfilePath;
+            string profilepath = Dal.DalConfiguration.Configuration.ProfilePath;
             string pathToProfiles = HttpContext.Current.Server.MapPath(profilepath);
 
             _administrationManager = new ProfileManager(pathToProfiles);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.models
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Models
 {
     public class EducationPlanSearch
     {

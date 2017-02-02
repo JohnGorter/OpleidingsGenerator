@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers;
+using InfoSupport.KC.OpleidingsplanGenerator.Generator.Tests.Helpers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
+namespace InfoSupport.KC.OpleidingsplanGenerator.Generator.Tests
 {
     [TestClass]
     public class EducationPlanConverterTest : EducationPlanTestHelper

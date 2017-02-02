@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace com.infosupport.afstuderen.opleidingsplan.models.tests.helpers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Models.Tests.Helpers
 {
     public class EducationPlanTestHelper
     {

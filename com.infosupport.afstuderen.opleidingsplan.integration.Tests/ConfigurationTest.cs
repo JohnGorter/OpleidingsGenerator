@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace com.infosupport.afstuderen.opleidingsplan.integration.tests
+namespace InfoSupport.KC.OpleidingsplanGenerator.Integration.Tests
 {
     [TestClass]
     public class ConfigurationTest

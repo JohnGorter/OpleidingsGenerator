@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using com.infosupport.afstuderen.opleidingsplan.models;
-using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
+using InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.managers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
 {
     public class ManagementPropertiesManager : IManagementPropertiesManager
     {

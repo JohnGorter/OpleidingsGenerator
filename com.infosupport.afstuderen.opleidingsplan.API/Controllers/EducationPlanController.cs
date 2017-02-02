@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using com.infosupport.afstuderen.opleidingsplan.api.managers;
-using com.infosupport.afstuderen.opleidingsplan.api.models;
-using com.infosupport.afstuderen.opleidingsplan.dal;
-using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
-using com.infosupport.afstuderen.opleidingsplan.generator;
-using com.infosupport.afstuderen.opleidingsplan.models;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Managers;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Models;
+using InfoSupport.KC.OpleidingsplanGenerator.Dal;
+using InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers;
+using InfoSupport.KC.OpleidingsplanGenerator.Generator;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
 {
     [EnableCors("*", "*", "*")]
     public class EducationPlanController : ApiController

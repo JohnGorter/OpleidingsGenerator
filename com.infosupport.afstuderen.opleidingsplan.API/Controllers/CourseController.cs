@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using com.infosupport.afstuderen.opleidingsplan.api.managers;
-using com.infosupport.afstuderen.opleidingsplan.models;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Managers;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
 {
     [EnableCors("*","*","*")]
     public class CourseController : ApiController
@@ -24,7 +24,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
 
         public CourseController()
         {
-            string profilepath = dal.DalConfiguration.Configuration.ProfilePath;
+            string profilepath = Dal.DalConfiguration.Configuration.ProfilePath;
             string pathToProfiles = HttpContext.Current.Server.MapPath(profilepath);
 
             _courseManager = new CourseManager(pathToProfiles);
@@ -36,19 +36,19 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.controllers
         }
 
         // GET: api/Course
-        public IEnumerable<opleidingsplan.models.CourseSummary> Get()
+        public IEnumerable<OpleidingsplanGenerator.Models.CourseSummary> Get()
         {
             _logger.Info("Get all courses");
             var courses = _courseManager.FindCourses().Coursesummary;
-            return Mapper.Map<IEnumerable<opleidingsplan.models.CourseSummary>>(courses);
+            return Mapper.Map<IEnumerable<OpleidingsplanGenerator.Models.CourseSummary>>(courses);
         }
 
         // GET: api/Course/POLDEVEL
-        public opleidingsplan.models.Course Get(string id)
+        public OpleidingsplanGenerator.Models.Course Get(string id)
         {
             _logger.Info(string.Format(_culture, "Get course with id {0}", id));
             var course = _courseManager.FindCourse(id);
-            return Mapper.Map<opleidingsplan.models.Course>(course);
+            return Mapper.Map<OpleidingsplanGenerator.Models.Course>(course);
         }
 
         // POST: api/Course

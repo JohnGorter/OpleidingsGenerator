@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.models
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Models
 {
     public class RestEducationPlan
     {

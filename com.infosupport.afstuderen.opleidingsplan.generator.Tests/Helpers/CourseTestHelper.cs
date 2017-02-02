@@ -1,25 +1,25 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.models;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Generator.Tests.Helpers
 {
     public abstract class CourseTestHelper
     {
 
-        protected models.Course CreateNewModelCourseWithOneCourseImplementation(string Code, int priority, DateTime[] days)
+        protected Models.Course CreateNewModelCourseWithOneCourseImplementation(string Code, int priority, DateTime[] days)
         {
-            return new models.Course
+            return new Models.Course
             {
                 Code = Code,
                 Priority = priority,
                 Duration = days.Count() + " dagen",
-                CourseImplementations = new List<models.CourseImplementation>()
+                CourseImplementations = new List<Models.CourseImplementation>()
                 {
-                    new models.CourseImplementation
+                    new Models.CourseImplementation
                     {
                         Days = days.ToList(),
                     }
@@ -28,20 +28,20 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
             };
         }
 
-        protected models.Course CreateNewModelCourseWithTwoCourseImplementations(string courseId, int priority, DateTime[] days1, DateTime[] days2)
+        protected Models.Course CreateNewModelCourseWithTwoCourseImplementations(string courseId, int priority, DateTime[] days1, DateTime[] days2)
         {
-            return new models.Course
+            return new Models.Course
             {
                 Code = courseId,
                 Priority = priority,
                 Duration = days1.Count() + " dagen",
-                CourseImplementations = new List<models.CourseImplementation>()
+                CourseImplementations = new List<Models.CourseImplementation>()
                 {
-                    new models.CourseImplementation
+                    new Models.CourseImplementation
                     {
                         Days = days1.ToList(),
                     },
-                    new models.CourseImplementation
+                    new Models.CourseImplementation
                     {
                         Days = days2.ToList(),
                     }
@@ -49,24 +49,24 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
             };
         }
 
-        protected models.Course CreateNewModelCourseWithTreeCourseImplementations(string courseId, int priority, DateTime[] days1, DateTime[] days2, DateTime[] days3)
+        protected Models.Course CreateNewModelCourseWithTreeCourseImplementations(string courseId, int priority, DateTime[] days1, DateTime[] days2, DateTime[] days3)
         {
-            return new models.Course
+            return new Models.Course
             {
                 Code = courseId,
                 Priority = priority,
                 Duration = days1.Count() + " dagen",
-                CourseImplementations = new List<models.CourseImplementation>()
+                CourseImplementations = new List<Models.CourseImplementation>()
                 {
-                    new models.CourseImplementation
+                    new Models.CourseImplementation
                     {
                         Days = days1.ToList(),
                     },
-                    new models.CourseImplementation
+                    new Models.CourseImplementation
                     {
                         Days = days2.ToList(),
                     },
-                    new models.CourseImplementation
+                    new Models.CourseImplementation
                     {
                         Days = days3.ToList(),
                     }
@@ -74,20 +74,20 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
             };
         }
 
-        protected generator.Course CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus(string courseId, int priority, DateTime[] days1, Status status1, DateTime[] days2, Status status2)
+        protected Generator.Course CreateNewGeneratorCourseWithTwoCourseImplementationsAndStatus(string courseId, int priority, DateTime[] days1, Status status1, DateTime[] days2, Status status2)
         {
-            return new generator.Course
+            return new Generator.Course
             {
                 Code = courseId,
                 Priority = priority,
-                CourseImplementations = new List<generator.CourseImplementation>()
+                CourseImplementations = new List<Generator.CourseImplementation>()
                 {
-                    new generator.CourseImplementation
+                    new Generator.CourseImplementation
                     {
                         Days = days1.ToList(),
                         Status = status1,
                     },
-                    new generator.CourseImplementation
+                    new Generator.CourseImplementation
                     {
                         Days = days2.ToList(),
                         Status = status2,
@@ -96,25 +96,25 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
             };
         }
 
-        protected generator.Course CreateNewGeneratorCourseWithThreeCourseImplementationsAndStatus(string courseId, int priority, DateTime[] days1, Status status1, DateTime[] days2, Status status2, DateTime[] days3, Status status3)
+        protected Generator.Course CreateNewGeneratorCourseWithThreeCourseImplementationsAndStatus(string courseId, int priority, DateTime[] days1, Status status1, DateTime[] days2, Status status2, DateTime[] days3, Status status3)
         {
-            return new generator.Course
+            return new Generator.Course
             {
                 Code = courseId,
                 Priority = priority,
-                CourseImplementations = new List<generator.CourseImplementation>()
+                CourseImplementations = new List<Generator.CourseImplementation>()
                 {
-                    new generator.CourseImplementation
+                    new Generator.CourseImplementation
                     {
                         Days = days1.ToList(),
                         Status = status1,
                     },
-                    new generator.CourseImplementation
+                    new Generator.CourseImplementation
                     {
                         Days = days2.ToList(),
                         Status = status2,
                     },
-                    new generator.CourseImplementation
+                    new Generator.CourseImplementation
                     {
                         Days = days3.ToList(),
                         Status = status3,
@@ -123,15 +123,15 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
             };
         }
 
-        protected generator.Course CreateNewGeneratorCourseWithOneCourseImplementationAndStatus(string courseId, int priority, DateTime[] days, Status status)
+        protected Generator.Course CreateNewGeneratorCourseWithOneCourseImplementationAndStatus(string courseId, int priority, DateTime[] days, Status status)
         {
-            return new generator.Course
+            return new Generator.Course
             {
                 Code = courseId,
                 Priority = priority,
-                CourseImplementations = new List<generator.CourseImplementation>()
+                CourseImplementations = new List<Generator.CourseImplementation>()
                 {
-                    new generator.CourseImplementation
+                    new Generator.CourseImplementation
                     {
                         Days = days.ToList(),
                         Status = status,
@@ -140,15 +140,15 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
             };
         }
 
-        protected generator.Course CreateNewGeneratorCourseWithOneCourseImplementation(string courseId, int priority, DateTime[] days)
+        protected Generator.Course CreateNewGeneratorCourseWithOneCourseImplementation(string courseId, int priority, DateTime[] days)
         {
-            return new generator.Course
+            return new Generator.Course
             {
                 Code = courseId,
                 Priority = priority,
-                CourseImplementations = new List<generator.CourseImplementation>()
+                CourseImplementations = new List<Generator.CourseImplementation>()
                 {
-                    new generator.CourseImplementation
+                    new Generator.CourseImplementation
                     {
                         Days = days.ToList(),
                     },
@@ -156,19 +156,19 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
             };
         }
 
-        protected generator.Course CreateNewGeneratorCourseWithTwoCourseImplementations(string courseId, int priority, DateTime[] days1, DateTime[] days2)
+        protected Generator.Course CreateNewGeneratorCourseWithTwoCourseImplementations(string courseId, int priority, DateTime[] days1, DateTime[] days2)
         {
-            return new generator.Course
+            return new Generator.Course
             {
                 Code = courseId,
                 Priority = priority,
-                CourseImplementations = new List<generator.CourseImplementation>()
+                CourseImplementations = new List<Generator.CourseImplementation>()
                 {
-                    new generator.CourseImplementation
+                    new Generator.CourseImplementation
                     {
                         Days = days1.ToList(),
                     },
-                    new generator.CourseImplementation
+                    new Generator.CourseImplementation
                     {
                         Days = days2.ToList(),
                     },
@@ -190,9 +190,9 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers
             };
         }
 
-        protected generator.CourseImplementation CreateNewGeneratorCourseImplementation(DateTime[] days)
+        protected Generator.CourseImplementation CreateNewGeneratorCourseImplementation(DateTime[] days)
         {
-            return new generator.CourseImplementation
+            return new Generator.CourseImplementation
             {
                 Days = days.ToList(),
             };

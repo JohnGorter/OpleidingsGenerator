@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api
 {
     public static class WebApiConfig
     {

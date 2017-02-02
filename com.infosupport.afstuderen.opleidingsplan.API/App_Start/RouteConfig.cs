@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api
 {
     public sealed class RouteConfig
     {

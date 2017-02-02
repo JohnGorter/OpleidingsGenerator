@@ -1,16 +1,16 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using com.infosupport.afstuderen.opleidingsplan.models;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using Newtonsoft.Json;
 using System.IO;
 using log4net;
 using System.Globalization;
 
-namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers
 {
     public class ManagementPropertiesJsonDataMapper : IManagementPropertiesDataMapper
     {

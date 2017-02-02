@@ -1,12 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
-using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
-using com.infosupport.afstuderen.opleidingsplan.api.managers;
-using com.infosupport.afstuderen.opleidingsplan.models;
+using InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Managers;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
 {
     [TestClass]
     public class ManagementPropertiesManagerTest : ManagementPropertiesTestHelper

@@ -1,6 +1,6 @@
 ﻿using System;
-using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
-using com.infosupport.afstuderen.opleidingsplan.models;
+using InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Globalization;
 using log4net;
 
-namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers
 {
     public class EducationPlanJsonDataMapper : IEducationPlanDataMapper
     {

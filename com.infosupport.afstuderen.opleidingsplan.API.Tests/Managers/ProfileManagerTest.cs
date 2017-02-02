@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
-using com.infosupport.afstuderen.opleidingsplan.models;
-using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
-using com.infosupport.afstuderen.opleidingsplan.api.managers;
+using InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Managers;
 using System.Linq;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.tests.managers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
 {
     [TestClass]
     public class ProfileManagerTest : ProfileTestHelper

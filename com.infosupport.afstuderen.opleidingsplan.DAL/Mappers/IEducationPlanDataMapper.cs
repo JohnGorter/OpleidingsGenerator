@@ -1,8 +1,8 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.models;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using System;
 using System.Collections.Generic;
 
-namespace com.infosupport.afstuderen.opleidingsplan.dal.mappers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers
 {
     public interface IEducationPlanDataMapper
     {

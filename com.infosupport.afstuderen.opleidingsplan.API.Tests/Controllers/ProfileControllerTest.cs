@@ -2,12 +2,12 @@
 using Moq;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using com.infosupport.afstuderen.opleidingsplan.api.managers;
-using com.infosupport.afstuderen.opleidingsplan.api.controllers;
-using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
-using com.infosupport.afstuderen.opleidingsplan.models;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Managers;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Controllers
 {
     [TestClass]
     public class ProfileControllerTest : ProfileTestHelper

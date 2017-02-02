@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using com.infosupport.afstuderen.opleidingsplan.models;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using log4net;
 using System.Globalization;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator
+namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
 {
     public class Course
     {
@@ -18,7 +18,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         public int? Duration { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public IEnumerable<generator.CourseImplementation> CourseImplementations { get; set; }
+        public IEnumerable<Generator.CourseImplementation> CourseImplementations { get; set; }
         public IEnumerable<string> IntersectedCourseIds { get; private set; }
 
         public CourseImplementation PlannedImplementation
@@ -29,16 +29,16 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             }
         }
 
-        public static explicit operator Course(models.Course course)
+        public static explicit operator Course(Models.Course course)
         {
             _logger.Debug(string.Format(_culture, "Cast course {0}", course.Code));
-            List<generator.CourseImplementation> courseImplementations = new List<CourseImplementation>();
+            List<Generator.CourseImplementation> courseImplementations = new List<CourseImplementation>();
 
             if (course.CourseImplementations != null)
             {
                 foreach (var implementations in course.CourseImplementations)
                 {
-                    courseImplementations.Add((generator.CourseImplementation)implementations);
+                    courseImplementations.Add((Generator.CourseImplementation)implementations);
                 }
             }
 
@@ -66,7 +66,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             }
         }
 
-        public bool HasOneAvailableImplementation(IEnumerable<generator.Course> courses)
+        public bool HasOneAvailableImplementation(IEnumerable<Generator.Course> courses)
         {
             _logger.Debug(string.Format(_culture, "HasOneAvailableImplementation in course {0}", Code));
             return GetCourseAvailableImplementation(courses).Count() == 1;
@@ -90,7 +90,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return this.CourseImplementations.Count(ci => ci.Status != Status.UNPLANNABLE) == 1;
         }
         
-        public void MarkAllIntersectedOfPlannedImplementations(Status status, IEnumerable<generator.Course> courses)
+        public void MarkAllIntersectedOfPlannedImplementations(Status status, IEnumerable<Generator.Course> courses)
         {
             _logger.Debug(string.Format(_culture, "MarkAllIntersectedOfPlannedImplementations to status {0} in course {1}", status, Code));
             var plannedCourseImplementation = this.CourseImplementations.FirstOrDefault(courseImplementation => courseImplementation.Status == Status.PLANNED);
@@ -118,7 +118,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return GetCourseAvailableImplementation(plannedCourses).Any();
         }
 
-        public void MarkOnlyAvailableImplementationPlanned(IEnumerable<generator.Course> courses)
+        public void MarkOnlyAvailableImplementationPlanned(IEnumerable<Generator.Course> courses)
         {
             _logger.Debug(string.Format(_culture, "MarkOnlyAvailableImplementationPlanned in course {0}", Code));
             if (!HasOneAvailableImplementation(courses))
@@ -137,7 +137,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
         /// else it will mark the first minimum intersected implementation to Planned
         /// </summary>
         /// <param name="courses"></param>
-        public void MarkMinimumIntersectedFirstAvailableImplementationPlanned(IEnumerable<generator.Course> courses)
+        public void MarkMinimumIntersectedFirstAvailableImplementationPlanned(IEnumerable<Generator.Course> courses)
         {
             _logger.Debug(string.Format(_culture, "MarkMinimumIntersectedFirstAvailableImplementationPlanned in course {0}", Code));
             if (GetCourseAvailableImplementation(courses).None())
@@ -166,13 +166,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             }
         }
 
-        public void AddIntersectedCourses(IEnumerable<generator.Course> plannedCourses)
+        public void AddIntersectedCourses(IEnumerable<Generator.Course> plannedCourses)
         {
             _logger.Debug(string.Format(_culture, "AddIntersectedCourses in course {0}", Code));
             this.IntersectedCourseIds = plannedCourses.Where(course => course.Intersects(this)).Select(course => course.Code).ToList();
         }
 
-        public bool Intersects(generator.Course course)
+        public bool Intersects(Generator.Course course)
         {
             _logger.Debug(string.Format(_culture, "Intersects in course {0}", Code));
             if (course == null)
@@ -184,7 +184,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return course.CourseImplementations.Any(courseImplementation => courseImplementation.Intersects(this.CourseImplementations));
         }
 
-        public bool IntersectsNotUnplannable(generator.Course course)
+        public bool IntersectsNotUnplannable(Generator.Course course)
         {
             _logger.Debug(string.Format(_culture, "IntersectsNotUnplannable in course {0}", Code));
             if (course == null)
@@ -239,13 +239,13 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             }
         }
 
-        private IEnumerable<generator.Course> GetIntersectedCoursesWithEqualOrHigherPriority(IEnumerable<Course> courses)
+        private IEnumerable<Generator.Course> GetIntersectedCoursesWithEqualOrHigherPriority(IEnumerable<Course> courses)
         {
             _logger.Debug(string.Format(_culture, "GetIntersectedCoursesWithEqualOrHigherPriority in course {0}", Code));
             return courses.Where(course => course.IntersectsNotUnplannable(this) && course.Priority <= this.Priority).ToList();
         }
 
-        private IEnumerable<generator.CourseImplementation> GetCourseAvailableImplementation(IEnumerable<generator.Course> courses)
+        private IEnumerable<Generator.CourseImplementation> GetCourseAvailableImplementation(IEnumerable<Generator.Course> courses)
         {
             _logger.Debug(string.Format(_culture, "GetCourseAvailableImplementation in course {0}", Code));
             return this.CourseImplementations

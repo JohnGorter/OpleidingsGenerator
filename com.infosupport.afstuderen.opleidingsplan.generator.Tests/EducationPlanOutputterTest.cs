@@ -2,12 +2,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
-using com.infosupport.afstuderen.opleidingsplan.generator.tests.helpers;
-using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using InfoSupport.KC.OpleidingsplanGenerator.Generator.Tests.Helpers;
+using InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers;
 using Moq;
-using com.infosupport.afstuderen.opleidingsplan.models;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
+namespace InfoSupport.KC.OpleidingsplanGenerator.Generator.Tests
 {
     [TestClass]
     public class EducationPlanOutputterTest : CourseTestHelper
@@ -23,7 +23,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 1);
 
-            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
+            IEnumerable<Models.Course> coursesToPlan = new List<Models.Course>()
             {
                 CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1, new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
                 CreateNewModelCourseWithOneCourseImplementation("ENEST", 1, new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5), new DateTime(2017, 1, 6) }),
@@ -79,7 +79,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = data.InPaymentFrom;
 
-            IEnumerable<models.Course> coursesToPlan = new List<models.Course>();
+            IEnumerable<Models.Course> coursesToPlan = new List<Models.Course>();
 
             planner.PlanCourses(coursesToPlan);
 
@@ -113,7 +113,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = data.InPaymentFrom;
 
-            IEnumerable<models.Course> coursesToPlan = new List<models.Course>();
+            IEnumerable<Models.Course> coursesToPlan = new List<Models.Course>();
 
             planner.PlanCourses(coursesToPlan);
 
@@ -136,7 +136,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 5);
 
-            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
+            IEnumerable<Models.Course> coursesToPlan = new List<Models.Course>()
             {
                 CreateNewModelCourseWithTwoCourseImplementations("SCRUMES", 1,new DateTime[] { new DateTime(2016, 1, 2), new DateTime(2016, 1, 3), new DateTime(2016, 1, 4) }, new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
                 CreateNewModelCourseWithOneCourseImplementation("ENEST", 1, new DateTime[] { new DateTime(2017, 1, 4), new DateTime(2017, 1, 5), new DateTime(2017, 1, 6) }),
@@ -174,7 +174,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator.tests
             Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
             planner.StartDate = new DateTime(2017, 1, 5);
 
-            IEnumerable<models.Course> coursesToPlan = new List<models.Course>()
+            IEnumerable<Models.Course> coursesToPlan = new List<Models.Course>()
             {
                 CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1, new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
                 CreateNewModelCourseWithOneCourseImplementation("ENEST", 1, new DateTime[] { new DateTime(2017, 5, 15), new DateTime(2017, 5, 16), new DateTime(2017, 5, 17) }),

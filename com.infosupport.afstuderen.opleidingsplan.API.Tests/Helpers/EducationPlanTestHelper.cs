@@ -1,5 +1,5 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.api.models;
-using com.infosupport.afstuderen.opleidingsplan.models;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Api.Models;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers
 {
     public abstract class EducationPlanTestHelper : ProfileTestHelper
     {
@@ -58,20 +58,20 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             };
         }
 
-        protected integration.Course CreateNewIntegrationCourseWithTwoCourseImplementations(string courseId, int priority, Collection<DateTime> days1, Collection<DateTime> days2)
+        protected Integration.Course CreateNewIntegrationCourseWithTwoCourseImplementations(string courseId, int priority, Collection<DateTime> days1, Collection<DateTime> days2)
         {
-            return new integration.Course
+            return new Integration.Course
             {
                 Code = courseId,
                 Duration = days1.Count() + " dagen",
-                CourseImplementations = new Collection<integration.CourseImplementation>
+                CourseImplementations = new Collection<Integration.CourseImplementation>
                 {
-                    new integration.CourseImplementation
+                    new Integration.CourseImplementation
                     {
                         Days = days1,
                         Location = "Veenendaal",
                     },
-                    new integration.CourseImplementation
+                    new Integration.CourseImplementation
                     {
                         Days = days2,
                         Location = "Veenendaal",
@@ -80,15 +80,15 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.helpers
             };
         }
 
-        protected integration.Course CreateNewIntegrationCourseWithOneCourseImplementation(string courseId, int priority, Collection<DateTime> days1)
+        protected Integration.Course CreateNewIntegrationCourseWithOneCourseImplementation(string courseId, int priority, Collection<DateTime> days1)
         {
-            return new integration.Course
+            return new Integration.Course
             {
                 Code = courseId,
                 Duration = days1.Count() + " dagen",
-                CourseImplementations = new Collection<integration.CourseImplementation>
+                CourseImplementations = new Collection<Integration.CourseImplementation>
                 {
-                    new integration.CourseImplementation
+                    new Integration.CourseImplementation
                     {
                         Days = days1,
                         Location = "Veenendaal",

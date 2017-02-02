@@ -1,12 +1,12 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.integration;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Integration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using com.infosupport.afstuderen.opleidingsplan.models;
-using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
+using InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.managers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
 {
     public class CourseManager : ICourseManager
     {
@@ -34,7 +34,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             return _courseService.FindAllCourses();
         }
 
-        public integration.Course FindCourse(string courseCode)
+        public Integration.Course FindCourse(string courseCode)
         {
             return _courseService.FindCourse(courseCode);
         }

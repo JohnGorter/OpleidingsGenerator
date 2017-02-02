@@ -1,5 +1,5 @@
-﻿using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
-using com.infosupport.afstuderen.opleidingsplan.models;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.generator
+namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
 {
     public class Planner : IPlanner
     {
@@ -85,21 +85,21 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             _managementPropertiesDataMapper = managementPropertiesDataMapper;
         }
 
-        public void PlanCoursesWithOlc(IEnumerable<models.Course> coursesToPlan)
+        public void PlanCoursesWithOlc(IEnumerable<Models.Course> coursesToPlan)
         {
             _logger.Debug("Plan courses with OLC");
             PlanCourses(coursesToPlan);
             ApplyOlc();
         }
 
-        public void PlanCourses(IEnumerable<models.Course> coursesToPlan)
+        public void PlanCourses(IEnumerable<Models.Course> coursesToPlan)
         {
             _logger.Debug("Plan courses");
             var coursesToPlanOrdered = coursesToPlan.OrderBy(course => course.Priority);
 
             foreach (var courseToPlan in coursesToPlanOrdered)
             {
-                var course = (generator.Course)courseToPlan;
+                var course = (Generator.Course)courseToPlan;
                 var knownCourses = _coursePlanning.Courses;
 
                 MarkCourseImplementations(course, knownCourses);
@@ -123,7 +123,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             }
         }
 
-        private generator.Course RemoveBlockedAndOutsidePeriodImplementations(generator.Course course)
+        private Generator.Course RemoveBlockedAndOutsidePeriodImplementations(Generator.Course course)
         {
             _logger.Debug(string.Format(_culture, "Remove blocked implementations and implementations outside the period from course {0}", course.Code));
 
@@ -148,7 +148,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.generator
             return course;
         }
 
-        private void MarkCourseImplementations(generator.Course course, IEnumerable<generator.Course> knownCourses)
+        private void MarkCourseImplementations(Generator.Course course, IEnumerable<Generator.Course> knownCourses)
         {
             _logger.Debug(string.Format(_culture, "Mark course implementations from course with code {0}", course.Code));
             var courseWithoutBlocked = RemoveBlockedAndOutsidePeriodImplementations(course);

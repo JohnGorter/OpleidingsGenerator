@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace com.infosupport.afstuderen.opleidingsplan.integration
+namespace InfoSupport.KC.OpleidingsplanGenerator.Integration
 {
     public class CourseService : ICourseService
     {
@@ -60,7 +60,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration
             }
         }
 
-        public IEnumerable<integration.Course> FindCourses(IEnumerable<string> courseCodes)
+        public IEnumerable<Integration.Course> FindCourses(IEnumerable<string> courseCodes)
         {
             _logger.Debug("FindCourses");
 
@@ -70,7 +70,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.integration
                 throw new ArgumentNullException("courseCodes");
             }
 
-            List<integration.Course> courses = new List<integration.Course>();
+            List<Integration.Course> courses = new List<Integration.Course>();
 
             foreach (var courseCode in courseCodes)
             {

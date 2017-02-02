@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.infosupport.afstuderen.opleidingsplan.integration
+namespace InfoSupport.KC.OpleidingsplanGenerator.Integration
 {
     [System.Xml.Serialization.XmlType(AnonymousType = true, Namespace = "http://schemas.datacontract.org/2004/07/InfoSupport.Trainingen")]
     [System.Xml.Serialization.XmlRoot(Namespace = "http://schemas.datacontract.org/2004/07/InfoSupport.Trainingen", IsNullable = false)]

@@ -1,17 +1,17 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using com.infosupport.afstuderen.opleidingsplan.api.controllers;
-using com.infosupport.afstuderen.opleidingsplan.api.models;
-using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
-using com.infosupport.afstuderen.opleidingsplan.api.managers;
-using com.infosupport.afstuderen.opleidingsplan.integration;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Models;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Managers;
+using InfoSupport.KC.OpleidingsplanGenerator.Integration;
 using Moq;
 using System.Collections.Generic;
 using System.Linq;
 using System.Collections.ObjectModel;
-using com.infosupport.afstuderen.opleidingsplan.dal;
+using InfoSupport.KC.OpleidingsplanGenerator.Dal;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.tests
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests
 {
     [TestClass]
     public class IntegrationTest : EducationPlanTestHelper
@@ -35,7 +35,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests
             RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(courses);
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
             courseServiceMock.Setup(service => service.FindCourses(new List<string> { "2NETARCH" })).Returns(
-                new List<integration.Course>() {
+                new List<Integration.Course>() {
                     CreateNewIntegrationCourseWithTwoCourseImplementations("2NETARCH", 1,
                     new Collection<DateTime> { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) },
                     new Collection<DateTime> { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) })
@@ -102,7 +102,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests
             restEducationPlan.InPaymentFrom = new DateTime(2017, 3, 5);
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
             courseServiceMock.Setup(service => service.FindCourses(new List<string> { "2NETARCH", "ADCSB" })).Returns(
-            new List<integration.Course>() {
+            new List<Integration.Course>() {
                 CreateNewIntegrationCourseWithOneCourseImplementation("2NETARCH", 1,
                 new Collection<DateTime> { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }),
                 CreateNewIntegrationCourseWithOneCourseImplementation("ADCSB", 1,
@@ -148,7 +148,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests
             restEducationPlan.InPaymentFrom = new DateTime(2017, 3, 5);
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
             courseServiceMock.Setup(service => service.FindCourses(new List<string> { "2NETARCH", "ADCSB" })).Returns(
-            new List<integration.Course>() {
+            new List<Integration.Course>() {
                 CreateNewIntegrationCourseWithOneCourseImplementation("2NETARCH", 1,
                 new Collection<DateTime> { new DateTime(2017, 3, 6), new DateTime(2017, 3, 7), new DateTime(2017, 3, 8) }),
                 CreateNewIntegrationCourseWithOneCourseImplementation("ADCSB", 1,

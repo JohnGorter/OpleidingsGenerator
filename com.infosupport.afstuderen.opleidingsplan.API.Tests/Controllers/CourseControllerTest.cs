@@ -1,16 +1,16 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using com.infosupport.afstuderen.opleidingsplan.api.controllers;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers;
 using Moq;
-using com.infosupport.afstuderen.opleidingsplan.api.managers;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Managers;
 using System.Linq;
-using com.infosupport.afstuderen.opleidingsplan.api;
-using com.infosupport.afstuderen.opleidingsplan.integration;
-using com.infosupport.afstuderen.opleidingsplan.models;
+using InfoSupport.KC.OpleidingsplanGenerator.Api;
+using InfoSupport.KC.OpleidingsplanGenerator.Integration;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using System.Collections.Generic;
-using com.infosupport.afstuderen.opleidingsplan.api.tests.helpers;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Controllers
 {
     [TestClass]
     public class CourseControllerTest : CourseTestHelper
@@ -115,7 +115,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.tests.controllers
             }
         }
 
-        private void TestCourseWithDummyData(integration.Course expected, opleidingsplan.models.Course actual)
+        private void TestCourseWithDummyData(Integration.Course expected, OpleidingsplanGenerator.Models.Course actual)
         {
             Assert.AreEqual(expected.Code, actual.Code);
             Assert.AreEqual(expected.Name, actual.Name);

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api
 {
     public sealed class AutoMapperConfiguration
     {
@@ -13,10 +13,10 @@ namespace com.infosupport.afstuderen.opleidingsplan.api
         {
             Mapper.Initialize(mapper =>
             {
-                mapper.CreateMap<integration.Course, opleidingsplan.models.Course>();
-                mapper.CreateMap<integration.Coursesummary, opleidingsplan.models.CourseSummary>();
-                mapper.CreateMap<integration.CourseImplementation, opleidingsplan.models.CourseImplementation>();
-                mapper.CreateMap<models.RestEducationPlan, generator.EducationPlanData>();
+                mapper.CreateMap<Integration.Course, OpleidingsplanGenerator.Models.Course>();
+                mapper.CreateMap<Integration.Coursesummary, OpleidingsplanGenerator.Models.CourseSummary>();
+                mapper.CreateMap<Integration.CourseImplementation, OpleidingsplanGenerator.Models.CourseImplementation>();
+                mapper.CreateMap<Models.RestEducationPlan, Generator.EducationPlanData>();
             });
         }
     }

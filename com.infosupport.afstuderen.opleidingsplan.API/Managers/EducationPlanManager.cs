@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using com.infosupport.afstuderen.opleidingsplan.api.models;
-using com.infosupport.afstuderen.opleidingsplan.dal.mappers;
-using com.infosupport.afstuderen.opleidingsplan.generator;
-using com.infosupport.afstuderen.opleidingsplan.integration;
-using com.infosupport.afstuderen.opleidingsplan.models;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Models;
+using InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers;
+using InfoSupport.KC.OpleidingsplanGenerator.Generator;
+using InfoSupport.KC.OpleidingsplanGenerator.Integration;
+using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -12,14 +12,14 @@ using System.Linq;
 using System.Web;
 using System.Collections.ObjectModel;
 
-namespace com.infosupport.afstuderen.opleidingsplan.api.managers
+namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
 {
     public class EducationPlanManager : IEducationPlanManager
     {
         private readonly ICourseService _courseService;
         private readonly IPlanner _planner;
         private readonly IEducationPlanOutputter _educationPlanOutputter;
-        private readonly IDataMapper<opleidingsplan.models.CourseProfile> _profileDataMapper;
+        private readonly IDataMapper<OpleidingsplanGenerator.Models.CourseProfile> _profileDataMapper;
         private readonly IEducationPlanDataMapper _educationPlanDataMapper;
         private readonly IEducationPlanConverter _educationPlanConverter;
 
@@ -48,7 +48,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
         }
 
         public EducationPlanManager(ICourseService courseService, IPlanner planner, IEducationPlanOutputter educationPlanOutputter, 
-            IDataMapper<opleidingsplan.models.CourseProfile> profileDataMapper, IEducationPlanDataMapper educationPlanDataMapper, 
+            IDataMapper<OpleidingsplanGenerator.Models.CourseProfile> profileDataMapper, IEducationPlanDataMapper educationPlanDataMapper, 
             IEducationPlanConverter educationPlanConverter)
         {
             _courseService = courseService;
@@ -59,14 +59,14 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             _educationPlanConverter = educationPlanConverter;
         }
 
-        private static List<opleidingsplan.models.Course> ConvertCourses(IEnumerable<integration.Course> courses, opleidingsplan.models.CourseProfile profile)
+        private static List<OpleidingsplanGenerator.Models.Course> ConvertCourses(IEnumerable<Integration.Course> courses, OpleidingsplanGenerator.Models.CourseProfile profile)
         {
             _logger.Debug("ConvertCourses");
-            List<opleidingsplan.models.Course> coursesToPlan = new List<opleidingsplan.models.Course>();
+            List<OpleidingsplanGenerator.Models.Course> coursesToPlan = new List<OpleidingsplanGenerator.Models.Course>();
 
             foreach (var course in courses)
             {
-                opleidingsplan.models.Course courseToPlan = Mapper.Map<opleidingsplan.models.Course>(course);
+                OpleidingsplanGenerator.Models.Course courseToPlan = Mapper.Map<OpleidingsplanGenerator.Models.Course>(course);
                 if (profile != null)
                 {
                     CoursePriority coursePriority = profile.Courses.FirstOrDefault(profileCourse => profileCourse.Code == course.Code);
@@ -95,7 +95,7 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             _planner.BlockedDates = educationPlan.BlockedDates;
 
             var educationplanData = Mapper.Map<EducationPlanData>(educationPlan);  
-            opleidingsplan.models.CourseProfile profile = null;
+            OpleidingsplanGenerator.Models.CourseProfile profile = null;
             if (educationPlan.ProfileId != 0)
             {
                 _logger.Debug(string.Format(_culture, "ProfileId exists: {0}", educationPlan.ProfileId));
@@ -107,15 +107,15 @@ namespace com.infosupport.afstuderen.opleidingsplan.api.managers
             var educationPlanCourses = educationPlan.Courses.Where(course => course.Code != "OLC");
 
             _logger.Debug("Find courses from service");
-            IEnumerable<integration.Course> courses = _courseService.FindCourses(educationPlanCourses.Select(course => course.Code));
-            List<opleidingsplan.models.Course> coursesToPlan = ConvertCourses(courses, profile);
+            IEnumerable<Integration.Course> courses = _courseService.FindCourses(educationPlanCourses.Select(course => course.Code));
+            List<OpleidingsplanGenerator.Models.Course> coursesToPlan = ConvertCourses(courses, profile);
             coursesToPlan = OverrideRestCourse(coursesToPlan, educationPlan.Courses);
             _planner.PlanCoursesWithOlc(coursesToPlan);
 
             return _educationPlanOutputter.GenerateEducationPlan(educationplanData);
         }
 
-        private List<opleidingsplan.models.Course> OverrideRestCourse(List<opleidingsplan.models.Course> courses, Collection<RestEducationPlanCourse> restCourses)
+        private List<OpleidingsplanGenerator.Models.Course> OverrideRestCourse(List<OpleidingsplanGenerator.Models.Course> courses, Collection<RestEducationPlanCourse> restCourses)
         {
             foreach (var restCourse in restCourses)
             {
