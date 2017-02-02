@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Training eduction plan ajax</title>
+
+    <link rel="import" href="../training-education-plan-ajax.html">
+    <link rel="import" href="../../../bower_components/iron-elements/iron-elements.html">
+    <link rel="import" href="../../../bower_components/paper-elements/paper-elements.html">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+        .vertical-section-container {
+            max-width: 800px;
+        }
+        
+        #education-plan {
+            width: 100%;
+        }
+
+        #education-plan:last-child {
+            display: none;
+        }
+        
+        span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="vertical-section-container centered">
+        <h3>Training eduction plan ajax</h3>
+        <demo-snippet class="centered-demo">
+            <template is="dom-bind">
+                <training-education-plan-ajax 
+                    auto 
+                    education-plan-id="1" 
+                    education-plan="{{plan}}"></training-education-plan-ajax>
+
+                <div id="education-plan">
+                    <div>Name</div>
+                    <span>[[plan.NameEmployee]]</span>
+                    <div>Teacher</div>
+                    <span>[[plan.NameTeacher]]</span>
+                    <div>Profile</div>
+                    <span>[[plan.Profile]]</span>
+                    <hr>
+                    <div>[[plan.PlannedCourses.length]] courses planned</div>
+                    <div>[[plan.NotPlannedCourses.length]] courses not planned</div>
+                </div>
+            </template>
+        </demo-snippet>
+    </div>
+
+
+</body>
+
+</html>

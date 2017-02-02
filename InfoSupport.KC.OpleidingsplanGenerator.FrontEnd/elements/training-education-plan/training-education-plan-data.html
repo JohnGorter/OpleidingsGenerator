@@ -1,0 +1,76 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+
+<dom-module id="training-education-plan-data">
+    <template>
+
+        <style is="custom-style">
+            :host {
+                display: block;
+                --primary-color: #0078c9;
+                @apply(--paper-font-body1);
+            }
+            
+            td {
+                padding: 0 15px 0 0;
+            }
+        </style>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Opleidingsgesprek:</td>
+                    <td>[[educationPlan.NameEmployee]]</td>
+                </tr>
+                <tr>
+                    <td>Datum:</td>
+                    <td>[[_formatDate(educationPlan.Created)]]</td>
+                </tr>
+                <tr>
+                    <td>Datum in dienst:</td>
+                    <td>[[_formatDate(educationPlan.InPaymentFrom)]]</td>
+                </tr>
+                <tr>
+                    <td>Begeleider KC:</td>
+                    <td>[[educationPlan.NameTeacher]]</td>
+                </tr>
+                <tr>
+                    <td>Inzetbaar vanaf:</td>
+                    <td>[[_formatDate(educationPlan.EmployableFrom)]]</td>
+                </tr>
+                <tr>
+                    <td>Reeds kennis van:</td>
+                    <td>[[educationPlan.KnowledgeOf]]</td>
+                </tr>
+                <tr>
+                    <td>Geblokkeerde datums:</td>
+                    <td>[[_formatDates(educationPlan.BlockedDates)]]</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </template>
+    <script>
+        Polymer({
+            is: 'training-education-plan-data',
+            properties: {
+                educationPlan: Object,
+            },
+            _formatDate: function(dateAsString){
+                var date = new Date(dateAsString);
+                return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+            },
+            _formatDates: function(datesAsString){
+                var blockedDates = [];
+
+                if(datesAsString) {
+                    for(var i=0; i <datesAsString.length; i++) {
+                        blockedDates.push(this._formatDate(datesAsString[i]));
+                    }
+                }
+
+                return blockedDates.join(", ");
+            },
+        });
+    </script>
+</dom-module>

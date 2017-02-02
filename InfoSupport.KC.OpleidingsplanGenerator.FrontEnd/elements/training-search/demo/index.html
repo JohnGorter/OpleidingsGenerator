@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Training search</title>
+
+    <link rel="import" href="../training-search.html">
+    <link rel="import" href="../../training-list-ajax/training-list-ajax.html">
+    <link rel="import" href="../../../bower_components/paper-elements/paper-elements.html">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+        .vertical-section-container {
+            max-width: 800px;
+        }
+
+        #demo-container:last-child {
+            display: none;
+        } 
+
+        #demo-container{
+            width: 100%;
+        }
+
+        paper-button {
+            margin-bottom: 15px;
+        }
+
+        training-search {
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="vertical-section-container centered">
+        <h3>Training search</h3>
+        <demo-snippet class="centered-demo">
+            <template is="dom-bind">
+                <div id="demo-container">
+                    <paper-button id="btn" raised>Reset</paper-button>
+
+                    <script>
+                        document.getElementById("btn").addEventListener("click", function(){
+                            document.querySelector('training-search').resetInput();
+                        });
+                    </script>
+
+                    <training-search training-code={{trainingCode}}></training-search>
+                </div>
+
+
+
+            </template>
+        </demo-snippet>
+    </div>
+
+
+</body>
+
+</html>

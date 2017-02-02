@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Training education plan</title>
+
+    <link rel="import" href="../training-education-plan.html">
+    <link rel="import" href="../../training-education-plan-ajax/training-education-plan-ajax.html">
+    <link rel="import" href="../../../bower_components/iron-elements/iron-elements.html">
+    <link rel="import" href="../../../bower_components/paper-elements/paper-elements.html">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+        .vertical-section-container {
+            max-width: 1100px;
+        }
+        
+        training-education-plan:last-child {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="vertical-section-container centered">
+        <h3>Training education plan</h3>
+        <demo-snippet class="centered-demo">
+            <template is="dom-bind">
+                <training-education-plan-ajax auto education-plan-id="1" education-plan="{{plan}}"></training-education-plan-ajax>
+                <training-education-plan education-plan="[[plan]]"></training-education-plan>
+            </template>
+        </demo-snippet>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-elements/iron-elements.html">
+
+
+<!--
+`<training-education-plan-ajax>` is an element which can be used to get the details of an Info Support education plan.
+
+Example:
+
+    <training-education-plan-ajax 
+        education-plan-id="1" 
+        auto education-plan="{{educationPlan}}"></training-education-plan-ajax>
+
+@demo /elements/training-education-plan-ajax/demo/index.html
+-->
+<dom-module id="training-education-plan-ajax">
+    <template>
+
+        <iron-ajax id="ajax" url="[[url]]" handle-as="json" last-response="{{educationPlan}}" debounce-duration="[[debounceDuration]]" on-error="_onError"
+            on-response="_onResponse" verbose="[[verbose]]" auto="[[auto]]" params='[[_params]]'></iron-ajax>
+
+    </template>
+    <script>
+        Polymer({
+            /**
+             * Fired when an error is received.
+             *
+             * @event error
+             * @event iron-ajax-error
+             */
+            is: 'training-education-plan-ajax',
+            properties: {
+                /** The URL target of the request to the education plan. */
+                url: {
+                    type: String,
+                    value: 'http://localhost:5123/api/EducationPlan/',
+                },
+                /**
+                 * If true, automatically performs an Ajax request when either `url` or
+                 * `params` changes.
+                 */
+                auto: {
+                    type: Boolean,
+                    value: false,
+                },
+                /**
+                 * If true, error messages will automatically be logged to the console.
+                 */
+                verbose: {
+                    type: Boolean,
+                    value: false,
+                },  
+                /**
+                 * Length of time in milliseconds to debounce multiple automatically generated requests.
+                 */
+                debounceDuration: {
+                    type: Number,
+                    value: 0,
+                    notify: true
+                }, 
+                /**
+                 * Requested education plan
+                 */
+                educationPlan: {
+                    type: Object,
+                    notify: true,
+                },
+                /**
+                 * Id of the requested education plan
+                 */
+                educationPlanId: {
+                    type: String,
+                },
+                _params: {
+                    type: String,
+                    computed: '_computeParams(educationPlanId)'
+                }  
+            },  
+            /**
+             * Performs an AJAX request to the specified URL.
+             */
+            generateRequest: function() {
+                return this.$.ajax.generateRequest();
+            },
+            _computeParams: function(educationPlanId) {
+                return {id:educationPlanId};
+            },
+            _onError: function(request, error) {
+                this.fire('error', {
+                    request: request,
+                    error: error
+                });
+            },
+            _onResponse: function(response) {
+                this.fire('response', {
+                    response: response,
+                });
+            }
+        });
+    </script>
+</dom-module>

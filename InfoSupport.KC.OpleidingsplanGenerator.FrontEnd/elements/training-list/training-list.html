@@ -1,0 +1,145 @@
+<html>
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
+
+<!--
+
+
+Example:
+
+   
+
+@demo /elements/training-list/demo/index.html
+-->
+<dom-module id="training-list">
+    <template>
+        <iron-ajax auto url="[[url]]" handle-as="json" last-response="{{response}}" debounce-duration="300"></iron-ajax>
+
+        [[trainingList.length]] Training(en) geselecteerd
+
+        <paper-checkbox checked="{{showOnlySelected}}" id="checkboxShowOnlySelected"> Toon alleen geselecteerde trainingen</paper-checkbox>
+        <div id="list-container">
+            <iron-selector id="trainingIronSelector" multi on-iron-select="_trainingSelected" on-iron-deselect="_trainingDeselected"
+                selected-values="{{trainingList}}" attr-for-selected="data-training-code" selected-items="{{selectedItems}}">
+
+                <template is="dom-if" if="[[!showOnlySelected]]">
+                    <template is="dom-repeat" items="[[response]]">
+                        <div class="training-item" data-training-code$="[[item.Code]]" data-training-name$="[[item.Name]]">
+                            <paper-checkbox>[[item.Name]]</paper-checkbox>
+                        </div>
+                    </template>
+                </template>
+
+                <template is="dom-if" if="[[showOnlySelected]]">
+                    <template is="dom-repeat" items="[[selectedItems]]">
+                        <div class="training-item-selected">
+                            [[item.innerText]]
+                        </div>
+                    </template>
+                </template>
+
+            </iron-selector>
+
+        </div>
+        <style is="custom-style">
+            :host {
+                font-family: Arial, Helvetica, sans-serif;
+                -webkit-touch-callout: none;
+                /* iOS Safari */
+                -webkit-user-select: none;
+                /* Chrome/Safari/Opera */
+                -khtml-user-select: none;
+                /* Konqueror */
+                -moz-user-select: none;
+                /* Firefox */
+                -ms-user-select: none;
+                /* Internet Explorer/Edge */
+                user-select: none;
+                display: inline-block;
+            }
+            
+            #list-container {
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                overflow-y: scroll;
+                overflow-x: hidden;
+                height: 600px;
+            }
+            
+            .training-item {
+                cursor: pointer;
+                padding: 7px;
+                border-bottom: 1px solid white;
+                display: flex;
+            }
+
+            .training-item-selected {
+                padding: 7px;
+                border-bottom: 1px solid white;
+                display: flex;
+            }
+            
+            .iron-selected {
+                background: #0079c8;
+            }
+            
+            paper-checkbox:not(#checkboxShowOnlySelected) {
+                --paper-checkbox-label-checked-color: white;
+            }
+        </style>
+    </template>
+    <script>
+            Polymer({
+                is: "training-list",
+                properties: {
+                    /** The URL target of the request to the list of training courses. */
+                    url: {
+                        type: String,
+                        value: 'http://localhost:5123/api/course',
+                    },
+                    /** List of selected training courses. */
+                    trainingList: { 
+                        type: Array,
+                        notify: true,
+                    },
+                    profile: String,
+                    showOnlySelected: Boolean,
+                },
+                observers: ['_hideNotSelectedCourses(profile)'],
+                _hideNotSelectedCourses: function(profile) {
+                    if(profile != null) {
+                        this.showOnlySelected = true;
+                    }
+                    else {
+                        this.showOnlySelected = false;
+                    }
+                },
+                _trainingSelected: function(event) {
+                    event.detail.item.children[0].checked = true;
+                },
+                _trainingDeselected: function(event) {               
+                    event.detail.item.children[0].checked = false;
+                },
+                /** Selects the given value  */
+                select: function(trainingCode) {
+                    this.$.trainingIronSelector.select(trainingCode);
+                },
+                /** Deselects all selected values  */
+                deselectAll: function() {
+                    var ironSelector = this.$.trainingIronSelector;
+                    
+                    if(ironSelector.selectedValues !== undefined) {
+                    var selectedTrainingListOld = ironSelector.selectedValues.slice();
+                        
+                        for(var i = 0; i < selectedTrainingListOld.length; i++) {
+                            ironSelector.select(selectedTrainingListOld[i]);
+                        }
+                    }
+                    
+                },
+            });
+        </script>
+</dom-module>
+
+
+</html>

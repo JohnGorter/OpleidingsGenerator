@@ -1,0 +1,124 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+
+<!--
+`<training-search>` is an input to search Info Support training courses and list the matching training courses
+
+Example:
+
+    <training-search training-code={{trainingCode}}></training-search
+
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--primary-color` | Primary color | `#0078c9`
+`--input-container-color` | Label and underline color when the input is not focused | `--primary-color`
+`--input-container-focus-color` | Label and underline color when the input is focused | `--primary-color`
+`--selected-row-background-color` | Background color of the selected row | `--primary-color`
+`--selected-row-color` | Font color of the selected row | `#fff`
+`--hover-row-background-color` | Background color of the hovered row | `#f2f2f2`
+
+
+@demo /elements/training-search/demo/index.html
+-->
+<dom-module id="training-search">
+    <template>
+
+        <style is="custom-style">
+            :host {
+                --primary-color: #0078c9;
+                @apply(--shadow-elevation-16dp);
+                @apply(--paper-font-body1);
+                display: block;
+                padding: 25px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            paper-item {
+                border-bottom: 1px solid #f2f2f2;
+            }
+            
+            paper-item:hover {
+                background-color: var(--hover-row-background-color, #f2f2f2);
+                cursor: pointer;
+            }
+            
+            .iron-selected {
+                background-color: var(--selected-row-background-color, --primary-color) !important;
+                color: var(--selected-row-color, #fff);
+            }
+            
+            paper-input {
+                --paper-input-container-color: var(--input-container-color, --primary-color);
+                --paper-input-container-focus-color: var(--input-container-focus-color, --primary-color);
+            }
+        </style>
+
+        <paper-input label="Training courses" value="{{searchQuery}}"></paper-input>
+        <training-list-ajax training-list="{{_trainingList}}" auto></training-list-ajax>
+
+        <paper-listbox selected="{{trainingCode}}" attr-for-selected="code">
+            <template is="dom-repeat" items="[[_filteredTrainingList]]">
+                <paper-item code="[[item.Code]]">[[item.Name]]</paper-item>
+            </template>
+        </paper-listbox>
+
+    </template>
+    <script>
+        Polymer({
+            is: 'training-search',
+            properties: {
+                _trainingList: {
+                    type: Array,
+                    value: [],
+                },
+                _filteredTrainingList: {
+                    type: Array,
+                    computed: '_filterTrainingList(searchQuery)',
+                },
+                /** Training code of the selected training*/
+                trainingCode: {
+                    type: String,
+                    notify: true,
+                },
+                /** Maximal results of training courses
+                * If below zero, all results will be shown
+                */
+                maxResults: {
+                    type: Number,
+                    value: -1,
+                },
+                /** Minimal characters typed in the input before the searchresults are visible*/
+                minChars: {
+                    type: Number,
+                    value: 0,
+                },
+            },
+            /** Resets the training courses input*/
+            resetInput: function() {
+                this.searchQuery = "";
+                this.trainingCode = "";
+            },
+            _filterTrainingList: function(searchQuery) {
+
+                if(this.searchQuery != "" && searchQuery.length >= this.minChars) {
+                    var list = this._trainingList.filter(function (training) {
+                        return training.Name.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1;
+                    });
+
+                    if(this.maxResults > 0) {
+                        list = list.slice(0, this.maxResults)
+                    }
+
+                    return list;
+                }
+
+            }
+        });
+    </script>
+</dom-module>

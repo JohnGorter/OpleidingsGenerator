@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>training list ajax demo</title>
+
+    <link rel="import" href="../training-list-ajax.html">
+    <link rel="import" href="../../../bower_components/iron-elements/iron-elements.html">
+    <link rel="import" href="../../../bower_components/paper-elements/paper-elements.html">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <style>
+
+    </style>
+</head>
+
+<body unresolved>
+
+    <div class="vertical-section-container centered">
+        <h3>Standard training-list-ajax </h3>
+        <demo-snippet class="centered-demo">
+            <template is="dom-bind">
+
+                <training-list-ajax auto training-list="{{trainingList}}"></training-list-ajax>
+
+
+                <paper-dropdown-menu label="Training courses">
+                    <paper-listbox class="dropdown-content">
+                        <template is="dom-repeat" items="[[trainingList]]">
+                            <paper-item>[[item.Name]]</paper-item>
+                        </template>
+                    </paper-listbox>
+                </paper-dropdown-menu>
+            </template>
+
+        </demo-snippet>
+    </div>
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+        .vertical-section-container {
+            max-width: 800px;
+        }
+
+        paper-dropdown-menu {
+            width: 100%;
+        }
+
+        paper-dropdown-menu:last-child {
+            display: none;
+        }
+    </style>
+
+</body>
+
+</html>

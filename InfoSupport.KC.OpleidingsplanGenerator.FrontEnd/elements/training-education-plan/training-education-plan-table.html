@@ -1,0 +1,161 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+
+
+<dom-module id="training-education-plan-table">
+    <template>
+
+        <style is="custom-style">
+            :host {
+                display: block;
+            }
+            
+            table {
+                width: 100%;
+            }
+            
+            th {
+                background-color: #0078c9;
+                color: white;
+            }
+            
+            tr:nth-child(even) {
+                background-color: var(--even-row-color, #f2f2f2);
+            }
+            
+            tr:last-child {
+               font-weight: bold;
+            }
+
+            td,
+            th {
+                padding: 5px;
+            }
+            .commentaryIcon {
+                cursor: pointer;
+            }
+
+        </style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Week</th>
+            <th>Datum</th>
+            <th>Cursusnaam</th>
+            <th>Dagen</th>
+            <template is="dom-if" if="[[edit]]">
+                <th colspan="2">Opmerking</th>
+            </template>
+            <template is="dom-if" if="[[!edit]]">
+                <th>Opmerking</th>
+            </template>
+            <th>Prijs training</th>
+            <th>Prijs incl. personeelskorting</th>
+        </tr>
+    </thead>
+    <tbody>
+        <template is="dom-repeat" as="course" items="[[courses]]">
+            <tr>
+                <td>[[_formatWeek(course.Week)]]</td>
+                <td>[[_formatDate(course.Date)]]</td>
+                <td>[[course.Name]]</td>
+                <td>[[course.Days]]</td>
+                <td>[[course.Commentary]]</td>
+                <template is="dom-if" if="[[edit]]">
+                    <td>
+                        <iron-icon data-course-code$="[[course.Code]]" data-commentary$="[[course.Commentary]]" on-tap="_addCommentary" class="commentaryIcon" title="[[_getCommentaryButtonText(course.Commentary)]]"
+                            icon="icons:create">
+                    </td>
+                </template>
+                <td>[[_formatPrice(course.Price)]]</td>
+                <td>[[_formatPrice(course.PriceWithDiscount)]]</td>
+            </tr>
+        </template>
+
+        <tr>
+            <td colspan="4"></td>
+            <td>Totaal</td>
+            <td>[[_formatPrice(totalPrice)]]</td>
+            <td>[[_formatPrice(totalPriceWithDiscount)]]</td>
+        </tr>
+    </tbody>
+</table>
+
+</template>
+<script>
+    Polymer({
+        is: 'training-education-plan-table',
+        properties: {
+            /* Whether this education plan is editable */
+            edit: {
+                type: Boolean,
+                value: false,
+            },
+            /** Training course to display*/
+            courses: Array,
+            totalPrice: Number,
+            totalPriceWithDiscount: Number,
+        },
+        _formatDate: function (dateAsString) {
+            if (dateAsString == null) {
+                return "-";
+            }
+            var date = new Date(dateAsString);
+            return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+        },
+        _formatPrice: function (price) {
+            return "€ " + price.toFixed(2).toString().replace(".", ",").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+        },
+        _formatWeek: function (week) {
+            return week == -1 ? "-" : week;
+        },
+        _getCommentaryButtonText: function (commentary) {
+            if (commentary) {
+                return "Opmerking wijzigen";
+            }
+            else {
+                return "Opmerking toevoegen";
+            }
+        },
+        _addCommentary: function (event) {
+            this.fire('commentary-changed', {
+                code: event.currentTarget.dataset.courseCode,
+                commentary: event.currentTarget.dataset.commentary,
+            });
+        },
+        _shallowCopy: function (original)  
+        {
+            // First create an empty object with
+            // same prototype of our original source
+            var clone = Object.create(Object.getPrototypeOf(original));
+
+            var i, keys = Object.getOwnPropertyNames(original);
+
+            for (i = 0; i < keys.length; i ++)
+            {
+                // copy each property into the clone
+                Object.defineProperty(clone, keys[ i ], Object.getOwnPropertyDescriptor(original, keys[ i ]));
+            }
+
+            return clone;
+        },
+        addCommentary: function(courseCode, commentary) {
+            var courses = this.courses;
+            this.set("courses",  []);
+            
+            for(var i =0; i < courses.length; i++) {
+                
+                var course = courses[i];
+
+                if(course.Code === courseCode) {
+                    course.Commentary = commentary;
+                }
+
+                this.push("courses", this._shallowCopy(course));
+            }
+        }
+    });
+</script>
+</dom-module>

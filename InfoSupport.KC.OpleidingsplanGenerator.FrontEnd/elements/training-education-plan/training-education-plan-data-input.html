@@ -1,0 +1,102 @@
+<link rel="import" href="../../bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="../../bower_components/iron-elements/iron-elements.html">
+
+<link rel="import" href="../../bower_components/paper-date-picker-item/paper-date-picker-item.html">
+<script src="../../bower_components/moment/min/locales.js"></script>
+
+<dom-module id="training-education-plan-data-input">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+            
+            paper-date-picker-item {
+                cursor: pointer;
+            }
+            
+            .deleteDate iron-icon {
+                color: red;
+            }
+
+            paper-button {
+                background-color: #c7c5c5;
+                color: white;
+            }
+
+        </style>
+
+        Datum indiensttreding
+        <paper-date-picker-item icon="icons:today" date="{{educationPlan.InPaymentFrom}}" date-format="DD-MM-YYYY" locale="nl"></paper-date-picker-item>
+        Inzetbaar vanaf
+        <paper-date-picker-item icon="icons:today" date="{{educationPlan.EmployableFrom}}"  placeholder="Datum inzetbaar" date-format="DD-MM-YYYY" locale="nl"></paper-date-picker-item>
+        Blokkeer datum
+        <paper-date-picker-item icon="icons:today" date="{{blockedDate}}" date-format="DD-MM-YYYY" locale="nl" placeholder="Datum toevoegen"></paper-date-picker-item>
+       
+       <template is="dom-if" if="[[educationPlan.BlockedDates.length]]">
+            Geblokeerde datums
+       </template>
+
+        <template is="dom-repeat" as="date" items="[[educationPlan.BlockedDates]]">
+                <paper-button data-date$="[[date]]" on-tap="_deleteFromBlockedDates" class="deleteDate">[[_formatDate(date)]]
+                    <iron-icon icon="icons:clear"></iron-icon>
+                </paper-button>
+        </template>
+
+        <paper-input value="{{educationPlan.NameEmployee}}" label="Naam werknemer"></paper-input>
+        <paper-input value="{{educationPlan.NameTeacher}}" label="Naam docent"></paper-input>
+        <paper-input value="{{educationPlan.KnowledgeOf}}" label="Reeds kennis van"></paper-input>
+
+
+
+    </template>
+
+    <script>
+        Polymer({
+            is: 'training-education-plan-data-input',
+            properties: {
+                educationPlan: {
+                    type: Object,
+                    notify: true,
+                },
+            },
+            _openInPaymentFromDialog: function() {
+                 this.$.datepickerInPaymentFrom.open();
+            },
+            _openEmployableDialog: function() {
+                 this.$.datepickerEmployable.open();
+            },
+            ready: function() {
+                this.set('educationPlan.BlockedDates', []);
+                this.set('educationPlan.InPaymentFrom', new Date());
+            },
+            observers: ['_addBlockedDate(blockedDate)'],
+            _addBlockedDate: function(blockedDate) {
+                if(this.educationPlan.BlockedDates !== undefined && blockedDate) {
+                    this.push('educationPlan.BlockedDates', new Date(blockedDate));
+                    this.set("blockedDate", "");
+                }              
+            },
+            _formatDate: function(dateAsString){
+                if(dateAsString == null) {
+                    return "-";
+                }
+                var date = new Date(dateAsString);
+                return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+            },
+            _deleteFromBlockedDates: function(event) {
+
+                var date = event.currentTarget.dataset.date;
+                var index = -1;
+                
+                for(var i =0; i<this.educationPlan.BlockedDates.length; i++) {
+                    if(this.educationPlan.BlockedDates[i] == date){
+                        index = i;
+                    }
+                }
+                
+                this.splice('educationPlan.BlockedDates', index, 1);
+            }
+        });
+    </script>
+</dom-module>

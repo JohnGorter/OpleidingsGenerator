@@ -40,3 +40,13 @@
 2017-02-02 14:34:17,655 INFO  InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers.CourseController Get - Get all course profile with id 1
 2017-02-02 14:34:18,867 INFO  InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers.CourseController Get - Get all course profiles
 2017-02-02 14:34:20,372 INFO  InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers.EducationPlanController Get - Get management properties
+2017-02-02 14:46:53,289 INFO  InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers.CourseController Get - Get all course profiles
+2017-02-02 14:46:53,411 INFO  InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers.CourseController Get - Get all courses
+2017-02-02 14:46:57,543 INFO  InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers.CourseController Get - Get all course profile with id 1
+2017-02-02 14:46:58,513 INFO  InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers.EducationPlanController GenerateEducationPlan - GenerateEducationPlan
+2017-02-02 14:48:15,516 INFO  InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers.CourseController Get - Get all course profile with id 
+2017-02-02 14:48:21,901 INFO  InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers.CourseController Get - Get all course profiles
+2017-02-02 14:48:22,137 INFO  InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers.CourseController Get - Get all course profile with id 1
+2017-02-02 14:48:22,499 INFO  InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers.CourseController Get - Get all course profiles
+2017-02-02 14:49:18,213 INFO  InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers.CourseController Get - Get all course profile with id 1
+2017-02-02 14:49:21,669 INFO  InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers.EducationPlanController GenerateEducationPlan - GenerateEducationPlan

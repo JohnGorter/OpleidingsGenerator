@@ -1,0 +1,262 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../../elements/training-education-plan/training-education-plan.html">
+<link rel="import" href="../../elements/training-education-plan-ajax/training-education-plan-ajax.html">
+<link rel="import" href="../../elements/training-education-plan-profile-list-ajax/training-education-plan-profile-list-ajax.html">
+<link rel="import" href="../../elements/training-education-plan-profile-courses-list-ajax/training-education-plan-profile-courses-list-ajax.html">
+<link rel="import" href="../../elements/training-list/training-list.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+
+<dom-module id="educationplan-generator-view">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      
+      .card {
+        display: flex;
+      }
+      
+      .card > div {
+        margin: 10px;
+      }
+      
+      .card > div:nth-child(1) {
+        flex: 9;
+      }
+      
+      .card > div:nth-child(2) {
+        flex: 5;
+      }
+
+      paper-toast {
+        cursor: pointer;
+      }
+    </style>
+
+<app-route route="{{route}}" pattern="/:id" tail="{{subroute}}"></app-route>
+<app-route route="{{subroute}}" pattern="/:id" data="{{routeData}}"></app-route>
+
+<training-education-plan-ajax id="ajaxGETEducationPlan" education-plan-id="[[routeData.id]]" education-plan="{{educationPlan}}"
+  on-response="_existingEducationPlanResponse"></training-education-plan-ajax>
+
+<training-education-plan-profile-list-ajax auto profiles="{{profiles}}"></training-education-plan-profile-list-ajax>
+
+<iron-ajax id="ajaxPOSTGenerateEducationPlan" url="http://localhost:5123/api/EducationPlan/generate" method="POST" handle-as="json"
+  last-response="{{educationPlan}}" debounce-duration="500" content-type="application/json" on-response="_handleResponsePostGenerate"></iron-ajax>
+
+<iron-ajax id="ajaxPOSTEducationPlan" url="http://localhost:5123/api/EducationPlan" method="POST" handle-as="json" last-response="{{id}}"
+  debounce-duration="500" content-type="application/json" on-response="_handleResponse"></iron-ajax>
+
+<iron-ajax id="ajaxPUTEducationPlan" url="http://localhost:5123/api/EducationPlan" method="PUT" handle-as="json" last-response="{{id}}"
+  debounce-duration="500" content-type="application/json" on-response="_handleResponse"></iron-ajax>
+
+<training-education-plan-profile-courses-list-ajax profile-id="[[educationPlan.ProfileId]]" courses="{{training_profiles}}"
+  id="ajaxTrainingProfiles" debounce-duration="300"></training-education-plan-profile-courses-list-ajax>
+
+<div class="card">
+  <div>
+    <training-education-plan id="educationPlan" on-commentary-changed="_commentaryChanged" edit education-plan="{{educationPlan}}"></training-education-plan>
+  </div>
+  <div>
+    <div id="profiel-selection">
+      Selecteer profiel
+      <paper-dropdown-menu label="Profiel">
+        <paper-listbox class="dropdown-content" selected="{{educationPlan.ProfileId}}" attr-for-selected="profileid">
+          <template is="dom-repeat" items="[[profiles]]">
+            <paper-item on-tap="_profileAjaxAuto" profileid="[[item.Id]]">[[item.Name]]</paper-item>
+          </template>
+        </paper-listbox>
+      </paper-dropdown-menu>
+    </div>
+    <div>
+      <training-list id="trainingList" training-list="{{_selectedTrainingList}}" profile="[[educationPlan.ProfileId]]" show-only-selected="[[showOnlySelected]]"></training-list>
+    </div>
+
+    <paper-button raised on-tap="_generateEducationPlan">Genereer Opleidingsplan</paper-button>
+    <paper-button raised on-tap="_saveEducationPlan">Opleidingsplan opslaan</paper-button>
+    <paper-button raised on-tap="_resetEducationPlan">Reset Opleidingsplan</paper-button>
+
+    <paper-button id="btnUpdate" raised on-tap="_updateEducationPlan">Update Opleidingsplan</paper-button>
+
+  </div>
+</div>
+
+<paper-toast id="toast" always-on-top horizontal-align="right" duration="0" on-tap="_dismisToast"></paper-toast>
+
+<paper-dialog id="commentaryDialog">
+  <h2>Opmerking cursus [[commentaryCourseCode]]</h2>  
+  <paper-input value="{{commentary}}" id="txtCommentary" label="Opmerking [[commentaryCourseCode]]"></paper-input>
+    <div class="buttons">
+    <paper-button id="btnSave" on-tap="_saveCommentary">Opslaan</paper-button>
+    <paper-button id="btnCancel" dialog-dismiss>Annuleren</paper-button>
+  </div>
+</paper-dialog>
+
+</template>
+
+<script>
+  Polymer({
+    is: 'educationplan-generator-view',
+    observers: ['_selectTrainingCourses(training_profiles)', '_openToast(educationPlan.CoursesJustBeforeStart)'],
+    properties: {
+      profile: String,
+      _selectedTrainingList: {
+        type: Array,
+        value: [],
+      },
+      _coursesWithAddition: {
+        type: Array,
+        value: [],
+      }
+    },
+    ready: function() {
+      this.loadEducationPlanGeneratorView();
+    },
+    loadEducationPlanGeneratorView: function () {
+      if (!isNaN(parseInt(this.subroute.path.replace("/", "")))) {
+        this.$.ajaxTrainingProfiles.auto = false;
+        this.$.ajaxGETEducationPlan.generateRequest();
+        this.$.btnUpdate.hidden = false;
+      }
+      else {
+        this._resetEducationPlan();
+        this.$.btnUpdate.hidden = true;
+      }
+    },
+    _selectTrainingCourses: function (courses) {
+      var trainingList = this.$.trainingList;
+      trainingList.deselectAll();
+
+      for (var i = 0; i < courses.length; i++) {
+        trainingList.select(courses[i].Code);
+      }
+    },
+    _existingEducationPlanResponse: function (response) {
+      if (response.detail.response.Id) {
+        this.showOnlySelected = false;
+        var educationplan = response.detail.response;
+        var courses = educationplan.PlannedCourses.concat(educationplan.NotPlannedCourses);
+        this._selectTrainingCourses(courses);
+      }
+    },
+    _profileAjaxAuto: function () {
+      this.$.ajaxTrainingProfiles.auto = true;
+    },
+    _generateEducationPlan: function () {
+      this.$.ajaxPOSTGenerateEducationPlan.body = JSON.stringify(this._getEducationPlan());
+      this.$.ajaxPOSTGenerateEducationPlan.generateRequest();
+    },
+    _saveEducationPlan: function () {
+      this.$.ajaxPUTEducationPlan.body = JSON.stringify(this._getEducationPlan());
+      this.$.ajaxPUTEducationPlan.generateRequest();
+    },
+    _updateEducationPlan: function () {
+      this.$.ajaxPOSTEducationPlan.body = JSON.stringify(this._getEducationPlan());
+      this.$.ajaxPOSTEducationPlan.generateRequest();
+    },
+    _getEducationPlan: function () {
+
+      var courses = [];
+
+      for(var i = 0; i < this._selectedTrainingList.length; i++) {
+        var course = {Code: this._selectedTrainingList[i], Commentary: null, Priority: 0 };
+
+        for(var a = 0; a < this._coursesWithAddition.length; a++) {
+          if(this._selectedTrainingList[i] === this._coursesWithAddition[a].Code) {
+              course = this._coursesWithAddition[a];         
+          }
+        }
+        
+        courses.push(course)
+      }
+
+      return {
+        Created: Date.now(),
+        InPaymentFrom: new Date(this.educationPlan.InPaymentFrom),
+        EmployableFrom: new Date(this.educationPlan.EmployableFrom),
+        NameEmployee: this.educationPlan.NameEmployee,
+        NameTeacher: this.educationPlan.NameTeacher,
+        KnowledgeOf: this.educationPlan.KnowledgeOf,
+        BlockedDates: this.educationPlan.BlockedDates,
+        ProfileId: this.educationPlan.ProfileId,
+        EducationPlanId: this.routeData.id,
+        courses: courses,
+      };
+    },
+    _resetEducationPlan: function () {
+      this.set("profile", null);
+      this.set("educationPlan.InPaymentFrom", Date.now());
+      this.set("educationPlan.EmployableFrom", "");
+      this.set("educationPlan.BlockedDates", []);
+      this.set("educationPlan.NameEmployee", "");
+      this.set("educationPlan.NameTeacher", "");
+      this.set("educationPlan.KnowledgeOf", "");
+      this.set("educationPlan.PlannedCourses", []);
+      this.set("educationPlan.NotPlannedCourses", []);
+      this.set("educationPlan.ProfileId", null);
+      this.$.trainingList.deselectAll();
+    },
+    _openToast: function (educationPlan) {
+
+      if (this.educationPlan.CoursesJustBeforeStart && this.educationPlan.CoursesJustBeforeStart.length > 0) {
+        var message = "De volgende cusus valt net voor de startdatum: \n";
+
+        if (this.educationPlan.CoursesJustBeforeStart.length > 1) {
+          message = "De volgende cusussen vallen net voor de startdatum: ";
+        }
+
+        for (var i = 0; i < this.educationPlan.CoursesJustBeforeStart.length; i++) {
+          message += this.educationPlan.CoursesJustBeforeStart[i].Name + " : " + this._formatDate(this.educationPlan.CoursesJustBeforeStart[i].Date) + ", ";
+        }
+
+        message = message.slice(0, -2);
+        this.$.toast.show(message);
+      }
+      else {
+        this._dismisToast();
+      }
+    },
+    _dismisToast: function () {
+      this.$.toast.close();
+    },
+    _formatDate: function (dateAsString) {
+      if (dateAsString == null) {
+        return "-";
+      }
+      var date = new Date(dateAsString);
+      return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+    },
+    _handleResponsePostGenerate: function (response) {
+      this.educationPlan = response.detail.response;
+    },
+    _handleResponse: function (response) {
+      //this._resetEducationPlan();
+      this.set('route.path', 'educationplan-view/' + response.detail.response);
+    },
+    _commentaryChanged: function(event) {
+      this.$.commentaryDialog.open();
+      this.commentaryCourseCode = event.detail.code;
+      this.commentary = event.detail.commentary;
+    },
+    _saveCommentary: function() {
+      this.$.educationPlan.addCommentary(this.commentaryCourseCode, this.commentary);
+      this._coursesWithAddition.push({Code: this.commentaryCourseCode, Commentary: this.commentary, Priority: 0 });
+      this.$.commentaryDialog.close();
+    }
+  });
+</script>
+</dom-module>

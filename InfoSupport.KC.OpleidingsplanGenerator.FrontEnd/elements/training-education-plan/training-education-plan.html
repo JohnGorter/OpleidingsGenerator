@@ -1,0 +1,128 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="training-education-plan-table.html">
+<link rel="import" href="training-education-plan-data.html">
+<link rel="import" href="training-education-plan-data-input.html">
+
+
+<!--
+`<training-education-plan>` shows an education plan with the given id
+
+Example:
+
+    <training-education-plan education-plan="[[plan]]"></training-education-plan>
+
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--primary-color` | Primary color | `#0078c9`
+`--title-color` | Color of title | `--primary-color`
+`--headings-color` | Color of headings | `--primary-color`
+`--even-row-color` | Color of the even rows | `#f2f2f2`
+
+@demo /elements/training-education-plan/demo/index.html
+-->
+<dom-module id="training-education-plan">
+    <template>
+
+        <style is="custom-style">
+            :host {
+                display: block;
+                --primary-color: #0078c9;
+                @apply(--paper-font-body1);
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                padding: 10px;
+            }
+            
+            training-education-plan-table {
+                width: 100%;
+            }
+            
+            h1 {
+                @apply(--paper-font-display1);
+                color: var(--title-color, --primary-color);
+            }
+            
+            h3 {
+                @apply(--paper-font-title);
+                margin-bottom: 0;
+                color: var(--heading-colors, --primary-color);
+            }
+            
+            hr {
+                margin-bottom: 20px;
+            }
+        </style>
+
+        <h1>Opleidingsplan</h1>
+        <template is="dom-if" if="[[edit]]">
+            <training-education-plan-data-input education-plan="{{educationPlan}}"></training-education-plan-data-input>
+        </template>
+
+        <template is="dom-if" if="[[!edit]]">
+            <training-education-plan-data education-plan="[[educationPlan]]"></training-education-plan-data>
+        </template>
+        <hr>
+
+        <h3>Te volgen trainingen</h3>
+        <template is="dom-if" if="[[!_isEmpty(educationPlan.PlannedCourses)]]">
+            <training-education-plan-table
+            id="educationPlanPlannedTable"
+            edit="[[edit]]" 
+            total-price="[[educationPlan.PlannedCoursesTotalPrice]]" 
+            total-price-with-discount="[[educationPlan.PlannedCoursesTotalPriceWithDiscount]]"
+            courses="[[educationPlan.PlannedCourses]]"></training-education-plan-table>
+        </template>
+        <template is="dom-if" if="[[_isEmpty(educationPlan.PlannedCourses)]]">
+            Geen trainingen gevonden
+        </template>
+
+        <h3>Op termijn volgen</h3>
+        <template is="dom-if" if="[[!_isEmpty(educationPlan.NotPlannedCourses)]]">
+            <training-education-plan-table 
+            id="educationPlanNotPlannedTable"
+            edit="[[edit]]"
+            total-price="[[educationPlan.NotPlannedCoursesTotalPrice]]" 
+            total-price-with-discount="[[educationPlan.NotPlannedCoursesTotalPriceWithDiscount]]"
+            courses="[[educationPlan.NotPlannedCourses]]"></training-education-plan-table>
+        </template>
+
+        <template is="dom-if" if="[[_isEmpty(educationPlan.NotPlannedCourses)]]">
+            Geen trainingen gevonden
+        </template>
+    </template>
+    <script>
+        Polymer({
+            is: 'training-education-plan',
+            properties: {
+                /** Education plan to display*/
+                educationPlan: {
+                    type: Object,
+                    notify: true,
+                    value: function() {
+                        return {};
+                    }
+                },
+                /* Whether this education plan is editable */
+                edit: {
+                    type: Boolean,
+                    value: false,
+                }
+            },
+            _isEmpty(array) {
+                if(!array) {
+                    return true;
+                }
+                return array.length === 0;
+            },
+            addCommentary: function(courseCode, commentary) {
+                this.$$('#educationPlanNotPlannedTable').addCommentary(courseCode, commentary);
+                this.$$('#educationPlanPlannedTable').addCommentary(courseCode, commentary);
+            }
+        });
+    </script>
+</dom-module>

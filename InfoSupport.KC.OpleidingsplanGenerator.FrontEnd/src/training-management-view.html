@@ -1,0 +1,211 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="../bower_components/iron-elements/iron-elements.html">
+<link rel="import" href="../../elements/training-education-plan-profile-list-ajax/training-education-plan-profile-list-ajax.html">
+<link rel="import" href="../../elements/training-education-plan-profile-courses-list-ajax/training-education-plan-profile-courses-list-ajax.html">
+<link rel="import" href="../../elements/item-table/item-table.html">
+
+<dom-module id="training-management-view">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      
+      #addCourse {
+        cursor: pointer;
+      }
+      
+      paper-input {
+        --paper-input-container-disabled: {
+          color: gray;
+        }
+      }
+      
+      #errorMessage {
+        color: red;
+      }
+    </style>
+
+    <training-education-plan-profile-list-ajax id="ajaxProfileList" auto profiles="{{profiles}}"></training-education-plan-profile-list-ajax>
+
+    <training-education-plan-profile-courses-list-ajax auto profile-id="[[profile]]" courses="{{training_profiles}}" id="ajaxTrainingProfiles"
+      debounce-duration="300"></training-education-plan-profile-courses-list-ajax>
+
+
+    <iron-ajax id="ajaxCourse" url="http://localhost:5123/api/Course" handle-as="json" debounce-duration="500" content-type="application/json"
+      on-response="_completeAction"></iron-ajax>
+
+
+    <div class="card">
+      <h1>Trainingsoverzicht</h1>
+      <p id="addCourse" on-tap="_manageCourse">Training toevoegen</p>
+
+      <div id="profiel-selection">
+        Profiel
+        <paper-dropdown-menu label="Profiel">
+          <paper-listbox id="dropdownProfile" class="dropdown-content" selected="{{profile}}" attr-for-selected="profileid">
+            <template is="dom-repeat" items="[[profiles]]">
+              <paper-item profileid="[[item.Id]]">[[item.Name]]</paper-item>
+            </template>
+          </paper-listbox>
+        </paper-dropdown-menu>
+      </div>
+
+      <item-table deletable editable items="[[training_profiles]]" except-headers="[[excludedHeaders]]" attr-for-identification="Code" on-edit="_manageCourse" on-delete="_manageCourse"></item-table>
+    </div>
+
+    <paper-dialog id="courseDialog">
+      <h2>[[dialogTitle]]</h2>
+      <paper-input id="courseCode" label="Trainingscode" value="{{course.Code}}"></paper-input>
+      <paper-input id="priority" label="Prioriteit" value="{{course.Priority}}" type="number"></paper-input>
+      <div id="errorMessage">[[errorMessage]]</div>
+
+      <div class="buttons">
+
+        <template is="dom-if" if="[[delete]]">
+          <paper-button on-tap="_performAction">Verwijderen</paper-button>
+        </template>
+
+        <template is="dom-if" if="[[edit]]">
+          <paper-button on-tap="_performAction">Opslaan</paper-button>
+        </template>
+
+        <template is="dom-if" if="[[create]]">
+          <paper-button on-tap="_performAction">Opslaan</paper-button>
+        </template>
+
+        <paper-button dialog-dismiss>Annuleren</paper-button>
+      </div>
+    </paper-dialog>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'training-management-view',
+      properties: {
+        excludedHeaders: {
+          type: Array,
+          value: ['ProfileId'],
+        },
+        profile: {
+          type: Object,
+          value: 1,       
+        },
+        course: {
+          type: Object,
+        },
+        action: {
+          type: String,
+        },
+        dialogTitle: {
+          type: String,
+        }
+      },
+      _manageCourse: function(event) {
+        this.action= event.type;
+        this.edit = false;
+        this.delete = false;
+        this.create = false;
+        this.errorMessage = '';      
+
+        switch(this.action) {
+          case 'edit':
+              this.dialogTitle = 'Training aanpassen';
+              this.$.courseCode.disabled = false;
+              this.$.priority.disabled = false;
+              this.edit = true;
+              this._setSelectedCourse(event.detail.id);
+              break;
+          case 'delete':
+              this.dialogTitle = 'Training verwijderen';
+              this.$.courseCode.disabled = true;
+              this.$.priority.disabled = true;
+              this.delete = true;
+              this._setSelectedCourse(event.detail.id);
+              break;
+          default:
+              this.dialogTitle = 'Profiel toevoegen';
+              this.$.courseCode.disabled = false;
+              this.$.priority.disabled = false;
+              this.set('course', {});
+              this.create = true;
+        }
+
+        this.$.courseDialog.open();
+      },
+      _setSelectedCourse: function(code) {
+        this.course = this._shallowCopy(this.training_profiles.filter(function(obj) {
+          return obj.Code == code;
+        })[0]);
+      },
+      _findCourseByCode: function(code) {
+        return this.training_profiles.filter(function(obj) {
+          return obj.Code == code;
+        });
+      },
+      _performAction: function() {
+        
+        if(!this.course.Code || this.course.Code && this.course.Code.trim().length == 0) { 
+          this.errorMessage = 'De trainingscode mag niet leeg zijn.';      
+          return;
+        }
+
+        switch(this.action) {
+          case 'edit':
+            if(this._findCourseByCode(this.course.Code)[0] != null && this._findCourseByCode(this.course.Code)[0].Id != this.course.Id) {
+              this.errorMessage = 'De gekozen trainingscode bestaat al.';      
+              return;
+            }
+            this.$.ajaxCourse.method = "POST";
+            break;
+          case 'delete':
+            this.$.ajaxCourse.method = "DELETE";
+            break;
+          default:
+            if(this._findCourseByCode(this.course.Code)[0] != null) {
+              this.errorMessage = 'De gekozen trainingscode bestaat al.';      
+              return;
+            }
+            this.$.ajaxCourse.method = "PUT";
+        }
+
+        this.course.ProfileId = this.profile;
+        this.$.courseDialog.close();
+        this.$.ajaxCourse.body = JSON.stringify(this.course); 
+        this.$.ajaxCourse.generateRequest();    
+      },
+      _completeAction: function(){
+          this.$.ajaxTrainingProfiles.generateRequest(); 
+      },
+      _shallowCopy: function (original)  
+      {
+          // First create an empty object with
+          // same prototype of our original source
+          var clone = Object.create(Object.getPrototypeOf(original));
+
+          var i, keys = Object.getOwnPropertyNames(original);
+
+          for (i = 0; i < keys.length; i ++)
+          {
+              // copy each property into the clone
+              Object.defineProperty(clone, keys[ i ], Object.getOwnPropertyDescriptor(original, keys[ i ]));
+          }
+
+          return clone;
+      }
+    });
+  </script>
+</dom-module>

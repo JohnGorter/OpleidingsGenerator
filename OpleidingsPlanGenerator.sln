@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "com.infosupport.afst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL Tests", "com.infosupport.afstuderen.opleidingsplan.DAL.tests\DAL Tests.csproj", "{F8A30160-3948-40B4-9951-845BA9EDF1EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "InfoSupport.KC.OpleidingsplanGenerator.FrontEnd\FrontEnd.csproj", "{D6ACBD3C-067B-4232-A91D-59CFB6115D53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{F8A30160-3948-40B4-9951-845BA9EDF1EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8A30160-3948-40B4-9951-845BA9EDF1EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8A30160-3948-40B4-9951-845BA9EDF1EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6ACBD3C-067B-4232-A91D-59CFB6115D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6ACBD3C-067B-4232-A91D-59CFB6115D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6ACBD3C-067B-4232-A91D-59CFB6115D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6ACBD3C-067B-4232-A91D-59CFB6115D53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
