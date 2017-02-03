@@ -241,6 +241,6 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-/com.infosupport.afstuderen.opleidingsplan.API/App_Data/Updated
-/com.infosupport.afstuderen.opleidingsplan.API/Data/EducationPlanFiles
-/com.infosupport.afstuderen.opleidingsplan.generator.Tests/Data
+/InfoSupport.KC.OpleidingsplanGenerator.API/App_Data/Updated
+/InfoSupport.KC.OpleidingsplanGenerator.API/Data/EducationPlanFiles
+/InfoSupport.KC.OpleidingsplanGenerator.Generator.Tests/Data
