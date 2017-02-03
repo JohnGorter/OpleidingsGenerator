@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <title>Training list demo</title>
+
+    <link rel="import" href="../training-list.html">
+    <link rel="import" href="../../../bower_components/iron-elements/iron-elements.html">
+    <link rel="import" href="../../../bower_components/paper-elements/paper-elements.html">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+        .vertical-section-container {
+            max-width: 800px;
+        }
+        
+        #training-container:last-child {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="vertical-section-container centered">
+        <h3>Standard training list </h3>
+        <demo-snippet class="centered-demo">
+            <template is="dom-bind">
+
+                <training-list url="" training-list="{{trainingList}}"></training-list>
+
+
+            </template>
+
+        </demo-snippet>
+    </div>
+
+
+</body>
+
+</html>
+
+<!--CRM2011
+CODCRA
+CLOUD
+2NETARCH
+ADVCPP-->

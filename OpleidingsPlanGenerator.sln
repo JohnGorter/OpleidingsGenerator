@@ -3,27 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "com.infosupport.afstuderen.opleidingsplan.API\API.csproj", "{B84F85DC-D8A2-419A-AF14-D02E31351953}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{B84F85DC-D8A2-419A-AF14-D02E31351953}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API Tests", "com.infosupport.afstuderen.opleidingsplan.API.Tests\API Tests.csproj", "{C8EBC2E9-3788-47D6-BE8D-5FA86090FEEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API Tests", "API.Tests\API Tests.csproj", "{C8EBC2E9-3788-47D6-BE8D-5FA86090FEEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationService", "com.infosupport.afstuderen.opleidingsplan.agent\IntegrationService.csproj", "{5713F827-4539-4AC4-BF4D-82606CF97E5A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationService", "Agent\IntegrationService.csproj", "{5713F827-4539-4AC4-BF4D-82606CF97E5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "com.infosupport.afstuderen.opleidingsplan.model\Models.csproj", "{0669767E-7628-4BDD-9A44-2590CB1DF4E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Model\Models.csproj", "{0669767E-7628-4BDD-9A44-2590CB1DF4E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "com.infosupport.afstuderen.opleidingsplan.generator\Generator.csproj", "{4B514F3A-C4FE-4726-851E-59464AF56F15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{4B514F3A-C4FE-4726-851E-59464AF56F15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationService Tests", "com.infosupport.afstuderen.opleidingsplan.integration.Tests\IntegrationService Tests.csproj", "{2804EDC3-F51A-4D99-806C-D4231DCA8C3C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationService Tests", "Integration.Tests\IntegrationService Tests.csproj", "{2804EDC3-F51A-4D99-806C-D4231DCA8C3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator Tests", "com.infosupport.afstuderen.opleidingsplan.generator.Tests\Generator Tests.csproj", "{83FD393F-7B10-41C0-B400-6698647B1EB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator Tests", "Generator.Tests\Generator Tests.csproj", "{83FD393F-7B10-41C0-B400-6698647B1EB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models Tests", "com.infosupport.afstuderen.opleidingsplan.model.Tes\Models Tests.csproj", "{8A661148-FE54-44BC-8EB5-72D3A200B0ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models Tests", "Model.Tests\Models Tests.csproj", "{8A661148-FE54-44BC-8EB5-72D3A200B0ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "com.infosupport.afstuderen.opleidingsplan.DAL\DAL.csproj", "{8E448124-E651-4A3D-A9BA-C0ADA3023AFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{8E448124-E651-4A3D-A9BA-C0ADA3023AFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL Tests", "com.infosupport.afstuderen.opleidingsplan.DAL.tests\DAL Tests.csproj", "{F8A30160-3948-40B4-9951-845BA9EDF1EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL Tests", "DAL.Tests\DAL Tests.csproj", "{F8A30160-3948-40B4-9951-845BA9EDF1EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "InfoSupport.KC.OpleidingsplanGenerator.FrontEnd\FrontEnd.csproj", "{D6ACBD3C-067B-4232-A91D-59CFB6115D53}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "FrontEnd\FrontEnd.csproj", "{D6ACBD3C-067B-4232-A91D-59CFB6115D53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

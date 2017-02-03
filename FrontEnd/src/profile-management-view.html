@@ -1,0 +1,193 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="../bower_components/iron-elements/iron-elements.html">
+<link rel="import" href="../elements/training-education-plan-profile-list-ajax/training-education-plan-profile-list-ajax.html">
+<link rel="import" href="../elements/item-table/item-table.html">
+
+<dom-module id="profile-management-view">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      
+      #addProfile {
+        cursor: pointer;
+      }
+      
+      paper-input {
+        --paper-input-container-disabled: {
+          color: gray;
+        }
+      }
+      
+      #errorMessage {
+        color: red;
+      }
+    </style>
+
+    <training-education-plan-profile-list-ajax id="ajaxProfileList" auto profiles="{{profiles}}"></training-education-plan-profile-list-ajax>
+
+    <iron-ajax id="ajaxProfile" method="PUT" handle-as="json" debounce-duration="500"
+      content-type="application/json" on-response="_completeAction"></iron-ajax>
+
+    <div class="card">
+      <h1>Profieloverzicht</h1>
+      <p id="addProfile" on-tap="_manageProfile">Profiel toevoegen</p>
+
+      <item-table deletable editable items="[[profiles]]" except-headers="[[excludedHeaders]]" attr-for-identification="Id" on-edit="_manageProfile"
+        on-delete="_manageProfile"></item-table>
+    </div>
+
+    <paper-dialog id="profileDialog">
+      <h2>[[dialogTitle]]</h2>
+      <paper-input id="profileName" label="Profielnaam" value="{{profile.Name}}"></paper-input>
+      <div id="errorMessage">[[errorMessage]]</div>
+
+      <div class="buttons">
+
+        <template is="dom-if" if="[[delete]]">
+          <paper-button on-tap="_performAction">Verwijderen</paper-button>
+        </template>
+
+        <template is="dom-if" if="[[edit]]">
+          <paper-button on-tap="_performAction">Opslaan</paper-button>
+        </template>
+
+        <template is="dom-if" if="[[create]]">
+          <paper-button on-tap="_performAction">Opslaan</paper-button>
+        </template>
+
+        <paper-button dialog-dismiss>Annuleren</paper-button>
+      </div>
+    </paper-dialog>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'profile-management-view',
+      properties: {
+        excludedHeaders: {
+          type: Array,
+          value: ['Courses'],
+        },
+        profile: {
+          type: Object,
+          value: function() {
+              return {};
+          }        
+        },
+        action: {
+          type: String,
+        },
+        dialogTitle: {
+          type: String,
+        }
+      },
+      _manageProfile: function(event) {
+
+        this.action= event.type;
+        this.edit = false;
+        this.delete = false;
+        this.create = false;
+        this.errorMessage = '';      
+
+        switch(this.action) {
+          case 'edit':
+              this.dialogTitle = 'Profiel aanpassen';
+              this.$.profileName.disabled = false;
+              this.edit = true;
+              this._setSelectedProfile(event.detail.id);
+              break;
+          case 'delete':
+              this.dialogTitle = 'Profiel verwijderen';
+              this.$.profileName.disabled = true;
+              this.delete = true;
+              this._setSelectedProfile(event.detail.id);
+              break;
+          default:
+              this.dialogTitle = 'Profiel toevoegen';
+              this.$.profileName.disabled = false;
+              this.set('profile', {});
+              this.create = true;
+        }
+
+        this.$.profileDialog.open();
+      },
+      _setSelectedProfile: function(id) {
+        this.profile = this._shallowCopy(this.profiles.filter(function(obj) {
+          return obj.Id == id;
+        })[0]);
+      },
+      _findProfileByName: function(name) {
+        return this.profiles.filter(function(obj) {
+          return obj.Name == name;
+        });
+      },
+      _performAction: function() {
+        
+        if(!this.profile.Name || this.profile.Name && this.profile.Name.trim().length == 0) { 
+          this.errorMessage = 'De naam mag niet leeg zijn.';      
+          return;
+        }
+        this.$.ajaxProfile.url = BackendAdress + "/api/Profile";
+
+        switch(this.action) {
+          case 'edit':
+            if(this._findProfileByName(this.profile.Name)[0] != null && this._findProfileByName(this.profile.Name)[0].Id != this.profile.Id) {
+              this.errorMessage = 'De gekozen naam bestaat al.';      
+              return;
+            }
+            this.$.ajaxProfile.method = "POST";
+            this.$.ajaxProfile.body = JSON.stringify(this.profile); 
+            break;
+          case 'delete':
+            this.$.ajaxProfile.method = "DELETE";
+            this.$.ajaxProfile.params = { id: this.profile.Id}; 
+            break;
+          default:
+            if(this._findProfileByName(this.profile.Name)[0] != null) {
+              this.errorMessage = 'De gekozen naam bestaat al.';      
+              return;
+            }
+            this.$.ajaxProfile.method = "PUT";
+            this.$.ajaxProfile.body = JSON.stringify(this.profile); 
+        }
+
+        this.$.profileDialog.close();
+        this.$.ajaxProfile.generateRequest();    
+      },
+      _completeAction: function(){
+          this.$.ajaxProfileList.generateRequest(); 
+      },
+      _shallowCopy: function (original)  
+      {
+          // First create an empty object with
+          // same prototype of our original source
+          var clone = Object.create(Object.getPrototypeOf(original));
+
+          var i, keys = Object.getOwnPropertyNames(original);
+
+          for (i = 0; i < keys.length; i ++)
+          {
+              // copy each property into the clone
+              Object.defineProperty(clone, keys[ i ], Object.getOwnPropertyDescriptor(original, keys[ i ]));
+          }
+
+          return clone;
+      }
+    });
+  </script>
+</dom-module>
