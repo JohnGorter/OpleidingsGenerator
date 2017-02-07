@@ -2488,7 +2488,6 @@
     <Content Include="bower.json" />
     <Content Include="manifest.json" />
     <Content Include="polymer.json" />
-    <Content Include="README.md" />
     <None Include="Properties\PublishProfiles\PublishToFileSystem.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2499,7 +2498,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index1.html" />
-    <Content Include="service-worker.js" />
     <Content Include="src\educationplan-generator-view.html" />
     <Content Include="src\educationplan-search-view.html" />
     <Content Include="src\educationplan-view.html" />
@@ -2510,7 +2508,6 @@
     <Content Include="src\properties-management-view.html" />
     <Content Include="src\shared-styles.html" />
     <Content Include="src\training-management-view.html" />
-    <Content Include="sw-precache-config.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
