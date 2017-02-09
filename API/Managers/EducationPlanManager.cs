@@ -59,7 +59,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
             _educationPlanConverter = educationPlanConverter;
         }
 
-        private static List<OpleidingsplanGenerator.Models.Course> ConvertCourses(IEnumerable<Integration.Course> courses, OpleidingsplanGenerator.Models.CourseProfile profile)
+        private static List<OpleidingsplanGenerator.Models.Course> ConvertCourses(IEnumerable<Integration.Course> courses, CourseProfile profile, Collection<RestEducationPlanCourse> restCourses)
         {
             _logger.Debug("ConvertCourses");
             List<OpleidingsplanGenerator.Models.Course> coursesToPlan = new List<OpleidingsplanGenerator.Models.Course>();
@@ -67,6 +67,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
             foreach (var course in courses)
             {
                 OpleidingsplanGenerator.Models.Course courseToPlan = Mapper.Map<OpleidingsplanGenerator.Models.Course>(course);
+
                 if (profile != null)
                 {
                     CoursePriority coursePriority = profile.Courses.FirstOrDefault(profileCourse => profileCourse.Code == course.Code);
@@ -75,6 +76,13 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
                         courseToPlan.Priority = coursePriority.Priority;
                     }
                 }
+
+                RestEducationPlanCourse restCourse = restCourses.FirstOrDefault(profileCourse => profileCourse.Code == course.Code);
+                if (restCourse != null && restCourse.Priority != 0)
+                {
+                    courseToPlan.Priority = restCourse.Priority;
+                }
+
                 coursesToPlan.Add(courseToPlan);
             }
 
@@ -94,8 +102,8 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
             _planner.StartDate = educationPlan.InPaymentFrom;
             _planner.BlockedDates = educationPlan.BlockedDates;
 
-            var educationplanData = Mapper.Map<EducationPlanData>(educationPlan);  
-            OpleidingsplanGenerator.Models.CourseProfile profile = null;
+            var educationplanData = Mapper.Map<EducationPlanData>(educationPlan);
+            CourseProfile profile = null;
             if (educationPlan.ProfileId != 0)
             {
                 _logger.Debug(string.Format(_culture, "ProfileId exists: {0}", educationPlan.ProfileId));
@@ -108,18 +116,18 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
 
             _logger.Debug("Find courses from service");
             IEnumerable<Integration.Course> courses = _courseService.FindCourses(educationPlanCourses.Select(course => course.Code));
-            List<OpleidingsplanGenerator.Models.Course> coursesToPlan = ConvertCourses(courses, profile);
-            coursesToPlan = OverrideRestCourse(coursesToPlan, educationPlan.Courses);
+            List<OpleidingsplanGenerator.Models.Course> coursesToPlan = ConvertCourses(courses, profile, educationPlan.Courses);
             _planner.PlanCoursesWithOlc(coursesToPlan);
+            OverrideRestCourse(_planner, educationPlan.Courses);
 
             return _educationPlanOutputter.GenerateEducationPlan(educationplanData);
         }
 
-        private List<OpleidingsplanGenerator.Models.Course> OverrideRestCourse(List<OpleidingsplanGenerator.Models.Course> courses, Collection<RestEducationPlanCourse> restCourses)
+        private void OverrideRestCourse(IPlanner planner, Collection<RestEducationPlanCourse> restCourses)
         {
             foreach (var restCourse in restCourses)
             {
-                var course = courses.FirstOrDefault(c => c.Code == restCourse.Code);
+                var course = planner.AllCourses.FirstOrDefault(c => c.Code == restCourse.Code);
 
                 if (course != null)
                 {
@@ -130,8 +138,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
                     course.Commentary = restCourse.Commentary;
                 }
             }
-
-            return courses;
         }
 
         public long SaveEducationPlan(RestEducationPlan restEducationPlan)
@@ -141,7 +147,14 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
         }
         public long UpdateEducationPlan(RestEducationPlan restEducationPlan)
         {
+
+            //Get old educationplan
+            //Get courses before today
+
             var educationPlan = GenerateEducationPlan(restEducationPlan);
+            
+
+
             return _educationPlanDataMapper.Update(educationPlan);
         }
 

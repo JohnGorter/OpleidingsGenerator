@@ -35,7 +35,11 @@
             .commentaryIcon {
                 cursor: pointer;
             }
-
+            /*.not-planned-course:hover {
+                cursor: pointer;
+                color: #0000EE;
+                text-decoration: underline;
+            }*/
         </style>
 
 <table>
@@ -60,18 +64,25 @@
             <tr>
                 <td>[[_formatWeek(course.Week)]]</td>
                 <td>[[_formatDate(course.Date)]]</td>
-                <td>[[course.Name]]</td>
-                <td>[[course.Days]]</td>
-                <td>[[course.Commentary]]</td>
-                <template is="dom-if" if="[[edit]]">
-                    <td>
-                        <iron-icon data-course-code$="[[course.Code]]" data-commentary$="[[course.Commentary]]" on-tap="_addCommentary" class="commentaryIcon" title="[[_getCommentaryButtonText(course.Commentary)]]"
-                            icon="icons:create">
-                    </td>
+
+                <template is="dom-if" if="[[planned]]">
+                    <td>[[course.Name]]</td>
                 </template>
-                <td>[[_formatPrice(course.Price)]]</td>
-                <td>[[_formatPrice(course.PriceWithDiscount)]]</td>
-            </tr>
+                <template is="dom-if" if="[[!planned]]">
+                    <td><span on-tap="_planNotPlannedCourse" class="not-planned-course" data-course-code$="[[course.Code]]">[[course.Name]]</span></td>
+                </template>
+
+                    <td>[[course.Days]]</td>
+                    <td>[[course.Commentary]]</td>
+                    <template is="dom-if" if="[[edit]]">
+                        <td>
+                            <iron-icon data-course-code$="[[course.Code]]" data-commentary$="[[course.Commentary]]" on-tap="_addCommentary" class="commentaryIcon" title="[[_getCommentaryButtonText(course.Commentary)]]"
+                                       icon="icons:create">
+                        </td>
+                    </template>
+                    <td>[[_formatPrice(course.Price)]]</td>
+                    <td>[[_formatPrice(course.PriceWithDiscount)]]</td>
+</tr>
         </template>
 
         <tr>
@@ -97,6 +108,10 @@
             courses: Array,
             totalPrice: Number,
             totalPriceWithDiscount: Number,
+            planned: {
+                type: Boolean,
+                value: false,
+            }
         },
         _formatDate: function (dateAsString) {
             if (dateAsString == null) {
@@ -141,6 +156,12 @@
 
             return clone;
         },
+        //_planNotPlannedCourse: function (event) {
+        //    this.fire('priority-course-changed', {
+        //        code: event.currentTarget.dataset.courseCode,
+        //        priority: -1,
+        //    });
+        //},
         addCommentary: function(courseCode, commentary) {
             var courses = this.courses;
             this.set("courses",  []);

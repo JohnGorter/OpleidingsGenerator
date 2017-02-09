@@ -23,13 +23,22 @@
                 background-color: #c7c5c5;
                 color: white;
             }
+            #date-employable-from {
+                padding: 10px 16px; 
+            }
+
+            #date-employable-from span {
+                width: 56px;
+                display: inline-block;
+            }
 
         </style>
 
         Datum indiensttreding
         <paper-date-picker-item icon="icons:today" date="{{educationPlan.InPaymentFrom}}" date-format="DD-MM-YYYY" locale="nl"></paper-date-picker-item>
         Inzetbaar vanaf
-        <paper-date-picker-item icon="icons:today" date="{{educationPlan.EmployableFrom}}"  placeholder="Datum inzetbaar" date-format="DD-MM-YYYY" locale="nl"></paper-date-picker-item>
+        <div id="date-employable-from"><span><iron-icon icon="icons:today"></iron-icon></span>[[_formatDate(educationPlan.EmployableFrom)]]</div>
+        <!--<paper-date-picker-item icon="icons:today" date="{{educationPlan.EmployableFrom}}"  placeholder="Datum inzetbaar" date-format="DD-MM-YYYY" locale="nl"></paper-date-picker-item>-->
         Blokkeer datum
         <paper-date-picker-item icon="icons:today" date="{{blockedDate}}" date-format="DD-MM-YYYY" locale="nl" placeholder="Datum toevoegen"></paper-date-picker-item>
        
@@ -78,8 +87,8 @@
                 }              
             },
             _formatDate: function(dateAsString){
-                if(dateAsString == null) {
-                    return "-";
+                if(!dateAsString) {
+                    return "";
                 }
                 var date = new Date(dateAsString);
                 return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();

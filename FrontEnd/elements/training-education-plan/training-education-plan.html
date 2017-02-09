@@ -75,7 +75,9 @@ Custom property | Description | Default
             edit="[[edit]]" 
             total-price="[[educationPlan.PlannedCoursesTotalPrice]]" 
             total-price-with-discount="[[educationPlan.PlannedCoursesTotalPriceWithDiscount]]"
-            courses="[[educationPlan.PlannedCourses]]"></training-education-plan-table>
+            courses="[[educationPlan.PlannedCourses]]"
+            planned></training-education-plan-table>
+
         </template>
         <template is="dom-if" if="[[_isEmpty(educationPlan.PlannedCourses)]]">
             Geen trainingen gevonden
