@@ -2489,6 +2489,7 @@
     <Content Include="manifest.json" />
     <Content Include="polymer.json" />
     <Content Include="Deployment\Package-Website.ps1" />
+    <Content Include="Deployment\Deploy-Website.ps1" />
     <None Include="Properties\PublishProfiles\PublishToFileSystem.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

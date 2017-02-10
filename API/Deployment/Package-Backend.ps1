@@ -78,6 +78,7 @@ Copy-Item -Path "$opleidingsplanBackendSourceDir\_PublishedWebsites\*" -Destinat
 Get-ChildItem -Path $opleidingsplanBackendTargetDir -Recurse | Where-Object { !$_.PSIsContainer } | foreach { $_.IsReadOnly = $false }
 Get-ChildItem -Path $opleidingsplanBackendTargetDir -Include $buildStuff -Recurse | Remove-Item
 Get-ChildItem -Path $opleidingsplanBackendTargetDir -Filter "_PublishedWebsites" -Recurse | Remove-Item -Recurse
+Get-ChildItem -Path $opleidingsplanBackendTargetDir -Filter "App_Data" -Recurse | Remove-Item -Recurse
 
 Write-Output "Clearing read-only attributes..."
 Get-ChildItem -Path $TargetDir -Recurse | Where-Object { !$_.PSIsContainer } | foreach { $_.IsReadOnly = $false }

@@ -65,8 +65,8 @@ try
         if(Test-Path $targetDir)
         {
             Write-Output "Removing old files..."
-            Get-ChildItem $targetDir | Remove-Item -Recurse -Force
-            Get-ChildItem $targetDir | Remove-Item -Recurse -Force
+            Get-ChildItem $targetDir | Where-Object {$_.Name -ne "App_Data" } | Remove-Item -Recurse -Force
+            Get-ChildItem $targetDir | Where-Object {$_.Name -ne "App_Data" } | Remove-Item -Recurse -Force
         }
         else
         {

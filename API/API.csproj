@@ -138,8 +138,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Global.asax" />
+    <Content Include="App_Data\EducationPlans.json" />
+    <Content Include="App_Data\ManagementProperties.json" />
     <Content Include="App_Data\Profiles.json" />
+    <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -173,9 +175,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\web.config" />
-    <Content Include="App_Data\EducationPlans.json" />
-    <Content Include="App_Data\ManagementProperties.json" />
     <Content Include="Deployment\Package-Backend.ps1" />
+    <Content Include="Deployment\Deploy-Backend.ps1" />
     <None Include="Properties\PublishProfiles\PublishToFileSystem.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
