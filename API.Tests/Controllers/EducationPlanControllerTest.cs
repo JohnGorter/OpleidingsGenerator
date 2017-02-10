@@ -181,18 +181,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Controllers
         public void Delete_ManagerCalled()
         {
             // Arrange
-            var courses = new Collection<RestEducationPlanCourse> {
-                new RestEducationPlanCourse
-                {
-                    Code = "2NETARCH"
-                },
-                new RestEducationPlanCourse
-                {
-                    Code = "ADCSB"
-                },
-            };
-            RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(courses);
-
             var educationPlanManagerMock = new Mock<IEducationPlanManager>(MockBehavior.Strict);
             educationPlanManagerMock.Setup(manager => manager.DeleteEducationPlan(1));
 
@@ -203,6 +191,22 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Controllers
 
             // Assert
             educationPlanManagerMock.Verify(manager => manager.DeleteEducationPlan(1));
+        }
+
+        [TestMethod]
+        public void FindAllUpdated_ManagerCalled()
+        {
+            // Arrange
+            var educationPlanManagerMock = new Mock<IEducationPlanManager>(MockBehavior.Strict);
+            educationPlanManagerMock.Setup(manager => manager.FindAllUpdated()).Returns(GetDummyEducationPlanCompareList());
+
+            EducationPlanController controller = new EducationPlanController(educationPlanManagerMock.Object);
+
+            // Act
+            controller.FindAllUpdated();
+
+            // Assert
+            educationPlanManagerMock.Verify(manager => manager.FindAllUpdated());
         }
     }
 }

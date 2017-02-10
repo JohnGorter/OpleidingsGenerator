@@ -181,5 +181,10 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
         {
             _educationPlanDataMapper.Delete(id);
         }
+
+        public List<EducationPlanCompare> FindAllUpdated()
+        {
+            return _educationPlanDataMapper.FindAllUpdated().ToList();
+        }
     }
 }

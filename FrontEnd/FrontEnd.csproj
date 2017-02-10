@@ -2497,9 +2497,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="index1.html" />
     <Content Include="src\educationplan-generator-view.html" />
     <Content Include="src\educationplan-search-view.html" />
+    <Content Include="src\educationplan-compare-view.html" />
     <Content Include="src\educationplan-view.html" />
     <Content Include="src\my-icons.html" />
     <Content Include="src\view404.html" />

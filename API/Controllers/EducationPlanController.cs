@@ -100,5 +100,13 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
             var educationPlan = _educationPlanManager.FindEducationPlan(id);
             return _educationPlanManager.GenerateWordFile(educationPlan);
         }
+
+        [HttpGet]
+        [Route("api/FindAllUpdated")]
+        public List<EducationPlanCompare> FindAllUpdated()
+        {
+            _logger.Info("FindAllUpdated");
+            return _educationPlanManager.FindAllUpdated();
+        }
     }
 }

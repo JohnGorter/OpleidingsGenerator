@@ -364,5 +364,29 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             educationPlanDataMapperMock.Verify(dataMapper => dataMapper.Delete(1));
         }
 
+        [TestMethod]
+        public void FindAllUpdated_DAL_Called()
+        {
+            // Arrange
+            var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
+
+            var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
+            educationPlanDataMapperMock.Setup(dataMapper => dataMapper.FindAllUpdated()).Returns(GetDummyEducationPlanCompareList());
+
+            var educationPlanOutputterMock = new Mock<IEducationPlanOutputter>(MockBehavior.Strict);
+            var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
+            var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
+
+            var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
+
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object);
+
+            // Act
+            var result = manager.FindAllUpdated();
+
+            // Assert
+            educationPlanDataMapperMock.Verify(dataMapper => dataMapper.FindAllUpdated());
+        }
+
     }
 }
