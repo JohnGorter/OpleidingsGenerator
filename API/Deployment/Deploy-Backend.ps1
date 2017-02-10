@@ -1,25 +1,6 @@
 ﻿param (    
     [Parameter(Mandatory=$True)]
-    [string]$planFilePath,
-
-    [Parameter(Mandatory=$True)]
-    [string]$profilePath,
-
-    [Parameter(Mandatory=$True)]
-    [string]$educationplanPath,
-
-    [Parameter(Mandatory=$True)]
-    [string]$managementPropertiesPath,
-
-    [Parameter(Mandatory=$True)]
-    [string]$educationPlanUpdatedPath,
-
-    [Parameter(Mandatory=$True)]
-    [string]$trainingUrl,
-       
-    [Parameter(Mandatory=$True)]
-    [string]$appPoolName
-
+    [string]$trainingUrl
 )
 
 # Let failures throw an exception so that we can catch it.
@@ -32,6 +13,13 @@ try
     $sourceDir = [System.IO.Path]::GetFullPath("$pwd\..")
     $targetDir = "D:\applicaties\OpleidingsplanGenerator\Backend"
     $backupBaseDir = "D:\Deployment\Pre-deployment backups\OpleidingsplanGenerator\Backend"
+
+    $planFilePath = "~/Data/EducationPlanFiles"
+    $profilePath = "~/App_Data/Profiles.json"
+    $educationplanPath = "~/App_Data/EducationPlans.json"
+    $managementPropertiesPath = "~/App_Data/ManagementProperties.json"
+    $educationPlanUpdatedPath = "~/App_Data/Updated"
+    $appPoolName = "OpleidingsplanGeneratorAppPool"
 
     Write-Output "Current working directory:      $pwd"
     Write-Output "Source directory:               $sourceDir"

@@ -1,10 +1,6 @@
 ﻿param (    
     [Parameter(Mandatory=$True)]
-    [string]$backendAddress,
-       
-    [Parameter(Mandatory=$True)]
-    [string]$appPoolName
-
+    [string]$backendAddress
 )
 
 # Let failures throw an exception so that we can catch it.
@@ -17,6 +13,7 @@ try
     $sourceDir = [System.IO.Path]::GetFullPath("$pwd\..")
     $targetDir = "D:\applicaties\OpleidingsplanGenerator\Frontend"
     $backupBaseDir = "D:\Deployment\Pre-deployment backups\OpleidingsplanGenerator\Frontend"
+    $appPoolName = "OpleidingsplanGeneratorAppPool"
 
     Write-Output "Current working directory:      $pwd"
     Write-Output "Source directory:               $sourceDir"
