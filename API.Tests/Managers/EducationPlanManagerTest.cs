@@ -51,6 +51,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             plannerMock.Setup(planner => planner.PlanCoursesWithOlc(It.IsAny<IEnumerable<OpleidingsplanGenerator.Models.Course>>()));
             plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
             plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
+            plannerMock.SetupGet(planner => planner.AllCourses).Returns(GetDummyGeneratorCourses());
 
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
             courseServiceMock.Setup(service => service.FindCourses(new List<string> { "2NETARCH", "ADCSB" })).Returns(
@@ -138,6 +139,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             plannerMock.Setup(planner => planner.PlanCoursesWithOlc(It.IsAny<IEnumerable<OpleidingsplanGenerator.Models.Course>>()));
             plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
             plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
+            plannerMock.SetupGet(planner => planner.AllCourses).Returns(GetDummyGeneratorCourses());
 
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
             courseServiceMock.Setup(service => service.FindCourses(new List<string> { "2NETARCH", "ADCSB" })).Returns(
@@ -194,6 +196,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             plannerMock.Setup(planner => planner.PlanCoursesWithOlc(It.IsAny<IEnumerable<OpleidingsplanGenerator.Models.Course>>()));
             plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
             plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
+            plannerMock.SetupGet(planner => planner.AllCourses).Returns(GetDummyGeneratorCourses());
 
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
             courseServiceMock.Setup(service => service.FindCourses(new List<string> { "2NETARCH", "ADCSB" })).Returns(

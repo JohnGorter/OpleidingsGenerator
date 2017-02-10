@@ -24,7 +24,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers
                 Courses = courses,
             };
         }
-        
+
         protected EducationPlan GetDummyEducationPlan()
         {
             return new EducationPlan
@@ -94,6 +94,26 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers
                         Location = "Veenendaal",
                     }
                 },
+            };
+        }
+
+        protected List<Generator.Course> GetDummyGeneratorCourses()
+        {
+            return new List<Generator.Course>
+            {
+                new Generator.Course {
+                    Code = "POLDEVEL",
+                    Priority = 1,
+                    CourseImplementations = new List<Generator.CourseImplementation>()
+                    {
+                        new Generator.CourseImplementation
+                        {
+                            Days = new List<DateTime> {
+                                new DateTime(2017, 1, 1)
+                            },
+                        },
+                    },
+                }
             };
         }
     }
