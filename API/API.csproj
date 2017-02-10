@@ -175,6 +175,7 @@
     <Content Include="Views\web.config" />
     <Content Include="App_Data\EducationPlans.json" />
     <Content Include="App_Data\ManagementProperties.json" />
+    <Content Include="Deployment\Package-Backend.ps1" />
     <None Include="Properties\PublishProfiles\PublishToFileSystem.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

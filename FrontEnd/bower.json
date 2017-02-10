@@ -16,7 +16,8 @@
     "iron-selector": "PolymerElements/iron-selector#^1.0.0",
     "paper-icon-button": "PolymerElements/paper-icon-button#~1.1.0",
     "polymer": "Polymer/polymer#^1.6.0",
-    "paper-date-picker-item": "^1.2.1"
+    "paper-date-picker-item": "^1.2.1",
+    "marked": "0.3.5"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"
