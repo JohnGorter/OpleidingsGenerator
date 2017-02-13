@@ -47,8 +47,8 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
             _educationPlanConverter = new EducationPlanConverter(managementPropertiesPath, educationPlanFilePath);
         }
 
-        public EducationPlanManager(ICourseService courseService, IPlanner planner, IEducationPlanOutputter educationPlanOutputter, 
-            IDataMapper<OpleidingsplanGenerator.Models.CourseProfile> profileDataMapper, IEducationPlanDataMapper educationPlanDataMapper, 
+        public EducationPlanManager(ICourseService courseService, IPlanner planner, IEducationPlanOutputter educationPlanOutputter,
+            IDataMapper<OpleidingsplanGenerator.Models.CourseProfile> profileDataMapper, IEducationPlanDataMapper educationPlanDataMapper,
             IEducationPlanConverter educationPlanConverter)
         {
             _courseService = courseService;
@@ -152,7 +152,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
             //Get courses before today
 
             var educationPlan = GenerateEducationPlan(restEducationPlan);
-            
+
 
 
             return _educationPlanDataMapper.Update(educationPlan);
@@ -166,9 +166,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
         public List<EducationPlan> FindEducationPlans(EducationPlanSearch search)
         {
             return _educationPlanDataMapper
-                .Find(educationPlan => 
+                .Find(educationPlan =>
                 educationPlan.NameEmployee != null && search.Name != null &&
-                educationPlan.NameEmployee.ToLowerInvariant().Contains(search.Name.ToLowerInvariant()) || 
+                educationPlan.NameEmployee.ToLowerInvariant().Contains(search.Name.ToLowerInvariant()) ||
                 search.Date.HasValue && educationPlan.Created.Date == search.Date).ToList();
         }
 
@@ -182,9 +182,24 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
             _educationPlanDataMapper.Delete(id);
         }
 
-        public List<EducationPlanCompare> FindAllUpdated()
+        public List<EducationPlanCompareSummary> FindAllUpdated()
         {
             return _educationPlanDataMapper.FindAllUpdated().ToList();
+        }
+
+        public EducationPlanCompare FindUpdatedById(long id)
+        {
+            return _educationPlanDataMapper.FindUpdatedById(id);
+        }
+
+        public void ApproveUpdatedEducationPlan(long id)
+        {
+            _educationPlanDataMapper.ApproveUpdatedEducationPlan(id);
+        }
+
+        public void RejectUpdatedEducationPlan(long id)
+        {
+            _educationPlanDataMapper.RejectUpdatedEducationPlan(id);
         }
     }
 }

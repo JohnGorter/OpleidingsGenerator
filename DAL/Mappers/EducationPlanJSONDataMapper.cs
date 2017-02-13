@@ -117,9 +117,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers
             return educationPlan.Id;
         }
 
-        public IEnumerable<EducationPlanCompare> FindAllUpdated()
+        public IEnumerable<EducationPlanCompareSummary> FindAllUpdated()
         {
-            List<EducationPlanCompare> educationPlansCompareList = new List<EducationPlanCompare>();
+            List<EducationPlanCompareSummary> educationPlansCompareList = new List<EducationPlanCompareSummary>();
             var educationPlans = GetAllEducationPlans();
             _logger.Debug(string.Format(_culture, "Find all updated: {0} education plans found", educationPlans.Count));
             try
@@ -131,10 +131,15 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers
                         string educationPlanJSON = File.ReadAllText(file);
                         var oldEducationPlan = JsonConvert.DeserializeObject<EducationPlan>(educationPlanJSON);
                         var newEducationPlan = educationPlans.FirstOrDefault(ep => ep.Id == oldEducationPlan.Id);
-                        educationPlansCompareList.Add(new EducationPlanCompare
+                        educationPlansCompareList.Add(new EducationPlanCompareSummary
                         {
-                            EducationPlanNew = newEducationPlan,
-                            EducationPlanOld = oldEducationPlan,
+                            Id = newEducationPlan.Id,
+                            Created = newEducationPlan.Created,
+                            InPaymentFrom = newEducationPlan.InPaymentFrom,
+                            KnowledgeOf = newEducationPlan.KnowledgeOf,
+                            NameEmployee = newEducationPlan.NameEmployee,
+                            NameTeacher = newEducationPlan.NameTeacher,
+                            Profile = newEducationPlan.Profile,                          
                         });
                     }
                     catch (FileNotFoundException ex)
@@ -221,6 +226,68 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers
 
             _logger.Debug(string.Format(_culture, "Generated id for education plan {0}", newId));
             return newId;
+        }
+
+        public EducationPlanCompare FindUpdatedById(long id)
+        {
+            _logger.Debug(string.Format(_culture, "FindUpdatedById with id {0}", id));
+
+            var updatedFilePath = _updatedDirPath + "/" + id + ".json";
+
+            if(!File.Exists(updatedFilePath))
+            {
+                string errorMessage = string.Format(_culture, "File with path {0} for updated educationplan not found", updatedFilePath);
+                _logger.Error(errorMessage);
+                throw new FileNotFoundException(errorMessage);
+            }
+
+            string educationPlanJSON = File.ReadAllText(updatedFilePath);
+            var oldEducationPlan = JsonConvert.DeserializeObject<EducationPlan>(educationPlanJSON);
+
+            EducationPlanCompare educationPlanCompare = new EducationPlanCompare
+            {
+                EducationPlanNew = FindById(id),
+                EducationPlanOld = oldEducationPlan,
+            };
+            
+            return educationPlanCompare;
+        }
+
+        public void ApproveUpdatedEducationPlan(long id)
+        {
+            _logger.Debug(string.Format(_culture, "ApproveUpdatedEducationPlan with id {0}", id));
+
+            var updatedFilePath = _updatedDirPath + "/" + id + ".json";
+
+            if (!File.Exists(updatedFilePath))
+            {
+                string errorMessage = string.Format(_culture, "File with path {0} for updated educationplan not found", updatedFilePath);
+                _logger.Error(errorMessage);
+                throw new FileNotFoundException(errorMessage);
+            }
+
+            File.Delete(updatedFilePath);
+        }
+
+        public void RejectUpdatedEducationPlan(long id)
+        {
+            _logger.Debug(string.Format(_culture, "ApproveUpdatedEducationPlan with id {0}", id));
+
+            var updatedFilePath = _updatedDirPath + "/" + id + ".json";
+
+            if (!File.Exists(updatedFilePath))
+            {
+                string errorMessage = string.Format(_culture, "File with path {0} for updated educationplan not found", updatedFilePath);
+                _logger.Error(errorMessage);
+                throw new FileNotFoundException(errorMessage);
+            }
+
+            string educationPlanJSON = File.ReadAllText(updatedFilePath);
+            var oldEducationPlan = JsonConvert.DeserializeObject<EducationPlan>(educationPlanJSON);
+
+            Update(oldEducationPlan);
+
+            File.Delete(updatedFilePath);
         }
     }
 }

@@ -1,0 +1,97 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-elements/iron-elements.html">
+<link rel="import" href="../bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../elements/training-education-plan/training-education-plan.html">
+<link rel="import" href="../elements/training-education-plan-ajax/training-education-plan-ajax.html">
+<link rel="import" href="../elements/item-table/item-table.html">
+<link rel="import" href="../bower_components/paper-date-picker-item/paper-date-picker-item.html">
+
+<dom-module id="educationplan-update-overview-view">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      
+      .card > div {
+        margin: 10px;
+      }
+      
+      .card > div:nth-child(1) {
+        flex: 9;
+      }
+      
+      .card > div:nth-child(2) {
+        flex: 5;
+      }
+
+      paper-toast {
+        cursor: pointer;
+      }
+
+      #search-container {
+        display: flex;
+      }
+
+      #search-container paper-input{
+        flex: 1;
+      }
+
+      #errorMessage {
+        color: red;
+      }
+    </style>
+
+    <iron-ajax id="ajaxCompareEducationPlan" method="GET" handle-as="json" debounce-duration="500" content-type="application/json"
+                last-response="{{educationPlanCompare}}"></iron-ajax>
+
+<div class="card">
+    <h1>Aangepaste opleidingsplannen</h1>
+  <item-table items="[[educationPlanCompare]]" except-headers="[[excludedHeaders]]" attr-for-identification="Id" showable
+    on-details="_redirect"></item-table>
+</div>
+
+</template>
+
+<script>
+  Polymer({
+      is: 'educationplan-update-overview-view',
+    properties: {
+      excludedHeaders: {
+        type: Array,
+        value: ['BlockedDates', 'CoursesJustBeforeStart', 'PlannedCourses', 'NotPlannedCourses', 'PlannedCoursesTotalPrice', 'PlannedCoursesTotalPriceWithDiscount', 'NotPlannedCoursesTotalPrice', 'NotPlannedCoursesTotalPriceWithDiscount', 'EmployableFrom', 'ProfileId'],
+      }
+    },
+    ready: function() {
+        this.loadUpdatedEducationplanView();
+    },
+    loadUpdatedEducationplanView: function() {
+        this.$.ajaxCompareEducationPlan.url = BackendAdress + "/api/FindAllUpdated";
+        this.$.ajaxCompareEducationPlan.generateRequest();
+    },
+    _formatDate: function (dateAsString) {
+      if (dateAsString == null) {
+        return "-";
+      }
+      var date = new Date(dateAsString);
+      return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+    },
+    _redirect: function (event) {
+       
+        this.set('route.path', '/educationplan-compare-view/' + event.detail.id);
+    },
+  });
+</script>
+</dom-module>

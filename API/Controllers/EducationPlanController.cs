@@ -103,10 +103,34 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
 
         [HttpGet]
         [Route("api/FindAllUpdated")]
-        public List<EducationPlanCompare> FindAllUpdated()
+        public List<EducationPlanCompareSummary> FindAllUpdated()
         {
             _logger.Info("FindAllUpdated");
             return _educationPlanManager.FindAllUpdated();
+        }
+
+        [HttpGet]
+        [Route("api/FindUpdated/{id}")]
+        public EducationPlanCompare FindUpdated(long id)
+        {
+            _logger.Info(string.Format(_culture, "Find updated educationplan with id {0}", id));
+            return _educationPlanManager.FindUpdatedById(id);
+        }
+
+        [HttpPost]
+        [Route("api/ApproveUpdatedEducationPlan/{id}")]
+        public void ApproveUpdatedEducationPlan(long id)
+        {
+            _logger.Info(string.Format(_culture, "Approve updated educationplan with id {0}", id));
+            _educationPlanManager.ApproveUpdatedEducationPlan(id);
+        }
+
+        [HttpPost]
+        [Route("api/RejectUpdatedEducationPlan/{id}")]
+        public void RejectUpdatedEducationPlan(long id)
+        {
+            _logger.Info(string.Format(_culture, "Reject updated educationplan with id {0}", id));
+            _educationPlanManager.RejectUpdatedEducationPlan(id);
         }
     }
 }

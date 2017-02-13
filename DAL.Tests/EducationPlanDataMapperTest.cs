@@ -203,31 +203,33 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Dal.Tests
             // Assert ArgumentException
         }
 
-        [TestMethod]
-        public void FindAllUpdated_TwoUpdatedEducationPlansFound()
-        {
-            // Arrange
-            IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
-            EducationPlan educationPlan = GetDummyEducationPlan();
-            educationPlan.Id = 1;
-            dataMapper.Update(educationPlan);
-            educationPlan.Id = 2;
-            dataMapper.Update(educationPlan);
+        
 
-            // Act
-            var result = dataMapper.FindAllUpdated();
+        //[TestMethod]
+        //public void FindAllUpdated_TwoUpdatedEducationPlansFound()
+        //{
+        //    // Arrange
+        //    IEducationPlanDataMapper dataMapper = new EducationPlanJsonDataMapper(_educationPlanPath, _updatedDirPath);
+        //    EducationPlan educationPlan = GetDummyEducationPlan();
+        //    educationPlan.Id = 1;
+        //    dataMapper.Update(educationPlan);
+        //    educationPlan.Id = 2;
+        //    dataMapper.Update(educationPlan);
 
-            // Assert
-            Assert.AreEqual(2, result.Count());
-            Assert.AreEqual(1, result.ElementAt(0).EducationPlanOld.Id);
-            Assert.AreEqual(1, result.ElementAt(0).EducationPlanNew.Id);
-            Assert.AreEqual("Alex Verbeek", result.ElementAt(0).EducationPlanOld.NameEmployee);
-            Assert.AreEqual("Pim Verheij", result.ElementAt(0).EducationPlanNew.NameEmployee);
-            Assert.AreEqual(2, result.ElementAt(1).EducationPlanOld.Id);
-            Assert.AreEqual(2, result.ElementAt(1).EducationPlanNew.Id);
-            Assert.AreEqual("Jan Verstegen", result.ElementAt(1).EducationPlanOld.NameEmployee);
-            Assert.AreEqual("Pim Verheij", result.ElementAt(1).EducationPlanNew.NameEmployee);
-        }
+        //    // Act
+        //    var result = dataMapper.FindAllUpdated();
+
+        //    // Assert
+        //    Assert.AreEqual(2, result.Count());
+        //    Assert.AreEqual(1, result.ElementAt(0).EducationPlanOld.Id);
+        //    Assert.AreEqual(1, result.ElementAt(0).EducationPlanNew.Id);
+        //    Assert.AreEqual("Alex Verbeek", result.ElementAt(0).EducationPlanOld.NameEmployee);
+        //    Assert.AreEqual("Pim Verheij", result.ElementAt(0).EducationPlanNew.NameEmployee);
+        //    Assert.AreEqual(2, result.ElementAt(1).EducationPlanOld.Id);
+        //    Assert.AreEqual(2, result.ElementAt(1).EducationPlanNew.Id);
+        //    Assert.AreEqual("Jan Verstegen", result.ElementAt(1).EducationPlanOld.NameEmployee);
+        //    Assert.AreEqual("Pim Verheij", result.ElementAt(1).EducationPlanNew.NameEmployee);
+        //}
 
         [TestMethod]
         [ExpectedException(typeof(FileNotFoundException))]

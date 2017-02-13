@@ -11,6 +11,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers
         long Insert(EducationPlan educationPlan);
         long Update(EducationPlan educationPlan);
         EducationPlan FindById(long id);
-        IEnumerable<EducationPlanCompare> FindAllUpdated();
+        EducationPlanCompare FindUpdatedById(long id);
+        IEnumerable<EducationPlanCompareSummary> FindAllUpdated();
+        void RejectUpdatedEducationPlan(long id);
+        void ApproveUpdatedEducationPlan(long id);
     }
 }

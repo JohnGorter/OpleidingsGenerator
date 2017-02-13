@@ -121,8 +121,16 @@
                     computed: '_getKeysFromItem(items)',
                 }
             },
-            _showDate: function(item) {
-                if(!isNaN(item) || isNaN(Date.parse(item))) {
+            _showDate: function (item) {
+
+                if (item !== null && typeof item.replace === 'function') {
+                    var replacedItem = item.replace(' ', '');
+                    if (!isNaN(replacedItem) || isNaN(Date.parse(replacedItem))) {
+                        return item;
+                    }
+                }
+
+                if (!isNaN(item) || isNaN(Date.parse(item))) {
                     return item;
                 }
                 
@@ -148,7 +156,6 @@
                 }
             },
             _read_prop: function(obj, prop) {
-
                 var property = obj[prop];
 
                 if(property instanceof Array) {
@@ -166,13 +173,13 @@
                     attrForIdentification: this.attrForIdentification
                 });
             },
-            _delete: function() {
+            _delete: function(event) {
                 this.fire('delete', {
                     id: event.currentTarget.dataset.key,
                     attrForIdentification: this.attrForIdentification
                 });
             },
-            _details: function () {
+            _details: function (event) {
                 this.fire('details', {
                     id: event.currentTarget.dataset.key,
                     attrForIdentification: this.attrForIdentification

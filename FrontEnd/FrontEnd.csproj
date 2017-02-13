@@ -2498,6 +2498,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\educationplan-generator-view.html" />
+    <Content Include="src\educationplan-update-overview-view.html" />
     <Content Include="src\educationplan-search-view.html" />
     <Content Include="src\educationplan-compare-view.html" />
     <Content Include="src\educationplan-view.html" />

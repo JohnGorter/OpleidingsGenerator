@@ -46,6 +46,7 @@
     <Compile Include="CourseSummary.cs" />
     <Compile Include="EducationPlan.cs" />
     <Compile Include="EducationPlanCompare.cs" />
+    <Compile Include="EducationPlanCompareSummary.cs" />
     <Compile Include="EducationPlanCourse.cs" />
     <Compile Include="CourseProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

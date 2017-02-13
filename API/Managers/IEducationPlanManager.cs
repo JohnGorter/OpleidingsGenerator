@@ -17,6 +17,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
         void DeleteEducationPlan(long id);
         List<EducationPlan> FindEducationPlans(EducationPlanSearch search);
         string GenerateWordFile(EducationPlan educationPlan);
-        List<EducationPlanCompare> FindAllUpdated();
+        List<EducationPlanCompareSummary> FindAllUpdated();
+        EducationPlanCompare FindUpdatedById(long id);
+        void RejectUpdatedEducationPlan(long id);
+        void ApproveUpdatedEducationPlan(long id);
     }
 }

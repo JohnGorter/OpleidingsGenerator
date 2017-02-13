@@ -45,16 +45,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers
             };
         }
 
-        protected List<EducationPlanCompare> GetDummyEducationPlanCompareList()
+        protected List<EducationPlanCompareSummary> GetDummyEducationPlanCompareList()
         {
-            return new List<EducationPlanCompare>
-            {
-                new EducationPlanCompare
-                {
-                    EducationPlanNew = GetDummyEducationPlan(),
-                    EducationPlanOld = GetDummyEducationPlan(),
-                },               
-            };
+            return new List<EducationPlanCompareSummary>();
         }
 
         protected EducationPlanCourse CreatePlannedEducationPlanCourse(string code, DateTime? date, string name, int days, string commentary, decimal price)
