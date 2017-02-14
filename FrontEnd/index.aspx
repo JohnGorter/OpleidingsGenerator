@@ -38,6 +38,32 @@
     <meta name="msapplication-tap-highlight" content="no">
 
 
+    
+
+    <link rel="import" href="src/opleidingsplan-app.html">
+
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Roboto', 'Noto', sans-serif;
+        line-height: 1.5;
+        min-height: 100vh;
+        background-color: #eeeeee;
+      }
+    </style>
+  </head>
+  <body>
+      <div runat="server">
+        <script>
+            (function () {
+                BackendAdress = "<%= System.Web.Configuration.WebConfigurationManager.AppSettings["BackendAdress"] %>";
+            })();
+        </script>
+      </div>
+    <opleidingsplan-app></opleidingsplan-app>
+
+  </body>
+
     <script>
       // Setup Polymer options
       window.Polymer = {
@@ -68,7 +94,7 @@
         if (!webComponentsSupported) {
           var script = document.createElement('script');
           script.async = true;
-          script.src = BaseURL + '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
+          script.src = BackendAdress + '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
           script.onload = onload;
           document.head.appendChild(script);
         } else {
@@ -83,25 +109,3 @@
       //  });
       //}
     </script>
-
-    <link rel="import" href="src/opleidingsplan-app.html">
-
-    <style>
-      body {
-        margin: 0;
-        font-family: 'Roboto', 'Noto', sans-serif;
-        line-height: 1.5;
-        min-height: 100vh;
-        background-color: #eeeeee;
-      }
-    </style>
-  </head>
-  <body>
-      <div runat="server">
-        <script>
-            BackendAdress = "<%= System.Web.Configuration.WebConfigurationManager.AppSettings["BackendAdress"] %>";
-        </script>
-      </div>
-    <opleidingsplan-app></opleidingsplan-app>
-
-  </body>
