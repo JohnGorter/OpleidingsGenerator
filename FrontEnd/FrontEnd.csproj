@@ -1101,6 +1101,16 @@
     <Content Include="bower_components\neon-animation\test\neon-animated-pages.html" />
     <Content Include="bower_components\neon-animation\test\test-resizable-pages.html" />
     <Content Include="bower_components\neon-animation\web-animations.html" />
+    <Content Include="bower_components\paper-autocomplete\demo\address-autocomplete.html" />
+    <Content Include="bower_components\paper-autocomplete\demo\autocomplete-example.html" />
+    <Content Include="bower_components\paper-autocomplete\demo\demo.css" />
+    <Content Include="bower_components\paper-autocomplete\demo\ie-edge.html" />
+    <Content Include="bower_components\paper-autocomplete\demo\index.html" />
+    <Content Include="bower_components\paper-autocomplete\demo\paper-autocomplete-suggestions-demo.html" />
+    <Content Include="bower_components\paper-autocomplete\index.html" />
+    <Content Include="bower_components\paper-autocomplete\paper-autocomplete-suggestions.html" />
+    <Content Include="bower_components\paper-autocomplete\paper-autocomplete.html" />
+    <Content Include="bower_components\paper-autocomplete\wct.conf.js" />
     <Content Include="bower_components\paper-badge\.gitignore" />
     <Content Include="bower_components\paper-badge\demo\index.html" />
     <Content Include="bower_components\paper-badge\demo\test-button.html" />
@@ -1811,7 +1821,7 @@
     <Content Include="bower_components\webcomponentsjs\webcomponents-lite.min.js" />
     <Content Include="bower_components\webcomponentsjs\webcomponents.js" />
     <Content Include="bower_components\webcomponentsjs\webcomponents.min.js" />
-    <Content Include="index.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="elements\item-table\item-table.html" />
     <Content Include="elements\training-education-plan-ajax\demo\index.html" />
     <Content Include="elements\training-education-plan-ajax\training-education-plan-ajax.html" />
@@ -2490,6 +2500,14 @@
     <Content Include="polymer.json" />
     <Content Include="Deployment\Package-Website.ps1" />
     <Content Include="Deployment\Deploy-Website.ps1" />
+    <Content Include="bower_components\paper-autocomplete\.bower.json" />
+    <Content Include="bower_components\paper-autocomplete\bower.json" />
+    <Content Include="bower_components\paper-autocomplete\CHANGELOG.md" />
+    <Content Include="bower_components\paper-autocomplete\CONTRIBUTING.md" />
+    <Content Include="bower_components\paper-autocomplete\demo\states.json" />
+    <Content Include="bower_components\paper-autocomplete\LICENSE" />
+    <Content Include="bower_components\paper-autocomplete\package.json" />
+    <Content Include="bower_components\paper-autocomplete\README.md" />
     <None Include="Properties\PublishProfiles\PublishToFileSystem.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2514,12 +2532,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
