@@ -115,7 +115,7 @@
     </style>
   </head>
   <body>
-    <div id="IEHeader">Deze website is mogelijk niet goed te gebruiken in Internet Explorer. Gerbuik een andere brower zoals: Chrome, FireFox of Edge</div>
+    <div id="IEHeader">Deze website is mogelijk niet goed te gebruiken in Internet Explorer. Gebruik een andere browser zoals: Chrome, Firefox of Edge</div>
     <opleidingsplan-app></opleidingsplan-app>
 
   </body>
