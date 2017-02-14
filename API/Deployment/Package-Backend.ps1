@@ -69,8 +69,9 @@ $buildStuff = @("packages.config", "BuildInfo.config", "*.xml", "*.vshost.exe*",
 
 $opleidingsplanBackendTargetDir = "$TargetDir\opleidingsplanBackend"
 Write-Output "Clear the targetDir."
-Remove-Item "$opleidingsplanBackendTargetDir\*" -Recurse
 CreateDirectory $opleidingsplanBackendTargetDir $Force
+Remove-Item "$opleidingsplanBackendTargetDir\*" -Recurse
+
 
 Write-Output "Copying the BackendService files to ($opleidingsplanBackendTargetDir)"
 Get-ChildItem "$opleidingsplanBackendSourceDir\_PublishedWebsites\*"
