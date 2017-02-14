@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="InfoSupport.KC.OpleidingsplanGenerator.FrontEnd.config" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="InfoSupport.KC.OpleidingsplanGenerator.FrontEnd.config" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -99,12 +99,45 @@
         min-height: 100vh;
         background-color: #eeeeee;
       }
+
+      #IEHeader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background-color: #FF6666;
+          z-index: 99999;
+          padding: 20px;
+          text-align: center;
+          font-size: 22px;
+          display: none;
+      }
     </style>
   </head>
   <body>
-      
+    <div id="IEHeader">Deze website is mogelijk niet goed te gebruiken in Internet Explorer. Gerbuik een andere brower zoals: Chrome, FireFox of Edge</div>
     <opleidingsplan-app></opleidingsplan-app>
 
   </body>
 
-    
+    <script>
+        function GetIEVersion() {
+            var sAgent = window.navigator.userAgent;
+            var Idx = sAgent.indexOf("MSIE");
+
+            // If IE, return version number.
+            if (Idx > 0)
+                return parseInt(sAgent.substring(Idx + 5, sAgent.indexOf(".", Idx)));
+
+                // If IE 11 then look for Updated user agent string.
+            else if (!!navigator.userAgent.match(/Trident\/7\./))
+                return 11;
+
+            else
+                return 0; //It is not IE
+        }
+
+        if (GetIEVersion() > 0) {
+            document.querySelector("#IEHeader").style.display = "block";
+        }
+    </script>
