@@ -15,6 +15,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../elements/training-education-plan-profile-list-ajax/training-education-plan-profile-list-ajax.html">
 <link rel="import" href="../elements/training-education-plan-profile-courses-list-ajax/training-education-plan-profile-courses-list-ajax.html">
 <link rel="import" href="../elements/item-table/item-table.html">
+<link rel="import" href="../elements/training-list-ajax/training-list-ajax.html">
+<link rel="import" href="../bower_components/paper-autocomplete/paper-autocomplete.html">
 
 <dom-module id="training-management-view">
   <template>
@@ -38,6 +40,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: red;
       }
     </style>
+
+      <training-list-ajax training-list="{{trainingList}}" auto></training-list-ajax>
 
     <training-education-plan-profile-list-ajax id="ajaxProfileList" profiles="{{profiles}}"></training-education-plan-profile-list-ajax>
 
@@ -69,7 +73,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <paper-dialog id="courseDialog">
       <h2>[[dialogTitle]]</h2>
-      <paper-input id="courseCode" label="Trainingscode" value="{{course.Code}}"></paper-input>
+      <paper-autocomplete id="courseCode" text="{{course.Code}}" source="{{_trainingCodesList}}" label="Trainingscode" no-label-float="true"></paper-autocomplete>
       <paper-input id="priority" label="Prioriteit" value="{{course.Priority}}" type="number"></paper-input>
       <div id="errorMessage">[[errorMessage]]</div>
 
@@ -112,7 +116,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         dialogTitle: {
           type: String,
-        }
+        },
+        _trainingCodesList: {
+            type: Array,
+            computed: '_filterTrainingCodes(trainingList)',
+        },
       },
       ready: function() {
           this.$.ajaxCourse.url = BackendAdress + "/api/Course";
@@ -120,6 +128,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
       loadTrainingManagementView: function() {
           this.$.ajaxProfileList.generateRequest();
+      },
+      _filterTrainingCodes: function (trainingList) {
+          return trainingList.map(function (training) { return training.Code; });
       },
       _manageCourse: function(event) {
         this.action= event.type;
@@ -163,12 +174,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return obj.Code == code;
         });
       },
+      _courseExists: function (code) {
+          var trainingCodes = this.trainingList.map(function (training) { return training.Code; });        
+          return trainingCodes.indexOf(code) >= 0;
+      },
       _performAction: function() {
         
         if(!this.course.Code || this.course.Code && this.course.Code.trim().length == 0) { 
           this.errorMessage = 'De trainingscode mag niet leeg zijn.';      
           return;
         }
+        if (!this.course.Priority) {
+            this.errorMessage = 'De prioriteit mag niet leeg zijn.';
+            return;
+        }
+
+        if (!this._courseExists(this.course.Code)) {
+            this.errorMessage = 'Cursuscode is niet bekend in het systeem.';
+            return;
+        }
+
 
         switch(this.action) {
           case 'edit':
@@ -192,7 +217,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.course.ProfileId = this.profile;
         this.$.courseDialog.close();
         this.$.ajaxCourse.body = JSON.stringify(this.course); 
-        this.$.ajaxCourse.generateRequest();    
+        this.$.ajaxCourse.generateRequest();
       },
       _completeAction: function(){
           this.$.ajaxTrainingProfiles.generateRequest(); 
