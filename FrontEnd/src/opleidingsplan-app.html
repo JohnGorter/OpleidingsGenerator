@@ -92,7 +92,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <educationplan-update-overview-view id="updatedEducationplanView" route="{{route}}" name="educationplan-update-overview-view"></educationplan-update-overview-view>
                     <educationplan-view id="educationplanView" route="{{route}}" name="educationplan-view"></educationplan-view>
                     <educationplan-compare-view id="educationplanCompareView" route="{{route}}" name="educationplan-compare-view"></educationplan-compare-view>
-                    <training-management-view name="training-management-view"></training-management-view>
+                    <training-management-view id="trainingManagementView" name="training-management-view"></training-management-view>
                     <profile-management-view name="profile-management-view"></profile-management-view>
                     <properties-management-view name="properties-management-view"></properties-management-view>
                     <my-view404 name="view404"></my-view404>
@@ -137,6 +137,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         }
                         break;
                     case "educationplan-view":
+                        debugger;
                         if (typeof this.$.educationplanView.loadEducationPlanView == 'function') {
                             this.$.educationplanView.loadEducationPlanView();
                         }
@@ -148,6 +149,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     case "educationplan-update-overview-view":
                         if (typeof this.$.updatedEducationplanView.loadUpdatedEducationplanView == 'function') {
                             this.$.updatedEducationplanView.loadUpdatedEducationplanView();
+                        }
+                        break;
+                    case "training-management-view":
+                        if (typeof this.$.trainingManagementView.loadTrainingManagementView == 'function') {
+                            this.$.trainingManagementView.loadTrainingManagementView();
                         }
                         break;
 

@@ -71,7 +71,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       profile: String,
     },
     loadEducationPlanView: function () {
-      if (!isNaN(parseInt(this.subroute.path.replace("/", "")))) {
+        var routesArray = this.route.path.split("/");
+        var id = routesArray[routesArray.length - 1];
+        if (!isNaN(id)) {
         this.$.ajaxGETEducationPlan.generateRequest();
       }
     },

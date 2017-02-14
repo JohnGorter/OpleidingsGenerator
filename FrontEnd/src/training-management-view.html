@@ -39,7 +39,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <training-education-plan-profile-list-ajax id="ajaxProfileList" auto profiles="{{profiles}}"></training-education-plan-profile-list-ajax>
+    <training-education-plan-profile-list-ajax id="ajaxProfileList" profiles="{{profiles}}"></training-education-plan-profile-list-ajax>
 
     <training-education-plan-profile-courses-list-ajax auto profile-id="[[profile]]" courses="{{training_profiles}}" id="ajaxTrainingProfiles"
       debounce-duration="300"></training-education-plan-profile-courses-list-ajax>
@@ -116,6 +116,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
       ready: function() {
           this.$.ajaxCourse.url = BackendAdress + "/api/Course";
+          this.$.ajaxProfileList.generateRequest();
+      },
+      loadTrainingManagementView: function() {
+          this.$.ajaxProfileList.generateRequest();
       },
       _manageCourse: function(event) {
         this.action= event.type;

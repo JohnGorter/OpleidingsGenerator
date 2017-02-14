@@ -29,7 +29,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Models
                 DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(Date.Value);
                 if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
                 {
-                    Date = Date.Value.AddDays(3);
+                    return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(Date.Value.AddDays(3), CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
                 }
 
                 // Return the week of our adjusted day
