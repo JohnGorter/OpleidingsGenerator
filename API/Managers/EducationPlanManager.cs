@@ -225,5 +225,17 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
         {
             _educationPlanDataMapper.RejectUpdatedEducationPlan(id);
         }
+
+        public void ChangeStatusEducationPlan(long id, EducationplanStatus status)
+        {
+            var educationplan = _educationPlanDataMapper.FindById(id);
+            educationplan.Status = status;
+            _educationPlanDataMapper.Update(educationplan);
+        }
+
+        public List<EducationPlan> FindApprovedEducationPlans()
+        {
+            return _educationPlanDataMapper.Find(educationPlan => educationPlan.Status == EducationplanStatus.Approved).ToList();
+        }
     }
 }

@@ -123,5 +123,26 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         {
             _educationPlanManager.RejectUpdatedEducationPlan(id);
         }
+
+        [HttpPost]
+        [Route("api/ApproveEducationPlan/{id}")]
+        public void ApproveEducationPlan(long id)
+        {
+            _educationPlanManager.ChangeStatusEducationPlan(id, EducationplanStatus.Approved);
+        }
+
+        [HttpPost]
+        [Route("api/CompletedEducationPlan/{id}")]
+        public void CompletedEducationPlan(long id)
+        {
+            _educationPlanManager.ChangeStatusEducationPlan(id, EducationplanStatus.Completed);
+        }
+
+        [HttpGet]
+        [Route("api/FindAllApproved")]
+        public List<EducationPlan> FindAllApproved()
+        {
+            return _educationPlanManager.FindApprovedEducationPlans();
+        }
     }
 }

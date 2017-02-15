@@ -43,23 +43,57 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       paper-toast {
         cursor: pointer;
       }
+
+      #btnContainer paper-button{
+        width: 100%;
+        margin-top: 10px;
+      }
+
+
+        paper-button.green {
+            background-color: var(--paper-green-500);
+            color: white;
+        }
+
+        paper-button.yellow {
+            background-color: var(--paper-yellow-800);
+            color: white;
+        }
+
+
+        paper-button.red {
+            background-color: var(--paper-red-500);
+            color: white;
+        }
     </style>
 
 <app-route route="{{route}}" pattern="/:id" tail="{{subroute}}"></app-route>
 <app-route route="{{subroute}}" pattern="/:id" data="{{routeData}}"></app-route>
 <training-education-plan-ajax id="ajaxGETEducationPlan" auto education-plan-id="[[routeData.id]]" education-plan="{{educationPlan}}"></training-education-plan-ajax>
 
-<iron-ajax id="ajaxDownloadEducationPlan" method="GET" handle-as="json" debounce-duration="500" content-type="application/json"
-  on-response="_handleResponseDownload"></iron-ajax>
+      <iron-ajax id="ajaxDownloadEducationPlan" method="GET" handle-as="json" debounce-duration="500" content-type="application/json"
+                 on-response="_handleResponseDownload"></iron-ajax>
+
+      <iron-ajax id="ajaxApproveEducationPlan" method="POST" handle-as="json" debounce-duration="500" content-type="application/json"
+                 on-response="_handleResponseApprove"></iron-ajax>
 
 <div class="card">
   <div>
     <training-education-plan education-plan="{{educationPlan}}"></training-education-plan>
   </div>
-  <div>
-    <paper-button on-tap="_downloadEducationPlan" raised>Opleidingsplan downloaden</paper-button>
-    <paper-button on-tap="_changeEducationPlan" raised>Opleidingsplan aanpassen</paper-button>
-  </div>
+  <div id="btnContainer">
+    <paper-button class="green" on-tap="_downloadEducationPlan" raised>Opleidingsplan downloaden</paper-button>
+    <paper-button class="yellow" on-tap="_changeEducationPlan" raised>Opleidingsplan aanpassen</paper-button>
+
+    <div id="status"><h1>Status: [[_getStatus(educationPlan.Status)]]</h1></div>
+
+    <template is="dom-if" if="[[_isEducationplanStatus(educationPlan.Status, 1)]]">
+          <paper-button class="yellow" on-tap="_completeEducationPlan" raised id="btnApproved">Opleidingsplan als voltooid markeren</paper-button>
+    </template>
+    <template is="dom-if" if="[[_isEducationplanStatus(educationPlan.Status, 0)]]">
+        <paper-button class="yellow" on-tap="_approveEducationPlan" raised id="btnApproved">Opleidingsplan goedkeuren</paper-button>
+    </template>
+</div>
 </div>
 
 </template>
@@ -84,6 +118,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var date = new Date(dateAsString);
       return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
     },
+    _isEducationplanStatus: function (status, statusToCheck) {
+        return statusToCheck === status;
+    },
+    _getStatus: function (status) {
+        var statusString = "";
+        switch (status) {
+            case 0:
+                statusString = "Initieel";
+                break;
+            case 1:
+                statusString = "Goedgekeurd";
+                break;
+            case 2:
+                statusString = "Voltooid";
+                break;
+            default:
+        }
+
+        return statusString;
+    },
     handleResponse: function (educationPlan) {
       this.educationPlan = educationPlan.detail.response;
     },
@@ -97,6 +151,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
     _handleResponseDownload: function (response) {
         window.open(BackendAdress + "/Data/EducationPlanFiles/" + response.detail.response, '_blank', '');
+    },
+    _approveEducationPlan: function() {
+        var approveURL = BackendAdress + "/api/ApproveEducationPlan/" + this.routeData.id;
+        this.$.ajaxApproveEducationPlan.url = approveURL;
+        this.$.ajaxApproveEducationPlan.generateRequest();
+    },
+    _completeEducationPlan: function () {
+        var approveURL = BackendAdress + "/api/CompletedEducationPlan/" + this.routeData.id;
+        this.$.ajaxApproveEducationPlan.url = approveURL;
+        this.$.ajaxApproveEducationPlan.generateRequest();
+    },
+    _handleResponseApprove: function () {
+        this.set('route.path', '/educationplan-approved-overview-view');
     }
   });
 </script>

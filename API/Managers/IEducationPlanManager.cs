@@ -23,5 +23,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
         EducationPlanCompare FindUpdatedById(long id);
         void RejectUpdatedEducationPlan(long id);
         void ApproveUpdatedEducationPlan(long id);
+        void ChangeStatusEducationPlan(long id, EducationplanStatus status);
+        List<EducationPlan> FindApprovedEducationPlans();
     }
 }

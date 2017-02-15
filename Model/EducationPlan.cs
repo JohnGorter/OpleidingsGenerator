@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace InfoSupport.KC.OpleidingsplanGenerator.Models
 {
+    public enum EducationplanStatus
+    {
+        Unknown,
+        Approved,
+        Completed
+    }
+
     public class EducationPlan
     {
         public long Id { get; set; }
@@ -18,6 +25,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Models
         public string KnowledgeOf { get; set; }
         public string Profile { get; set; }
         public int ProfileId { get; set; }
+        public EducationplanStatus Status { get; set; }
 
         public IEnumerable<EducationPlanCourse> CoursesJustBeforeStart { get; set; }
         public IEnumerable<EducationPlanCourse> PlannedCourses { get; set; }

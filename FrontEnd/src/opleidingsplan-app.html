@@ -73,7 +73,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <a name="training-management-view" href="#/training-management-view">Trainingsoverzicht</a>
                     <a name="profile-management-view" href="#/profile-management-view">Profieloverzicht</a>
                     <a name="module-management-view" href="#/module-management-view">ITT Modules</a>
-                    <a name="properties-management-view" href="#/properties-management-view">Configuraties</a>               
+                    <a name="properties-management-view" href="#/properties-management-view">Configuraties</a>   
+                    <a name="educationplan-approved-overview-view" href="#/educationplan-approved-overview-view">Goedgekeurde opleidingsplannen</a>
+                                
                 </iron-selector>
             </app-drawer>
 
@@ -97,6 +99,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <profile-management-view name="profile-management-view"></profile-management-view>
                     <module-management-view name="module-management-view"></module-management-view>
                     <properties-management-view name="properties-management-view"></properties-management-view>
+                    <educationplan-approved-overview-view id="approvedEducationplanView" route="{{route}}" name="educationplan-approved-overview-view"></educationplan-approved-overview-view>
                     <my-view404 name="view404"></my-view404>
                 </iron-pages>
             </app-header-layout>
@@ -155,6 +158,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     case "training-management-view":
                         if (typeof this.$.trainingManagementView.loadTrainingManagementView == 'function') {
                             this.$.trainingManagementView.loadTrainingManagementView();
+                        }
+                        break;
+                    case "educationplan-approved-overview-view":
+                        if (typeof this.$.approvedEducationplanView.loadApprovedEducationplanView == 'function') {
+                            this.$.approvedEducationplanView.loadApprovedEducationplanView();
                         }
                         break;
 

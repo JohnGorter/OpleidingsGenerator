@@ -17,7 +17,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../elements/item-table/item-table.html">
 <link rel="import" href="../bower_components/paper-date-picker-item/paper-date-picker-item.html">
 
-<dom-module id="educationplan-update-overview-view">
+<dom-module id="educationplan-approved-overview-view">
   <template>
     <style include="shared-styles">
       :host {
@@ -54,12 +54,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <iron-ajax id="ajaxCompareEducationPlan" method="GET" handle-as="json" debounce-duration="500" content-type="application/json"
-                last-response="{{educationPlanCompare}}"></iron-ajax>
+    <iron-ajax id="ajaxEducationPlan" method="GET" handle-as="json" debounce-duration="500" content-type="application/json"
+                last-response="{{approvedEducationPlans}}"></iron-ajax>
 
 <div class="card">
-    <h1>Aangepaste opleidingsplannen</h1>
-  <item-table items="[[educationPlanCompare]]" except-headers="[[excludedHeaders]]" attr-for-identification="Id" showable
+    <h1>Goedgekeurde opleidingsplannen</h1>
+  <item-table items="[[approvedEducationPlans]]" except-headers="[[excludedHeaders]]" attr-for-identification="Id" showable
     on-details="_redirect"></item-table>
 </div>
 
@@ -67,19 +67,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <script>
   Polymer({
-      is: 'educationplan-update-overview-view',
+      is: 'educationplan-approved-overview-view',
     properties: {
       excludedHeaders: {
         type: Array,
-        value: ['BlockedDates', 'CoursesJustBeforeStart', 'PlannedCourses', 'NotPlannedCourses', 'PlannedCoursesTotalPrice', 'PlannedCoursesTotalPriceWithDiscount', 'NotPlannedCoursesTotalPrice', 'NotPlannedCoursesTotalPriceWithDiscount', 'EmployableFrom', 'ProfileId'],
+        value: ['BlockedDates', 'Status', 'CoursesJustBeforeStart', 'PlannedCourses', 'NotPlannedCourses', 'PlannedCoursesTotalPrice', 'PlannedCoursesTotalPriceWithDiscount', 'NotPlannedCoursesTotalPrice', 'NotPlannedCoursesTotalPriceWithDiscount', 'EmployableFrom', 'ProfileId'],
       }
     },
     ready: function() {
-        this.loadUpdatedEducationplanView();
+        this.loadApprovedEducationplanView();
     },
-    loadUpdatedEducationplanView: function() {
-        this.$.ajaxCompareEducationPlan.url = BackendAdress + "/api/FindAllUpdated";
-        this.$.ajaxCompareEducationPlan.generateRequest();
+    loadApprovedEducationplanView: function () {
+        this.$.ajaxEducationPlan.url = BackendAdress + "/api/FindAllApproved";
+        this.$.ajaxEducationPlan.generateRequest();
     },
     _formatDate: function (dateAsString) {
       if (dateAsString == null) {
@@ -88,8 +88,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       var date = new Date(dateAsString);
       return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
     },
-    _redirect: function (event) {
-        this.set('route.path', '/educationplan-compare-view/' + event.detail.id);
+    _redirect: function (event) { 
+        this.set('route.path', '/educationplan-view/' + event.detail.id);
     },
   });
 </script>
