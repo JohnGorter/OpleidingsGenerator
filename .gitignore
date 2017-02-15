@@ -11,7 +11,6 @@
 *.userprefs
 
 # Build results
-App_Data/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/

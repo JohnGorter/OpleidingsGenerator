@@ -1,0 +1,44 @@
+[
+  {
+    "Id": 1,
+    "Name": "Module 1 Communicatieve vaardigheden",
+    "Days": 2,
+    "Commentary": "Onderdeel van de social skills trainingen van het IT Top Traineeship",
+    "Price": 538.0
+  },
+  {
+    "Id": 2,
+    "Name": "Module 2 Persoonlijk Leiderschap",
+    "Days": 2,
+    "Commentary": "Onderdeel van de social skills trainingen van het IT Top Traineeship",
+    "Price": 538.0
+  },
+  {
+    "Id": 3,
+    "Name": "Module 3 Presenteren",
+    "Days": 1,
+    "Commentary": "Onderdeel van de social skills trainingen van het IT Top Traineeship",
+    "Price": 538.0
+  },
+  {
+    "Id": 4,
+    "Name": "Module 4 Klantgerichtheid",
+    "Days": 1,
+    "Commentary": "Onderdeel van de social skills trainingen van het IT Top Traineeship",
+    "Price": 538.0
+  },
+  {
+    "Id": 5,
+    "Name": "Module 5 Time Management",
+    "Days": 1,
+    "Commentary": "Onderdeel van de social skills trainingen van het IT Top Traineeship",
+    "Price": 538.0
+  },
+  {
+    "Id": 6,
+    "Name": "Module 6 Profileren",
+    "Days": 2,
+    "Commentary": "Onderdeel van de social skills trainingen van het IT Top Traineeship",
+    "Price": 538.0
+  }
+]

@@ -140,6 +140,7 @@
   <ItemGroup>
     <Content Include="App_Data\EducationPlans.json" />
     <Content Include="App_Data\ManagementProperties.json" />
+    <Content Include="App_Data\Modules.json" />
     <Content Include="App_Data\Profiles.json" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -181,7 +182,6 @@
     <Content Include="Views\web.config" />
     <Content Include="Deployment\Package-Backend.ps1" />
     <Content Include="Deployment\Deploy-Backend.ps1" />
-    <Content Include="App_Data\Modules.json" />
     <None Include="Properties\PublishProfiles\PublishToFileSystem.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
