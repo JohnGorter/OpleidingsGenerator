@@ -14,9 +14,10 @@ $ErrorActionPreference = "Stop"
 # Required for the Find-Files cmdlet.
 Write-Verbose "Importing modules"
 
-# Extract the Worker path from the $env:PSModulePath (e.g. "D:\1\agent\worker"), and use it to reference the Modules by absolute path.
-$moduleDir = $env:PSModulePath -split ';' | Where-Object { $_ -match '\\worker\\Modules' } | Select-Object -First 1 | Split-Path -Parent
-# To list all available Module files: (ls -Path $moduleDir -Filter *.dll -Recurse).FullName | % { "   " + $_ }
+# The module dir contains the required TFS modules.
+$moduleDir = "$env:AGENT_HOMEDIRECTORY\agent\Worker"
+Write-Output "Using moduleDir ""$moduleDir""."
+
 Import-Module "$moduleDir\Microsoft.TeamFoundation.DistributedTask.Agent.Interfaces.dll"
 Import-Module "$moduleDir\Modules\Microsoft.TeamFoundation.DistributedTask.Task.Internal\Microsoft.TeamFoundation.DistributedTask.Task.Internal.dll"
 Import-Module "$moduleDir\Modules\Microsoft.TeamFoundation.DistributedTask.Task.Common\Microsoft.TeamFoundation.DistributedTask.Task.Common.dll"
@@ -119,5 +120,3 @@ foreach($assemblyInfoFile in Get-AssemblyInfoFiles -SearchPattern $searchPattern
 
 
 Write-Host "Done!"
-
-
