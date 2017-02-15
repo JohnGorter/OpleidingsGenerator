@@ -49,6 +49,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             #commentaryDialog {
                 width: 800px;
             }
+            #errorMessage {
+                color: red;
+            }
+
         </style>
 
         <app-route route="{{route}}" pattern="/:id" tail="{{subroute}}"></app-route>
@@ -89,6 +93,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <div>
                     <training-list id="trainingList" training-list="{{_selectedTrainingList}}" profile="[[educationPlan.ProfileId]]" show-only-selected="[[showOnlySelected]]"></training-list>
                 </div>
+
+                <div id="errorMessage">[[errorMessage]]</div>
 
                 <paper-button raised on-tap="_generateEducationPlan">Preview Opleidingsplan</paper-button>
                 <paper-button id="btnSaveEducationPlan" raised on-tap="_saveEducationPlan">Opleidingsplan opslaan</paper-button>
@@ -172,10 +178,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 this.$.ajaxPOSTGenerateEducationPlan.generateRequest();
             },
             _saveEducationPlan: function () {
+                this.errorMessage = "";
+                if (!this.educationPlan.NameEmployee) {
+                    this.errorMessage = "De naam van de werknemer moet zijn ingevuld.";
+                    return;
+                }
                 this.$.ajaxPUTEducationPlan.body = JSON.stringify(this._getEducationPlan());
                 this.$.ajaxPUTEducationPlan.generateRequest();
             },
             _updateEducationPlan: function () {
+                this.errorMessage = "";
+                if (!this.educationPlan.NameEmployee) {
+                    this.errorMessage = "De naam van de werknemer moet zijn ingevuld.";
+                    return;
+                }
                 this.$.ajaxPOSTEducationPlan.body = JSON.stringify(this._getEducationPlan());
                 this.$.ajaxPOSTEducationPlan.generateRequest();
             },
@@ -273,24 +289,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 this._coursesWithAddition.push({ Code: this.commentaryCourseCode, Commentary: this.commentary, Priority: 0 });
                 this.$.commentaryDialog.close();
             },
-            //_priorityCourseChanged: function(event) {
-            //    var code = event.detail.code;
-            //    var priority = event.detail.priority;
-                
-            //    var exists = false;
-            //    for (var i = 0; i < this._coursesWithAddition.length; i++) {
-            //        if (this._coursesWithAddition[i].Code === code) {
-            //            this._coursesWithAddition[i].Priority = priority;
-            //            exists = true;
-            //        }
-            //    }
-
-            //    if (!exists) {
-            //        this._coursesWithAddition.push({ Code: code, Commentary: null, Priority: priority });
-            //    }
-            //    this._generateEducationPlan();
-            //    console.log("_priorityCourseChanged", code, priority);
-            //}
         });
     </script>
 </dom-module>

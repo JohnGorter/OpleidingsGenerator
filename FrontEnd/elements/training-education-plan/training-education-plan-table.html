@@ -87,7 +87,12 @@
                 </template>
 
                 <tr>
-                    <td colspan="4"></td>
+                    <template is="dom-if" if="[[!edit]]">
+                        <td colspan="4"></td>
+                    </template>
+                    <template is="dom-if" if="[[edit]]">
+                        <td colspan="5"></td>
+                    </template>
                     <td>Totaal</td>
                     <td>[[_formatPrice(totalPrice)]]</td>
                     <td>[[_formatPrice(totalPriceWithDiscount)]]</td>

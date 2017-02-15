@@ -185,8 +185,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           this.errorMessage = 'De trainingscode mag niet leeg zijn.';      
           return;
         }
+
         if (!this.course.Priority) {
             this.errorMessage = 'De prioriteit mag niet leeg zijn.';
+            return;
+        }
+
+        if (this.course.Priority.length > 9) {
+            this.errorMessage = 'De prioriteit mag maximaal 9 cijfers bevatten';
             return;
         }
 

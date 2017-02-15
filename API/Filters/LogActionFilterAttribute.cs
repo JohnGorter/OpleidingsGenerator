@@ -18,12 +18,11 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Filters
         {
             var controllerName = actionContext.ControllerContext.ControllerDescriptor.ControllerName;
             var actionName = actionContext.ActionDescriptor.ActionName;
-            var test = actionContext.ActionArguments;
      
             var lines = actionContext.ActionArguments.Select(kvp => kvp.Key + ": " + kvp.Value.ToString());
             var arguments = string.Join(",", lines);
 
-        _logger.Error(string.Format(_culture, "OnActionExecuting: {0} {1} arguments: {2}", controllerName, actionName, arguments));
+            _logger.Info(string.Format(_culture, "OnActionExecuting: {0} {1} arguments: {2}", controllerName, actionName, arguments));
             base.OnActionExecuting(actionContext);
         }
 

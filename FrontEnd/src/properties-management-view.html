@@ -62,6 +62,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <paper-tooltip for="txtPeriodBeforeStartNotifiable" offset="0">Het aantal dagen voor de startdatum waarin wordt aangegeven of er een cursus is.</paper-tooltip>
             <paper-tooltip for="txtFooter" offset="0">De footer die onder het opleidingsplan komt te staan.</paper-tooltip>
 
+            <div id="errorMessage">[[errorMessage]]</div>
+
             <paper-button raised on-tap="_save">Opslaan</paper-button>
             <paper-button raised on-tap="_reset">Reset</paper-button>
 
@@ -95,13 +97,70 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           this.$.ajaxProperties.url = BackendAdress + "/api/ManagementProperties";
           this.$.ajaxPropertiesPost.url = BackendAdress + "/api/ManagementProperties";
       },
-      _save: function(event) {
+      _save: function (event) {
+          this.errorMessage = "";
+
+          if (!this.managementProperties.OlcPrice) {
+              this.errorMessage = 'De OLC prijs mag niet leeg zijn';
+              return;
+          }
+
+          if (this.managementProperties.OlcPrice.length > 9) {
+              this.errorMessage = 'De OLC prijs mag maximaal 9 cijfers bevatten';
+              return;
+          }
+
+          if (!this.managementProperties.StaffDiscount) {
+              this.errorMessage = 'De personeelskorting mag niet leeg zijn';
+              return;
+          }
+
+          if (this.managementProperties.StaffDiscount.length > 3) {
+              this.errorMessage = 'De personeelskorting prijs mag maximaal 3 cijfers bevatten';
+              return;
+          }
+
+          if (!this.managementProperties.PeriodEducationPlanInDays) {
+              this.errorMessage = 'De opleidingsplan periode mag niet leeg zijn';
+              return;
+          }
+
+          if (this.managementProperties.PeriodEducationPlanInDays.length > 9) {
+              this.errorMessage = 'De opleidingsplan periode mag maximaal 9 cijfers bevatten';
+              return;
+          }
+
+          if (!this.managementProperties.PeriodAfterLastCourseEmployableInDays) {
+              this.errorMessage = 'De periode tussen de laatste cursus en inzetbaar mag niet leeg zijn';
+              return;
+          }
+
+          if (this.managementProperties.PeriodAfterLastCourseEmployableInDays.length > 9) {
+              this.errorMessage = 'De periode tussen de laatste cursus en inzetbaar mag maximaal 9 cijfers bevatten';
+              return;
+          }
+
+          if (!this.managementProperties.PeriodBeforeStartNotifiable) {
+              this.errorMessage = 'De periode voor de startdatum mag niet leeg zijn';
+              return;
+          }
+
+          if (this.managementProperties.PeriodBeforeStartNotifiable.length > 9) {
+              this.errorMessage = 'De periode voor de startdatum mag maximaal 9 cijfers bevatten';
+              return;
+          }
+
+          if (!this.managementProperties.Footer) {
+              this.errorMessage = 'De footer mag niet leeg zijn';
+              return;
+          }
+
         this.$.dialog.open();
       },
       _reset: function() {
         this.$.ajaxProperties.generateRequest();    
       },
-       _performAction: function() {
+      _performAction: function () {
         this.$.ajaxPropertiesPost.body = JSON.stringify(this.managementProperties); 
         this.$.ajaxPropertiesPost.generateRequest();    
         this.$.dialog.close();

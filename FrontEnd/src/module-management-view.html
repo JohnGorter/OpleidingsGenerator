@@ -62,7 +62,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <paper-input id="moduleName" label="Module naam" value="{{module.Name}}"></paper-input>
             <paper-input id="moduleDays" label="Duur in dagen" type="number" value="{{module.Days}}"><div suffix>dagen</div></paper-input>
             <paper-input id="moduleCommentary" label="Opmerking" value="{{module.Commentary}}"></paper-input>
-            <paper-input id="modulePrice" label="Prijs" value="{{module.Price}}" type="number"><div prefix>&#8364; </div></paper-input>
+            <paper-input id="modulePrice" label="Prijs" value="{{module.Price}}" maxlength="3" type="number"><div prefix>&#8364; </div></paper-input>
             <div id="errorMessage">[[errorMessage]]</div>
 
             <div class="buttons">
@@ -158,8 +158,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     this.errorMessage = 'De duur mag niet leeg zijn';
                     return;
                 }
+                if (this.module.Days.length > 9) {
+                    this.errorMessage = 'De duur mag maximaal 9 cijfers bevatten';
+                    return;
+                }
                 if (!this.module.Price) {
                     this.errorMessage = 'De prijs mag niet leeg zijn.';
+                    return;
+                }
+
+                if (this.module.Price.length > 9) {
+                    this.errorMessage = 'De prijs mag maximaal 9 cijfers bevatten';
                     return;
                 }
 
