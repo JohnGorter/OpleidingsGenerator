@@ -101,6 +101,7 @@ $xml.SelectSingleNode("//configuration//DalJsonConnection/@profile-path").value 
 $xml.SelectSingleNode("//configuration//DalJsonConnection/@educationplan-path").value = "__EducationplanPath__"
 $xml.SelectSingleNode("//configuration//DalJsonConnection/@management-properties-path").value = "__ManagementPropertiesPath__"
 $xml.SelectSingleNode("//configuration//DalJsonConnection/@educationplan-updated-path").value = "__EducationPlanUpdatedPath__"
+$xml.SelectSingleNode("//configuration//DalJsonConnection/@module-path").value = "__ModulePath__"
 
 $xml.SelectSingleNode("//configuration//serviceConnection/@info-support-training-url").value = "__TrainingUrl__"
 

@@ -19,6 +19,8 @@ try
     $educationplanPath = "~/App_Data/EducationPlans.json"
     $managementPropertiesPath = "~/App_Data/ManagementProperties.json"
     $educationPlanUpdatedPath = "~/App_Data/Updated"
+    $modulePath = "~/App_Data/Modules.json"
+
     $appPoolName = "OpleidingsplanGeneratorAppPool"
 
     Write-Output "Current working directory:      $pwd"
@@ -32,6 +34,7 @@ try
     Write-Output "  EducationplanPath:            $educationplanPath"
     Write-Output "  ManagementPropertiesPath:     $managementPropertiesPath"
     Write-Output "  EducationPlanUpdatedPath:     $educationPlanUpdatedPath"
+    Write-Output "  ModulePath:                   $modulePath"
     Write-Output "  TrainingUrl:                  $trainingUrl"
     Write-Output "  AppPoolName:                  $appPoolName"
     											  
@@ -84,6 +87,8 @@ try
         $config = $config -replace "__EducationplanPath__", $educationplanPath
         $config = $config -replace "__ManagementPropertiesPath__", $managementPropertiesPath
         $config = $config -replace "__EducationPlanUpdatedPath__", $educationPlanUpdatedPath
+        $config = $config -replace "__ModulePath__", $modulePath
+
         $config = $config -replace "__TrainingUrl__", $trainingUrl
         $config | Set-Content "$targetDir\Web.config"
 
