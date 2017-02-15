@@ -40,8 +40,8 @@ Write-Verbose "Capture results: Major: ""$($Matches[1])"", Minor: ""$($Matches[2
 
 # Generate the different versions based on the $buildNumber. 
 # Clean up the assembly and file versions by removing any characters other than digits and '.', because they're not allowed here.
-$assemblyVersion = (($buildNumber -replace $pattern, $assemblyVersionReplacementPattern) -replace '[^\d\.\*]', '')
-$fileVersion = (($buildNumber -replace $pattern, $fileVersionReplacementPattern) -replace '[^\d\.\*]', '')
+$assemblyVersion = (($buildNumber -replace $pattern, $assemblyVersionReplacementPattern) -replace '[^\d\.]', '')
+$fileVersion = (($buildNumber -replace $pattern, $fileVersionReplacementPattern) -replace '[^\d\.]', '')
 $informationalVersion = ($buildNumber -replace $pattern, $informationalVersionReplacementPattern)
 Write-Host "Using version ""$assemblyVersion"", file version ""$fileVersion"" and informational version ""$informationalVersion""."
 
@@ -75,7 +75,7 @@ function Get-AssemblyInfoFiles {
     # check for solution pattern
     if ($searchPattern.Contains("*") -or $searchPattern.Contains("?") -or $searchPattern.Contains(";"))
     {
-		Write-Verbose "Pattern found in solution parameter."    
+        Write-Verbose "Pattern found in solution parameter."    
         if ($env:BUILD_SOURCESDIRECTORY)
         {
             Write-Verbose "Using build.sourcesdirectory as root folder"
