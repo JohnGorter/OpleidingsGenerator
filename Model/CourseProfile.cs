@@ -13,6 +13,11 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Models
         [Required]
         public string Name { get; set; }
         public IEnumerable<CoursePriority> Courses { get; set; } = new List<CoursePriority>();
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
     public class CoursePriority
     {
@@ -23,5 +28,10 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Models
         public int Priority { get; set; }
         [Required]
         public int ProfileId { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("Id: {0}, Code: {1}, Priority: {2}, ProfileId: {3}", Id, Code, Priority, ProfileId);
+        }
     }
 }

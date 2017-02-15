@@ -15,5 +15,10 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Models
         public string NameTeacher { get; set; }
         public string KnowledgeOf { get; set; }
         public string Profile { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("Id: {0}, NameEmployee: {1}, NameTeacher: {2}", Id, NameEmployee, NameTeacher);
+        }
     }
 }

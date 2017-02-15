@@ -46,5 +46,10 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Models
         }
 
         public decimal StaffDiscountInPercentage { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("Code: {0}, Name: {1}, Days: {2}", Code, Name, Days);
+        }
     }
 }

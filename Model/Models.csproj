@@ -49,6 +49,7 @@
     <Compile Include="EducationPlanCompareSummary.cs" />
     <Compile Include="EducationPlanCourse.cs" />
     <Compile Include="CourseProfile.cs" />
+    <Compile Include="Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ManagementProperties.cs" />
   </ItemGroup>

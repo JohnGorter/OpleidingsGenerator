@@ -18,6 +18,11 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Models
         public decimal Price { get; set; }
         public int Priority { get; set; }
         public string Commentary { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("Code: {0}, Name: {1}", Code, Name);
+        }
     }
 
     public class CourseImplementation
@@ -25,5 +30,10 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Models
         public string Location { get; set; }
         public DateTime StartDay { get { return Days.OrderBy(day => day).FirstOrDefault(); } }
         public IEnumerable<DateTime> Days { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("Location: {0}, StartDay: {1}", Location, StartDay);
+        }
     }
 }

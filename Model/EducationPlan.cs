@@ -53,5 +53,11 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Models
                 return NotPlannedCourses.Sum(course => course.PriceWithDiscount);
             }
         }
+
+
+        public override string ToString()
+        {
+            return string.Format("Id: {0}, NameEmployee: {1}, NameTeacher: {2}", Id, NameEmployee, NameTeacher);
+        }
     }
 }

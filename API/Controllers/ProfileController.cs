@@ -1,4 +1,5 @@
-﻿using InfoSupport.KC.OpleidingsplanGenerator.Api.Managers;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Api.Filters;
+using InfoSupport.KC.OpleidingsplanGenerator.Api.Managers;
 using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using log4net;
 using System;
@@ -13,6 +14,8 @@ using System.Web.Http.Cors;
 
 namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
 {
+    [LogActionFilter]
+    [LogExceptionFilter]
     [EnableCors("*", "*", "*")]
     public class ProfileController : ApiController
     {

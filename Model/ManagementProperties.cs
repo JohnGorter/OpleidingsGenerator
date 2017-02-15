@@ -21,5 +21,10 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Models
         public string Footer { get; set; }
         [Required]
         public decimal StaffDiscount { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("OlcPrice: {0}, PeriodEducationPlanInDays: {1}, PeriodAfterLastCourseEmployableInDays: {2}, PeriodBeforeStartNotifiable: {3}, Footer: {4}, StaffDiscount: {5}", OlcPrice, PeriodEducationPlanInDays, PeriodAfterLastCourseEmployableInDays, PeriodBeforeStartNotifiable, Footer, StaffDiscount);
+        }
     }
 }
