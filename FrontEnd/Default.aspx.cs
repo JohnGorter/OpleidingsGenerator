@@ -11,7 +11,15 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.FrontEnd
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+        
+        }
 
+        public string GetVersion()
+        {
+            System.Diagnostics.FileVersionInfo versionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            Version version = new Version(versionInfo.FileVersion);
+            System.Globalization.CultureInfo ci = System.Globalization.CultureInfo.InvariantCulture;
+            return string.Format(ci, "v{0}.{1}, build {2}", version.Major, version.Minor, version.Build);
         }
     }
 }

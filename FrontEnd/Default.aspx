@@ -137,7 +137,14 @@
                 return 0; //It is not IE
         }
 
+         function setVersion() {
+             var version = "<%= GetVersion() %>";
+             console.log(version);
+        }
+
         if (GetIEVersion() > 0) {
             document.querySelector("#IEHeader").style.display = "block";
         }
+        setVersion();
+       
     </script>
