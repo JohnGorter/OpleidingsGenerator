@@ -21,7 +21,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
     {
         private readonly IProfileManager _administrationManager;
         private static ILog _logger = LogManager.GetLogger(typeof(CourseController));
-        private readonly CultureInfo _culture = new CultureInfo("nl-NL");
 
         public ProfileController()
         {
@@ -39,14 +38,12 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         // GET: api/Profile
         public IEnumerable<CourseProfile> Get()
         {
-            _logger.Info("Get all course profiles");
             return _administrationManager.FindProfiles();
         }
 
         // GET: api/Profile/5
         public CourseProfile Get(int? id)
         {
-            _logger.Info(string.Format(_culture, "Get all course profile with id {0}", id));
             if (!id.HasValue)
             {
                 return new CourseProfile();
@@ -60,7 +57,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         {
             if (ModelState.IsValid)
             {
-                _logger.Info("Post course profile");
                 _administrationManager.Update(profile);
             }
             else
@@ -74,7 +70,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         {
             if (ModelState.IsValid)
             {
-                _logger.Info("Put course profile");
                 _administrationManager.Insert(profile);
             }
             else
@@ -86,7 +81,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         // DELETE: api/Profile/profile
         public void Delete(long id)
         {
-            _logger.Info(string.Format(_culture, "Delete course profile with id {0}", id));
             _administrationManager.Delete(id);
         }
     }

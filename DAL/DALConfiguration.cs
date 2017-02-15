@@ -62,5 +62,14 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Dal
                 return this["educationplan-updated-path"] as string;
             }
         }
+
+        [ConfigurationProperty("module-path", IsRequired = true)]
+        public string ModulePath
+        {
+            get
+            {
+                return this["module-path"] as string;
+            }
+        }
     }
 }

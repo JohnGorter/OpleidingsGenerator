@@ -19,7 +19,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
     [EnableCors("*", "*", "*")]
     public class ManagementPropertiesController : ApiController
     {
-        private static ILog _logger = LogManager.GetLogger(typeof(EducationPlanController));
         private readonly IManagementPropertiesManager _managementPropertiesManager;
         public ManagementPropertiesController(IManagementPropertiesManager managementPropertiesManager)
         {
@@ -37,18 +36,14 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         // GET: api/ManagementProperties
         public ManagementProperties Get()
         {
-            _logger.Info("Get management properties");
             return _managementPropertiesManager.FindManagementProperties();
         }
 
         // POST: api/ManagementProperties
         public void Post(ManagementProperties properties)
         {
-            _logger.Info("Post management properties");
-
             if (ModelState.IsValid)
             {
-                _logger.Info("Post management properties IsValid");
                 _managementPropertiesManager.Update(properties);
             }
         }

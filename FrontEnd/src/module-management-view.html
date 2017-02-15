@@ -1,0 +1,204 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/paper-elements/paper-elements.html">
+<link rel="import" href="../bower_components/iron-elements/iron-elements.html">
+<link rel="import" href="../elements/item-table/item-table.html">
+
+<dom-module id="module-management-view">
+    <template>
+        <style include="shared-styles">
+            :host {
+                display: block;
+                padding: 10px;
+            }
+
+            #addModule:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+            paper-input {
+                --paper-input-container-disabled: {
+                color: gray;
+                }
+            }
+
+            #errorMessage {
+                color: red;
+            }
+
+            #moduleDialog {
+                width: 500px;
+            }
+        </style>
+
+
+        <iron-ajax id="ajaxModule" method="GET" handle-as="json" debounce-duration="500"
+                   content-type="application/json" auto last-response="{{modules}}"></iron-ajax>
+
+        <iron-ajax id="ajaxModulePerformAction" method="PUT" handle-as="json" debounce-duration="500"
+                   content-type="application/json" on-response="_completeAction"></iron-ajax>
+
+        <div class="card">
+            <h1>IIT Modules</h1>
+            <p id="addModule" on-tap="_manageModules">Module toevoegen</p>
+
+            <item-table deletable editable items="[[modules]]" attr-for-identification="Id" on-edit="_manageModules"
+                        on-delete="_manageModules"></item-table>
+        </div>
+
+        <paper-dialog id="moduleDialog">
+            <h2>[[dialogTitle]]</h2>
+            <paper-input id="moduleName" label="Module naam" value="{{module.Name}}"></paper-input>
+            <paper-input id="moduleDays" label="Duur in dagen" type="number" value="{{module.Days}}"><div suffix>dagen</div></paper-input>
+            <paper-input id="moduleCommentary" label="Opmerking" value="{{module.Commentary}}"></paper-input>
+            <paper-input id="modulePrice" label="Prijs" value="{{module.Price}}" type="number"><div prefix>&#8364; </div></paper-input>
+            <div id="errorMessage">[[errorMessage]]</div>
+
+            <div class="buttons">
+
+                <template is="dom-if" if="[[delete]]">
+                    <paper-button on-tap="_performAction">Verwijderen</paper-button>
+                </template>
+
+                <template is="dom-if" if="[[edit]]">
+                    <paper-button on-tap="_performAction">Opslaan</paper-button>
+                </template>
+
+                <template is="dom-if" if="[[create]]">
+                    <paper-button on-tap="_performAction">Opslaan</paper-button>
+                </template>
+
+                <paper-button dialog-dismiss>Annuleren</paper-button>
+            </div>
+        </paper-dialog>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'module-management-view',
+            properties: {
+                module: {
+                    type: Object,
+                    value: function () {
+                        return {};
+                    }
+                },
+                action: {
+                    type: String,
+                },
+                dialogTitle: {
+                    type: String,
+                }
+            },
+            ready: function () {
+                this.$.ajaxModule.url = BackendAdress + "/api/Module";
+            },
+            _manageModules: function (event) {
+
+                this.action = event.type;
+                this.edit = false;
+                this.delete = false;
+                this.create = false;
+                this.errorMessage = '';
+
+                switch (this.action) {
+                    case 'edit':
+                        this.dialogTitle = 'Module aanpassen';
+                        this.$.moduleName.disabled = false;
+                        this.$.moduleDays.disabled = false;
+                        this.$.moduleCommentary.disabled = false;
+                        this.$.modulePrice.disabled = false;
+                        this.edit = true;
+                        this._setSelectedModule(event.detail.id);
+                        break;
+                    case 'delete':
+                        this.dialogTitle = 'Module verwijderen';
+                        this.$.moduleName.disabled = true;
+                        this.$.moduleDays.disabled = true;
+                        this.$.moduleCommentary.disabled = true;
+                        this.$.modulePrice.disabled = true;
+                        this.delete = true;
+                        this._setSelectedModule(event.detail.id);
+                        break;
+                    default:
+                        this.dialogTitle = 'Module toevoegen';
+                        this.$.moduleName.disabled = false;
+                        this.$.moduleDays.disabled = false;
+                        this.$.moduleCommentary.disabled = false;
+                        this.$.modulePrice.disabled = false;
+                        this.set('module', {});
+                        this.create = true;
+                }
+
+                this.$.moduleDialog.open();
+            },
+            _setSelectedModule: function (id) {
+                this.module = this._shallowCopy(this.modules.filter(function (obj) {
+                    return obj.Id == id;
+                })[0]);
+            },
+            _performAction: function () {
+
+                if (!this.module.Name || this.module.Name && this.module.Name.trim().length == 0) {
+                    this.errorMessage = 'De naam mag niet leeg zijn.';
+                    return;
+                }
+                if (!this.module.Days) {
+                    this.errorMessage = 'De duur mag niet leeg zijn';
+                    return;
+                }
+                if (!this.module.Price) {
+                    this.errorMessage = 'De prijs mag niet leeg zijn.';
+                    return;
+                }
+
+                this.$.ajaxModulePerformAction.url = BackendAdress + "/api/Module";
+
+                switch (this.action) {
+                    case 'edit':
+                        this.$.ajaxModulePerformAction.method = "POST";
+                        this.$.ajaxModulePerformAction.body = JSON.stringify(this.module);
+                        break;
+                    case 'delete':
+                        this.$.ajaxModulePerformAction.method = "DELETE";
+                        this.$.ajaxModulePerformAction.params = { id: this.module.Id };
+                        break;
+                    default:
+                        this.$.ajaxModulePerformAction.method = "PUT";
+                        this.$.ajaxModulePerformAction.body = JSON.stringify(this.module);
+                }
+
+                this.$.moduleDialog.close();
+                this.$.ajaxModulePerformAction.generateRequest();
+            },
+            _completeAction: function () {
+                this.$.ajaxModule.generateRequest();
+            },
+            _shallowCopy: function (original) {
+                // First create an empty object with
+                // same prototype of our original source
+                var clone = Object.create(Object.getPrototypeOf(original));
+
+                var i, keys = Object.getOwnPropertyNames(original);
+
+                for (i = 0; i < keys.length; i++) {
+                    // copy each property into the clone
+                    Object.defineProperty(clone, keys[i], Object.getOwnPropertyDescriptor(original, keys[i]));
+                }
+
+                return clone;
+            }
+        });
+    </script>
+</dom-module>

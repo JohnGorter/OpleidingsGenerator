@@ -25,8 +25,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
     public class EducationPlanController : ApiController
     {
         private readonly IEducationPlanManager _educationPlanManager;
-        private static ILog _logger = LogManager.GetLogger(typeof(EducationPlanController));
-        private readonly CultureInfo _culture = new CultureInfo("nl-NL");
 
         public EducationPlanController()
         {
@@ -48,31 +46,26 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         [Route("api/EducationPlan/generate")]
         public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan)
         {
-            _logger.Info("GenerateEducationPlan");
             return _educationPlanManager.PreviewEducationPlan(educationPlan);
         }
 
         public long Put(RestEducationPlan educationPlan)
         {
-            _logger.Info("Put educationplan");
             return _educationPlanManager.SaveEducationPlan(educationPlan);
         }
 
         public long Post(RestEducationPlan educationPlan)
         {
-            _logger.Info("Post educationplan");
             return _educationPlanManager.UpdateEducationPlan(educationPlan);
         }
 
         public EducationPlan Get(long id)
         {
-            _logger.Info(string.Format(_culture, "Get educationplan with id {0}", id));
             return _educationPlanManager.FindEducationPlan(id);
         }
 
         public void Delete(long id)
         {
-            _logger.Info(string.Format(_culture, "Delete educationplan with id {0}", id));
             _educationPlanManager.DeleteEducationPlan(id);
         }
 
@@ -80,7 +73,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         [Route("api/EducationPlan/search")]
         public List<EducationPlan> Get(string name, long? date)
         {
-            _logger.Info(string.Format(_culture, "Get educationplan with name {0} and date {1}", name, date));
             DateTime? dateCreated = null;
 
             if (date.HasValue)
@@ -99,7 +91,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         [Route("api/GenerateWordFile/{id}")]
         public string GenerateWordFile(long id)
         {
-            _logger.Info(string.Format(_culture, "GenerateWordFile with id {0}", id));
             var educationPlan = _educationPlanManager.FindEducationPlan(id);
             return _educationPlanManager.GenerateWordFile(educationPlan);
         }
@@ -108,7 +99,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         [Route("api/FindAllUpdated")]
         public List<EducationPlanCompareSummary> FindAllUpdated()
         {
-            _logger.Info("FindAllUpdated");
             return _educationPlanManager.FindAllUpdated();
         }
 
@@ -116,7 +106,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         [Route("api/FindUpdated/{id}")]
         public EducationPlanCompare FindUpdated(long id)
         {
-            _logger.Info(string.Format(_culture, "Find updated educationplan with id {0}", id));
             return _educationPlanManager.FindUpdatedById(id);
         }
 
@@ -124,7 +113,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         [Route("api/ApproveUpdatedEducationPlan/{id}")]
         public void ApproveUpdatedEducationPlan(long id)
         {
-            _logger.Info(string.Format(_culture, "Approve updated educationplan with id {0}", id));
             _educationPlanManager.ApproveUpdatedEducationPlan(id);
         }
 
@@ -132,7 +120,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         [Route("api/RejectUpdatedEducationPlan/{id}")]
         public void RejectUpdatedEducationPlan(long id)
         {
-            _logger.Info(string.Format(_culture, "Reject updated educationplan with id {0}", id));
             _educationPlanManager.RejectUpdatedEducationPlan(id);
         }
     }

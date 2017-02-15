@@ -41,7 +41,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         // GET: api/Course
         public IEnumerable<OpleidingsplanGenerator.Models.CourseSummary> Get()
         {
-            _logger.Info("Get all courses");
             var courses = _courseManager.FindCourses().Coursesummary;
             return Mapper.Map<IEnumerable<OpleidingsplanGenerator.Models.CourseSummary>>(courses);
         }
@@ -49,7 +48,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         // GET: api/Course/POLDEVEL
         public OpleidingsplanGenerator.Models.Course Get(string id)
         {
-            _logger.Info(string.Format(_culture, "Get course with id {0}", id));
             var course = _courseManager.FindCourse(id);
             return Mapper.Map<OpleidingsplanGenerator.Models.Course>(course);
         }
@@ -59,7 +57,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         {
             if(ModelState.IsValid)
             {
-                _logger.Info(string.Format(_culture, "Post course {0}", course.Code));
                 _courseManager.Update(course);
             }
             else
@@ -73,7 +70,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         {
             if (ModelState.IsValid)
             {
-                _logger.Info(string.Format(_culture, "Put course {0}", course.Code));
                 _courseManager.Insert(course);
             }
             else
@@ -87,7 +83,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         {
             if (ModelState.IsValid)
             {
-                _logger.Info(string.Format(_culture, "Delete course {0}", course.Code));
                 _courseManager.Delete(course);
             }
             else
