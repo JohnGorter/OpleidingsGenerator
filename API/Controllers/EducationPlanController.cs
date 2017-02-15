@@ -46,7 +46,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
         public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan)
         {
             _logger.Info("GenerateEducationPlan");
-            return _educationPlanManager.GenerateEducationPlan(educationPlan);
+            return _educationPlanManager.PreviewEducationPlan(educationPlan);
         }
 
         public long Put(RestEducationPlan educationPlan)

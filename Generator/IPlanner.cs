@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InfoSupport.KC.OpleidingsplanGenerator.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -14,5 +15,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
         IEnumerable<Course> AllCourses { get; }
         void PlanCourses(IEnumerable<Models.Course> coursesToPlan);
         void PlanCoursesWithOlc(IEnumerable<Models.Course> coursesToPlan);
+        void PlanCoursesWithOlcInOldEducationPlan(IEnumerable<Models.Course> coursesToPlan, EducationPlan oldEducationplan);
     }
 }

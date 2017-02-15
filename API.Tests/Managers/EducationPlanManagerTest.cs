@@ -70,7 +70,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
 
 
             // Act
-            var result = manager.GenerateEducationPlan(educationPlan);
+            var result = manager.GenerateEducationPlan(educationPlan, null);
 
             // Assert
             educationPlanOutputterMock.Verify(outputter => outputter.GenerateEducationPlan(It.IsAny<EducationPlanData>()));
@@ -108,7 +108,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             RestEducationPlan educationPlan = GetDummyRestEducationPlan(courses);
 
             // Act
-            var result = manager.GenerateEducationPlan(null);
+            var result = manager.GenerateEducationPlan(null, null);
 
             // Assert ArgumentNullException
         }
@@ -188,12 +188,13 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
 
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
             educationPlanDataMapperMock.Setup(dataMapper => dataMapper.Update(It.IsAny<EducationPlan>())).Returns(1);
+            educationPlanDataMapperMock.Setup(dataMapper => dataMapper.FindById(It.IsAny<long>())).Returns(GetDummyEducationPlan());
 
             var educationPlanOutputterMock = new Mock<IEducationPlanOutputter>(MockBehavior.Strict);
             educationPlanOutputterMock.Setup(planner => planner.GenerateEducationPlan(It.IsAny<EducationPlanData>())).Returns(GetDummyEducationPlan());
 
             var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
-            plannerMock.Setup(planner => planner.PlanCoursesWithOlc(It.IsAny<IEnumerable<OpleidingsplanGenerator.Models.Course>>()));
+            plannerMock.Setup(planner => planner.PlanCoursesWithOlcInOldEducationPlan(It.IsAny<IEnumerable<OpleidingsplanGenerator.Models.Course>>(), It.IsAny<EducationPlan>()));
             plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
             plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
             plannerMock.SetupGet(planner => planner.AllCourses).Returns(GetDummyGeneratorCourses());
@@ -219,12 +220,13 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             // Assert
             Assert.AreEqual(1, result);
             educationPlanOutputterMock.Verify(outputter => outputter.GenerateEducationPlan(It.IsAny<EducationPlanData>()));
-            plannerMock.Verify(planner => planner.PlanCoursesWithOlc(It.IsAny<IEnumerable<OpleidingsplanGenerator.Models.Course>>()));
             courseServiceMock.Verify(outputter => outputter.FindCourses(new List<string> { "2NETARCH", "ADCSB" }));
             profileDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
+            plannerMock.Verify(planner => planner.PlanCoursesWithOlcInOldEducationPlan(It.IsAny<IEnumerable<OpleidingsplanGenerator.Models.Course>>(), It.IsAny<EducationPlan>()));
             plannerMock.VerifySet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom);
             plannerMock.VerifySet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>());
             educationPlanDataMapperMock.Verify(dataMapper => dataMapper.Update(It.IsAny<EducationPlan>()));
+            educationPlanDataMapperMock.Verify(dataMapper => dataMapper.FindById(It.IsAny<long>()));
         }
 
         [TestMethod]

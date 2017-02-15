@@ -40,7 +40,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Controllers
             RestEducationPlan restEducationPlan = GetDummyRestEducationPlan(courses);
 
             var educationPlanManagerMock = new Mock<IEducationPlanManager>(MockBehavior.Strict);
-            educationPlanManagerMock.Setup(manager => manager.GenerateEducationPlan(restEducationPlan)).Returns(GetDummyEducationPlan());
+            educationPlanManagerMock.Setup(manager => manager.PreviewEducationPlan(restEducationPlan)).Returns(GetDummyEducationPlan());
 
             EducationPlanController controller = new EducationPlanController(educationPlanManagerMock.Object);
 
@@ -49,7 +49,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Controllers
 
 
             // Assert
-            educationPlanManagerMock.Verify(manager => manager.GenerateEducationPlan(restEducationPlan));
+            educationPlanManagerMock.Verify(manager => manager.PreviewEducationPlan(restEducationPlan));
 
         }
 

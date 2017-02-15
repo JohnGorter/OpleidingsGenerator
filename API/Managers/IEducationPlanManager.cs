@@ -10,7 +10,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
 {
     public interface IEducationPlanManager
     {
-        EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan);
+        EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan, EducationPlan oldEducationplan);
+        EducationPlan PreviewEducationPlan(RestEducationPlan educationPlan);
+
         long SaveEducationPlan(RestEducationPlan restEducationPlan);
         long UpdateEducationPlan(RestEducationPlan restEducationPlan);
         EducationPlan FindEducationPlan(long id);

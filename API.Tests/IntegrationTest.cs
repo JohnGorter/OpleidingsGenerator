@@ -45,7 +45,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests
             IEducationPlanManager manager = new EducationPlanManager(dalConfig.ProfilePath, courseServiceMock.Object, dalConfig.ManagementPropertiesPath, dalConfig.EducationPlanPath, dalConfig.EducationPlanUpdatedPath);
 
             // Act
-            var result = manager.GenerateEducationPlan(restEducationPlan);
+            var result = manager.GenerateEducationPlan(restEducationPlan, null);
 
 
             // Assert
@@ -113,7 +113,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests
             IEducationPlanManager manager = new EducationPlanManager(dalConfig.ProfilePath, courseServiceMock.Object, dalConfig.ManagementPropertiesPath, dalConfig.EducationPlanPath, dalConfig.EducationPlanUpdatedPath);
 
             // Act
-            var result = manager.GenerateEducationPlan(restEducationPlan);
+            var result = manager.GenerateEducationPlan(restEducationPlan, null);
 
             // Assert
             courseServiceMock.Verify(outputter => outputter.FindCourses(new List<string> { "2NETARCH", "ADCSB" }));
@@ -159,7 +159,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests
             IEducationPlanManager manager = new EducationPlanManager(dalConfig.ProfilePath, courseServiceMock.Object, dalConfig.ManagementPropertiesPath, dalConfig.EducationPlanPath, dalConfig.EducationPlanUpdatedPath);
 
             // Act
-            var result = manager.GenerateEducationPlan(restEducationPlan);
+            var result = manager.GenerateEducationPlan(restEducationPlan, null);
 
             // Assert
             courseServiceMock.Verify(outputter => outputter.FindCourses(new List<string> { "2NETARCH", "ADCSB" }));

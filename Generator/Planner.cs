@@ -92,6 +92,46 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
             ApplyOlc();
         }
 
+        public void PlanCoursesWithOlcInOldEducationPlan(IEnumerable<Models.Course> coursesToPlan, EducationPlan oldEducationplan)
+        {
+            var passedCourses = oldEducationplan.PlannedCourses.Where(course => course.Date <= DateTime.Today.Date);
+            var courses = coursesToPlan.Where(course => !passedCourses.Select(passedCourse => passedCourse.Code).Contains(course.Code));
+            StartDate = DateTime.Now.Date;
+
+            PlanCourses(courses);
+
+            foreach (var passedCourse in passedCourses)
+            {
+                var days = new List<DateTime>();
+                days.Add(passedCourse.Date.Value);
+
+                for (int i = 0; i < passedCourse.Days; i++)
+                {
+                    days.Add(days.Last().AddDays(1));
+                }
+
+                _coursePlanning.Courses.Add(new Course
+                {
+                    Code = passedCourse.Code,
+                    Commentary = passedCourse.Commentary,
+                    CourseImplementations = new List<CourseImplementation>
+                    {
+                        new CourseImplementation
+                        {
+                            Status = Status.PLANNED,
+                            Days = days,
+                        }
+                    },
+                    Duration = passedCourse.Days,
+                    Name = passedCourse.Name,
+                    Price = passedCourse.Price,
+                });
+            }
+
+            ApplyOlc();
+
+        }
+
         public void PlanCourses(IEnumerable<Models.Course> coursesToPlan)
         {
             _logger.Debug("Plan courses");

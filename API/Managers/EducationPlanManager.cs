@@ -89,7 +89,18 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
             return coursesToPlan;
         }
 
-        public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan)
+        public EducationPlan PreviewEducationPlan(RestEducationPlan educationPlan)
+        {
+            EducationPlan oldEducationplan = null;
+            if(educationPlan.EducationPlanId != 0)
+            {
+                oldEducationplan = _educationPlanDataMapper.FindById(educationPlan.EducationPlanId);
+            }
+
+            return GenerateEducationPlan(educationPlan, oldEducationplan);
+        }
+
+        public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan, EducationPlan oldEducationplan)
         {
             if (educationPlan == null)
             {
@@ -117,7 +128,16 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
             _logger.Debug("Find courses from service");
             IEnumerable<Integration.Course> courses = _courseService.FindCourses(educationPlanCourses.Select(course => course.Code));
             List<OpleidingsplanGenerator.Models.Course> coursesToPlan = ConvertCourses(courses, profile, educationPlan.Courses);
-            _planner.PlanCoursesWithOlc(coursesToPlan);
+
+            if(oldEducationplan == null)
+            {
+                _planner.PlanCoursesWithOlc(coursesToPlan);
+            }
+            else
+            {
+                _planner.PlanCoursesWithOlcInOldEducationPlan(coursesToPlan, oldEducationplan);
+            }
+
             OverrideRestCourse(_planner, educationPlan.Courses);
 
             return _educationPlanOutputter.GenerateEducationPlan(educationplanData);
@@ -142,16 +162,14 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
 
         public long SaveEducationPlan(RestEducationPlan restEducationPlan)
         {
-            var educationPlan = GenerateEducationPlan(restEducationPlan);
+            var educationPlan = GenerateEducationPlan(restEducationPlan, null);
             return _educationPlanDataMapper.Insert(educationPlan);
         }
         public long UpdateEducationPlan(RestEducationPlan restEducationPlan)
         {
+            var oldEducationplan = _educationPlanDataMapper.FindById(restEducationPlan.EducationPlanId);
 
-            //Get old educationplan
-            //Get courses before today
-
-            var educationPlan = GenerateEducationPlan(restEducationPlan);
+            var educationPlan = GenerateEducationPlan(restEducationPlan, oldEducationplan);
 
 
 
