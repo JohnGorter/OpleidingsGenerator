@@ -42,7 +42,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests
             });
             var dalConfig = DalConfiguration.Configuration;
 
-            IEducationPlanManager manager = new EducationPlanManager(dalConfig.ProfilePath, courseServiceMock.Object, dalConfig.ManagementPropertiesPath, dalConfig.EducationPlanPath, dalConfig.EducationPlanUpdatedPath);
+            IEducationPlanManager manager = new EducationPlanManager(dalConfig.ProfilePath, courseServiceMock.Object, dalConfig.ManagementPropertiesPath, dalConfig.EducationPlanPath, dalConfig.EducationPlanUpdatedPath, dalConfig.ModulePath);
 
             // Act
             var result = manager.GenerateEducationPlan(restEducationPlan, null);
@@ -52,7 +52,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests
             courseServiceMock.Verify(service => service.FindCourses(new List<string> { "2NETARCH" }));
 
             Assert.AreEqual(7, result.PlannedCourses.Count());
-            Assert.AreEqual(0, result.NotPlannedCourses.Count());
+            Assert.AreEqual(6, result.NotPlannedCourses.Count());
 
             Assert.AreEqual("OLC1", result.PlannedCourses.ElementAt(0).Code);
             Assert.AreEqual(new DateTime(2016, 12, 5), result.PlannedCourses.ElementAt(0).Date);
@@ -110,7 +110,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests
             });
             var dalConfig = DalConfiguration.Configuration;
 
-            IEducationPlanManager manager = new EducationPlanManager(dalConfig.ProfilePath, courseServiceMock.Object, dalConfig.ManagementPropertiesPath, dalConfig.EducationPlanPath, dalConfig.EducationPlanUpdatedPath);
+            IEducationPlanManager manager = new EducationPlanManager(dalConfig.ProfilePath, courseServiceMock.Object, dalConfig.ManagementPropertiesPath, dalConfig.EducationPlanPath, dalConfig.EducationPlanUpdatedPath, dalConfig.ModulePath);
 
             // Act
             var result = manager.GenerateEducationPlan(restEducationPlan, null);
@@ -122,7 +122,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests
             Assert.AreEqual("2NETARCH", result.PlannedCourses.ElementAt(0).Code);
             Assert.AreEqual("OLC1", result.PlannedCourses.ElementAt(1).Code);
             Assert.AreEqual("OLC2", result.PlannedCourses.ElementAt(2).Code);
-            Assert.AreEqual(1, result.NotPlannedCourses.Count());
+            Assert.AreEqual(7, result.NotPlannedCourses.Count());
             Assert.AreEqual("ADCSB", result.NotPlannedCourses.ElementAt(0).Code);
         }
 
@@ -156,7 +156,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests
             });
             var dalConfig = DalConfiguration.Configuration;
 
-            IEducationPlanManager manager = new EducationPlanManager(dalConfig.ProfilePath, courseServiceMock.Object, dalConfig.ManagementPropertiesPath, dalConfig.EducationPlanPath, dalConfig.EducationPlanUpdatedPath);
+            IEducationPlanManager manager = new EducationPlanManager(dalConfig.ProfilePath, courseServiceMock.Object, dalConfig.ManagementPropertiesPath, dalConfig.EducationPlanPath, dalConfig.EducationPlanUpdatedPath, dalConfig.ModulePath);
 
             // Act
             var result = manager.GenerateEducationPlan(restEducationPlan, null);
@@ -169,7 +169,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests
             Assert.AreEqual("Force to plan", result.PlannedCourses.ElementAt(0).Commentary);
             Assert.AreEqual("OLC1", result.PlannedCourses.ElementAt(1).Code);
             Assert.AreEqual("OLC2", result.PlannedCourses.ElementAt(2).Code);
-            Assert.AreEqual(1, result.NotPlannedCourses.Count());
+            Assert.AreEqual(7, result.NotPlannedCourses.Count());
             Assert.AreEqual("2NETARCH", result.NotPlannedCourses.ElementAt(0).Code);
         }
     }

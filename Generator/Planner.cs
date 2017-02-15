@@ -358,5 +358,21 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
         {
             return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
         }
+
+        public void AddModules(IEnumerable<Module> modules)
+        {
+            foreach (var module in modules)
+            {
+                _coursePlanning.Courses.Add(new Course
+                {
+                    Code = "OLC",
+                    Commentary = module.Commentary,
+                    CourseImplementations = new List<CourseImplementation>(),
+                    Duration = module.Days,
+                    Name = module.Name,
+                    Price = module.Price,      
+                });
+            }
+        }
     }
 }

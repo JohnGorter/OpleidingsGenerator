@@ -40,6 +40,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
                     Code = "ADCSB"
                 },
             };
+            var moduleDataMapperMock = new Mock<IDataMapper<Module>>(MockBehavior.Strict);
+            moduleDataMapperMock.Setup(dataMapper => dataMapper.FindAll()).Returns(GetDummyDataModules());
+
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
 
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
@@ -52,6 +55,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
             plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
             plannerMock.SetupGet(planner => planner.AllCourses).Returns(GetDummyGeneratorCourses());
+            plannerMock.Setup(planner => planner.AddModules(It.IsAny<IEnumerable<Module>>()));
 
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
             courseServiceMock.Setup(service => service.FindCourses(new List<string> { "2NETARCH", "ADCSB" })).Returns(
@@ -65,7 +69,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             profileDataMapperMock.Setup(dataMapper => dataMapper.FindById(1)).Returns(GetDummyDataProfiles().First());
             var dalConfig = DalConfiguration.Configuration;
 
-            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object);
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object, moduleDataMapperMock.Object);
             RestEducationPlan educationPlan = GetDummyRestEducationPlan(courses);
 
 
@@ -79,6 +83,8 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             profileDataMapperMock.Verify(dataMapper => dataMapper.FindById(1));
             plannerMock.VerifySet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom);
             plannerMock.VerifySet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>());
+            moduleDataMapperMock.Verify(dataMapper => dataMapper.FindAll());
+
         }
 
         [TestMethod]
@@ -103,8 +109,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
+            var moduleDataMapperMock = new Mock<IDataMapper<Module>>(MockBehavior.Strict);
 
-            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object);
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object, moduleDataMapperMock.Object);
             RestEducationPlan educationPlan = GetDummyRestEducationPlan(courses);
 
             // Act
@@ -127,6 +134,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
                     Code = "ADCSB"
                 },
             };
+            var moduleDataMapperMock = new Mock<IDataMapper<Module>>(MockBehavior.Strict);
+            moduleDataMapperMock.Setup(dataMapper => dataMapper.FindAll()).Returns(GetDummyDataModules());
+
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
 
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
@@ -140,6 +150,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
             plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
             plannerMock.SetupGet(planner => planner.AllCourses).Returns(GetDummyGeneratorCourses());
+            plannerMock.Setup(planner => planner.AddModules(It.IsAny<IEnumerable<Module>>()));
 
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
             courseServiceMock.Setup(service => service.FindCourses(new List<string> { "2NETARCH", "ADCSB" })).Returns(
@@ -152,7 +163,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
             profileDataMapperMock.Setup(dataMapper => dataMapper.FindById(1)).Returns(GetDummyDataProfiles().First());
 
-            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object);
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object, moduleDataMapperMock.Object);
             RestEducationPlan educationPlan = GetDummyRestEducationPlan(courses);
 
 
@@ -185,6 +196,8 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
                 },
             };
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
+            var moduleDataMapperMock = new Mock<IDataMapper<Module>>(MockBehavior.Strict);
+            moduleDataMapperMock.Setup(dataMapper => dataMapper.FindAll()).Returns(GetDummyDataModules());
 
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
             educationPlanDataMapperMock.Setup(dataMapper => dataMapper.Update(It.IsAny<EducationPlan>())).Returns(1);
@@ -198,6 +211,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
             plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
             plannerMock.SetupGet(planner => planner.AllCourses).Returns(GetDummyGeneratorCourses());
+            plannerMock.Setup(planner => planner.AddModules(It.IsAny<IEnumerable<Module>>()));
 
             var courseServiceMock = new Mock<ICourseService>(MockBehavior.Strict);
             courseServiceMock.Setup(service => service.FindCourses(new List<string> { "2NETARCH", "ADCSB" })).Returns(
@@ -210,7 +224,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
             profileDataMapperMock.Setup(dataMapper => dataMapper.FindById(1)).Returns(GetDummyDataProfiles().First());
 
-            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object);
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object, moduleDataMapperMock.Object);
             RestEducationPlan educationPlan = GetDummyRestEducationPlan(courses);
 
 
@@ -227,6 +241,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             plannerMock.VerifySet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>());
             educationPlanDataMapperMock.Verify(dataMapper => dataMapper.Update(It.IsAny<EducationPlan>()));
             educationPlanDataMapperMock.Verify(dataMapper => dataMapper.FindById(It.IsAny<long>()));
+            moduleDataMapperMock.Verify(dataMapper => dataMapper.FindAll());
         }
 
         [TestMethod]
@@ -244,6 +259,8 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
                 },
             };
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
+            var moduleDataMapperMock = new Mock<IDataMapper<Module>>(MockBehavior.Strict);
+            moduleDataMapperMock.Setup(dataMapper => dataMapper.FindAll()).Returns(GetDummyDataModules());
 
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
             educationPlanDataMapperMock.Setup(dataMapper => dataMapper.FindById(1)).Returns(GetDummyEducationPlan());
@@ -254,7 +271,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
         
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
 
-            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object);
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object, moduleDataMapperMock.Object);
 
             // Act
             manager.FindEducationPlan(1);
@@ -279,6 +296,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             };
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
 
+            var moduleDataMapperMock = new Mock<IDataMapper<Module>>(MockBehavior.Strict);
+            moduleDataMapperMock.Setup(dataMapper => dataMapper.FindAll()).Returns(GetDummyDataModules());
+
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
             educationPlanDataMapperMock.Setup(dataMapper => dataMapper.Find(It.IsAny<Func<EducationPlan, bool>>())).Returns(new List<EducationPlan>() { GetDummyEducationPlan() });
 
@@ -288,7 +308,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
 
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
 
-            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object);
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object, moduleDataMapperMock.Object);
 
             // Act
             manager.FindEducationPlans(new EducationPlanSearch());
@@ -313,6 +333,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             };
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
 
+            var moduleDataMapperMock = new Mock<IDataMapper<Module>>(MockBehavior.Strict);
+            moduleDataMapperMock.Setup(dataMapper => dataMapper.FindAll()).Returns(GetDummyDataModules());
+
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
             educationPlanConverterMock.Setup(converter => converter.GenerateWord(It.IsAny<EducationPlan>())).Returns("path");
 
@@ -322,7 +345,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
 
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
 
-            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object);
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object, moduleDataMapperMock.Object);
 
             // Act
             var result = manager.GenerateWordFile(GetDummyEducationPlan());
@@ -348,6 +371,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             };
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
 
+            var moduleDataMapperMock = new Mock<IDataMapper<Module>>(MockBehavior.Strict);
+            moduleDataMapperMock.Setup(dataMapper => dataMapper.FindAll()).Returns(GetDummyDataModules());
+
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
             educationPlanDataMapperMock.Setup(dataMapper => dataMapper.Delete(1));
 
@@ -357,7 +383,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
 
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
 
-            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object);
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object, moduleDataMapperMock.Object);
 
             // Act
             manager.DeleteEducationPlan(1);
@@ -372,6 +398,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             // Arrange
             var educationPlanConverterMock = new Mock<IEducationPlanConverter>(MockBehavior.Strict);
 
+            var moduleDataMapperMock = new Mock<IDataMapper<Module>>(MockBehavior.Strict);
+            moduleDataMapperMock.Setup(dataMapper => dataMapper.FindAll()).Returns(GetDummyDataModules());
+
             var educationPlanDataMapperMock = new Mock<IEducationPlanDataMapper>(MockBehavior.Strict);
             educationPlanDataMapperMock.Setup(dataMapper => dataMapper.FindAllUpdated()).Returns(GetDummyEducationPlanCompareList());
 
@@ -381,7 +410,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
 
             var profileDataMapperMock = new Mock<IDataMapper<CourseProfile>>(MockBehavior.Strict);
 
-            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object);
+            EducationPlanManager manager = new EducationPlanManager(courseServiceMock.Object, plannerMock.Object, educationPlanOutputterMock.Object, profileDataMapperMock.Object, educationPlanDataMapperMock.Object, educationPlanConverterMock.Object, moduleDataMapperMock.Object);
 
             // Act
             var result = manager.FindAllUpdated();

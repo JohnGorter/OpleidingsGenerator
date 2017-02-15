@@ -19,8 +19,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Filters
             var controllerName = actionContext.ControllerContext.ControllerDescriptor.ControllerName;
             var actionName = actionContext.ActionDescriptor.ActionName;
             var test = actionContext.ActionArguments;
-
-
+     
             var lines = actionContext.ActionArguments.Select(kvp => kvp.Key + ": " + kvp.Value.ToString());
             var arguments = string.Join(",", lines);
 

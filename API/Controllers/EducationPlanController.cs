@@ -33,8 +33,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Controllers
             string educationPlanPath = HttpContext.Current.Server.MapPath(DalConfiguration.Configuration.EducationPlanPath);
             string educationPlanUpdatedPath = HttpContext.Current.Server.MapPath(DalConfiguration.Configuration.EducationPlanUpdatedPath);
             string educationPlanFilesDir = HttpContext.Current.Server.MapPath(GeneratorConfiguration.Configuration.EducationPlanFileDirPath);
+            string modulePath = HttpContext.Current.Server.MapPath(DalConfiguration.Configuration.ModulePath);
 
-            _educationPlanManager = new EducationPlanManager(profilepath, managementPropertiesPath, educationPlanPath, educationPlanUpdatedPath, educationPlanFilesDir);
+            _educationPlanManager = new EducationPlanManager(profilepath, managementPropertiesPath, educationPlanPath, educationPlanUpdatedPath, educationPlanFilesDir, modulePath);
         }
 
         public EducationPlanController(IEducationPlanManager educationPlanManager)

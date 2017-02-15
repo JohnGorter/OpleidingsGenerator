@@ -107,6 +107,7 @@
     <Content Include="Data\Profiles.json" />
     <Content Include="Data\ProfilesOriginal.json" />
     <Content Include="Data\ManagementProperties.json" />
+    <Content Include="Data\Modules.json" />
     <None Include="Helpers\Profiles.json" />
     <None Include="packages.config" />
   </ItemGroup>

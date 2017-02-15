@@ -110,6 +110,13 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
 
             foreach (var course in coursesFromPlanner)
             {
+                var discountPerCourse = discount;
+
+                if (course.Code.StartsWith("OLC"))
+                {
+                    discountPerCourse = 100;
+                }
+
                 DateTime? startDay = course.PlannedImplementation?.StartDay;
 
                 educationPlanCourses.Add(new EducationPlanCourse
@@ -119,7 +126,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
                     Days = course.Duration.Value,
                     Name = course.Name,
                     Price = course.Price,
-                    StaffDiscountInPercentage = discount,
+                    StaffDiscountInPercentage = discountPerCourse,
                     Commentary = course.Commentary,
                 });
             }
@@ -135,6 +142,13 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
 
             foreach (var course in coursesFromPlanner)
             {
+                var discountPerCourse = discount;
+
+                if (course.Code.StartsWith("OLC"))
+                {
+                    discountPerCourse = 100;
+                }
+
                 DateTime? startDay = course.PlannedImplementation?.StartDay;
 
                 educationPlanCourses.Add(new EducationPlanCourse
@@ -144,8 +158,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
                     Days = course.Duration.Value,
                     Name = course.Name,
                     Price = course.Price,
-                    IntersectedCourses = plannedCourses.Where(plannedCourse => course.IntersectedCourseIds.Contains(plannedCourse.Code)).ToList(),
-                    StaffDiscountInPercentage = discount,
+                    StaffDiscountInPercentage = discountPerCourse,
                     Commentary = course.Commentary,
                 });
             }

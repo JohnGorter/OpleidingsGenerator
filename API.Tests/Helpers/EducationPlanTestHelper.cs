@@ -121,5 +121,13 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers
                 }
             };
         }
+
+        protected List<Module> GetDummyDataModules()
+        {
+            return new List<Module>
+            {
+                new Module(),
+            };
+        }
     }
 }

@@ -21,12 +21,13 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
         private readonly IEducationPlanOutputter _educationPlanOutputter;
         private readonly IDataMapper<OpleidingsplanGenerator.Models.CourseProfile> _profileDataMapper;
         private readonly IEducationPlanDataMapper _educationPlanDataMapper;
+        private readonly IDataMapper<Module> _moduleDataMapper;
         private readonly IEducationPlanConverter _educationPlanConverter;
 
         private static ILog _logger = LogManager.GetLogger(typeof(EducationPlanManager));
         private static CultureInfo _culture = new CultureInfo("nl-NL");
 
-        public EducationPlanManager(string profilePath, ICourseService courseService, string managementPropertiesPath, string educationPlanPath, string educationPlanUpdatedPath)
+        public EducationPlanManager(string profilePath, ICourseService courseService, string managementPropertiesPath, string educationPlanPath, string educationPlanUpdatedPath, string modulePath)
         {
             _courseService = courseService;
             IManagementPropertiesDataMapper managementPropertiesDataMapper = new ManagementPropertiesJsonDataMapper(managementPropertiesPath);
@@ -34,22 +35,24 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
             _educationPlanOutputter = new EducationPlanOutputter(_planner, managementPropertiesDataMapper);
             _profileDataMapper = new ProfileJsonDataMapper(profilePath);
             _educationPlanDataMapper = new EducationPlanJsonDataMapper(educationPlanPath, educationPlanUpdatedPath);
+            _moduleDataMapper = new ModuleJSONDataMapper(modulePath);
         }
 
-        public EducationPlanManager(string profilePath, string managementPropertiesPath, string educationPlanPath, string educationPlanUpdatedPath, string educationPlanFilePath)
+        public EducationPlanManager(string profilePath, string managementPropertiesPath, string educationPlanPath, string educationPlanUpdatedPath, string educationPlanFilePath, string modulePath)
         {
             _courseService = new CourseService();
             IManagementPropertiesDataMapper managementPropertiesDataMapper = new ManagementPropertiesJsonDataMapper(managementPropertiesPath);
             _planner = new Planner(managementPropertiesDataMapper);
             _educationPlanOutputter = new EducationPlanOutputter(_planner, managementPropertiesDataMapper);
             _profileDataMapper = new ProfileJsonDataMapper(profilePath);
+            _moduleDataMapper = new ModuleJSONDataMapper(modulePath);
             _educationPlanDataMapper = new EducationPlanJsonDataMapper(educationPlanPath, educationPlanUpdatedPath);
             _educationPlanConverter = new EducationPlanConverter(managementPropertiesPath, educationPlanFilePath);
         }
 
         public EducationPlanManager(ICourseService courseService, IPlanner planner, IEducationPlanOutputter educationPlanOutputter,
             IDataMapper<OpleidingsplanGenerator.Models.CourseProfile> profileDataMapper, IEducationPlanDataMapper educationPlanDataMapper,
-            IEducationPlanConverter educationPlanConverter)
+            IEducationPlanConverter educationPlanConverter, IDataMapper<Module> moduleDataMapper)
         {
             _courseService = courseService;
             _planner = planner;
@@ -57,6 +60,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
             _profileDataMapper = profileDataMapper;
             _educationPlanDataMapper = educationPlanDataMapper;
             _educationPlanConverter = educationPlanConverter;
+            _moduleDataMapper = moduleDataMapper;
         }
 
         private static List<OpleidingsplanGenerator.Models.Course> ConvertCourses(IEnumerable<Integration.Course> courses, CourseProfile profile, Collection<RestEducationPlanCourse> restCourses)
@@ -137,6 +141,8 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
             {
                 _planner.PlanCoursesWithOlcInOldEducationPlan(coursesToPlan, oldEducationplan);
             }
+
+            _planner.AddModules(_moduleDataMapper.FindAll());
 
             OverrideRestCourse(_planner, educationPlan.Courses);
 

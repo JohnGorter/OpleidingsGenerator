@@ -52,13 +52,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator.Tests
             Assert.AreEqual("ENEST", result.NotPlannedCourses.ElementAt(0).Code);
             Assert.AreEqual("MVC", result.NotPlannedCourses.ElementAt(1).Code);
 
-            Assert.AreEqual(2, result.NotPlannedCourses.ElementAt(0).IntersectedCourses.Count());
-            Assert.AreEqual("SCRUMES", result.NotPlannedCourses.ElementAt(0).IntersectedCourses.ElementAt(0).Code);
-            Assert.AreEqual("ENDEVN", result.NotPlannedCourses.ElementAt(0).IntersectedCourses.ElementAt(1).Code);
-            Assert.AreEqual(2, result.NotPlannedCourses.ElementAt(1).IntersectedCourses.Count());
-            Assert.AreEqual("SECDEV", result.NotPlannedCourses.ElementAt(1).IntersectedCourses.ElementAt(0).Code);
-            Assert.AreEqual("XSD", result.NotPlannedCourses.ElementAt(1).IntersectedCourses.ElementAt(1).Code);
-
             Assert.AreEqual(DateTime.Now.Date, result.Created.Date);
             Assert.AreEqual(new DateTime(2016, 12, 5), result.InPaymentFrom);
             Assert.AreEqual(new DateTime(2017, 1, 26), result.EmployableFrom);

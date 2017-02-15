@@ -76,6 +76,7 @@
     <Content Include="Data\ManagementProperties.json" />
     <Content Include="Data\ManagementPropertiesOriginal.json" />
     <Content Include="Data\corrupted.json" />
+    <Content Include="Data\Modules.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

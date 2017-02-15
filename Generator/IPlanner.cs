@@ -16,5 +16,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
         void PlanCourses(IEnumerable<Models.Course> coursesToPlan);
         void PlanCoursesWithOlc(IEnumerable<Models.Course> coursesToPlan);
         void PlanCoursesWithOlcInOldEducationPlan(IEnumerable<Models.Course> coursesToPlan, EducationPlan oldEducationplan);
+        void AddModules(IEnumerable<Module> enumerable);
     }
 }
