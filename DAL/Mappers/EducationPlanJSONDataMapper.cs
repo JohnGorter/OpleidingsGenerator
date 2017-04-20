@@ -131,16 +131,24 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Dal.Mappers
                         string educationPlanJSON = File.ReadAllText(file);
                         var oldEducationPlan = JsonConvert.DeserializeObject<EducationPlan>(educationPlanJSON);
                         var newEducationPlan = educationPlans.FirstOrDefault(ep => ep.Id == oldEducationPlan.Id);
-                        educationPlansCompareList.Add(new EducationPlanCompareSummary
+
+                        if (newEducationPlan != null)
                         {
-                            Id = newEducationPlan.Id,
-                            Created = newEducationPlan.Created,
-                            InPaymentFrom = newEducationPlan.InPaymentFrom,
-                            KnowledgeOf = newEducationPlan.KnowledgeOf,
-                            NameEmployee = newEducationPlan.NameEmployee,
-                            NameTeacher = newEducationPlan.NameTeacher,
-                            Profile = newEducationPlan.Profile,                          
-                        });
+                            educationPlansCompareList.Add(new EducationPlanCompareSummary
+                            {
+                                Id = newEducationPlan.Id,
+                                Created = newEducationPlan.Created,
+                                InPaymentFrom = newEducationPlan.InPaymentFrom,
+                                KnowledgeOf = newEducationPlan.KnowledgeOf,
+                                NameEmployee = newEducationPlan.NameEmployee,
+                                NameTeacher = newEducationPlan.NameTeacher,
+                                Profile = newEducationPlan.Profile,
+                            });
+                        }
+                        else
+                        {
+                            _logger.Info(string.Format(_culture, "File {0} with updated education plan cannot be found in educationplans", file));
+                        }
                     }
                     catch (FileNotFoundException ex)
                     {

@@ -19,7 +19,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Filters
             var controllerName = actionContext.ControllerContext.ControllerDescriptor.ControllerName;
             var actionName = actionContext.ActionDescriptor.ActionName;
      
-            var lines = actionContext.ActionArguments.Select(kvp => kvp.Key + ": " + kvp.Value.ToString());
+            var lines = actionContext.ActionArguments.Select(kvp => kvp.Key + ": " + kvp.Value?.ToString());
             var arguments = string.Join(",", lines);
 
             _logger.Info(string.Format(_culture, "OnActionExecuting: {0} {1} arguments: {2}", controllerName, actionName, arguments));
