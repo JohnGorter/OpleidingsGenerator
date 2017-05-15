@@ -67,10 +67,10 @@
                         <td>[[_formatDate(course.Date)]]</td>
 
                         <template is="dom-if" if="[[planned]]">
-                            <td>[[course.Name]]</td>
+                            <td>[[_formatCursusName(course.Code, course.Name)]]</td>
                         </template>
                         <template is="dom-if" if="[[!planned]]">
-                            <td><span on-tap="_planNotPlannedCourse" class="not-planned-course" data-course-code$="[[course.Code]]">[[course.Name]]</span></td>
+                            <td><span on-tap="_planNotPlannedCourse" class="not-planned-course" data-course-code$="[[course.Code]]">[[_formatCursusName(course.Code, course.Name)]]</span></td>
                         </template>
 
                         <td>[[course.Days]]</td>
@@ -131,6 +131,9 @@
             },
             _formatWeek: function (week) {
                 return week == -1 ? "-" : week;
+            },
+            _formatCursusName: function (code, name) {
+                return !code.startsWith("OLC") ? code + " - " + name : name
             },
             _getCommentaryButtonText: function (commentary) {
                 if (commentary) {

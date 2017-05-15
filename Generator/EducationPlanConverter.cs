@@ -91,11 +91,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
                 var course = courses.ElementAt(i);
                 course.StaffDiscountInPercentage = managementPropertiesDataMapper.FindManagementProperties().StaffDiscount;
 
-                if(course.Code.StartsWith("OLC"))
-                {
-                    course.StaffDiscountInPercentage = 100;
-                }
-
                 var row = table.Rows[i + 1];
 
                 if (course.Week > 0)
