@@ -53,6 +53,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
             plannerMock.Setup(planner => planner.PlanCoursesWithOlc(It.IsAny<IEnumerable<OpleidingsplanGenerator.Models.Course>>()));
             plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
+            plannerMock.SetupSet(planner => planner.EndDate = GetDummyRestEducationPlan(courses).EmployableFrom).Verifiable();
             plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
             plannerMock.SetupGet(planner => planner.AllCourses).Returns(GetDummyGeneratorCourses());
             plannerMock.Setup(planner => planner.AddModules(It.IsAny<IEnumerable<Module>>()));
@@ -148,6 +149,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
             plannerMock.Setup(planner => planner.PlanCoursesWithOlc(It.IsAny<IEnumerable<OpleidingsplanGenerator.Models.Course>>()));
             plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
+            plannerMock.SetupSet(planner => planner.EndDate = GetDummyRestEducationPlan(courses).EmployableFrom).Verifiable();
             plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
             plannerMock.SetupGet(planner => planner.AllCourses).Returns(GetDummyGeneratorCourses());
             plannerMock.Setup(planner => planner.AddModules(It.IsAny<IEnumerable<Module>>()));
@@ -209,6 +211,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Managers
             var plannerMock = new Mock<IPlanner>(MockBehavior.Strict);
             plannerMock.Setup(planner => planner.PlanCoursesWithOlcInOldEducationPlan(It.IsAny<IEnumerable<OpleidingsplanGenerator.Models.Course>>(), It.IsAny<EducationPlan>()));
             plannerMock.SetupSet(planner => planner.StartDate = GetDummyRestEducationPlan(courses).InPaymentFrom).Verifiable();
+            plannerMock.SetupSet(planner => planner.EndDate = GetDummyRestEducationPlan(courses).EmployableFrom).Verifiable();
             plannerMock.SetupSet(planner => planner.BlockedDates = It.IsAny<Collection<DateTime>>()).Verifiable();
             plannerMock.SetupGet(planner => planner.AllCourses).Returns(GetDummyGeneratorCourses());
             plannerMock.Setup(planner => planner.AddModules(It.IsAny<IEnumerable<Module>>()));

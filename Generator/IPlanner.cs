@@ -8,6 +8,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
     public interface IPlanner
     {
         DateTime StartDate { get; set; }
+        DateTime? EndDate { get; set; }
         Collection<DateTime> BlockedDates { get; set; }
 
         IEnumerable<Course> PlannedCourses { get; }

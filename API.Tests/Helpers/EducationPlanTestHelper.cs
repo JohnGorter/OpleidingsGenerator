@@ -16,7 +16,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Tests.Helpers
             return new RestEducationPlan
             {
                 InPaymentFrom = new DateTime(2016, 12, 5),
-                EmployableFrom = new DateTime(2017, 2, 6),
+                EmployableFrom = null,
                 ProfileId = 1,
                 NameEmployee = "Pim Verheij",
                 NameTeacher = "Felix Sedney",

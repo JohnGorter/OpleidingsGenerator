@@ -27,12 +27,12 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
             }
             set
             {
-                if (value != null)
-                {
-                    _startDate = value.Date;
-                }
+                _startDate = value.Date;
             }
         }
+
+        public DateTime? EndDate { get; set; }
+
         private Collection<DateTime> _blockedDates = new Collection<DateTime>();
 
         public Collection<DateTime> BlockedDates
@@ -172,11 +172,21 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
                 _logger.Debug(string.Format(_culture, "Remove {0} blocked implementations from course {1}", BlockedDates.Count, course.Code));
 
                 int periodEducationPlanDays = _managementPropertiesDataMapper.FindManagementProperties().PeriodEducationPlanInDays;
+                int daysAfterLastCourseEmployable = _managementPropertiesDataMapper.FindManagementProperties().PeriodAfterLastCourseEmployableInDays;
+
                 DateTime endDate = StartDate.GetEndDay(periodEducationPlanDays);
 
-                _logger.Debug(string.Format(_culture, "Period for education plan is {0} days", periodEducationPlanDays));
+                if (EndDate != null)
+                {
+                    endDate = EndDate.Value.AddDays(-daysAfterLastCourseEmployable);
+                    _logger.Debug(string.Format(_culture, "Period for education plan is {0} days", endDate - StartDate));
+                }
+                else
+                {
+                    _logger.Debug(string.Format(_culture, "Period for education plan is {0} days", periodEducationPlanDays));
+                }
 
-                var blockedImplementations = course.CourseImplementations.Where(ci => ci.StartDay < StartDate || ci.StartDay > endDate || ci.Days.Any(day => BlockedDates.Contains(day)));
+                var blockedImplementations = course.CourseImplementations.Where(ci => ci.StartDay < StartDate || ci.StartDay.GetEndDay(ci.Days.Count()) > endDate || ci.Days.Any(day => BlockedDates.Contains(day)));
 
                 _logger.Debug("Set status of blocked implementations and implementations outside the period on unplannable");
                 foreach (var implementation in blockedImplementations)

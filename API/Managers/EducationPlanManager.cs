@@ -115,6 +115,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
             _logger.Debug(string.Format(_culture, "GenerateEducationPlan for employee {0}", educationPlan.NameEmployee));
 
             _planner.StartDate = educationPlan.InPaymentFrom;
+            _planner.EndDate = educationPlan.EmployableFrom;
             _planner.BlockedDates = educationPlan.BlockedDates;
 
             var educationplanData = Mapper.Map<EducationPlanData>(educationPlan);

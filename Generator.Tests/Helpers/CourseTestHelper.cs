@@ -227,7 +227,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator.Tests.Helpers
             {
                 Created = new DateTime(2016, 11, 29),
                 InPaymentFrom = new DateTime(2016, 12, 5),
-                EmployableFrom = new DateTime(2017, 2, 6),
+                EmployableFrom = null,
                 Profile = "NET_Developer",
                 NameEmployee = "Pim Verheij",
                 NameTeacher = "Felix Sedney",

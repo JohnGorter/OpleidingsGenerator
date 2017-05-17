@@ -58,6 +58,11 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
                     .AddDays(daysAfterLastCourseEmployable);
             }
 
+            if(educationPlanData.EmployableFrom.HasValue)
+            {
+                dateEmployableFrom = educationPlanData.EmployableFrom.Value;
+            }
+
             _logger.Debug("return EducationPlan");
             return new EducationPlan
             {

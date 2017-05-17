@@ -11,7 +11,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Models
         public long EducationPlanId { get; set; }
         public Collection<RestEducationPlanCourse> Courses { get; set; }
         public DateTime InPaymentFrom { get; set; }
-        public DateTime EmployableFrom { get; set; }
+        public DateTime? EmployableFrom { get; set; }
         public string NameEmployee { get; set; }
         public string NameTeacher { get; set; }
         public string KnowledgeOf { get; set; }
