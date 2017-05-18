@@ -50,6 +50,43 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator.Tests
         }
 
         [TestMethod]
+        public void PlanTwoCourses_NoOverlap_WithEndDate()
+        {
+            // Arrange
+            var managementPropertiesDataMapperMock = new Mock<IManagementPropertiesDataMapper>(MockBehavior.Strict);
+            managementPropertiesDataMapperMock.Setup(dataMapper => dataMapper.FindManagementProperties()).Returns(GetDummyDataManagementProperties());
+
+            Planner planner = new Planner(managementPropertiesDataMapperMock.Object);
+            planner.StartDate = new DateTime(2017, 1, 1);
+            planner.EndDate = new DateTime(2017, 1, 14);
+
+            IEnumerable<Models.Course> coursesToPlan = new List<Models.Course>()
+            {
+                CreateNewModelCourseWithOneCourseImplementation("SCRUMES", 1,
+                new DateTime[] { new DateTime(2017, 1, 2), new DateTime(2017, 1, 3), new DateTime(2017, 1, 4) }),
+                CreateNewModelCourseWithOneCourseImplementation("ENEST", 1,
+                new DateTime[] { new DateTime(2017, 1, 9), new DateTime(2017, 1, 10), new DateTime(2017, 1, 11) }),
+                CreateNewModelCourseWithOneCourseImplementation("ENDEVN", 1,
+                new DateTime[] { new DateTime(2017, 1, 16), new DateTime(2017, 1, 17), new DateTime(2017, 1, 18) }),
+            };
+
+            // Act
+            planner.PlanCourses(coursesToPlan);
+
+            // Assert
+            Assert.AreEqual(3, planner.AllCourses.Count());
+            Assert.AreEqual(Status.PLANNED, planner.AllCourses.ElementAt(0).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("SCRUMES", planner.AllCourses.ElementAt(0).Code);
+            Assert.AreEqual(Status.UNPLANNABLE, planner.AllCourses.ElementAt(1).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENEST", planner.AllCourses.ElementAt(1).Code);
+            Assert.AreEqual(Status.UNPLANNABLE, planner.AllCourses.ElementAt(2).CourseImplementations.ElementAt(0).Status);
+            Assert.AreEqual("ENDEVN", planner.AllCourses.ElementAt(2).Code);
+
+            Assert.AreEqual(1, planner.PlannedCourses.Count());
+            Assert.AreEqual(2, planner.NotPlannedCourses.Count());
+        }
+
+        [TestMethod]
         public void PlanOneCourse_NoImplementations_NoPlannedCourses()
         {
             // Arrange

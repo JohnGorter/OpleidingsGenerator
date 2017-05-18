@@ -196,6 +196,18 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
             return course.CourseImplementations.Any(courseImplementation => courseImplementation.Intersects(this.CourseImplementations) && courseImplementation.Status != Status.UNPLANNABLE);
         }
 
+        public bool IntersectsWithPlanned(Generator.Course course)
+        {
+            _logger.Debug(string.Format(_culture, "IntersectsWithPlanned in course {0}", Code));
+            if (course == null)
+            {
+                _logger.Error("ArgumentNullException course");
+                throw new ArgumentNullException("course");
+            }
+
+            return course.PlannedImplementation.Intersects((this.CourseImplementations));
+        }
+
         public bool IsPlannable(IEnumerable<Course> courses)
         {
             _logger.Debug(string.Format(_culture, "IsPlannable in course {0}", Code));

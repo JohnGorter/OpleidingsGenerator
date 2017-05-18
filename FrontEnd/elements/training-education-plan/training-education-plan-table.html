@@ -63,7 +63,13 @@
             <tbody>
                 <template is="dom-repeat" as="course" items="[[courses]]">
                     <tr>
-                        <td>[[_formatWeek(course.Week)]]</td>
+                        <template is="dom-if" if="[[_viewTooltip(planned, course)]]">
+                            <td><abbr title="Overlappende cursussen: [[_formatIntersectedCourses(course.IntersectedCourses)]]">[[_formatWeek(course.Week)]]</abbr></td>
+                        </template>
+                        <template is="dom-if" if="[[!_viewTooltip(planned, course)]]">
+                            <td>[[_formatWeek(course.Week)]]</td>
+                        </template>
+
                         <td>[[_formatDate(course.Date)]]</td>
 
                         <template is="dom-if" if="[[planned]]">
@@ -133,7 +139,13 @@
                 return week == -1 ? "-" : week;
             },
             _formatCursusName: function (code, name) {
-                return !code.startsWith("OLC") ? code + " - " + name : name
+                return !code.startsWith("OLC") ? code + " - " + name : name;
+            },
+            _formatIntersectedCourses: function (intersectedCourses) {
+                return intersectedCourses.map(function (course) { return course.Code; }).join(",");
+            },
+            _viewTooltip: function (planned, course) {
+                return planned && course.IntersectedCourses.length > 0;
             },
             _getCommentaryButtonText: function (commentary) {
                 if (commentary) {

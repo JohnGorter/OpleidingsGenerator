@@ -34,8 +34,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
                 throw new ArgumentNullException("educationPlanData");
             }
 
-            List<EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(_planner.PlannedCourses.ToList()).OrderBy(course => course.Date).ToList();
-            List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.NotPlannedCourses.ToList(), educationPlannedCourses)
+            List<EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(_planner.PlannedCourses.ToList(), _planner.NotPlannedCourses.ToList())
+                .OrderBy(course => course.Date).ToList();
+            List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.NotPlannedCourses.ToList())
                 .OrderBy(course => course.Date).ToList();
 
             int daysBeforeStart = _managementPropertiesDataMapper.FindManagementProperties().PeriodBeforeStartNotifiable;
@@ -51,14 +52,14 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
             DateTime dateEmployableFrom = educationPlanData.InPaymentFrom.AddDays(daysAfterLastCourseEmployable);
             DateTime? lastDayOfPlanning = educationPlannedCourses.LastOrDefault()?.Date;
 
-            if (lastDayOfPlanning != null)
+            if (lastDayOfPlanning.HasValue)
             {
                 dateEmployableFrom = lastDayOfPlanning.Value
                     .AddDays(educationPlannedCourses.Last().Days)
                     .AddDays(daysAfterLastCourseEmployable);
             }
 
-            if(educationPlanData.EmployableFrom.HasValue)
+            if (educationPlanData.EmployableFrom.HasValue)
             {
                 dateEmployableFrom = educationPlanData.EmployableFrom.Value;
             }
@@ -107,17 +108,22 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
             return educationPlanCourses;
         }
 
-        private List<EducationPlanCourse> GetPlannedEducationPlanCourses(List<Generator.Course> coursesFromPlanner)
+        private List<EducationPlanCourse> GetPlannedEducationPlanCourses(List<Generator.Course> coursesFromPlanner, List<Generator.Course> unplannableCoursesFromPlanner)
         {
             _logger.Debug("GetPlannedEducationPlanCourses");
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
             var discount = _managementPropertiesDataMapper.FindManagementProperties().StaffDiscount;
+
+            var t = coursesFromPlanner.Where(x => x.IntersectedCourseIds.Count() != 0).Select(x => x);
 
             foreach (var course in coursesFromPlanner)
             {
                 var discountPerCourse = discount;
 
                 DateTime? startDay = course.PlannedImplementation?.StartDay;
+
+                List<Course> unplannableIntersectedCourses = unplannableCoursesFromPlanner.FindAll(x => x.IntersectsWithPlanned(course)).ToList();
+                List<EducationPlanCourse> intersectedEducationPlanCourses = GetNotPlannedEducationPlanCourses(unplannableIntersectedCourses);
 
                 educationPlanCourses.Add(new EducationPlanCourse
                 {
@@ -128,13 +134,14 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
                     Price = course.Price,
                     StaffDiscountInPercentage = discountPerCourse,
                     Commentary = course.Commentary,
+                    IntersectedCourses = intersectedEducationPlanCourses
                 });
             }
 
             return educationPlanCourses;
         }
 
-        private List<EducationPlanCourse> GetNotPlannedEducationPlanCourses(List<Generator.Course> coursesFromPlanner, List<EducationPlanCourse> plannedCourses)
+        private List<EducationPlanCourse> GetNotPlannedEducationPlanCourses(List<Generator.Course> coursesFromPlanner)
         {
             _logger.Debug("GetNotPlannedEducationPlanCourses");
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
