@@ -38,7 +38,8 @@
         <paper-date-picker-item icon="icons:today" date="{{educationPlan.InPaymentFrom}}" date-format="DD-MM-YYYY" locale="nl"></paper-date-picker-item>
         Inzetbaar vanaf
         <!--div id="date-employable-from"><span><iron-icon icon="icons:today"></iron-icon></span>[[_formatDate(educationPlan.EmployableFrom)]]</div>-->
-        <paper-date-picker-item icon="icons:today" date="{{educationPlan.EmployableFrom}}"  placeholder="Datum inzetbaar" date-format="DD-MM-YYYY" locale="nl"></paper-date-picker-item>
+        <paper-date-picker-item on-tap="_deleteEmployableDate" icon="icons:today" date="{{educationPlan.EmployableFrom}}"  placeholder="Datum inzetbaar" date-format="DD-MM-YYYY" locale="nl"></paper-date-picker-item>
+
         Blokkeer datum
         <paper-date-picker-item icon="icons:today" date="{{blockedDate}}" date-format="DD-MM-YYYY" locale="nl" placeholder="Datum toevoegen"></paper-date-picker-item>
        
@@ -105,6 +106,9 @@
                 }
                 
                 this.splice('educationPlan.BlockedDates', index, 1);
+            },
+            _deleteEmployableDate: function (event) {
+                this.set('educationPlan.EmployableFrom', "");
             }
         });
     </script>

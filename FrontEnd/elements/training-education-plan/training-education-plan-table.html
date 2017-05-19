@@ -145,7 +145,7 @@
                 return intersectedCourses.map(function (course) { return course.Code; }).join(",");
             },
             _viewTooltip: function (planned, course) {
-                return planned && course.IntersectedCourses.length > 0;
+                return planned && course.IntersectedCourses != null && course.IntersectedCourses.length > 0;
             },
             _getCommentaryButtonText: function (commentary) {
                 if (commentary) {

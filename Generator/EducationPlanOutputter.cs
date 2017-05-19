@@ -114,8 +114,6 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
             List<EducationPlanCourse> educationPlanCourses = new List<EducationPlanCourse>();
             var discount = _managementPropertiesDataMapper.FindManagementProperties().StaffDiscount;
 
-            var t = coursesFromPlanner.Where(x => x.IntersectedCourseIds.Count() != 0).Select(x => x);
-
             foreach (var course in coursesFromPlanner)
             {
                 var discountPerCourse = discount;
