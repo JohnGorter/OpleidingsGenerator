@@ -107,7 +107,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
                     row.Cells[1].Paragraphs.First().Append("ntb").FontSize(_fontSizeTable).Font(_fontFamily);
                 }
 
-                row.Cells[2].Paragraphs.First().Append(course.Name).FontSize(_fontSizeTable).Font(_fontFamily);
+                row.Cells[2].Paragraphs.First().Append(FormatCursusName(course.Code, course.Name)).FontSize(_fontSizeTable).Font(_fontFamily);
                 row.Cells[3].Paragraphs.First().Append(course.Days.ToString()).FontSize(_fontSizeTable).Font(_fontFamily);
                 row.Cells[4].Paragraphs.First().Append(course.Commentary).FontSize(_fontSizeTable).Font(_fontFamily);
                 row.Cells[5].Paragraphs.First().Append("€ " + course.Price.ToString("N", _culture)).FontSize(_fontSizeTable).Font(_fontFamily);
@@ -163,6 +163,11 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
             _logger.Debug(string.Format(_culture, "CreateNameValue with name {0}", name));
             var p = _document.InsertParagraph(name).FontSize(_fontSizeHeader).Font(_fontFamily);
             p.Append(value).FontSize(_fontSizeHeader).Font(_fontFamily);
+        }
+
+        private string FormatCursusName(string code, string name)
+        {
+            return !code.StartsWith("OLC") ? code + " - " + name : name;
         }
     }
 }
