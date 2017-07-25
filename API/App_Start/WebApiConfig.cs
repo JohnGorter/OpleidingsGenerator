@@ -12,7 +12,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api
         {
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
             // Web API configuration and services
-            config.EnableCors();
+            config.EnableCors();  
 
             // Web API routes
             config.MapHttpAttributeRoutes();
