@@ -55,6 +55,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Integration
                 XmlSerializer serializer = new XmlSerializer(typeof(Course));
                 Course course = (Course)serializer.Deserialize(stream);
 
+                // remove all Mechelen implementations
+                course.CourseImplementations.Where(cl => cl.Location.Equals("Mechelen")).ToList().ForEach(ci => course.CourseImplementations.Remove(ci));
+
                 _logger.Debug(string.Format(_culture, "return course in FindCourse with code {0} from url {1}", courseCode, uri));
                 return course;
             }

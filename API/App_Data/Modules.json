@@ -40,5 +40,12 @@
     "Days": 2,
     "Commentary": "Onderdeel van de social skills trainingen van het IT Top Traineeship",
     "Price": 538.0
+  },
+  {
+    "Id": 7,
+    "Name": "Terugkomdag",
+    "Days": 1,
+    "Commentary": "Onderdeel van de social skills trainingen van het IT Top Traineeship",
+    "Price": 297.0
   }
 ]

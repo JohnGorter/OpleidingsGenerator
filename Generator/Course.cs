@@ -4,6 +4,7 @@ using System.Linq;
 using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using log4net;
 using System.Globalization;
+using System.Diagnostics;
 
 namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
 {
@@ -54,7 +55,28 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
             };
         }
 
-        public void MarkAllImplementations(Status status)
+        public CourseImplementation getImplementationByWeekNumber(Int32 WeekNmber) {
+            foreach (var ci in this.CourseImplementations)
+                if (GetWeekNumberFromDateTime(ci.StartDay) == WeekNmber) return ci;
+            return null;
+        }
+
+        private Int32 GetWeekNumberFromDateTime(DateTime time) {
+                // Seriously cheat.  If its Monday, Tuesday or Wednesday, then it'll 
+                // be the same week# as whatever Thursday, Friday or Saturday are,
+                // and we always get those right
+                DayOfWeek day = CultureInfo.InvariantCulture.Calendar.GetDayOfWeek(time);
+                if (day >= DayOfWeek.Monday && day <= DayOfWeek.Wednesday)
+                {
+                    time = time.AddDays(3);
+                }
+
+                // Return the week of our adjusted day
+                return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+            }
+
+
+            public void MarkAllImplementations(Status status)
         {
             _logger.Debug(string.Format(_culture, "Mark all implementations from course {0} to {1}", Code, status));
             foreach (var implementation in this.CourseImplementations)
@@ -105,8 +127,11 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
             var courseWithouSelf = courses.Where(course => course.Code != this.Code);
             var intersectedCourseImplementations = plannedCourseImplementation.GetIntersectedCourseImplementations(courseWithouSelf);
 
+            System.Diagnostics.Debug.WriteLine("COURSE: " + this.Code);
             foreach (var implementation in intersectedCourseImplementations)
             {
+                var target = courses.FirstOrDefault(c => c.CourseImplementations.Contains(implementation));
+                Debug.WriteLine("invalidates course " + target?.Code + " of " + implementation.Location + ", " + implementation.StartDay);
                 implementation.Status = status;
             }
 
@@ -241,11 +266,15 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
         private void MarkFirstImplementationThatIntersectsCourseWithOneFreeImplementation(IEnumerable<Course> courses, IEnumerable<CourseImplementation> availableImplementations)
         {
             _logger.Debug(string.Format(_culture, "MarkFirstImplementationThatIntersectsCourseWithOneFreeImplementation in course {0}", Code));
-            foreach (var courseImplementation in availableImplementations)
+
+            //try to get the best possible option (the implementation with the least intersected courses)
+            var implementations = availableImplementations.Select(ci => new { ci = ci, intersects = ci.GetIntersectedImplementationsWithStatus(courses, Status.AVAILABLE).Count() }).OrderBy(ci => ci.intersects);
+
+            foreach (var courseImplementation in implementations)
             {
-                if(courseImplementation.IsPlannable(courses, this.Priority, this.Code))
+                if(courseImplementation.ci.IsPlannable(courses, this.Priority, this.Code))
                 {
-                    courseImplementation.Status = Status.PLANNED;
+                    courseImplementation.ci.Status = Status.PLANNED;
                     return;
                 }
             }

@@ -16,7 +16,7 @@
 		<paper-dialog id="dialog" class="paper-time-picker-dialog" modal on-iron-overlay-closed="_onClosed">
 			<paper-time-picker id="timePicker" time="[[_extractTime(date)]]" locale="[[locale]]"></paper-time-picker>
 			<div class="buttons">
-				<paper-button dialog-dismiss>[[cancelButton]]</paper-button>
+				<paper-button dialog-dismiss on-tap="_cancel">[[cancelButton]]</paper-button>
 				<paper-button dialog-confirm on-tap="_save">[[okButton]]</paper-button>
 			</div>
 		</paper-dialog>
@@ -72,6 +72,10 @@
 		},
 
 		// Private methods
+		_cancel: function() {
+			// Inform listeners that the user confirmed the selected date
+			this.fire('paper-date-picker-edit-dialog-cancel');
+		},
 		_save: function() {
 			this.date.setHours(this.$.timePicker.hour, this.$.timePicker.minute);
 

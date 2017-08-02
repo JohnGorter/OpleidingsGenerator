@@ -85,20 +85,20 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
             _managementPropertiesDataMapper = managementPropertiesDataMapper;
         }
 
-        public void PlanCoursesWithOlc(IEnumerable<Models.Course> coursesToPlan)
+        public void PlanCoursesWithOlc(IEnumerable<Models.Course> coursesToPlan, IEnumerable<Models.PinnedCourseImplementation> ImplementationConstraints)
         {
             _logger.Debug("Plan courses with OLC");
-            PlanCourses(coursesToPlan);
+            PlanCourses(coursesToPlan, ImplementationConstraints);
             ApplyOlc();
         }
 
-        public void PlanCoursesWithOlcInOldEducationPlan(IEnumerable<Models.Course> coursesToPlan, EducationPlan oldEducationplan)
+        public void PlanCoursesWithOlcInOldEducationPlan(IEnumerable<Models.Course> coursesToPlan, EducationPlan oldEducationplan, IEnumerable<Models.PinnedCourseImplementation> ImplementationConstraints)
         {
             var passedCourses = oldEducationplan.PlannedCourses.Where(course => course.Date <= DateTime.Today.Date);
             var courses = coursesToPlan.Where(course => !passedCourses.Select(passedCourse => passedCourse.Code).Contains(course.Code));
-            StartDate = DateTime.Now.Date;
+            StartDate = oldEducationplan?.InPaymentFrom ?? DateTime.Now.Date;
 
-            PlanCourses(courses);
+            PlanCourses(courses, ImplementationConstraints);
 
             foreach (var passedCourse in passedCourses)
             {
@@ -132,11 +132,29 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
 
         }
 
-        public void PlanCourses(IEnumerable<Models.Course> coursesToPlan)
+        public void PlanCourses(IEnumerable<Models.Course> coursesToPlan, IEnumerable<Models.PinnedCourseImplementation> implementationConstraints)
         {
             _logger.Debug("Plan courses");
-            var coursesToPlanOrdered = coursesToPlan.OrderBy(course => course.Priority);
+            var coursesToPlanOrdered = coursesToPlan.OrderBy(course => course.Priority).ThenByDescending(course => course.Days).ToList();
 
+            // set the constraints first
+            foreach (var impcon in implementationConstraints) {
+                var orig = coursesToPlan.FirstOrDefault(cc => cc.Code.Equals(impcon.CourseCode));
+                var course = (Generator.Course)orig;
+                course.MarkAllImplementations(Status.NOTPLANNED);
+                var imp = course.getImplementationByWeekNumber(impcon.CourseImplementationWeek);
+               // var imp = course.CourseImplementations.Where(ci => ci.StartDay..Equals(impcon.CourseImplementationWeek)).FirstOrDefault();
+                if (imp != null)
+                {
+                    imp.Status = Status.PLANNED;
+                    imp.Pinned = true;
+
+                    _coursePlanning.Courses.Add(course);
+                    // remove the pinned course from the planning... it has been planned!
+                    coursesToPlanOrdered.Remove(orig);
+                }
+            }
+            
             foreach (var courseToPlan in coursesToPlanOrdered)
             {
                 var course = (Generator.Course)courseToPlan;

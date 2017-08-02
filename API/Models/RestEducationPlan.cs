@@ -10,6 +10,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Models
     {
         public long EducationPlanId { get; set; }
         public Collection<RestEducationPlanCourse> Courses { get; set; }
+        public Collection<RestCourseImplementation> ImplementationConstraints { get; set; }
         public DateTime InPaymentFrom { get; set; }
         public DateTime? EmployableFrom { get; set; }
         public string NameEmployee { get; set; }
@@ -24,5 +25,11 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Models
         public string Code { get; set; }
         public string Commentary { get; set; }
         public int Priority { get; set; }
+    }
+
+    public class RestCourseImplementation
+    {
+        public string CourseCode { get; set; }
+        public Int32 WeekNo { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using InfoSupport.KC.OpleidingsplanGenerator.Models;
 using log4net;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -34,7 +35,10 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
                 throw new ArgumentNullException("educationPlanData");
             }
 
-            List<EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(_planner.PlannedCourses.ToList(), _planner.NotPlannedCourses.ToList())
+            var plannedCourses = _planner.PlannedCourses.ToList();
+           // var otherCourses = _planner.AllCourses.Where(c => plannedCourses.FirstOrDefault(pc => pc.Code.Equals(c.Code)) == null).ToList();
+            var otherCourses = _planner.AllCourses.ToList();
+            List <EducationPlanCourse> educationPlannedCourses = GetPlannedEducationPlanCourses(plannedCourses, otherCourses).ToList()
                 .OrderBy(course => course.Date).ToList();
             List<EducationPlanCourse> educationNotPlannedCourses = GetNotPlannedEducationPlanCourses(_planner.NotPlannedCourses.ToList())
                 .OrderBy(course => course.Date).ToList();
@@ -119,8 +123,11 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
                 var discountPerCourse = discount;
 
                 DateTime? startDay = course.PlannedImplementation?.StartDay;
+                Boolean? PinnedCourse = course.PlannedImplementation?.Pinned;
+                if (PinnedCourse.HasValue && PinnedCourse.Value == true)
+                    Debug.WriteLine("Pin");
 
-                List<Course> unplannableIntersectedCourses = unplannableCoursesFromPlanner.FindAll(x => x.IntersectsWithPlanned(course)).ToList();
+                List<Course> unplannableIntersectedCourses = unplannableCoursesFromPlanner.FindAll(x => x.IntersectsWithPlanned(course) && x.Code != course.Code).ToList();
                 List<EducationPlanCourse> intersectedEducationPlanCourses = GetNotPlannedEducationPlanCourses(unplannableIntersectedCourses);
 
                 educationPlanCourses.Add(new EducationPlanCourse
@@ -130,6 +137,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
                     Days = course.Duration.Value,
                     Name = course.Name,
                     Price = course.Price,
+                    Pinned = PinnedCourse.HasValue ? PinnedCourse.Value : false,
                     StaffDiscountInPercentage = discountPerCourse,
                     Commentary = course.Commentary,
                     IntersectedCourses = intersectedEducationPlanCourses

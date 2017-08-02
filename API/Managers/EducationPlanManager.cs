@@ -11,6 +11,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Collections.ObjectModel;
+using System.Web.Script.Serialization;
 
 namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
 {
@@ -63,6 +64,20 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
             _moduleDataMapper = moduleDataMapper;
         }
 
+        private static List<OpleidingsplanGenerator.Models.PinnedCourseImplementation> ConvertImplementationConstraints(Collection<RestCourseImplementation> restImplementationConstraints) {
+            _logger.Debug("ConvertImplementationConstraints");
+            List<OpleidingsplanGenerator.Models.PinnedCourseImplementation> constraints = new List<OpleidingsplanGenerator.Models.PinnedCourseImplementation>();
+
+            foreach (var restconstraint in restImplementationConstraints)
+            {
+                constraints.Add(new OpleidingsplanGenerator.Models.PinnedCourseImplementation() {
+                    CourseCode = restconstraint.CourseCode,
+                    CourseImplementationWeek = restconstraint.WeekNo}
+                ); 
+            }
+
+            return constraints;
+        }
         private static List<OpleidingsplanGenerator.Models.Course> ConvertCourses(IEnumerable<Integration.Course> courses, CourseProfile profile, Collection<RestEducationPlanCourse> restCourses)
         {
             _logger.Debug("ConvertCourses");
@@ -106,6 +121,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
 
         public EducationPlan GenerateEducationPlan(RestEducationPlan educationPlan, EducationPlan oldEducationplan)
         {
+            System.Diagnostics.Debug.WriteLine("parameters " + new JavaScriptSerializer().Serialize(educationPlan) + ", old: " + new JavaScriptSerializer().Serialize(educationPlan));
             if (educationPlan == null)
             {
                 _logger.Error("ArgumentNullException: educationPlan");
@@ -134,20 +150,27 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Api.Managers
             IEnumerable<Integration.Course> courses = _courseService.FindCourses(educationPlanCourses.Select(course => course.Code));
             List<OpleidingsplanGenerator.Models.Course> coursesToPlan = ConvertCourses(courses, profile, educationPlan.Courses);
 
+            List<OpleidingsplanGenerator.Models.PinnedCourseImplementation> implementationConstraints = new List<OpleidingsplanGenerator.Models.PinnedCourseImplementation>(); 
+            if (educationPlan.ImplementationConstraints != null)
+                implementationConstraints = ConvertImplementationConstraints(educationPlan.ImplementationConstraints);
+
             if(oldEducationplan == null)
             {
-                _planner.PlanCoursesWithOlc(coursesToPlan);
+                _planner.PlanCoursesWithOlc(coursesToPlan, implementationConstraints);
             }
             else
             {
-                _planner.PlanCoursesWithOlcInOldEducationPlan(coursesToPlan, oldEducationplan);
+                _planner.PlanCoursesWithOlcInOldEducationPlan(coursesToPlan, oldEducationplan, implementationConstraints);
             }
 
             _planner.AddModules(_moduleDataMapper.FindAll());
 
             OverrideRestCourse(_planner, educationPlan.Courses);
 
-            return _educationPlanOutputter.GenerateEducationPlan(educationplanData);
+            var output = _educationPlanOutputter.GenerateEducationPlan(educationplanData);
+            System.Diagnostics.Debug.WriteLine("parameters " + new JavaScriptSerializer().Serialize(output));
+
+            return output;
         }
 
         private void OverrideRestCourse(IPlanner planner, Collection<RestEducationPlanCourse> restCourses)

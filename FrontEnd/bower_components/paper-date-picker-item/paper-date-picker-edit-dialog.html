@@ -15,7 +15,7 @@
 		<paper-dialog id="dialog" class="paper-date-picker-dialog" modal on-iron-overlay-closed="_onClosed">
 			<paper-date-picker id="datePicker" date="{{date}}" force-narrow locale="[[locale]]"></paper-date-picker>
 			<div class="buttons">
-				<paper-button dialog-dismiss>[[cancelButton]]</paper-button>
+				<paper-button dialog-dismiss on-tap="_cancel">[[cancelButton]]</paper-button>
 				<paper-button dialog-confirm on-tap="_save">[[okButton]]</paper-button>
 			</div>
 		</paper-dialog>
@@ -69,7 +69,11 @@
 				this.$.dialog.open();
 			}.bind(this), 1);
 		},
-
+		// Private methods
+		_cancel: function() {
+			// Inform listeners that the user confirmed the selected date
+			this.fire('paper-date-picker-edit-dialog-cancel');
+		},
 		// Private methods
 		_save: function() {
 			// Inform listeners that the user confirmed the selected date

@@ -60,7 +60,7 @@ Custom property | Description | Default
 
         <h1>[[subtitle]] Opleidingsplan</h1>
         <template is="dom-if" if="[[edit]]">
-            <training-education-plan-data-input education-plan="{{educationPlan}}"></training-education-plan-data-input>
+            <training-education-plan-data-input management-properties="{{managementProperties}}" education-plan="{{educationPlan}}"></training-education-plan-data-input>
         </template>
 
         <template is="dom-if" if="[[!edit]]">

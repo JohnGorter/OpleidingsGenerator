@@ -17,6 +17,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
         public DateTime StartDay { get { return Days.FirstOrDefault(); }}
         public IEnumerable<DateTime> Days { get; set; }
         public Status Status { get; set; }
+        public Boolean Pinned { get; set; }
 
         public static explicit operator CourseImplementation(Models.CourseImplementation courseImplementation)
         {
@@ -65,6 +66,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
 
         public bool IsPlannable(IEnumerable<Course> courses, int priority, string code)
         {
+            // dont do anything when this status already is unplannable...
+            if (this.Status == Status.UNPLANNABLE) return false;
+
             _logger.Debug("IsPlannable");
 
             if (!this.Intersects(courses))
@@ -84,6 +88,8 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
                 _logger.Debug(string.Format(_culture, "Course with code {0} and startdate {1} intersects with planned implementation", code, StartDay.ToString("dd-MM-yyyy")));
                 return false;
             }
+
+            return true;
 
             List<string> scannedCourses = new List<string>();
 
@@ -148,7 +154,7 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
                 .Where(course => course.CourseImplementations.Any(courseImplementation => courseImplementation.Days.Any(day => Days.Contains(day))));
         }
 
-        private IEnumerable<CourseImplementation> GetIntersectedImplementationsWithStatus(IEnumerable<Course> courses, Status status)
+        public IEnumerable<CourseImplementation> GetIntersectedImplementationsWithStatus(IEnumerable<Course> courses, Status status)
         {
             _logger.Debug(string.Format(_culture, "GetIntersectedImplementationsWithStatus {0}", status));
             return GetIntersectedCourseImplementations(courses).Where(courseImplementation => courseImplementation.Status == status);

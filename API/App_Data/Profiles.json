@@ -6,44 +6,32 @@
       {
         "Id": 1,
         "Code": "WINDEV",
-        "Priority": 3,
-        "ProfileId": 0
-      },
-      {
-        "Id": 2,
-        "Code": "NETFOUNB",
-        "Priority": 2,
-        "ProfileId": 0
+        "Priority": 8,
+        "ProfileId": 1
       },
       {
         "Id": 3,
         "Code": "ADCSB",
-        "Priority": 2,
-        "ProfileId": 0
-      },
-      {
-        "Id": 4,
-        "Code": "JSDEVLANG",
-        "Priority": 2,
-        "ProfileId": 0
+        "Priority": 4,
+        "ProfileId": 1
       },
       {
         "Id": 5,
         "Code": "HTMLCSSADV",
-        "Priority": 2,
-        "ProfileId": 0
+        "Priority": 6,
+        "ProfileId": 1
       },
       {
         "Id": 6,
         "Code": "HTMLCSSCOR",
-        "Priority": 2,
-        "ProfileId": 0
+        "Priority": 6,
+        "ProfileId": 1
       },
       {
         "Id": 7,
         "Code": "MVC",
-        "Priority": 2,
-        "ProfileId": 0
+        "Priority": 6,
+        "ProfileId": 1
       },
       {
         "Id": 8,
@@ -66,127 +54,133 @@
       {
         "Id": 11,
         "Code": "SECDEV",
-        "Priority": 3,
-        "ProfileId": 0
+        "Priority": 8,
+        "ProfileId": 1
       },
       {
         "Id": 12,
-        "Code": "XSD",
-        "Priority": 3,
-        "ProfileId": 0
+        "Code": "XSDE",
+        "Priority": 8,
+        "ProfileId": 1
       },
       {
         "Id": 13,
         "Code": "ALMUVS",
-        "Priority": 3,
-        "ProfileId": 0
-      },
-      {
-        "Id": 14,
-        "Code": "MS20461",
-        "Priority": 3,
-        "ProfileId": 0
-      },
-      {
-        "Id": 15,
-        "Code": "MS20464",
-        "Priority": 2,
-        "ProfileId": 0
+        "Priority": 8,
+        "ProfileId": 1
       },
       {
         "Id": 16,
         "Code": "OOUML",
-        "Priority": 1,
-        "ProfileId": 0
+        "Priority": 7,
+        "ProfileId": 1
       },
       {
         "Id": 17,
         "Code": "WCFDEV",
-        "Priority": 2,
-        "ProfileId": 0
+        "Priority": 6,
+        "ProfileId": 1
       },
       {
         "Id": 18,
         "Code": "CONDEVES",
-        "Priority": 4,
-        "ProfileId": 0
+        "Priority": 8,
+        "ProfileId": 1
       },
       {
         "Id": 19,
         "Code": "DDAS",
-        "Priority": 3,
-        "ProfileId": 0
+        "Priority": 6,
+        "ProfileId": 1
       },
       {
         "Id": 20,
-        "Code": "ANGULARJS",
-        "Priority": 4,
-        "ProfileId": 0
+        "Code": "ANGULAR",
+        "Priority": 8,
+        "ProfileId": 1
       },
       {
         "Id": 21,
         "Code": "POSHDSC",
-        "Priority": 4,
-        "ProfileId": 0
-      },
-      {
-        "Id": 22,
-        "Code": "WFDEV",
-        "Priority": 4,
-        "ProfileId": 0
-      },
-      {
-        "Id": 23,
-        "Code": "XSLT",
-        "Priority": 4,
-        "ProfileId": 0
-      },
-      {
-        "Id": 24,
-        "Code": "MS20488",
-        "Priority": 4,
-        "ProfileId": 0
-      },
-      {
-        "Id": 25,
-        "Code": "MS20489",
-        "Priority": 4,
-        "ProfileId": 0
+        "Priority": 8,
+        "ProfileId": 1
       },
       {
         "Id": 26,
         "Code": "DPAT",
-        "Priority": 4,
-        "ProfileId": 0
-      },
-      {
-        "Id": 27,
-        "Code": "QLIMM",
-        "Priority": 4,
-        "ProfileId": 0
-      },
-      {
-        "Id": 28,
-        "Code": "UTVS",
-        "Priority": 4,
-        "ProfileId": 0
-      },
-      {
-        "Id": 29,
-        "Code": "FITSEL",
-        "Priority": 4,
-        "ProfileId": 0
+        "Priority": 8,
+        "ProfileId": 1
       },
       {
         "Id": 30,
         "Code": "INBI",
-        "Priority": 4,
-        "ProfileId": 0
+        "Priority": 8,
+        "ProfileId": 1
       },
       {
         "Id": 31,
         "Code": "MS20532",
+        "Priority": 8,
+        "ProfileId": 1
+      },
+      {
+        "Id": 90,
+        "Code": "MS20762",
+        "Priority": 3,
+        "ProfileId": 1
+      },
+      {
+        "Id": 91,
+        "Code": "MS20761",
+        "Priority": 8,
+        "ProfileId": 1
+      },
+      {
+        "Id": 92,
+        "Code": "JSDEV",
+        "Priority": 6,
+        "ProfileId": 1
+      },
+      {
+        "Id": 93,
+        "Code": "JSDEV1516",
+        "Priority": 6,
+        "ProfileId": 1
+      },
+      {
+        "Id": 94,
+        "Code": "XAMFUN",
+        "Priority": 8,
+        "ProfileId": 1
+      },
+      {
+        "Id": 95,
+        "Code": "XAMADV",
+        "Priority": 8,
+        "ProfileId": 1
+      },
+      {
+        "Id": 96,
+        "Code": "ADVUT",
+        "Priority": 8,
+        "ProfileId": 1
+      },
+      {
+        "Id": 99,
+        "Code": "LINQ",
         "Priority": 4,
+        "ProfileId": 1
+      },
+      {
+        "Id": 100,
+        "Code": "THREADS",
+        "Priority": 4,
+        "ProfileId": 1
+      },
+      {
+        "Id": 101,
+        "Code": "CRYPTO",
+        "Priority": 6,
         "ProfileId": 1
       }
     ]
@@ -200,12 +194,6 @@
         "Code": "CNETIN",
         "Priority": 2,
         "ProfileId": 2
-      },
-      {
-        "Id": 34,
-        "Code": "NETFOUNB",
-        "Priority": 2,
-        "ProfileId": 0
       },
       {
         "Id": 35,
@@ -269,9 +257,9 @@
       },
       {
         "Id": 45,
-        "Code": "XSD",
+        "Code": "XSDE",
         "Priority": 3,
-        "ProfileId": 0
+        "ProfileId": 2
       },
       {
         "Id": 46,
@@ -311,9 +299,9 @@
       },
       {
         "Id": 52,
-        "Code": "ANGULARJS",
+        "Code": "ANGULAR",
         "Priority": 4,
-        "ProfileId": 0
+        "ProfileId": 2
       },
       {
         "Id": 53,
@@ -346,12 +334,6 @@
         "ProfileId": 0
       },
       {
-        "Id": 58,
-        "Code": "XSLT",
-        "Priority": 4,
-        "ProfileId": 0
-      },
-      {
         "Id": 59,
         "Code": "ANDROIDDEV",
         "Priority": 4,
@@ -374,6 +356,24 @@
         "Code": "FITSEL",
         "Priority": 4,
         "ProfileId": 2
+      },
+      {
+        "Id": 102,
+        "Code": "LINQ",
+        "Priority": 2,
+        "ProfileId": 2
+      },
+      {
+        "Id": 103,
+        "Code": "THREADS",
+        "Priority": 2,
+        "ProfileId": 2
+      },
+      {
+        "Id": 104,
+        "Code": "CRYPTO",
+        "Priority": 4,
+        "ProfileId": 2
       }
     ]
   },
@@ -384,13 +384,13 @@
       {
         "Id": 63,
         "Code": "JAVA7UP",
-        "Priority": 1,
-        "ProfileId": 0
+        "Priority": 4,
+        "ProfileId": 3
       },
       {
         "Id": 64,
         "Code": "J2SA",
-        "Priority": 1,
+        "Priority": 2,
         "ProfileId": 3
       },
       {
@@ -400,34 +400,28 @@
         "ProfileId": 0
       },
       {
-        "Id": 66,
-        "Code": "JSDEVLANG",
-        "Priority": 1,
-        "ProfileId": 0
-      },
-      {
         "Id": 67,
         "Code": "HTMLCSSCOR",
-        "Priority": 1,
-        "ProfileId": 0
+        "Priority": 3,
+        "ProfileId": 3
       },
       {
         "Id": 68,
         "Code": "HTMLCSSADV",
-        "Priority": 1,
-        "ProfileId": 0
+        "Priority": 2,
+        "ProfileId": 3
       },
       {
         "Id": 69,
         "Code": "JAVAWS",
-        "Priority": 1,
-        "ProfileId": 0
+        "Priority": 3,
+        "ProfileId": 3
       },
       {
         "Id": 70,
         "Code": "JPA",
-        "Priority": 4,
-        "ProfileId": 0
+        "Priority": 2,
+        "ProfileId": 3
       },
       {
         "Id": 71,
@@ -443,9 +437,9 @@
       },
       {
         "Id": 73,
-        "Code": "MS20464",
-        "Priority": 1,
-        "ProfileId": 0
+        "Code": "MS20762",
+        "Priority": 3,
+        "ProfileId": 3
       },
       {
         "Id": 74,
@@ -487,13 +481,13 @@
         "Id": 80,
         "Code": "JAVA8",
         "Priority": 2,
-        "ProfileId": 0
+        "ProfileId": 3
       },
       {
         "Id": 81,
         "Code": "CONDEVES",
-        "Priority": 3,
-        "ProfileId": 0
+        "Priority": 4,
+        "ProfileId": 3
       },
       {
         "Id": 82,
@@ -503,19 +497,13 @@
       },
       {
         "Id": 83,
-        "Code": "ANGULARJS",
+        "Code": "ANGULAR",
         "Priority": 3,
-        "ProfileId": 0
+        "ProfileId": 3
       },
       {
         "Id": 84,
         "Code": "DPAT",
-        "Priority": 4,
-        "ProfileId": 0
-      },
-      {
-        "Id": 85,
-        "Code": "FITSEL",
         "Priority": 4,
         "ProfileId": 0
       },
@@ -526,22 +514,178 @@
         "ProfileId": 0
       },
       {
-        "Id": 87,
-        "Code": "XSD",
-        "Priority": 3,
-        "ProfileId": 0
-      },
-      {
-        "Id": 88,
-        "Code": "XSLT",
-        "Priority": 3,
-        "ProfileId": 0
-      },
-      {
         "Id": 89,
         "Code": "WINDEV",
         "Priority": 4,
         "ProfileId": 0
+      },
+      {
+        "Id": 97,
+        "Code": "JSDEV",
+        "Priority": 2,
+        "ProfileId": 3
+      },
+      {
+        "Id": 98,
+        "Code": "JSDEV1516",
+        "Priority": 2,
+        "ProfileId": 3
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Name": "Infrastructuur specialist",
+    "Courses": [
+      {
+        "Id": 106,
+        "Code": "MS20740",
+        "Priority": 1,
+        "ProfileId": 4
+      },
+      {
+        "Id": 107,
+        "Code": "MS20741",
+        "Priority": 1,
+        "ProfileId": 4
+      },
+      {
+        "Id": 108,
+        "Code": "MS20742",
+        "Priority": 1,
+        "ProfileId": 4
+      },
+      {
+        "Id": 109,
+        "Code": "MS20745",
+        "Priority": 2,
+        "ProfileId": 4
+      },
+      {
+        "Id": 110,
+        "Code": "MS20533",
+        "Priority": 2,
+        "ProfileId": 4
+      },
+      {
+        "Id": 111,
+        "Code": "MS10961",
+        "Priority": 3,
+        "ProfileId": 4
+      },
+      {
+        "Id": 112,
+        "Code": "MS20345-1",
+        "Priority": 4,
+        "ProfileId": 4
+      },
+      {
+        "Id": 113,
+        "Code": "MS20347",
+        "Priority": 3,
+        "ProfileId": 4
+      },
+      {
+        "Id": 114,
+        "Code": "MS10964",
+        "Priority": 2,
+        "ProfileId": 4
+      },
+      {
+        "Id": 115,
+        "Code": "MS20339-1",
+        "Priority": 4,
+        "ProfileId": 4
+      },
+      {
+        "Id": 116,
+        "Code": "IPV6",
+        "Priority": 3,
+        "ProfileId": 4
+      },
+      {
+        "Id": 130,
+        "Code": "MS20764",
+        "Priority": 3,
+        "ProfileId": 4
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Name": "Ex-Minor traject",
+    "Courses": [
+      {
+        "Id": 117,
+        "Code": "WINDEV",
+        "Priority": 2,
+        "ProfileId": 5
+      },
+      {
+        "Id": 118,
+        "Code": "POSHDSC",
+        "Priority": 2,
+        "ProfileId": 5
+      },
+      {
+        "Id": 119,
+        "Code": "SECDEV",
+        "Priority": 2,
+        "ProfileId": 5
+      },
+      {
+        "Id": 120,
+        "Code": "TSDEV",
+        "Priority": 2,
+        "ProfileId": 5
+      },
+      {
+        "Id": 121,
+        "Code": "XSDE",
+        "Priority": 2,
+        "ProfileId": 5
+      },
+      {
+        "Id": 122,
+        "Code": "ANGULAR",
+        "Priority": 1,
+        "ProfileId": 5
+      },
+      {
+        "Id": 123,
+        "Code": "HTMLCSSADV",
+        "Priority": 1,
+        "ProfileId": 5
+      },
+      {
+        "Id": 125,
+        "Code": "ADVUT",
+        "Priority": 3,
+        "ProfileId": 5
+      },
+      {
+        "Id": 126,
+        "Code": "MS20532",
+        "Priority": 3,
+        "ProfileId": 5
+      },
+      {
+        "Id": 127,
+        "Code": "INBI",
+        "Priority": 3,
+        "ProfileId": 5
+      },
+      {
+        "Id": 128,
+        "Code": "XAMADV",
+        "Priority": 4,
+        "ProfileId": 5
+      },
+      {
+        "Id": 129,
+        "Code": "XAMFUN",
+        "Priority": 4,
+        "ProfileId": 5
       }
     ]
   }

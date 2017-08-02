@@ -2,6 +2,7 @@
 <link rel="import" href="../../bower_components/iron-elements/iron-elements.html">
 
 <link rel="import" href="../../bower_components/paper-date-picker-item/paper-date-picker-item.html">
+<link rel="import" href="../../bower_components/paper-date-picker-item/paper-date-picker-edit-dialog.html">
 <script src="../../bower_components/moment/min/locales.js"></script>
 
 <dom-module id="training-education-plan-data-input">
@@ -20,8 +21,8 @@
             }
 
             paper-button {
-                background-color: #c7c5c5;
-                color: white;
+               /* background-color: #c7c5c5;
+                color: white; */
             }
             #date-employable-from {
                 padding: 10px 16px; 
@@ -41,6 +42,8 @@
         <paper-date-picker-item on-tap="_deleteEmployableDate" icon="icons:today" date="{{educationPlan.EmployableFrom}}"  placeholder="Datum inzetbaar" date-format="DD-MM-YYYY" locale="nl"></paper-date-picker-item>
 
         Blokkeer datum
+        <paper-button on-tap="_showDatePicker">Selecteer datum</paper-button>
+        <paper-date-picker-edit-dialog id="datepicker" date="{{blockedDate}}" on-paper-date-picker-edit-dialog-cancel="_cancel"></paper-date-picker-edit-dialog>
         <paper-date-picker-item icon="icons:today" date="{{blockedDate}}" date-format="DD-MM-YYYY" locale="nl" placeholder="Datum toevoegen"></paper-date-picker-item>
        
        <template is="dom-if" if="[[educationPlan.BlockedDates.length]]">
@@ -65,10 +68,23 @@
         Polymer({
             is: 'training-education-plan-data-input',
             properties: {
+                previousDates:{
+                    type:Array,
+                    value:[]
+                },
                 educationPlan: {
                     type: Object,
                     notify: true,
                 },
+            },
+            _showDatePicker(){
+                this.previousDates = JSON.parse(JSON.stringify(this.educationPlan.BlockedDates));
+                this.$.datepicker.open();
+            },
+            _changeEmploymentFrom(){
+                var result = new Date(this.educationPlan.InPaymentFrom);
+                result.setDate(result.getDate() + (this.managementProperties && this.managementProperties.PeriodEducationPlanInDays || 10));
+                this.set('educationPlan.EmployableFrom',result);
             },
             _openInPaymentFromDialog: function() {
                  this.$.datepickerInPaymentFrom.open();
@@ -80,11 +96,11 @@
                 this.set('educationPlan.BlockedDates', []);
                 this.set('educationPlan.InPaymentFrom', new Date());
             },
-            observers: ['_addBlockedDate(blockedDate)'],
+            observers: ['_addBlockedDate(blockedDate)','_changeEmploymentFrom(educationPlan.InPaymentFrom, managementProperties.*)'],
             _addBlockedDate: function(blockedDate) {
                 if(this.educationPlan.BlockedDates !== undefined && blockedDate) {
                     this.push('educationPlan.BlockedDates', new Date(blockedDate));
-                    this.set("blockedDate", "");
+                   // this.set("blockedDate", new Date(blockedDate));
                 }              
             },
             _formatDate: function(dateAsString){
@@ -93,6 +109,9 @@
                 }
                 var date = new Date(dateAsString);
                 return date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+            },
+            _cancel(){
+                this.set('educationPlan.BlockedDates',this.previousDates);
             },
             _deleteFromBlockedDates: function(event) {
 

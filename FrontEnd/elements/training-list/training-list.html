@@ -25,7 +25,7 @@ Example:
                 <template is="dom-if" if="[[!showOnlySelected]]">
                     <template is="dom-repeat" items="[[response]]">
                         <div class="training-item" data-training-code$="[[item.Code]]" data-training-name$="[[item.Name]]">
-                            <paper-checkbox>[[item.Name]]</paper-checkbox>
+                            <paper-checkbox>[[item.Code]] - [[item.Name]]</paper-checkbox>
                         </div>
                     </template>
                 </template>
@@ -106,12 +106,12 @@ Example:
                 },
                 observers: ['_hideNotSelectedCourses(profile)'],
                 _hideNotSelectedCourses: function(profile) {
-                    if(profile != null) {
-                        this.showOnlySelected = true;
-                    }
-                    else {
+                   ////// if(profile != null) {
+                   //     this.showOnlySelected = true;
+                   // }
+                   // else {
                         this.showOnlySelected = false;
-                    }
+                   // }
                 },
                 _trainingSelected: function (event) {
                     event.detail.item.children[0].checked = true;

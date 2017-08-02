@@ -1,0 +1,118 @@
+﻿<dom-module id="training-pin">
+    <template>
+        <style>
+            paper-dropdown-menu.custom {
+                 --paper-input-container-focus-color: transparent;
+
+                --paper-font-caption: {
+                    display:none;
+                }
+                --paper-input-container-label: {
+                color: #757575;
+                font-size: 14px;
+                text-align: center;
+                  
+                };
+                --paper-input-container-input: {
+                 color: #757575;
+                font-size: 14px;
+                text-align: left;
+                width:600px; 
+                height:14px;
+                }
+
+                
+
+                /* no underline */
+                --paper-input-container-underline: {
+                display: none;
+                };
+            }
+           
+        </style>
+       
+<div>
+            <!--<select id="select" selectedIndex="{{_getIndex(sc)}}">
+                <template is="dom-repeat" items="[[courses]]">
+                    <option selected$="{{_isSelected(item.Code)}}" value$="[[item.Code]]">[[_formatCursusName(item.Code, item.Name)]] </option>
+                </template>
+            <select>-->
+                <paper-dropdown-menu class="custom">
+            <paper-listbox id="lb" class="dropdown-content" attr-for-selected="data-value">
+                <template is="dom-repeat" items="[[courses]]">
+                    <paper-item class$="{{_getClass(item, sc)}}" on-tap="_pin" data-value="[[index]]">[[_formatCursusName(item.Code, item.Name)]] </paper-item>
+                </template>
+            </paper-listbox>
+            </paper-dropdown-menu>
+</div>
+    </template>
+    <script>
+        Polymer({
+            is: 'training-pin',
+            observers:['_logChange(selectedCourse)','_setIndex(sc.Code, courses)'],
+            properties:{
+                courses:{
+                    type:Array,
+                    value:[]
+                },
+                sc:{
+                    type:Object,
+                    value:{}
+                }
+            },
+            _getClass(item, sc){
+                return item.Code == this.sc.Code ? "default": "alternative";
+            },
+            _setIndex(){
+                setTimeout(()=>{
+                    var i = this._getIndex();
+                    this.$.lb.selected = -1;
+                    this.$.lb.selected = i;
+                }, 10);
+            },
+            _getIndex(){
+                var code = (this.sc.pin && this.sc.pin.Code) || this.sc.Code;
+                var index = -1;
+                for(var i = 0 ; i < this.courses.length; i++)
+                    if (this.courses[i].Code == code) index = i;
+
+                return index;
+            },
+            ready(){
+               
+            },
+            _getSelected(){
+                return this.courses.indexOf(this.sc.Code);
+            },
+            _isSelected(code){
+                return this.sc.Code == code;
+            },
+            _logChange(val){
+                console.log('change for ', this.selectedCourse);
+            },
+            _toJSON(){
+                return JSON.stringify(this.courses);
+            },
+            _getSelect(){
+                var course =  this.courses.find((item) => item.Code == this.selectedCourse);
+                console.log('found ', this.selectedCourse, course, this.courses);
+                return course;
+            },
+            _setSelected(){
+                this.$.dd.selectedItem = event.detail.item;
+            },
+            _open() {
+                this.$.dd.opened = true;
+            },
+            showSelection(){
+                console.log(this.$.select.selectedIndex, this.$.select);
+            },
+            _pin() {
+                this.fire('pin', { code:this.sc.Code, item: event.model.item });
+            },
+            _formatCursusName: function (code, name) {
+                return !code.startsWith("OLC") ? code + " - " + name : name;
+            },
+        })
+    </script>
+</dom-module>

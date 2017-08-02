@@ -33,6 +33,8 @@
                 padding: 5px;
             }
 
+            td.alternative { background-color:pink;opacity: 1}
+            
             .commentaryIcon {
                 cursor: pointer;
             }
@@ -50,6 +52,7 @@
                     <th>Datum</th>
                     <th>Cursusnaam</th>
                     <th>Dagen</th>
+                    <th>Pinned</th>
                     <template is="dom-if" if="[[edit]]">
                         <th colspan="2">Opmerking</th>
                     </template>
@@ -61,7 +64,7 @@
                 </tr>
             </thead>
             <tbody>
-                <template is="dom-repeat" as="course" items="[[courses]]">
+                <template id="repeater" is="dom-repeat" as="course" items="[[courses]]">
                     <tr>
                         <template is="dom-if" if="[[_viewTooltip(planned, course)]]">
                             <td><abbr title="Overlappende cursussen: [[_formatIntersectedCourses(course.IntersectedCourses)]]">[[_formatWeek(course.Week)]]</abbr></td>
@@ -73,14 +76,28 @@
                         <td>[[_formatDate(course.Date)]]</td>
 
                         <template is="dom-if" if="[[planned]]">
-                            <td>[[_formatCursusName(course.Code, course.Name)]]</td>
+                            <td class$="{{_getPinned(course.*)}}">
+                                <template is="dom-if" if="[[_hasIntersects(course.IntersectedCourses)]]">
+                                    <training-pin sc="[[course]]" on-pin="_pinCourse" courses="[[_concat(course.IntersectedCourses, course)]]" on-pin="_pinCourse"></training-pin>
+                                </template>
+                                <template is="dom-if" if="[[!_hasIntersects(course.IntersectedCourses)]]">
+                                    [[_formatCursusName(course.Code, course.Name)]]
+                                </template>
+                            </td>
                         </template>
                         <template is="dom-if" if="[[!planned]]">
                             <td><span on-tap="_planNotPlannedCourse" class="not-planned-course" data-course-code$="[[course.Code]]">[[_formatCursusName(course.Code, course.Name)]]</span></td>
                         </template>
 
                         <td>[[course.Days]]</td>
-                        <td>[[course.Commentary]]</td>
+                       
+                       <td>
+                        <template is="dom-if" if="[[_isPinned(course.*)]]">
+                           <paper-icon-button on-tap="_unpinCourse" class="commentaryIcon" icon="icons:delete"></paper-icon-button>
+                        </template>
+                        </td>
+
+                         <td>[[course.Commentary]]</td>
                         <template is="dom-if" if="[[edit]]">
                             <td>
                                 <iron-icon data-course-code$="[[course.Code]]" data-commentary$="[[course.Commentary]]" on-tap="_addCommentary" class="commentaryIcon" title="[[_getCommentaryButtonText(course.Commentary)]]"
@@ -124,6 +141,44 @@
                     type: Boolean,
                     value: false,
                 }
+            },
+            _concat(arr, course){
+                // add the course to the array...
+                var result = [];
+                result.push({Code:course.Code, Name:course.Name, Date:course.Date});
+                for(var c in arr){
+                    result.push({Code:arr[c].Code, Name:arr[c].Name, Week:course.Week});
+                }
+                return result;
+            },
+            _getPinned(course){
+                return (course.base.pin && course.base.pin.Code != course.base.Code) || course.base.Pinned ? "alternative":"";
+            },
+             _isPinned(course){
+                return (course.base.pin && course.base.pin.Code != course.base.Code) || course.base.Pinned;
+            },
+            _unpinCourse(){
+                console.log('unpinning', this.$.repeater.modelForElement(event.target));
+                var course = this.$.repeater.modelForElement(event.target).course;
+                if (course){
+                    course.Pinned = false;
+                    this.fire('course-unpinned', { course:course});
+
+                }
+                
+            },
+            _pinCourse(){
+                console.log('pinning', event.detail.item);
+                for (var i = 0; i < this.courses.length; i++){
+                    if (this.courses[i].Code == event.detail.code){
+                        this.courses[i].pin = event.detail.item;
+                        this.notifyPath('courses.' + i + '.pin');
+                        this.fire('course-pinned', { course:this.courses[i]});
+                        break;
+                    }
+                }
+                
+               // this.courses = JSON.parse(JSON.stringify(this.courses));
             },
             _formatDate: function (dateAsString) {
                 if (dateAsString == null) {
@@ -174,6 +229,9 @@
                 }
 
                 return clone;
+            },
+            _hasIntersects(intersects) {
+                return intersects && intersects.length > 0;
             },
             addCommentary: function (courseCode, commentary) {
                 var courses = this.courses;

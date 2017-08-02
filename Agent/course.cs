@@ -28,4 +28,10 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Integration
         [System.Xml.Serialization.XmlArrayItem("DateTime", IsNullable = false)]
         public Collection<DateTime> Days { get; set; }
     }
+
+    public class CourseImplementationConstraint
+    {
+        public Course Course { get; set; }
+        public CourseImplementation CourseImplementation { get; set; }
+    }
 }

@@ -77,14 +77,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         </style>
 
-        <app-route route="{{route}}" pattern="/:id" tail="{{subroute}}"></app-route>
-        <app-route route="{{subroute}}" pattern="/:id" data="{{routeData}}"></app-route>
+        <app-route active="{{parentrouteactive}}" route="{{route}}" pattern="/:id" tail="{{subroute}}"></app-route>
+        <app-route active="{{subrouteactive}}" route="{{subroute}}" pattern="/:id" data="{{routeData}}"></app-route>
 
-        <training-education-plan-ajax id="ajaxGETEducationPlan" education-plan-id="[[routeData.id]]" education-plan="{{educationPlan}}"
+
+
+        <training-education-plan-ajax id="ajaxGETEducationPlan" education-plan-id="[[routeData.id]]" education-plan="{{educationPlan}}" constraints="{{constraints}}"
                                       on-response="_existingEducationPlanResponse"></training-education-plan-ajax>
 
         <training-education-plan-profile-list-ajax auto profiles="{{profiles}}"></training-education-plan-profile-list-ajax>
 
+       
         <iron-ajax id="ajaxPOSTGenerateEducationPlan" method="POST" handle-as="json"
                    last-response="{{educationPlan}}" debounce-duration="500" content-type="application/json" on-response="_handleResponsePostGenerate"></iron-ajax>
 
@@ -94,12 +97,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <iron-ajax id="ajaxPUTEducationPlan" method="PUT" handle-as="json" last-response="{{id}}"
                    debounce-duration="500" content-type="application/json" on-response="_handleResponse"></iron-ajax>
 
+        <iron-ajax id="ajaxProperties" auto handle-as="json" last-response="{{managementProperties}}"
+            debounce-duration="500" content-type="application/json"></iron-ajax> 
+
         <training-education-plan-profile-courses-list-ajax profile-id="[[educationPlan.ProfileId]]" courses="{{training_profiles}}"
                    id="ajaxTrainingProfiles" debounce-duration="300"></training-education-plan-profile-courses-list-ajax>
 
         <div class="card">
             <div>
-                <training-education-plan on-priority-course-changed="_priorityCourseChanged" id="educationPlan" on-commentary-changed="_commentaryChanged" edit education-plan="{{educationPlan}}"></training-education-plan>
+                <training-education-plan management-properties="{{managementProperties}}" on-course-pinned="_refresh" on-course-unpinned="_refresh" on-priority-course-changed="_priorityCourseChanged" id="educationPlan" on-commentary-changed="_commentaryChanged" edit education-plan="{{educationPlan}}"></training-education-plan>
             </div>
             <div>
                 <div id="profiel-selection">
@@ -138,13 +144,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </div>
         </paper-dialog>
 
+       
+
     </template>
 
     <script>
         Polymer({
             is: 'educationplan-generator-view',
-            observers: ['_selectTrainingCourses(training_profiles)', '_openToast(educationPlan.CoursesJustBeforeStart)'],
+            observers: ['_routeChanged(route, parentrouteactive, subrouteactive)','_selectTrainingCourses(training_profiles)', '_openToast(educationPlan.CoursesJustBeforeStart)'],
             properties: {
+                educationPlan: {
+                    type: Object,
+                    value: { ProfileId:1}
+                },
+                confirmrequired: {
+                    type: Boolean,
+                    value: false,
+                    notify:true
+                },
                 profile: String,
                 _selectedTrainingList: {
                     type: Array,
@@ -155,11 +172,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     value: [],
                 }
             },
+            _routeChanged(route, parentroute, subroute) {
+                // if the childroute is deactivated, clear out the data
+                if (!subroute) {
+                    this.routeData = {};
+                   // this._resetEducationPlan();
+                }
+                this.confirmrequired = this.subroute && this.routeData.id;
+                this.loadEducationPlanGeneratorView();
+                
+            },
+           
+            _toJSON(obj) {
+                return JSON.stringify(obj);
+            },
             ready: function () {
                 this.$.ajaxPOSTGenerateEducationPlan.url = BackendAdress + "/api/EducationPlan/generate";
                 this.$.ajaxPOSTEducationPlan.url = BackendAdress + "/api/EducationPlan";
                 this.$.ajaxPUTEducationPlan.url = BackendAdress + "/api/EducationPlan";
-                this.loadEducationPlanGeneratorView();
+                  this.$.ajaxProperties.url = BackendAdress + "/api/ManagementProperties";
+                  this.$.ajaxTrainingProfiles.auto = true;
+                
             },
             loadEducationPlanGeneratorView: function () {
                 if (this.subroute.path && !isNaN(parseInt(this.subroute.path.replace("/", "")))) {
@@ -195,6 +228,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             _profileAjaxAuto: function () {
                 this.$.ajaxTrainingProfiles.auto = true;
             },
+            _refresh(){
+                this._generateEducationPlan();
+            },
             _generateEducationPlan: function () {
                 this.$.ajaxPOSTGenerateEducationPlan.body = JSON.stringify(this._getEducationPlan());
                 this.$.ajaxPOSTGenerateEducationPlan.generateRequest();
@@ -219,6 +255,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             },
             _getEducationPlan: function () {
                 var courses = [];
+                var constraints = [];
 
                 for (var i = 0; i < this._selectedTrainingList.length; i++) {
                     var course = { Code: this._selectedTrainingList[i], Commentary: null, Priority: 0 };
@@ -239,6 +276,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     }
                 }
 
+                // get all pinned courses
+                if (this.educationPlan.PlannedCourses) {
+                    for (var i = 0; i < this.educationPlan.PlannedCourses.length; i++) {
+                       
+                        if (this.educationPlan.PlannedCourses[i].pin && this.educationPlan.PlannedCourses[i].pin.Code != this.educationPlan.PlannedCourses[i].Code)
+                            constraints.push({
+                                CourseCode: this.educationPlan.PlannedCourses[i].pin.Code,
+                                WeekNo: this.educationPlan.PlannedCourses[i].pin.Week
+                            });
+                        else if (this.educationPlan.PlannedCourses[i].Pinned){
+                           constraints.push({
+                                CourseCode: this.educationPlan.PlannedCourses[i].Code,
+                                WeekNo: this.educationPlan.PlannedCourses[i].Week
+                            }); 
+                        }
+                    }
+                }
+
                 return {
                     Created: Date.now(),
                     InPaymentFrom: new Date(this.educationPlan.InPaymentFrom),
@@ -250,19 +305,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     ProfileId: this.educationPlan.ProfileId,
                     EducationPlanId: this.routeData.id,
                     courses: courses,
+                    ImplementationConstraints: constraints
                 };
             },
             _resetEducationPlan: function () {
                 this.set("profile", null);
-                this.set("educationPlan.InPaymentFrom", Date.now());
-                this.set("educationPlan.EmployableFrom", "");
-                this.set("educationPlan.BlockedDates", []);
-                this.set("educationPlan.NameEmployee", "");
-                this.set("educationPlan.NameTeacher", "");
-                this.set("educationPlan.KnowledgeOf", "");
+              //  this.set("educationPlan.InPaymentFrom", Date.now());
+               // this.set("educationPlan.EmployableFrom", "");
+              //  this.set("educationPlan.BlockedDates", []);
+              //  this.set("educationPlan.NameEmployee", "");
+              //  this.set("educationPlan.NameTeacher", "");
+              //  this.set("educationPlan.KnowledgeOf", "");
                 this.set("educationPlan.PlannedCourses", []);
                 this.set("educationPlan.NotPlannedCourses", []);
-                this.set("educationPlan.ProfileId", null);
+               // this.set("educationPlan.ProfileId", 1);
                 this.$.trainingList.deselectAll();
             },
             _openToast: function (educationPlan) {

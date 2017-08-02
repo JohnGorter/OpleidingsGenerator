@@ -18,9 +18,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/iron-dropdown/iron-dropdown.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="my-icons.html">
+<link rel="import" href="training-pin.html">
 
 <dom-module id="opleidingsplan-app">
     <template>
@@ -59,7 +64,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </style>
 
         <app-location route="{{route}}" use-hash-as-path></app-location>
-        <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
+        <app-route active="{{parentrouteactive}}" route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
+        <app-route active="{{childrouteactive}}" route="{{subroute}}" pattern="/:id" data="{{subrouteData}}"></app-route>
+
+        
 
         <app-drawer-layout fullbleed>
             <!-- Drawer content -->
@@ -67,15 +75,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <app-toolbar>Menu</app-toolbar>
 
                 <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-                    <a name="educationplan-generator-view" href="#/educationplan-generator-view">Opleidingsplan genereren</a>
-                    <a name="educationplan-search-view" href="#/educationplan-search-view">Opleidingsplan zoeken</a>
-                    <a name="educationplan-update-overview-view" href="#/educationplan-update-overview-view">Aangepaste opleidingsplannen</a>
-                    <a name="training-management-view" href="#/training-management-view">Trainingsoverzicht</a>
-                    <a name="profile-management-view" href="#/profile-management-view">Profieloverzicht</a>
-                    <a name="module-management-view" href="#/module-management-view">ITT Modules</a>
-                    <a name="properties-management-view" href="#/properties-management-view">Configuraties</a>   
-                    <a name="educationplan-approved-overview-view" href="#/educationplan-approved-overview-view">Goedgekeurde opleidingsplannen</a>
-                                
+                    <a on-tap="confirm" name="educationplan-generator-view" href="#/educationplan-generator-view">Opleidingsplan genereren</a>
+                    <a on-tap="confirm" name="educationplan-search-view" href="#/educationplan-search-view">Opleidingsplan zoeken</a>
+                    <a on-tap="confirm" name="educationplan-update-overview-view" href="#/educationplan-update-overview-view">Aangepaste opleidingsplannen</a>
+                    <a on-tap="confirm" name="training-management-view" href="#/training-management-view">Trainingsoverzicht</a>
+                    <a on-tap="confirm" name="profile-management-view" href="#/profile-management-view">Profieloverzicht</a>
+                    <a on-tap="confirm" name="module-management-view" href="#/module-management-view">ITT Modules</a>
+                    <a on-tap="confirm" name="properties-management-view" href="#/properties-management-view">Configuraties</a>   
+                    <a on-tap="confirm" name="educationplan-approved-overview-view" href="#/educationplan-approved-overview-view">Goedgekeurde opleidingsplannen</a>
                 </iron-selector>
             </app-drawer>
 
@@ -86,11 +93,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <app-toolbar>
                         <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
                         <div main-title>Opleidingsplan generator</div>
+                        <template is="dom-if" if="{{_showMessage(page, subrouteData)}}">
+                            <div>U bent momenteel bezig met het bijwerken van plan {{subrouteData.id}}</div>
+                        </template>
                     </app-toolbar>
                 </app-header>
 
                 <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="view404" role="main">
-                    <educationplan-generator-view id="generatorView" route="{{route}}" name="educationplan-generator-view"></educationplan-generator-view>
+                    <educationplan-generator-view id="generatorView" route="{{route}}" confirmrequired="{{confirmrequired}}" name="educationplan-generator-view"></educationplan-generator-view>
                     <educationplan-search-view route="{{route}}" name="educationplan-search-view"></educationplan-search-view>
                     <educationplan-update-overview-view id="updatedEducationplanView" route="{{route}}" name="educationplan-update-overview-view"></educationplan-update-overview-view>
                     <educationplan-view id="educationplanView" route="{{route}}" name="educationplan-view"></educationplan-view>
@@ -104,6 +114,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </iron-pages>
             </app-header-layout>
         </app-drawer-layout>
+
+        <paper-dialog id="confirm">
+            <h2>Pagina verlaten</h2>
+            <p>Bij het verlaten van deze pagina verdwijnen eventueel de gegevens van de huidige bewerking. Weet u zeker dat u de pagina wil verlaten?</p>
+            <div class="buttons">
+                <paper-button id="btnClose" on-tap="_confirmNavigate" dialog-dismiss>Ja</paper-button>
+                <paper-button id="btnCancel2" dialog-dismiss>Nee</paper-button>
+            </div>
+        </paper-dialog>
     </template>
     <script>
 
@@ -111,19 +130,45 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             is: 'opleidingsplan-app',
 
             properties: {
+                confirmrequired: {
+                    type: Boolean,
+                    value: false
+                },
                 page: {
                     type: String,
                     reflectToAttribute: true,
                     observer: '_pageChanged'
                 },
             },
+            _confirmNavigate() {
+                location.href = '#/' + this.orignavigate || 'educationplan-generator-view';
+            },
+            confirm() {
+                // remember the original name
+                this.orignavigate = event.target.attributes["name"].value;
+                // the educationplan-generator could be in edit mode.. 
+                if (this.page == 'educationplan-generator-view' && this.confirmrequired) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    this.$.confirm.open();
+                }
+            },
 
+            _showMessage(page, subroute) {
+                //only show the header added message when the educationplan-generator is displayed (its the only edit screen)
+                return (subroute && subroute.id && page == "educationplan-generator-view");
+            },
+            _toJSON(obj) {
+                return JSON.stringify(obj);
+            },
             observers: [
-              '_routePageChanged(routeData.page)'
+              '_routePageChanged(routeData.page, parentrouteactive, childrouteactive)'
             ],
 
-            _routePageChanged: function (page) {
+            _routePageChanged: function (page, parentroute, childroute) {
                 this.page = page || 'educationplan-generator-view';
+                if (!childroute) this.subrouteData = {};
+
             },
 
             _pageChanged: function (page) {
@@ -138,31 +183,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 switch (page) {
                     case "educationplan-generator-view":
                         if (typeof this.$.generatorView.loadEducationPlanGeneratorView == 'function') {
-                            this.$.generatorView.loadEducationPlanGeneratorView();
+                         //   this.$.generatorView.loadEducationPlanGeneratorView();
                         }
                         break;
                     case "educationplan-view":
                         if (typeof this.$.educationplanView.loadEducationPlanView == 'function') {
-                            this.$.educationplanView.loadEducationPlanView();
+                        //    this.$.educationplanView.loadEducationPlanView();
                         }
                         break;
                     case "educationplan-compare-view":
                         if (typeof this.$.educationplanCompareView.loadCompareEducationPlanView == 'function') {
-                            this.$.educationplanCompareView.loadCompareEducationPlanView();
+                         //   this.$.educationplanCompareView.loadCompareEducationPlanView();
                         }
                     case "educationplan-update-overview-view":
                         if (typeof this.$.updatedEducationplanView.loadUpdatedEducationplanView == 'function') {
-                            this.$.updatedEducationplanView.loadUpdatedEducationplanView();
+                        //    this.$.updatedEducationplanView.loadUpdatedEducationplanView();
                         }
                         break;
                     case "training-management-view":
                         if (typeof this.$.trainingManagementView.loadTrainingManagementView == 'function') {
-                            this.$.trainingManagementView.loadTrainingManagementView();
+                        //    this.$.trainingManagementView.loadTrainingManagementView();
                         }
                         break;
                     case "educationplan-approved-overview-view":
                         if (typeof this.$.approvedEducationplanView.loadApprovedEducationplanView == 'function') {
-                            this.$.approvedEducationplanView.loadApprovedEducationplanView();
+                        //    this.$.approvedEducationplanView.loadApprovedEducationplanView();
                         }
                         break;
 
@@ -171,6 +216,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             _showPage404: function () {
                 this.page = 'view404';
             }
+           
         });
     </script>
 </dom-module>

@@ -14,9 +14,9 @@ namespace InfoSupport.KC.OpleidingsplanGenerator.Generator
         IEnumerable<Course> PlannedCourses { get; }
         IEnumerable<Course> NotPlannedCourses { get; }
         IEnumerable<Course> AllCourses { get; }
-        void PlanCourses(IEnumerable<Models.Course> coursesToPlan);
-        void PlanCoursesWithOlc(IEnumerable<Models.Course> coursesToPlan);
-        void PlanCoursesWithOlcInOldEducationPlan(IEnumerable<Models.Course> coursesToPlan, EducationPlan oldEducationplan);
+        void PlanCourses(IEnumerable<Models.Course> coursesToPlan, IEnumerable<PinnedCourseImplementation> implementationConstraints);
+        void PlanCoursesWithOlc(IEnumerable<Models.Course> coursesToPlan, IEnumerable<PinnedCourseImplementation> implementationConstraints);
+        void PlanCoursesWithOlcInOldEducationPlan(IEnumerable<Models.Course> coursesToPlan, EducationPlan oldEducationplan, IEnumerable<PinnedCourseImplementation> implementationConstraints);
         void AddModules(IEnumerable<Module> enumerable);
     }
 }
